@@ -2,7 +2,7 @@ package me.iot.util.mq;
 
 import java.util.List;
 
-public interface IConsumer {
+public interface IConsumer extends IClient{
 
 
     /**

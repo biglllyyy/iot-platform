@@ -36,20 +36,23 @@ public class DasConfig {
     ISubscribePublishService sps;
 
 
+    Provider provider = Provider.Rocketmq;
+    String brokers = null;
+    String groupId = null;
+    String clientId = null;
     IProducer producer;
     IConsumer consumer;
-
-    String brokers = null;
-    Provider provider = Provider.Rocketmq;
-
 
     @PostConstruct
     private void init() {
         Preconditions.checkNotNull(dasProperties, "dasProperties can not be null");
-        Preconditions.checkNotNull(dasProperties.getNodeId(), "das.nodeId can not be null");
 
-        producer = MQFactory.getInstance().createProducer(provider, brokers);
-        consumer = MQFactory.getInstance().createConsumer(provider, brokers);
+        producer = MQFactory.getInstance().createProducer(provider);
+        producer.setBasicParameter(brokers, groupId, clientId);
+
+        consumer = MQFactory.getInstance().createConsumer(provider);
+        consumer.setBasicParameter(brokers, groupId, clientId);
+        consumer.setBroadcasting(false);
     }
 
     @PreDestroy

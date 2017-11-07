@@ -1,7 +1,8 @@
 package me.iot.dms.service;
 
 import com.google.common.collect.Lists;
-import me.iot.common.AbstractCacheMsgHandler;
+import me.iot.common.AbstractDeviceMessagePipe;
+import me.iot.common.Callback;
 import me.iot.common.msg.IMsg;
 import me.iot.common.usual.TopicConsts;
 import me.iot.dms.DmsConfig;
@@ -14,7 +15,7 @@ import org.springframework.stereotype.Component;
  * Created by sylar on 16/5/31.
  */
 @Component
-public class CacheMsgHandler extends AbstractCacheMsgHandler {
+public class CacheMsgHandler extends AbstractDeviceMessagePipe {
 
     @Autowired
     DeviceManageService deviceManageService;
@@ -22,28 +23,21 @@ public class CacheMsgHandler extends AbstractCacheMsgHandler {
     private DmsConfig dmsConfig;
 
     @Override
-    public IMsg getMsgFromCache() {
-
-//        String queueName = DasCacheKeys.getMqsKeyFromDasToDms();
-//        CacheMsgWrap wrap = dmsConfig.getMqs().receiveMessage(queueName, CacheMsgWrap.class);
-//        if (wrap != null) {
-//            return wrap.getMsg();
-//        } else {
-//            return null;
-//        }
-
+    public void input(Callback<IMsg> callback) {
+        //"iot.DasToDms"
         String topic = TopicConsts.getTopicFromDasToDms();
 
         try {
             dmsConfig.getConsumer().subscribe(Lists.newArrayList(topic), new MessageListener() {
                 @Override
                 public void onSuccess(Message message) {
-
+                    IMsg msg = convert(message.getContent());
+                    callback.onSuccess(msg);
                 }
 
                 @Override
                 public void onFailure(Throwable t) {
-                    t.printStackTrace();
+                    callback.onFailure(t);
                 }
             });
 
@@ -53,11 +47,7 @@ public class CacheMsgHandler extends AbstractCacheMsgHandler {
     }
 
     @Override
-    public void handleMsg(IMsg msg) {
-        if (msg == null) {
-            return;
-        }
-
+    public void output(IMsg msg) {
         deviceManageService.processMsg(msg);
     }
 

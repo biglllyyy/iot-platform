@@ -10,8 +10,8 @@ public class TopicConsts {
     private static final String DMS_TO_DAS = "DmsToDas";
 
 
-    public static String getTopicFromDasToDms(String deviceId) {
-        return join(PREFIX, DAS_TO_DMS, deviceId);
+    public static String getTopicFromDmsToDas(String dasNodeId) {
+        return join(PREFIX, DMS_TO_DAS, dasNodeId);
     }
 
     public static String getTopicFromDasToDms() {

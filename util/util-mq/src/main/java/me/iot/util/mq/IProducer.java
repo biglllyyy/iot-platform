@@ -1,6 +1,6 @@
 package me.iot.util.mq;
 
-public interface IProducer {
+public interface IProducer extends IClient{
 
     /**
      * 发送消息前需要衔启动
