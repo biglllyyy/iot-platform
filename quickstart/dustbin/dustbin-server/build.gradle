@@ -1,0 +1,5 @@
+dependencies {
+    compile project(":das:das-util")
+    compile project(":das:das-simple")
+    compile project(":quickstart:dustbin:dustbin-common")
+}

@@ -1,0 +1,12 @@
+apply plugin: "java"
+
+configurations {
+    all*.exclude group: "org.springframework.boot"
+    all*.exclude group: "org.springframework.cloud"
+    all*.exclude group: "mysql"
+}
+
+dependencies {
+    compile project(":common")
+    compile project(":util:util-dubbo")
+}

@@ -1,0 +1,4 @@
+dependencies {
+    compile "com.baidubce:bce-java-sdk:+"
+    testCompile("junit:junit:+")
+}

@@ -1,0 +1,8 @@
+apply from: gradlesPath+ "springboot.gradle"
+
+dependencies {
+    //mongo
+    compile("org.springframework.boot:spring-boot-starter-data-mongodb:${springBootVersion}")
+}
+
+

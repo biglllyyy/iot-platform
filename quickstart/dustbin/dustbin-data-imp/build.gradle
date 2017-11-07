@@ -1,0 +1,11 @@
+
+dependencies {
+    compile project(":util:util-jpa")
+    compile project(":util:util-redis")
+
+    compile project(":common")
+    compile project(":dms:dms-sdk")
+
+    compile project(":quickstart:dustbin:dustbin-common")
+    compile project(":quickstart:dustbin:dustbin-data-api")
+}

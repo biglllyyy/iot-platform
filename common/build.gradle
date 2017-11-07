@@ -1,0 +1,18 @@
+dependencies {
+    compile("com.alibaba:fastjson:${fastjsonVersion}")
+    compile("com.google.guava:guava:${guavaVersion}")
+    compile("io.reactivex.rxjava2:rxjava:${rxjavaVersion}")
+    compile("joda-time:joda-time:${jodatimeVersion}")
+
+    compile project(":util:util-misc")
+    compile project(":util:util-disruptor")
+
+    //boot
+//    compile("org.springframework.boot:spring-boot-starter:${springBootVersion}")
+
+    //test
+    testCompile("junit:junit:+")
+//    compile("org.springframework.boot:spring-boot-test:${springBootVersion}")
+}
+
+

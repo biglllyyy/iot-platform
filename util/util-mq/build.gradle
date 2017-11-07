@@ -1,0 +1,23 @@
+ext {
+    rocketmqVersion = "3.6.2.Final"
+    kafkaVersion = "1.0.0"
+}
+
+dependencies {
+    //rocketmq client
+    compile("org.apache.kafka:kafka-clients:${kafkaVersion}")
+
+    //kafka client
+    compile("com.alibaba.rocketmq:rocketmq-client:${rocketmqVersion}")
+
+
+    compile("com.google.guava:guava:${guavaVersion}")
+
+    //log
+    compile("org.slf4j:jcl-over-slf4j:+")
+    compile("org.slf4j:slf4j-log4j12:+")
+    compile("log4j:log4j:+")
+
+    //test
+    testCompile("junit:junit:+")
+}

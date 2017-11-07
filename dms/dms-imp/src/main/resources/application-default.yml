@@ -1,0 +1,23 @@
+###############################################################
+#                 自定义配置项
+###############################################################
+zookeeper.connectString: 127.0.0.1:2181
+
+spring.boot.admin.url: http://127.0.0.1:8989
+logServer: 127.0.0.1
+
+spring.redis:
+    host: 127.0.0.1
+    port: 6379
+    password: vortex2016
+
+spring.datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/dms?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf8&useSSL=false&autoReconnect=true
+    username: vortex
+    password: vortex2016
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:${eureka.port:8761}/eureka/

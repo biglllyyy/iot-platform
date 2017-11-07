@@ -1,0 +1,50 @@
+rootProject.name = "me.iot"
+
+include "util"
+include "util:util-misc"
+include "util:util-gps"
+include "util:util-dubbo"
+include "util:util-jpa"
+include "util:util-json"
+include "util:util-mongo"
+include "util:util-redis"
+include "util:util-mq"
+//include "util:util-kafka"
+//include "util:util-rocketmq"
+include "util:util-disruptor"
+include "util:util-feign"
+//include "util:util-tsdb"
+include "util:util-jetty"
+
+include "common"
+
+//
+include "das"
+include "das:das-util"
+include "das:das-common"
+include "das:das-mqtt"
+include "das:das-simple"
+
+//
+include "dms"
+include "dms:dms-api"
+include "dms:dms-imp"
+include "dms:dms-sdk"
+include "dms:dms-ui"
+
+//---------------------------------------------------------------------
+include "quickstart"
+//公厕
+include "quickstart:toilet"
+include "quickstart:toilet:toilet-common"
+include "quickstart:toilet:toilet-server"
+
+//垃圾桶
+include "quickstart:dustbin"
+include "quickstart:dustbin:dustbin-common"
+include "quickstart:dustbin:dustbin-server"
+include "quickstart:dustbin:dustbin-data-api"
+include "quickstart:dustbin:dustbin-data-imp"
+
+//---------------------------------------------------------------------
+//---------------------------------------------------------------------

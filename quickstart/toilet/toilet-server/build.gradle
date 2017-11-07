@@ -1,0 +1,5 @@
+dependencies {
+    compile project(":das:das-util")
+    compile project(":das:das-mqtt")
+    compile project(":quickstart:toilet:toilet-common")
+}

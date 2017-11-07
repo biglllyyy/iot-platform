@@ -1,0 +1,16 @@
+apply from: gradlesPath + "springboot.gradle"
+
+configurations {
+    all*.exclude group: "org.springframework.boot", module: "spring-boot-starter-tomcat"
+}
+
+dependencies {
+    compile project(":util:util-jetty")
+
+    //替换web容器
+    compile("org.springframework.boot:spring-boot-starter-jetty:${springBootVersion}")
+    compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+
+    //spring-boot-admin-client
+    compile("de.codecentric:spring-boot-admin-starter-client:+")
+}

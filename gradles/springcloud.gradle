@@ -1,0 +1,16 @@
+apply from: gradlesPath+ "springboot-web.gradle"
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
+
+configurations {
+}
+
+dependencies {
+    compile("org.springframework.cloud:spring-cloud-starter")
+    compile("org.springframework.cloud:spring-cloud-starter-eureka")
+    compile("org.springframework.cloud:spring-cloud-starter-config")
+}

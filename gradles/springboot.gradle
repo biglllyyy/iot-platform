@@ -1,0 +1,24 @@
+apply plugin: "java"
+apply plugin: "org.springframework.boot"
+
+configurations {
+    all*.exclude group: "org.slf4j", module: "slf4j-log4j12"
+}
+
+dependencies {
+    //boot
+    compile("org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}")
+    //logstash for logback
+    compile("net.logstash.logback:logstash-logback-encoder:+")
+
+    //test
+    testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
+
+}
+
+ext {
+    templatePath = rootProject.rootDir.getAbsolutePath() + "/repo/template"
+    resourcesPath = "src/main/resources"
+}
+
+

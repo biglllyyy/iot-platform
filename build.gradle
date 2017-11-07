@@ -1,0 +1,85 @@
+apply from: rootProject.rootDir.getAbsolutePath() + "/gradles/const.gradle"
+apply from: rootProject.rootDir.getAbsolutePath() + "/gradles/utils.gradle"
+
+/** ******************************************************************************************/
+
+/**
+ * 编译脚本
+ */
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url "http://maven.aliyun.com/nexus/content/repositories/central/" }
+    }
+
+    ext {
+        springBootVersion = "1.5.8.RELEASE"
+        springCloudVersion = "Dalston.SR4"
+        dockerPluginVersion = "+"
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("com.bmuschko:gradle-docker-plugin:${dockerPluginVersion}")
+    }
+}
+
+/** ******************************************************************************************/
+
+/**
+ * 每个子项目
+ */
+subprojects {
+    apply from: gradlesPath + "const.gradle"
+    apply from: gradlesPath + "utils.gradle"
+}
+
+/**
+ * 根项目
+ */
+allprojects {
+    //公共插件
+    apply plugin: "eclipse"
+    apply plugin: "idea"
+    apply plugin: "maven"
+
+    group "${meGroup}"
+    version "${meVersion}"
+
+    repositories {
+        mavenCentral()
+        maven { url "http://maven.aliyun.com/nexus/content/repositories/central/" }
+    }
+}
+
+/** ******************************************************************************************/
+
+
+configure(isJavaProject()) {
+    apply from: gradlesPath + "java.gradle"
+}
+configure(isApiProject()) {
+    apply from: gradlesPath + "api.gradle"
+}
+configure(isSdkProject()) {
+    apply from: gradlesPath + "sdk.gradle"
+}
+configure(isDasServerProject()) {
+    apply from: gradlesPath + "das.gradle"
+}
+configure(isSpringCloudServiceProject()) {
+    apply from: gradlesPath + "springcloud-service.gradle"
+
+    dependencies {
+        compile project(":util:util-dubbo")
+    }
+}
+configure(isSpringCloudUIProject()) {
+    apply from: gradlesPath + "springcloud-ui.gradle"
+}
+//configure(isDockerProject()) {
+//    apply from: gradlesPath + "docker.gradle"
+//}
+
+/** ******************************************************************************************/
+

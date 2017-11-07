@@ -1,0 +1,90 @@
+//buildscript {
+//    repositories {
+//        mavenCentral()
+////        maven { url "http://maven.aliyun.com/nexus/content/repositories/central/" }
+//    }
+//
+//    dependencies {
+//        classpath("com.bmuschko:gradle-docker-plugin:${dockerPluginVersion}")
+//    }
+//}
+//
+//apply plugin: "com.bmuschko.docker-remote-api"
+//
+////import com.bmuschko.gradle.docker.tasks.container.*
+//import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
+//
+//dependencies {
+//    dockerJava "com.github.docker-java:docker-java:+"
+//    dockerJava "com.kohlschutter.junixsocket:junixsocket-common:+" // for gradle-docker-plugin using Unix sockets
+//    dockerJava "com.kohlschutter.junixsocket:junixsocket-native-common:+" // for gradle-docker-plugin using Unix sockets
+//    dockerJava "cglib:cglib:+"
+//}
+//
+//configurations {
+//    dockerJava {
+//        resolutionStrategy {
+//            force "de.gesellix:unix-socket-factory:+"
+//        }
+//    }
+//}
+//
+//
+//docker {
+//    if (System.env.DOCKER_HOST) {
+//        url = "$System.env.DOCKER_HOST".replace("tcp", "https")
+//        if (System.env.DOCKER_CERT_PATH) {
+//            certPath = new File(System.env.DOCKER_CERT_PATH)
+//        }
+//    } else {
+//        url = "unix:///var/run/docker.sock"
+//    }
+//
+////    registryCredentials {
+////        url = "https://index.docker.io/v1"
+////        username = "vortex"
+////        password = "vortex2016"
+////        email = "cloud@vortexinfo.cn"
+////    }
+//}
+//
+//ext {
+//    dockerFilePath = "src/main/docker"
+//    dockerBuildPath = "build/docker"
+//}
+//
+//task copyJar(type: Copy) {
+//    dependsOn build
+//
+//    from "build/libs/${project.name}-${project.version}.jar"
+//    into "${dockerBuildPath}"
+//
+//    from "${dockerFilePath}"
+//    into "${dockerBuildPath}"
+//}
+//
+//task buildImage(type: DockerBuildImage) {
+//    dependsOn copyJar
+//    inputDir = file("${dockerBuildPath}")
+//    tag = "${rootProject.name}/${project.name}"
+//}
+//
+////task createContainer(type: DockerCreateContainer) {
+////    dependsOn buildImage
+////    targetImageId { buildImage.getImageId() }
+//////        portBindings = ["8888:8888"]
+////}
+////
+////task startContainer(type: DockerStartContainer) {
+////    dependsOn createContainer
+////    targetContainerId { createContainer.getContainerId() }
+////}
+////
+////task stopContainer(type: DockerStopContainer) {
+////    targetContainerId { createContainer.getContainerId() }
+////}
+////
+////task testContainer(type: Test) {
+////    dependsOn startContainer
+////    finalizedBy stopContainer
+////}

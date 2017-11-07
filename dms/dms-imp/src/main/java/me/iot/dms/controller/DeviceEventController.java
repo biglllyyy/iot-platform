@@ -1,0 +1,42 @@
+package me.iot.dms.controller;
+
+import me.iot.dms.service.DeviceEventService;
+import me.iot.common.dto.Result;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Arrays;
+
+/**
+ * Created by sylar on 16/6/6.
+ */
+@RestController
+@RequestMapping("/dms")
+public class DeviceEventController {
+
+    @Autowired
+    DeviceEventService deviceEventService;
+
+    @RequestMapping(value = "/countOfDeviceEvent", method = RequestMethod.GET)
+    public Result<?> countOfDeviceEvent(long beginTime, long endTime) {
+        return Result.newSuccess(deviceEventService.countOfDeviceEvent(beginTime, endTime));
+    }
+
+    @RequestMapping(value = "/countOfDeviceEventByDeviceType", method = RequestMethod.GET)
+    public Result<?> countOfDeviceEventByDeviceType(String deviceType, long beginTime, long endTime) {
+        return Result.newSuccess(deviceEventService.countOfDeviceEventByDeviceType(deviceType, beginTime, endTime));
+    }
+
+    @RequestMapping(value = "/countOfDeviceEventByDeviceId", method = RequestMethod.GET)
+    public Result<?> countOfDeviceEventByDeviceId(String deviceId, long beginTime, long endTime) {
+        return Result.newSuccess(deviceEventService.countOfDeviceEventByDeviceId(deviceId, beginTime, endTime));
+    }
+
+    @RequestMapping(value = "/getDeviceEventsByDeviceId", method = RequestMethod.GET)
+    public Result<?> getDeviceEventsByDeviceId(String deviceId, String[] eventCodes, long beginTime, long endTime, int pageIndex, int pageSize) {
+        return Result.newSuccess(deviceEventService.getDeviceEventsByDeviceId(deviceId, Arrays.asList(eventCodes), beginTime, endTime, pageIndex, pageSize));
+    }
+
+}

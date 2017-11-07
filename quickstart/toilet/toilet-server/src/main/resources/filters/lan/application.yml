@@ -1,0 +1,23 @@
+zookeeper.connectString: 192.168.1.30:2181
+
+das:
+  nodeId: VTXGC_1
+  host: localhost
+  port: 1883
+  idleTime: 30
+  params:
+    mqttUser: vortex
+    mqttPassword: vortex2016
+
+spring.redis:
+    host: localhost
+    port: 6379
+    password: vortex2016
+
+spring:
+  output:
+    ansi:
+      enabled: ALWAYS
+
+
+

@@ -1,0 +1,34 @@
+spring.profiles.active: default
+
+###############################################################
+#                    公共配置
+###############################################################
+# 自动发现configServer, 该配置项须放在 application.yml
+spring.cloud.config.discovery.enabled: true
+# 服务名称与端口
+spring.application.name: dms
+dubbo.port: 28012
+custom.value: default
+server:
+  port: 9012
+  compression:
+    enabled: true
+    mime-types: application/json
+
+spring.jpa:
+    show-sql: true
+    database: MYSQL
+    properties.hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+    hibernate:
+      ddl-auto: update
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+
+###############################################################
+#                    LOGGING
+###############################################################
+logging:
+  pattern:
+    file: '%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n'
+    console: '%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n'
+  file: logs/${spring.application.name:-.}.log
+

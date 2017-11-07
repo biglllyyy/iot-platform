@@ -1,0 +1,7 @@
+apply from: gradlesPath+ "springboot.gradle"
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-data-redis:${springBootVersion}")
+    compile("com.alibaba:fastjson:${fastjsonVersion}")
+    compile("com.google.guava:guava:${guavaVersion}")
+}
