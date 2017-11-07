@@ -4,27 +4,7 @@ import com.google.common.base.Preconditions;
 
 import java.util.Properties;
 
-public abstract class AbstractProcuder implements IProducer {
-    protected String brokers;
-    protected Properties properties = new Properties();
-
-    public AbstractProcuder(String brokers) {
-        this(brokers, null);
-    }
-
-    public AbstractProcuder(String brokers, Properties properties) {
-        Preconditions.checkNotNull(brokers, "brokers is null");
-
-        this.brokers = brokers;
-        setProperties(properties);
-    }
-
-    @Override
-    public void setProperties(Properties properties) {
-        if (null != properties) {
-            this.properties.putAll(properties);
-        }
-    }
+public abstract class AbstractProcuder extends AbstractClient implements IProducer {
 
     @Override
     public void start() throws Exception {

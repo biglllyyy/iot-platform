@@ -1,15 +1,18 @@
 package me.iot.util.mq;
 
 import java.util.List;
-import java.util.Properties;
 
 public interface IConsumer {
 
+
     /**
-     * 设置消费者参数配置
-     * @param properties  参数配置
+     * 设置广播模式
+     * RocketMQ 广播消费模式是通过 setMessageModel 显示设置
+     * Kafka 广播消费是通过 consumer group id 来区分，不同组即可广播， 组内则是集群消费
+     *
+     * @param isBroadcasting 是否启用广播，默认是集群模式
      */
-    void setProperties(Properties properties);
+    void setBroadcasting(boolean isBroadcasting);
 
     /**
      * 订阅

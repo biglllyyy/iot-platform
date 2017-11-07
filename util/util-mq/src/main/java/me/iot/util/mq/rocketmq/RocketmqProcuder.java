@@ -15,22 +15,16 @@ public class RocketmqProcuder extends AbstractProcuder {
 
     protected DefaultMQProducer producer;
 
-    public RocketmqProcuder(String brokers) {
-        super(brokers);
-    }
-
-    public RocketmqProcuder(String brokers, Properties properties) {
-        super(brokers, properties);
-    }
-
     @Override
     public void start() throws Exception {
         super.start();
 
         producer = new DefaultMQProducer();
         producer.setNamesrvAddr(brokers);
-        producer.setVipChannelEnabled(false);
+        producer.setProducerGroup(groupId);
+        producer.setInstanceName(clientId);
 
+        producer.setVipChannelEnabled(false);
         producer.start();
     }
 

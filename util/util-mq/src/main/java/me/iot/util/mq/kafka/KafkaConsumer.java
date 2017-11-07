@@ -7,20 +7,11 @@ import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 
 import java.util.List;
-import java.util.Properties;
 
 public class KafkaConsumer extends AbstractConsumer {
 
     protected org.apache.kafka.clients.consumer.KafkaConsumer<String, String> consumer;
     protected PullLoop loop;
-
-    public KafkaConsumer(String brokers) {
-        super(brokers);
-    }
-
-    public KafkaConsumer(String brokers, Properties properties) {
-        super(brokers, properties);
-    }
 
     @Override
     public void subscribe(List<String> topics, MessageListener messageListener) {
@@ -54,14 +45,15 @@ public class KafkaConsumer extends AbstractConsumer {
     }
 
     private void initConsumer() {
-        properties.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-        properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-
         properties.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, brokers);
-        properties.putIfAbsent(ConsumerConfig.GROUP_ID_CONFIG, "DEFAULT");
+        properties.put(ConsumerConfig.GROUP_ID_CONFIG, groupId);
+        properties.put(ConsumerConfig.CLIENT_ID_CONFIG, clientId);
 
         /* 是否自动确认offset, 强制由业务层来确认 */
         properties.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
+
+        properties.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+        properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 
         consumer = new org.apache.kafka.clients.consumer.KafkaConsumer<>(properties);
     }

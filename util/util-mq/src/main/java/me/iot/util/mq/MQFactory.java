@@ -17,24 +17,24 @@ public class MQFactory implements IFactory {
     }
 
     @Override
-    public IProducer createProducer(Provider provider, String brokers) {
+    public IProducer createProducer(Provider provider) {
         switch (provider) {
             case Kafka:
-                return new KafkaProcuder(brokers);
+                return new KafkaProcuder();
             case Rocketmq:
-                return new RocketmqProcuder(brokers);
+                return new RocketmqProcuder();
             default:
                 return null;
         }
     }
 
     @Override
-    public IConsumer createConsumer(Provider provider, String brokers) {
+    public IConsumer createConsumer(Provider provider) {
         switch (provider) {
             case Kafka:
-                return new KafkaConsumer(brokers);
+                return new KafkaConsumer();
             case Rocketmq:
-                return new RocketmqConsumer(brokers);
+                return new RocketmqConsumer();
             default:
                 return null;
         }

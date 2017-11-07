@@ -11,23 +11,13 @@ import com.google.common.base.Charsets;
 import me.iot.util.mq.AbstractConsumer;
 import me.iot.util.mq.Message;
 import me.iot.util.mq.MessageListener;
-import org.apache.kafka.clients.consumer.ConsumerConfig;
 
 import java.util.Enumeration;
 import java.util.List;
-import java.util.Properties;
 
 public class RocketmqConsumer extends AbstractConsumer {
 
     protected DefaultMQPushConsumer consumer;
-
-    public RocketmqConsumer(String brokers) {
-        super(brokers);
-    }
-
-    public RocketmqConsumer(String brokers, Properties properties) {
-        super(brokers, properties);
-    }
 
     @Override
     public void subscribe(List<String> topics, MessageListener messageListener) {
@@ -83,14 +73,15 @@ public class RocketmqConsumer extends AbstractConsumer {
     private void initConsumer() {
         consumer = new DefaultMQPushConsumer();
         consumer.setNamesrvAddr(brokers);
-        consumer.setConsumerGroup(properties.getProperty(ConsumerConfig.GROUP_ID_CONFIG, "DEFAULT"));
+        consumer.setConsumerGroup(groupId);
+        consumer.setInstanceName(clientId);
+
         consumer.setVipChannelEnabled(false);
 
-        /*
-         RocketMQ 广播消费模式是通过 setMessageModel 显示设置
-         Kafka 广播消费是通过 consumer group id 来区分，不同组即可广播， 组内则是集群消费
-        */
-        String model = properties.getProperty("message.model", MessageModel.CLUSTERING.name()).toUpperCase();
-        consumer.setMessageModel(MessageModel.valueOf(model));
+        if (isBroadcasting) {
+            consumer.setMessageModel(MessageModel.BROADCASTING);
+        }
     }
+
+
 }
