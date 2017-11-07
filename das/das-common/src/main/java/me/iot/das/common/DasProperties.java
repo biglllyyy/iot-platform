@@ -1,6 +1,7 @@
 package me.iot.das.common;
 
 import com.google.common.collect.Maps;
+import me.iot.util.misc.NetUtils;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import java.util.Map;
@@ -10,7 +11,6 @@ import java.util.Map;
  */
 @ConfigurationProperties(prefix = "das")
 public class DasProperties {
-
     private String nodeId;
     private String host = "127.0.0.1";
     private int port = 10001;
@@ -46,6 +46,7 @@ public class DasProperties {
 
     public void setPort(int port) {
         this.port = port;
+        nodeId = NetUtils.getHostMac() + "_" + port;
     }
 
     public int getIdleTime() {
