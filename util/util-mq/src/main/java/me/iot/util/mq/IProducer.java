@@ -1,20 +1,6 @@
 package me.iot.util.mq;
 
-/**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
- * *******************************************************************************************
- */
-public interface IProducer {
+public interface IProducer extends IClient{
 
     /**
      * 发送消息前需要衔启动

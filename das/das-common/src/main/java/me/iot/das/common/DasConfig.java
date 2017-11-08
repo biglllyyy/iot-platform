@@ -3,11 +3,9 @@ package me.iot.das.common;
 import com.google.common.base.Preconditions;
 import me.iot.util.mq.IConsumer;
 import me.iot.util.mq.IProducer;
-import me.iot.util.mq.MqFactory;
+import me.iot.util.mq.MQFactory;
 import me.iot.util.mq.Provider;
 import me.iot.util.redis.ICentralCacheService;
-import me.iot.util.redis.IMessageQueueService;
-import me.iot.util.redis.ISubscribePublishService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
@@ -16,18 +14,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 /**
- * @FileName :  DasConfig
- * @Author :  sylar
- * @CreateDate :  2017/11/08
- * @Description :
- * @ReviewedBy :
- * @ReviewedOn :
- * @VersionHistory :
- * @ModifiedBy :
- * @ModifiedDate :
- * @Comments :
- * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
- * *******************************************************************************************
+ * Created by sylar on 16/5/17.
  */
 @Configuration
 @EnableConfigurationProperties(value = {DasProperties.class})
@@ -39,27 +26,30 @@ public class DasConfig {
     @Autowired
     ICentralCacheService ccs;
 
-    @Autowired
-    IMessageQueueService mqs;
+//    @Autowired
+//    IMessageQueueService mqs;
+//
+//    @Autowired
+//    ISubscribePublishService sps;
 
-    @Autowired
-    ISubscribePublishService sps;
 
-
+    Provider provider = Provider.Rocketmq;
+    String brokers = null;
+    String groupId = null;
+    String clientId = null;
     IProducer producer;
     IConsumer consumer;
-
-    String brokers = null;
-    Provider provider = Provider.Rocketmq;
-
 
     @PostConstruct
     private void init() {
         Preconditions.checkNotNull(dasProperties, "dasProperties can not be null");
-        Preconditions.checkNotNull(dasProperties.getNodeId(), "das.nodeId can not be null");
 
-        producer = MqFactory.getInstance().createProducer(provider, brokers);
-        consumer = MqFactory.getInstance().createConsumer(provider, brokers);
+        producer = MQFactory.getInstance().createProducer(provider);
+        producer.setBasicParameter(brokers, groupId, clientId);
+
+        consumer = MQFactory.getInstance().createConsumer(provider);
+        consumer.setBasicParameter(brokers, groupId, clientId);
+        consumer.setBroadcasting(false);
     }
 
     @PreDestroy
@@ -78,13 +68,13 @@ public class DasConfig {
         return ccs;
     }
 
-    public IMessageQueueService getMqs() {
-        return mqs;
-    }
-
-    public ISubscribePublishService getSps() {
-        return sps;
-    }
+//    public IMessageQueueService getMqs() {
+//        return mqs;
+//    }
+//
+//    public ISubscribePublishService getSps() {
+//        return sps;
+//    }
 
     public IProducer getProducer() {
         return producer;
