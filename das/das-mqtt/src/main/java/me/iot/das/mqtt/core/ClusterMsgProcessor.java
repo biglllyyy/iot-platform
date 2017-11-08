@@ -10,6 +10,8 @@ import me.iot.das.mqtt.protocol.message.PublishMessage;
 import me.iot.util.disruptor.IMessaging;
 import me.iot.util.disruptor.LmaxDiscuptorMessaging;
 import me.iot.util.disruptor.ValueEvent;
+import me.iot.util.mq.Message;
+import me.iot.util.mq.MessageListener;
 import me.iot.util.redis.AbstractMessageListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -40,12 +42,24 @@ public class ClusterMsgProcessor extends AbstractMessageListener implements Even
         messaging = new LmaxDiscuptorMessaging(this);
 
         String topic = MqttCacheKeys.getCcsKeyForTopicByNode(dasConfig.getDasNodeId());
-        dasConfig.getSps().subscribeMessage(this, Lists.newArrayList(topic));
+        dasConfig.getConsumer().subscribe(Lists.newArrayList(topic), new MessageListener() {
+            @Override
+            public void onSuccess(Message message) {
+                PublishMessage publishMessage = JSON.parseObject(message.getContent(), PublishMessage.class);
+                mqttMsgSender.send(publishMessage);
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                t.printStackTrace();
+            }
+        });
     }
 
     public void processMsg(PublishMessage message) {
         messaging.publish(message);
     }
+
 
     @Override
     public void handleMessage(String topic, String jsonMsg) {
