@@ -19,6 +19,8 @@ import me.cloud.iot.store.dustbin.data.dto.DustbinParamDto;
 public interface IDustbinParamService {
 
     /**
+     * 增加
+     *
      * @param dustbinParamDto
      */
     void add(DustbinParamDto dustbinParamDto);
@@ -32,11 +34,15 @@ public interface IDustbinParamService {
     DustbinParamDto getByDeviceId(String deviceId);
 
     /**
+     * 更新
+     *
      * @param dustbinParamDto
      */
     void update(DustbinParamDto dustbinParamDto);
 
     /**
+     * 增加or更新
+     *
      * @param dustbinParamDto
      */
     void addOrUpdate(DustbinParamDto dustbinParamDto);

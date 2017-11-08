@@ -26,12 +26,16 @@ import java.io.Serializable;
 @NoRepositoryBean
 public interface BaseMongoRepository<T, ID extends Serializable> extends MongoRepository<T, ID> {
     /**
+     * 查询列表
+     *
      * @param criteria
      * @return
      */
     Page<T> find(Criteria criteria);
 
     /**
+     * 查询列表
+     *
      * @param criteria
      * @param pageable
      * @return
@@ -39,12 +43,16 @@ public interface BaseMongoRepository<T, ID extends Serializable> extends MongoRe
     Page<T> find(Criteria criteria, Pageable pageable);
 
     /**
+     * 查询列表
+     *
      * @param query
      * @return
      */
     Page<T> find(Query query);
 
     /**
+     * 查询列表
+     *
      * @param query
      * @param pageable
      * @return
@@ -52,12 +60,16 @@ public interface BaseMongoRepository<T, ID extends Serializable> extends MongoRe
     Page<T> find(Query query, Pageable pageable);
 
     /**
+     * 查询
+     *
      * @param criteria
      * @return
      */
     T findOne(Criteria criteria);
 
     /**
+     * 查询
+     *
      * @param query
      * @return
      */

@@ -21,6 +21,8 @@ import java.util.List;
  */
 public interface IDeviceAlarmService {
     /**
+     * 时间段内的设备报警数量
+     *
      * @param beginTime
      * @param endTime
      * @return
@@ -28,6 +30,8 @@ public interface IDeviceAlarmService {
     long countOfDeviceAlarm(long beginTime, long endTime);
 
     /**
+     * 根据设备类型查询设备报警数量
+     *
      * @param deviceType
      * @param beginTime
      * @param endTime
@@ -36,6 +40,8 @@ public interface IDeviceAlarmService {
     long countOfDeviceAlarmByDeviceType(String deviceType, long beginTime, long endTime);
 
     /**
+     * 根据设备id查询设备报警数量
+     *
      * @param deviceId
      * @param beginTime
      * @param endTime
@@ -44,6 +50,8 @@ public interface IDeviceAlarmService {
     long countOfDeviceAlarmByDeviceId(String deviceId, long beginTime, long endTime);
 
     /**
+     * 根据设备id查询报警信息
+     *
      * @param deviceId
      * @param alarmCodes
      * @param beginTime

@@ -16,16 +16,20 @@ package me.iot.util.disruptor;
  */
 public interface IMessaging {
     /**
-     *
+     * 停止
      */
     void stop();
 
     /**
+     * 发布
+     *
      * @param value
      */
     void publish(Object value);
 
     /**
+     * 获取buffer剩余的size
+     *
      * @return
      */
     long getRemainBufferSize();

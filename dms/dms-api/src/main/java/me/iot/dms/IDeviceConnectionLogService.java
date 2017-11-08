@@ -19,6 +19,8 @@ import me.iot.dms.entity.DeviceConnectionLog;
  */
 public interface IDeviceConnectionLogService {
     /**
+     * 根据设备id获取设备连接日志
+     *
      * @param deviceId
      * @param beginTime
      * @param endTime

@@ -17,18 +17,24 @@ package me.iot.util.redis;
 public interface IMessageQueueService {
 
     /**
+     * 是否包含topic
+     *
      * @param queueName
      * @return
      */
     boolean containsQueue(String queueName);
 
     /**
+     * 队列剩余长度
+     *
      * @param queueName
      * @return
      */
     long getRemainSize(String queueName);
 
     /**
+     * 发送消息
+     *
      * @param queueName
      * @param msg
      * @param <Msg>
@@ -36,6 +42,8 @@ public interface IMessageQueueService {
     <Msg> void sendMessage(String queueName, Msg msg);
 
     /**
+     * 接受消息
+     *
      * @param queueName
      * @param clazz
      * @param <Msg>

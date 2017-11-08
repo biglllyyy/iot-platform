@@ -42,9 +42,6 @@ public class DmsConfig {
     @Autowired
     ISubscribePublishService sps;
 
-//    ISimpleDataService sds;
-//    IFileStorageService fss;
-
     Provider provider = Provider.Rocketmq;
     String brokers = null;
     String groupId = null;
@@ -55,8 +52,6 @@ public class DmsConfig {
 
     @PostConstruct
     public void init() {
-//        sds = SDS.getService(zkConnectString);
-//        fss = FSS.getService(zkConnectString);
 
         producer = MqFactory.getInstance().createProducer(provider);
         producer.setBasicParameter(brokers, groupId, clientId);
@@ -82,13 +77,6 @@ public class DmsConfig {
         return sps;
     }
 
-//    public ISimpleDataService getSds() {
-//        return sds;
-//    }
-//
-//    public IFileStorageService getFss() {
-//        return fss;
-//    }
 
     public IProducer getProducer() {
         return producer;

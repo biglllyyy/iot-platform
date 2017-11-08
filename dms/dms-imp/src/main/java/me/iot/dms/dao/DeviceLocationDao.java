@@ -20,6 +20,8 @@ import me.iot.util.jpa.BaseRepository;
 public interface DeviceLocationDao extends BaseRepository<DeviceLocation, Long> {
 
     /**
+     * 根据设备id获取位置信息
+     *
      * @param deviceId
      * @return
      */

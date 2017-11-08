@@ -18,6 +18,8 @@ import me.iot.dms.entity.DasStatus;
  */
 public interface IDasStatusService {
     /**
+     * get 设备接入服务的状态
+     *
      * @param nodeId
      * @return
      */

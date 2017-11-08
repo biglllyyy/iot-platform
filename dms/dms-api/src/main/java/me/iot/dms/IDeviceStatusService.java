@@ -20,6 +20,8 @@ import java.util.List;
  */
 public interface IDeviceStatusService {
     /**
+     * 查询设备状态
+     *
      * @param deviceId
      * @return
      */

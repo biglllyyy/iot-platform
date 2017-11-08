@@ -9,7 +9,7 @@ import java.io.Serializable;
  */
 public interface IDispose extends Serializable {
     /**
-     *
+     * 释放资源
      */
     void dispose();
 }

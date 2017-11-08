@@ -38,13 +38,6 @@ public class DasConfig {
     @Autowired
     ICentralCacheService ccs;
 
-//    @Autowired
-//    IMessageQueueService mqs;
-//
-//    @Autowired
-//    ISubscribePublishService sps;
-
-
     Provider provider = Provider.Rocketmq;
     String brokers = null;
     String groupId = null;
@@ -79,14 +72,6 @@ public class DasConfig {
     public ICentralCacheService getCcs() {
         return ccs;
     }
-
-//    public IMessageQueueService getMqs() {
-//        return mqs;
-//    }
-//
-//    public ISubscribePublishService getSps() {
-//        return sps;
-//    }
 
     public IProducer getProducer() {
         return producer;

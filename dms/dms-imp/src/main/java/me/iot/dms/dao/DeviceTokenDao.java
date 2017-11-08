@@ -20,12 +20,16 @@ import me.iot.util.jpa.BaseRepository;
 public interface DeviceTokenDao extends BaseRepository<DeviceToken, Long> {
 
     /**
+     * 根据设备id获取设备token信息
+     *
      * @param deviceId
      * @return
      */
     DeviceToken getByDeviceId(String deviceId);
 
     /**
+     * 根据token获取设备token信息
+     *
      * @param token
      * @return
      */

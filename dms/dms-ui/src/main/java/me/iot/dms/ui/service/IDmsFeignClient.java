@@ -223,6 +223,8 @@ public interface IDmsFeignClient {
     Result<?> countOfDeviceInfoByDeviceType(@RequestParam("deviceType") String deviceType);
 
     /**
+     * 根据设备类型和版本号查询设备信息数量
+     *
      * @param deviceType
      * @param versionCode
      * @return
@@ -233,6 +235,8 @@ public interface IDmsFeignClient {
                                                           @RequestParam("versionCode") int versionCode);
 
     /**
+     * 根据id获取设备信息
+     *
      * @param id
      * @return
      */
@@ -241,6 +245,8 @@ public interface IDmsFeignClient {
     Result<?> getDeviceInfoById(@RequestParam("id") long id);
 
     /**
+     * 根据设备id获取设备信息
+     *
      * @param deviceId
      * @return
      */
@@ -249,6 +255,8 @@ public interface IDmsFeignClient {
     Result<?> getDeviceInfoByDeviceId(@RequestParam("deviceId") String deviceId);
 
     /**
+     * 根据设备mac获取设备信息
+     *
      * @param mac
      * @return
      */
@@ -257,6 +265,8 @@ public interface IDmsFeignClient {
     Result<?> getDeviceInfoByMac(@RequestParam("mac") String mac);
 
     /**
+     * 根据设备类型获取设备信息
+     *
      * @param deviceType
      * @param pageIndex
      * @param pageSize
@@ -269,6 +279,8 @@ public interface IDmsFeignClient {
                                          @RequestParam("pageSize") int pageSize);
 
     /**
+     * 根据设备类型和版本号获取设备信息
+     *
      * @param deviceType
      * @param versionCode
      * @param pageIndex
@@ -283,6 +295,8 @@ public interface IDmsFeignClient {
                                                    @RequestParam("pageSize") int pageSize);
 
     /**
+     * 获取设备的位置信息（经纬度）
+     *
      * @param deviceId
      * @param coorType
      * @return
@@ -292,6 +306,8 @@ public interface IDmsFeignClient {
     Result<?> getLocation(@RequestParam("deviceId") String deviceId, @RequestParam("coorType") int coorType);
 
     /**
+     * 设备绑定位置信息
+     *
      * @param params
      * @return
      */
@@ -300,6 +316,8 @@ public interface IDmsFeignClient {
     Result<?> bindLocation(@RequestBody BindLocationParamsDto params);
 
     /**
+     * 根据时间查询设备的日志信息
+     *
      * @param deviceId
      * @param deviceType
      * @param logType
@@ -320,6 +338,8 @@ public interface IDmsFeignClient {
                                   @RequestParam("pageSize") int pageSize);
 
     /**
+     * 根据设备类型获取ota升级文件
+     *
      * @param deviceType
      * @param pageIndex
      * @param pageSize
@@ -332,6 +352,8 @@ public interface IDmsFeignClient {
                                             @RequestParam("pageSize") int pageSize);
 
     /**
+     * 上传ota升级文件
+     *
      * @param params
      * @return
      */
@@ -340,6 +362,8 @@ public interface IDmsFeignClient {
     Result<?> uploadOtaFile(@RequestBody Map<String, Object> params);
 
     /**
+     * 查找上传的文档信息
+     *
      * @param deviceType
      * @param connected
      * @param deviceCode
@@ -360,6 +384,8 @@ public interface IDmsFeignClient {
                                           @RequestParam("pageSize") int pageSize);
 
     /**
+     * 绑定设备与owner
+     *
      * @param ownerId
      * @param deviceId
      * @return
@@ -369,6 +395,8 @@ public interface IDmsFeignClient {
     Result<?> bindDevice(@RequestParam("ownerId") String ownerId, @RequestParam("deviceId") String deviceId);
 
     /**
+     * 批量绑定设备与owner
+     *
      * @param paramMap
      * @return
      */
@@ -377,6 +405,8 @@ public interface IDmsFeignClient {
     Result<?> bindDeviceList(@RequestBody Map<String, Object> paramMap);
 
     /**
+     * 设备与owner解绑
+     *
      * @param ownerId
      * @param deviceArray
      * @return
@@ -387,6 +417,8 @@ public interface IDmsFeignClient {
                            @RequestParam(value = "deviceArray", required = false) String[] deviceArray);
 
     /**
+     * 获取owner下的设备信息
+     *
      * @param ownerId
      * @param pageIndex
      * @param pageSize
@@ -398,6 +430,8 @@ public interface IDmsFeignClient {
             pageIndex, @RequestParam("pageSize") int pageSize);
 
     /**
+     * 根据传入的一系列参数查询设备信息
+     *
      * @param ownerIds
      * @param deviceType
      * @param connected
@@ -414,6 +448,8 @@ public interface IDmsFeignClient {
                                  @RequestParam("pageSize") int pageSize);
 
     /**
+     * 设备升级
+     *
      * @param list
      * @return
      */
@@ -422,6 +458,8 @@ public interface IDmsFeignClient {
     Result<?> deviceUpdate(@RequestParam("list") List list);
 
     /**
+     * 获取设备状态
+     *
      * @param deviceId
      * @return
      */
@@ -430,6 +468,8 @@ public interface IDmsFeignClient {
     Result<?> getDeviceStatus(@RequestParam("deviceId") String deviceId);
 
     /**
+     * 批量获取设备状态
+     *
      * @param deviceIds
      * @return
      */
@@ -438,6 +478,8 @@ public interface IDmsFeignClient {
     Result<?> getDeviceStatusBatch(@RequestParam("deviceIds") String[] deviceIds);
 
     /**
+     * 设备token数量
+     *
      * @return
      */
     @RequestMapping(value = "/countOfDeviceToken", method = RequestMethod.GET,
@@ -445,6 +487,8 @@ public interface IDmsFeignClient {
     Result<?> countOfDeviceToken();
 
     /**
+     * 产生设备id
+     *
      * @param deviceType
      * @param token
      * @return
@@ -454,6 +498,8 @@ public interface IDmsFeignClient {
     Result<?> generateDeviceId(@RequestParam("deviceType") String deviceType, @RequestParam("token") String token);
 
     /**
+     * 根据设备id获取设备token
+     *
      * @param deviceId
      * @return
      */
@@ -462,14 +508,19 @@ public interface IDmsFeignClient {
     Result<?> getDeviceTokenByDeviceId(@RequestParam("deviceId") String deviceId);
 
     /**
+     * 不明白
+     *
      * @param token
      * @return
+     * @TODO
      */
     @RequestMapping(value = "/getDeviceTokenByToken", method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     Result<?> getDeviceTokenByToken(@RequestParam("token") String token);
 
     /**
+     * 根据设备类型获取设备token
+     *
      * @param deviceType
      * @param pageIndex
      * @param pageSize

@@ -188,12 +188,16 @@ public abstract class AbstractFrameCodec {
     }
 
     /**
+     * 消息编码
+     *
      * @param buf
      * @param msg
      */
     abstract protected void onEncodeMsg(ByteBuffer buf, IMsg msg);
 
     /**
+     * 消息解码
+     *
      * @param wrap
      * @return
      */

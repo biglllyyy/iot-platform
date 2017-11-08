@@ -18,18 +18,24 @@ import java.util.List;
  */
 public interface ISubscribePublishService {
     /**
+     * 发布消息
+     *
      * @param topic
      * @param msg
      */
     void publishMessage(String topic, Object msg);
 
     /**
+     * 订阅消息
+     *
      * @param messageListener
      * @param topics
      */
     void subscribeMessage(AbstractMessageListener messageListener, List<String> topics);
 
     /**
+     * 取消订阅
+     *
      * @param messageListener
      * @param topics
      */

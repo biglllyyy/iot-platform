@@ -19,6 +19,8 @@ import me.iot.dms.entity.DeviceOtaFile;
  */
 public interface IDeviceOtaService {
     /**
+     * 根据设备类型查询设备的在线升级文件
+     *
      * @param deviceType
      * @param pageIndex
      * @param pageSize
@@ -27,6 +29,8 @@ public interface IDeviceOtaService {
     QueryResult<DeviceOtaFile> getDeviceOtaFilesByDeviceType(String deviceType, int pageIndex, int pageSize);
 
     /**
+     * 上传在线升级文件
+     *
      * @param otaFullName
      * @param deviceType
      * @param versionCode

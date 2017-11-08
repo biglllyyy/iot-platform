@@ -19,6 +19,8 @@ import me.iot.dms.entity.DasConnectionLog;
  */
 public interface IDasConnectionLogService {
     /**
+     * 根据das节点id获取das的连接日志
+     *
      * @param nodeId
      * @param beginTime
      * @param endTime

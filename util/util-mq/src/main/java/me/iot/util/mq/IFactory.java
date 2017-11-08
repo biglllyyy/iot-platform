@@ -17,12 +17,16 @@ package me.iot.util.mq;
 public interface IFactory {
 
     /**
+     * 创建生产者
+     *
      * @param provider
      * @return
      */
     IProducer createProducer(Provider provider);
 
     /**
+     * 创建消费者
+     *
      * @param provider
      * @return
      */

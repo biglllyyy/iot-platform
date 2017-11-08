@@ -20,17 +20,23 @@ import me.iot.dms.entity.DeviceInfo;
 public interface IDeviceInfoService {
 
     /**
+     * 设备信息数量
+     *
      * @return
      */
     long countOfDeviceInfo();
 
     /**
+     * 同一设备类型的设备信息数量
+     *
      * @param deviceType
      * @return
      */
     long countOfDeviceInfoByDeviceType(String deviceType);
 
     /**
+     * 同一设备类型和版本相关的设备信息
+     *
      * @param deviceType
      * @param versionCode
      * @return
@@ -38,24 +44,32 @@ public interface IDeviceInfoService {
     long countOfDeviceInfoByDeviceTypeAndVersionCode(String deviceType, int versionCode);
 
     /**
+     * 根据id获取设备信息
+     *
      * @param id
      * @return
      */
     DeviceInfo getDeviceInfoById(long id);
 
     /**
+     * 根据设备id获取设备信息
+     *
      * @param deviceId
      * @return
      */
     DeviceInfo getDeviceInfoByDeviceId(String deviceId);
 
     /**
+     * 根据mac获取设备信息
+     *
      * @param mac
      * @return
      */
     DeviceInfo getDeviceInfoByMac(String mac);
 
     /**
+     * 根据设备类型获取设备信息
+     *
      * @param deviceType
      * @param pageIndex
      * @param pageSize
@@ -64,6 +78,8 @@ public interface IDeviceInfoService {
     QueryResult<DeviceInfo> getDeviceInfosByDeviceType(String deviceType, int pageIndex, int pageSize);
 
     /**
+     * 根据设备类型和版本获取设备信息
+     *
      * @param deviceType
      * @param versionCode
      * @param pageIndex
@@ -87,6 +103,7 @@ public interface IDeviceInfoService {
     /**
      * 根据参数查询设备信息
      *
+     * @param ownerIds   owner id数组
      * @param deviceType 设备类型
      * @param connected  是否在线
      * @param pageIndex  当前页数

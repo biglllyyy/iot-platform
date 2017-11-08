@@ -8,6 +8,8 @@ package me.iot.common;
 public interface Initialize {
 
     /**
+     * 初始化
+     *
      * @param params
      */
     void init(Object... params);

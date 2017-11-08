@@ -22,6 +22,8 @@ import java.util.List;
 public interface IDeviceEventService {
 
     /**
+     * 设备事件数量
+     *
      * @param beginTime
      * @param endTime
      * @return
@@ -29,6 +31,8 @@ public interface IDeviceEventService {
     long countOfDeviceEvent(long beginTime, long endTime);
 
     /**
+     * 根据设备类型获取事件数量
+     *
      * @param deviceType
      * @param beginTime
      * @param endTime
@@ -37,6 +41,8 @@ public interface IDeviceEventService {
     long countOfDeviceEventByDeviceType(String deviceType, long beginTime, long endTime);
 
     /**
+     * 根据设备id获取设备事件数量
+     *
      * @param deviceId
      * @param beginTime
      * @param endTime
@@ -45,6 +51,8 @@ public interface IDeviceEventService {
     long countOfDeviceEventByDeviceId(String deviceId, long beginTime, long endTime);
 
     /**
+     * 根据设备id获取设备事件信息
+     *
      * @param deviceId
      * @param eventCodes
      * @param beginTime

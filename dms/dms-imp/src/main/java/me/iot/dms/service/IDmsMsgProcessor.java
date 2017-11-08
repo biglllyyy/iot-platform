@@ -18,6 +18,8 @@ import me.iot.common.msg.IMsg;
  */
 public interface IDmsMsgProcessor<T extends IMsg> {
     /**
+     * 处理IMsg消息
+     *
      * @param msg
      */
     void processMsg(T msg);

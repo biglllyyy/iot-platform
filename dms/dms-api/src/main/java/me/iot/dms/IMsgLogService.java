@@ -19,6 +19,8 @@ import me.iot.dms.entity.MsgLog;
  */
 public interface IMsgLogService {
     /**
+     * get 消息日志
+     *
      * @param deviceType
      * @param deviceId
      * @param msgType

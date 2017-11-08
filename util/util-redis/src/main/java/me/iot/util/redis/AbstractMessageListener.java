@@ -27,6 +27,8 @@ public abstract class AbstractMessageListener implements MessageListener {
     private final Logger LOG = LoggerFactory.getLogger(this.getClass());
 
     /**
+     * 处理订阅到的消息
+     *
      * @param topic
      * @param jsonMsg
      */

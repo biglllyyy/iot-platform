@@ -19,6 +19,8 @@ import me.iot.util.jpa.BaseRepository;
  */
 public interface DeviceOtaFileDao extends BaseRepository<DeviceOtaFile, Long> {
     /**
+     * 根据设备类型和版本号获取设备在线升级文件
+     *
      * @param deviceType
      * @param versionCode
      * @return

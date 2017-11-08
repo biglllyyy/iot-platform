@@ -19,6 +19,8 @@ import me.iot.dms.entity.DeviceLog;
  */
 public interface IDeviceLogService {
     /**
+     * 查询设备日志
+     *
      * @param deviceId
      * @param logType
      * @param beginTime
@@ -31,6 +33,8 @@ public interface IDeviceLogService {
             pageIndex, int pageSize);
 
     /**
+     * 查询设备日志
+     *
      * @param deviceId
      * @param deviceType
      * @param logType

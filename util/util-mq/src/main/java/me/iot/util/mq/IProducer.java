@@ -27,6 +27,7 @@ public interface IProducer extends IClient {
      * 发送消息
      *
      * @param message 待发送的消息
+     * @throws Exception
      */
     void send(Message message) throws Exception;
 

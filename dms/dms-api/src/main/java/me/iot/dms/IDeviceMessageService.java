@@ -19,6 +19,8 @@ import me.iot.common.msg.IMsg;
 public interface IDeviceMessageService {
 
     /**
+     * dms发送消息到das
+     *
      * @param msg
      */
     void sendMsg(IMsg msg);

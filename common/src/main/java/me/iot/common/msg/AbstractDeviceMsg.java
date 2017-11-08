@@ -39,6 +39,8 @@ public abstract class AbstractDeviceMsg implements IMsg {
     protected Map<String, Object> params = Maps.newLinkedHashMap();
 
     /**
+     * 消息类型
+     *
      * @return
      */
     @JSONField(serialize = false, deserialize = false)
