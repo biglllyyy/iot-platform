@@ -56,22 +56,28 @@ public class FactorInfo implements Serializable {
 
     private DataTypeEnum dataTypeEnum;
 
+    private static final String BOOLEAN_TYPE = "boolean";
+    private static final String INTEGER_TYPE = "integer";
+    private static final String BYTE_ARRAY_TYPE = "byte[]";
+    private static final String STRINGS_TYPE = "strings";
+    private static final String ARRAY_TYPE = "array";
+
     void checkValid() {
 
         Preconditions.checkState(!Strings.isNullOrEmpty(type), "param type 为空");
-        if (Objects.equal(type.toLowerCase(), "boolean")) {
+        if (Objects.equal(type.toLowerCase(), BOOLEAN_TYPE)) {
             type = "bool";
         }
-        if (Objects.equal(type.toLowerCase(), "integer")) {
+        if (Objects.equal(type.toLowerCase(), INTEGER_TYPE)) {
             type = "int";
         }
-        if (Objects.equal(type.toLowerCase(), "byte[]")) {
+        if (Objects.equal(type.toLowerCase(), BYTE_ARRAY_TYPE)) {
             type = "bytes";
         }
-        if (Objects.equal(type.toLowerCase(), "strings")) {
+        if (Objects.equal(type.toLowerCase(), STRINGS_TYPE)) {
             type = "string";
         }
-        if (Objects.equal(type.toLowerCase(), "array")) {
+        if (Objects.equal(type.toLowerCase(), ARRAY_TYPE)) {
             type = "list";
         }
 

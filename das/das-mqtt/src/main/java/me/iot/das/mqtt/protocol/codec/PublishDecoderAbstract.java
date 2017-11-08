@@ -11,6 +11,9 @@ import java.util.List;
 
 class PublishDecoderAbstract extends AbstractDemuxDecoder {
 
+    private static final String PLUS = "+";
+    private static final String SHARP = "#";
+
     @Override
     void decode(AttributeMap ctx, ByteBuf in, List<Object> out) throws Exception {
         in.resetReaderIndex();
@@ -43,7 +46,7 @@ class PublishDecoderAbstract extends AbstractDemuxDecoder {
             in.resetReaderIndex();
             return;
         }
-        if (topic.contains("+") || topic.contains("#")) {
+        if (topic.contains(PLUS) || topic.contains(SHARP)) {
             throw new CorruptedFrameException("Received a PUBLISH with topic containting wild card chars, topic: " +
                     topic);
         }

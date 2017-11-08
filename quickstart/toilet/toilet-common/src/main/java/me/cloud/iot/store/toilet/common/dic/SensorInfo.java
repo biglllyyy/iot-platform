@@ -2,8 +2,6 @@ package me.cloud.iot.store.toilet.common.dic;
 
 
 import com.alibaba.fastjson.annotation.JSONField;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
@@ -22,7 +20,6 @@ import java.util.List;
  * *******************************************************************************************
  */
 public class SensorInfo {
-    private static final Logger LOG = LoggerFactory.getLogger(SensorInfo.class);
 
     private String id;
     private List<FactorInfo> factors;
@@ -36,8 +33,6 @@ public class SensorInfo {
             }
             return true;
         } catch (Exception e) {
-            LOG.error("SensorInfo checkInvalid error: {}", e.getMessage());
-            e.printStackTrace();
             return false;
         }
     }

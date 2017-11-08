@@ -6,7 +6,7 @@ import java.text.StringCharacterIterator;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  JsonValidator
  * @CreateDate :  2017/11/08
  * @Description : 用于校验一个字符串是否是合法的JSON格式
  * @ReviewedBy :

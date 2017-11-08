@@ -15,7 +15,8 @@ class UnsubscribeDecoderAbstract extends AbstractDemuxDecoder {
         //Common decoding part
         in.resetReaderIndex();
         UnsubscribeMessage message = new UnsubscribeMessage();
-        if (!decodeCommonHeader(message, 0x02, in)) {
+        int expectedFlags = 0x02;
+        if (!decodeCommonHeader(message, expectedFlags, in)) {
             in.resetReaderIndex();
             return;
         }

@@ -50,7 +50,8 @@ class SubscribeDecoderAbstract extends AbstractDemuxDecoder {
     private void decodeSubscription(ByteBuf in, SubscribeMessage message) throws UnsupportedEncodingException {
         String topic = CodecUtil.decodeString(in);
         byte qosByte = in.readByte();
-        if ((qosByte & 0xFC) > 0) {
+        int flag = 0xFC;
+        if ((qosByte & flag) > 0) {
             //the first 6 bits is reserved => has to be 0
             throw new CorruptedFrameException("subscribe MUST have QoS byte with reserved buts to 0, found " +
                     Integer.toHexString(qosByte));

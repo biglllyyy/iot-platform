@@ -36,8 +36,9 @@ abstract class AbstractDemuxDecoder {
 
 
     private boolean genericDecodeCommonHeader(AbstractMessage message, Integer expectedFlagsOpt, ByteBuf in) {
+        int byteLimit = 2;
         //Common decoding part
-        if (in.readableBytes() < 2) {
+        if (in.readableBytes() < byteLimit) {
             return false;
         }
         byte h1 = in.readByte();

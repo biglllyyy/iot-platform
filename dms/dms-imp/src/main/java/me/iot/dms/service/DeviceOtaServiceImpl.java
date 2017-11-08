@@ -62,8 +62,6 @@ public class DeviceOtaServiceImpl implements IDeviceOtaService {
             description, String content) {
         //解码文件内容并获取文件决定路径
         byte[] bytes = BaseEncoding.base64().decode(content);
-        //StorageItem storageItem = new StorageItem(bytes);
-        //dmsConfig.getFss().upload(storageItem);
         String filePath = null;
 
         //保存上传文件信息

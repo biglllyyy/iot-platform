@@ -27,6 +27,8 @@ import java.io.UnsupportedEncodingException;
  */
 public class CodecUtil {
 
+    private static final int TWO = 2;
+
     static byte readMessageType(ByteBuf in) {
         byte h1 = in.readByte();
         byte messageType = (byte) ((h1 & 0x00F0) >> 4);
@@ -110,7 +112,7 @@ public class CodecUtil {
      * @return the decoded string or null if NEED_DATA
      */
     static String decodeString(ByteBuf in) throws UnsupportedEncodingException {
-        if (in.readableBytes() < 2) {
+        if (in.readableBytes() < TWO) {
             return null;
         }
 
@@ -150,16 +152,20 @@ public class CodecUtil {
      * Return the number of bytes to encode the given remaining length value
      */
     static int numBytesToEncode(int len) {
-        if (0 <= len && len <= 127) {
+        int lenLimit1 = TWO << 7;
+        if (0 <= len && len < lenLimit1) {
             return 1;
         }
-        if (128 <= len && len <= 16383) {
+        int lenLimit2 = TWO << 14;
+        if (lenLimit1 <= len && len < lenLimit2) {
             return 2;
         }
-        if (16384 <= len && len <= 2097151) {
+        int lenLimit3 = TWO << 21;
+        if (lenLimit2 <= len && len < lenLimit3) {
             return 3;
         }
-        if (2097152 <= len && len <= 268435455) {
+        int lenLimit4 = TWO << 28;
+        if (lenLimit3 <= len && len < lenLimit4) {
             return 4;
         }
         throw new IllegalArgumentException("value shoul be in the range [0..268435455]");

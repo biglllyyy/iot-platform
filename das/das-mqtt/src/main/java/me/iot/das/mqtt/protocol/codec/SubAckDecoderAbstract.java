@@ -14,7 +14,8 @@ class SubAckDecoderAbstract extends AbstractDemuxDecoder {
         //Common decoding part
         in.resetReaderIndex();
         SubAckMessage message = new SubAckMessage();
-        if (!decodeCommonHeader(message, 0x00, in)) {
+        int expectedFlags = 0x00;
+        if (!decodeCommonHeader(message, expectedFlags, in)) {
             in.resetReaderIndex();
             return;
         }

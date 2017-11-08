@@ -13,7 +13,8 @@ class PingRespDecoderAbstract extends AbstractDemuxDecoder {
         //Common decoding part
         in.resetReaderIndex();
         PingRespMessage message = new PingRespMessage();
-        if (!decodeCommonHeader(message, 0x00, in)) {
+        int expectedFlags = 0x00;
+        if (!decodeCommonHeader(message, expectedFlags, in)) {
             in.resetReaderIndex();
             return;
         }

@@ -13,7 +13,8 @@ class DisconnectDecoderAbstract extends AbstractDemuxDecoder {
         //Common decoding part
         in.resetReaderIndex();
         DisconnectMessage message = new DisconnectMessage();
-        if (!decodeCommonHeader(message, 0x00, in)) {
+        int expectedFlags = 0x00;
+        if (!decodeCommonHeader(message, expectedFlags, in)) {
             in.resetReaderIndex();
             return;
         }

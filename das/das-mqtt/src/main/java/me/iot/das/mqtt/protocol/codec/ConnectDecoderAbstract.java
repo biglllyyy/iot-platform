@@ -36,7 +36,8 @@ public class ConnectDecoderAbstract extends AbstractDemuxDecoder {
         in.resetReaderIndex();
         //Common decoding part
         ConnectMessage message = new ConnectMessage();
-        if (!decodeCommonHeader(message, 0x00, in)) {
+        int expectedFlags = 0x00;
+        if (!decodeCommonHeader(message, expectedFlags, in)) {
             in.resetReaderIndex();
             return;
         }
@@ -51,7 +52,8 @@ public class ConnectDecoderAbstract extends AbstractDemuxDecoder {
             case 6:
                 //MQTT version 3.1 "MQIsdp"
                 //ProtocolName 8 bytes or 6 bytes
-                if (in.readableBytes() < 10) {
+                int byteLimit10 = 10;
+                if (in.readableBytes() < byteLimit10) {
                     in.resetReaderIndex();
                     return;
                 }
@@ -59,7 +61,8 @@ public class ConnectDecoderAbstract extends AbstractDemuxDecoder {
                 encProtoName = new byte[6];
                 in.readBytes(encProtoName);
                 protoName = new String(encProtoName, "UTF-8");
-                if (!"MQIsdp".equals(protoName)) {
+                String mqIsdp = "MQIsdp";
+                if (!mqIsdp.equals(protoName)) {
                     in.resetReaderIndex();
                     throw new CorruptedFrameException("Invalid protoName: " + protoName);
                 }
@@ -70,14 +73,16 @@ public class ConnectDecoderAbstract extends AbstractDemuxDecoder {
             case 4:
                 //MQTT version 3.1.1 "MQTT"
                 //ProtocolName 6 bytes
-                if (in.readableBytes() < 8) {
+                int byteLimit8 = 8;
+                if (in.readableBytes() < byteLimit8) {
                     in.resetReaderIndex();
                     return;
                 }
                 encProtoName = new byte[4];
                 in.readBytes(encProtoName);
                 protoName = new String(encProtoName, "UTF-8");
-                if (!"MQTT".equals(protoName)) {
+                String mqtt = "MQTT";
+                if (!mqtt.equals(protoName)) {
                     in.resetReaderIndex();
                     throw new CorruptedFrameException("Invalid protoName: " + protoName);
                 }
@@ -112,7 +117,8 @@ public class ConnectDecoderAbstract extends AbstractDemuxDecoder {
         byte connFlags = in.readByte();
         if (message.getProcotolVersion() == MqttConst.VERSION_3_1_1) {
             //bit(0) of connection flags is != 0
-            if ((connFlags & 0x01) != 0) {
+            int flag = 0x01;
+            if ((connFlags & flag) != 0) {
                 throw new CorruptedFrameException("Received a CONNECT with connectionFlags[0(bit)] != 0");
             }
         }
@@ -120,7 +126,8 @@ public class ConnectDecoderAbstract extends AbstractDemuxDecoder {
         boolean cleanSession = ((connFlags & 0x02) >> 1) == 1;
         boolean willFlag = ((connFlags & 0x04) >> 2) == 1;
         byte willQos = (byte) ((connFlags & 0x18) >> 3);
-        if (willQos > 2) {
+        int limit2 = 2;
+        if (willQos > limit2) {
             in.resetReaderIndex();
             throw new CorruptedFrameException("Expected will QoS in range 0..2 but found: " + willQos);
         }

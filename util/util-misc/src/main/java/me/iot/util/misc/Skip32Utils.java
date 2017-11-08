@@ -89,7 +89,8 @@ public class Skip32Utils {
         wr = (buf[2] << 8) + buf[3];
 
 		/* 24 feistel rounds, doubled up */
-        for (i = 0; i < 24 / 2; ++i) {
+        int size = 24 / 2;
+        for (i = 0; i < size; ++i) {
             wr ^= g(key, k, wl) ^ k;
             k += kstep;
             wl ^= g(key, k, wr) ^ k;

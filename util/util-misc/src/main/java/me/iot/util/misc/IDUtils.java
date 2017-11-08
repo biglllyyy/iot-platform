@@ -25,11 +25,4 @@ public class IDUtils {
         int userIdInt = Skip32Utils.encrypt(idInt, KEY_ARRAY);
         return UnsignedInts.toLong(userIdInt);
     }
-
-    public static void test(String[] args) {
-        for (int i = 0; i < 1000; i++) {
-            System.out.println(IDUtils.generateId(i));
-        }
-    }
-
 }

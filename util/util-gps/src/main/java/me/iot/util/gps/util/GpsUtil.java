@@ -238,7 +238,10 @@ public class GpsUtil {
     }
 
     private static boolean outOfChina(double lon, double lat) {
-        if (lon < 72.004 || lon > 137.8347) {
+        double lonMin = 72.004;
+        double lonMax = 137.8347;
+
+        if (lon < lonMin || lon > lonMax) {
             return true;
         }
 

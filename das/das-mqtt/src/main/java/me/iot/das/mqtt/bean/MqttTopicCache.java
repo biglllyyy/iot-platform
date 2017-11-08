@@ -36,7 +36,7 @@ public class MqttTopicCache {
     public Map<String, Subscription> getSubscriptions(String topic) {
         Map<String, Subscription> subscriptionMap = topicSubscriptionCache.getIfPresent(topic);
         if (subscriptionMap == null) {
-            subscriptionMap = new ConcurrentHashMap<String, Subscription>();
+            subscriptionMap = new ConcurrentHashMap<String, Subscription>(16);
         }
         return subscriptionMap;
     }
@@ -57,7 +57,7 @@ public class MqttTopicCache {
         boolean isTopicNew = false;
         Map<String, Subscription> subscriptionMap = topicSubscriptionCache.getIfPresent(topic);
         if (subscriptionMap == null) {
-            subscriptionMap = new ConcurrentHashMap<String, Subscription>();
+            subscriptionMap = new ConcurrentHashMap<String, Subscription>(16);
             isTopicNew = true;
         }
         subscriptionMap.put(clientId, subscription);

@@ -49,10 +49,15 @@ public class AmapGpsCorrecter extends AbstractGpsCorrecter {
     }
 
     private static boolean outOfChina(double lat, double lon) {
-        if (lon < 72.004 || lon > 137.8347) {
+        double lonMin = 72.004;
+        double lonMax = 137.8347;
+        if (lon < lonMin || lon > lonMax) {
             return true;
         }
-        if (lat < 0.8293 || lat > 55.8271) {
+
+        double latMin = 0.8293;
+        double latMax = 55.8271;
+        if (lat < latMin || lat > latMax) {
             return true;
         }
         return false;
