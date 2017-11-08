@@ -18,10 +18,21 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by sylar on 2017/1/26.
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 @Component
-public class CentralCacheService implements ICentralCacheService {
+public class CentralCacheServiceImpl implements ICentralCacheService {
 
     @Autowired
     StringRedisTemplate stringRedisTemplate;

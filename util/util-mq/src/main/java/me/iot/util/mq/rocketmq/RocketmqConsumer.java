@@ -15,6 +15,20 @@ import me.iot.util.mq.MessageListener;
 import java.util.Enumeration;
 import java.util.List;
 
+/**
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
+ */
 public class RocketmqConsumer extends AbstractConsumer {
 
     protected DefaultMQPushConsumer consumer;
@@ -38,9 +52,6 @@ public class RocketmqConsumer extends AbstractConsumer {
             });
 
             String subExpression = "*";
-//        if (topicFilters != null && topicFilters.length > 0) {
-//            subExpression = Joiner.on("||").skipNulls().join(topicFilters);
-//        }
             topics.forEach(topic -> {
                 try {
                     consumer.subscribe(topic, subExpression);

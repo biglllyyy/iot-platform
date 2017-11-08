@@ -7,7 +7,18 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import java.util.Map;
 
 /**
- * Created by sylar on 16/5/18.
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 @ConfigurationProperties(prefix = "das")
 public class DasProperties {

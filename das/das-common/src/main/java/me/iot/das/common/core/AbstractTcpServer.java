@@ -13,6 +13,20 @@ import io.netty.handler.timeout.IdleStateHandler;
 import me.iot.das.common.DasProperties;
 import me.iot.das.common.NettyConst;
 
+/**
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
+ */
 public abstract class AbstractTcpServer extends AbstractServer {
 
     protected NioEventLoopGroup acceptorGroup;

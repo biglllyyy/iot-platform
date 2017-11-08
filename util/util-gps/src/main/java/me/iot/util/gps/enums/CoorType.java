@@ -1,7 +1,18 @@
 package me.iot.util.gps.enums;
 
 /**
- * Created by sylar on 16/8/26.
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 public enum CoorType {
     /**

@@ -6,6 +6,20 @@ import java.net.NetworkInterface;
 import java.net.UnknownHostException;
 import java.util.Enumeration;
 
+/**
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
+ */
 public class NetUtils {
 
     public static String getHostName() {

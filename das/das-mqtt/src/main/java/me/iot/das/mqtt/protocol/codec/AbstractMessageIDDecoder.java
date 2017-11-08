@@ -8,6 +8,11 @@ import java.util.List;
 
 abstract class AbstractMessageIDDecoder extends AbstractDemuxDecoder {
 
+    /**
+     * 创建消息内容
+     *
+     * @return  MessageIDMessage
+     */
     protected abstract MessageIDMessage createMessage();
 
     @Override

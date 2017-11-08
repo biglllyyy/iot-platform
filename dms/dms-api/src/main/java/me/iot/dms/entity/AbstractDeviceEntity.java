@@ -10,6 +10,20 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Map;
 
+/**
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
+ */
 @MappedSuperclass
 public abstract class AbstractDeviceEntity implements Serializable {
 

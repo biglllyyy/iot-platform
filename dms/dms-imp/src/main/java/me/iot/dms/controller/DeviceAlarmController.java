@@ -1,6 +1,6 @@
 package me.iot.dms.controller;
 
-import me.iot.dms.service.DeviceAlarmService;
+import me.iot.dms.service.DeviceAlarmServiceImpl;
 import me.iot.common.dto.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,33 +10,44 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Arrays;
 
 /**
- * Created by sylar on 16/6/6.
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 @RestController
 @RequestMapping("/dms")
 public class DeviceAlarmController {
 
     @Autowired
-    DeviceAlarmService deviceAlarmService;
+    DeviceAlarmServiceImpl deviceAlarmServiceImpl;
 
     @RequestMapping(value = "/countOfDeviceAlarm", method = RequestMethod.GET)
     public Result<?> countOfDeviceAlarm(long beginTime, long endTime) {
-        return Result.newSuccess(deviceAlarmService.countOfDeviceAlarm(beginTime, endTime));
+        return Result.newSuccess(deviceAlarmServiceImpl.countOfDeviceAlarm(beginTime, endTime));
     }
 
     @RequestMapping(value = "/countOfDeviceAlarmByDeviceType", method = RequestMethod.GET)
     public Result<?> countOfDeviceAlarmByDeviceType(String deviceType, long beginTime, long endTime) {
-        return Result.newSuccess(deviceAlarmService.countOfDeviceAlarmByDeviceType(deviceType, beginTime, endTime));
+        return Result.newSuccess(deviceAlarmServiceImpl.countOfDeviceAlarmByDeviceType(deviceType, beginTime, endTime));
     }
 
     @RequestMapping(value = "/countOfDeviceAlarmByDeviceId", method = RequestMethod.GET)
     public Result<?> countOfDeviceAlarmByDeviceId(String deviceId, long beginTime, long endTime) {
-        return Result.newSuccess(deviceAlarmService.countOfDeviceAlarmByDeviceId(deviceId, beginTime, endTime));
+        return Result.newSuccess(deviceAlarmServiceImpl.countOfDeviceAlarmByDeviceId(deviceId, beginTime, endTime));
     }
 
     @RequestMapping(value = "/getDeviceAlarmsByDeviceId", method = RequestMethod.GET)
     public Result<?> getDeviceAlarmsByDeviceId(String deviceId, String[] alarmCodes, long beginTime, long endTime, int pageIndex, int pageSize) {
-        return Result.newSuccess(deviceAlarmService.getDeviceAlarmsByDeviceId(deviceId, Arrays.asList(alarmCodes), beginTime, endTime, pageIndex, pageSize));
+        return Result.newSuccess(deviceAlarmServiceImpl.getDeviceAlarmsByDeviceId(deviceId, Arrays.asList(alarmCodes), beginTime, endTime, pageIndex, pageSize));
     }
 
 }

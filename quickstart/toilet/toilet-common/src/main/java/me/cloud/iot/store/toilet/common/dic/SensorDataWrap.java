@@ -9,7 +9,18 @@ import java.nio.ByteOrder;
 import java.util.List;
 
 /**
- * Created by sylar on 16/5/20.
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 public class SensorDataWrap implements Serializable {
     public static final ByteOrder ORDER = ByteOrder.LITTLE_ENDIAN;

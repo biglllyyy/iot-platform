@@ -10,7 +10,22 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component@ChannelHandler.Sharable
+/**
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
+ */
+@Component
+@ChannelHandler.Sharable
 public class SimpleDecoder extends MessageToMessageDecoder<ByteBuf> {
 
     @Autowired

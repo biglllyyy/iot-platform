@@ -21,7 +21,18 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 /**
- * Created by sylar on 16/5/29.
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 @Component
 @ChannelHandler.Sharable

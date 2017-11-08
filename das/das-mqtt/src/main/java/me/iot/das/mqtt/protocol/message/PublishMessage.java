@@ -26,39 +26,39 @@ import java.nio.ByteBuffer;
  */
 public class PublishMessage extends MessageIDMessage {
 
-    private String m_topicName;
+    private String mTopicName;
 
     @JSONField(serialize = false, deserialize = false)
-    private ByteBuffer m_payload;
+    private ByteBuffer mPayload;
 
 
     public PublishMessage() {
-        m_messageType = PUBLISH;
+        mMessageType = PUBLISH;
     }
 
     public String getTopicName() {
-        return m_topicName;
+        return mTopicName;
     }
 
     public void setTopicName(String topicName) {
-        this.m_topicName = topicName;
+        this.mTopicName = topicName;
     }
 
     @JSONField(serialize = false, deserialize = false)
     public ByteBuffer getPayload() {
-        return m_payload;
+        return mPayload;
     }
 
     @JSONField(serialize = false, deserialize = false)
     public void setPayload(ByteBuffer payload) {
-        this.m_payload = payload;
+        this.mPayload = payload;
     }
 
     public byte[] getPayloadBytes() {
-        return m_payload.array();
+        return mPayload.array();
     }
 
     public void setPayloadBytes(byte[] payloadBytes) {
-        this.m_payload = ByteBuffer.wrap(payloadBytes);
+        this.mPayload = ByteBuffer.wrap(payloadBytes);
     }
 }

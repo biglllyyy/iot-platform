@@ -19,10 +19,21 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 /**
- * Created by sylar on 16/6/4.
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 @Service
-public class DeviceEventService implements IDmsMsgProcessor<DeviceEventMsg>, IDeviceEventService {
+public class DeviceEventServiceImpl implements IDmsMsgProcessor<DeviceEventMsg>, IDeviceEventService {
 
     @Autowired
     DeviceEventDao dao;

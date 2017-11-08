@@ -5,13 +5,27 @@ import me.iot.common.msg.IMsg;
 import me.iot.common.pojo.CacheMsgWrap;
 import me.iot.dms.DmsConfig;
 import me.iot.dms.entity.DeviceStatus;
-import me.iot.dms.service.DeviceStatusService;
+import me.iot.dms.service.DeviceStatusServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
+/**
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
+ */
 /**
  * 消息发送器:  将消息发给 DAS
  */
@@ -26,14 +40,14 @@ public class MsgSender {
     DmsConfig dmsConfig;
 
     @Autowired
-    DeviceStatusService deviceStatusService;
+    DeviceStatusServiceImpl deviceStatusServiceImpl;
 
     public void sendToQueue(IMsg msg) {
         if (msg == null) {
             return;
         }
 
-        DeviceStatus deviceStatus = deviceStatusService.getDeviceStatus(msg.getTargetDeviceType() + msg.getTargetDeviceId());
+        DeviceStatus deviceStatus = deviceStatusServiceImpl.getDeviceStatus(msg.getTargetDeviceType() + msg.getTargetDeviceId());
         if (deviceStatus == null) {
             LOG.warn("can not send msg: deviceStatus not found, nodeId is unknown");
             return;

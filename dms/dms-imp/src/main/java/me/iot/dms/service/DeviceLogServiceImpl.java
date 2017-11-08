@@ -20,10 +20,21 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 /**
- * Created by sylar on 16/5/26.
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 @Service
-public class DeviceLogService implements IDmsMsgProcessor<DeviceLogMsg>, IDeviceLogService {
+public class DeviceLogServiceImpl implements IDmsMsgProcessor<DeviceLogMsg>, IDeviceLogService {
 
     @Autowired
     DeviceLogDao dao;

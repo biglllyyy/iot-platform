@@ -17,17 +17,17 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
- * File Name             :  DeviceOwnerControllerTest
- * Author                :  luhao
- * Create Date           :  2016/6/29
- * Description           :
- * Reviewed By           :
- * Reviewed On           :
- * Version History       :
- * Modified By           :
- * Modified Date         :
- * Comments              :
- * CopyRight             : COPYRIGHT(c) www.XXXXX.com   All Rights Reserved
+ * @FileName             :  DeviceOwnerControllerTest
+ * @Author                :  luhao
+ * @CreateDate           :  2016/6/29
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) www.XXXXX.com   All Rights Reserved
  * *******************************************************************************************
  */
 @RunWith(SpringRunner.class)

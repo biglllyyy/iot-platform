@@ -4,7 +4,18 @@ import me.iot.das.simple.udp.AbstractSimpleUdpServer;
 import org.springframework.stereotype.Component;
 
 /**
- * Created by sylar on 16/7/28.
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 @Component
 public class Server extends AbstractSimpleUdpServer {

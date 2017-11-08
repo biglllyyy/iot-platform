@@ -23,7 +23,7 @@ class PublishDecoderAbstract extends AbstractDemuxDecoder {
             return;
         }
 
-        if (CodecUtil.isMQTT3_1_1(ctx)) {
+        if (CodecUtil.isMQTT311(ctx)) {
             if (message.getQos() == AbstractMessage.QOSType.MOST_ONE && message.isDupFlag()) {
                 //bad protocol, if QoS=0 => DUP = 0
                 throw new CorruptedFrameException("Received a PUBLISH with QoS=0 & DUP = 1, MQTT 3.1.1 violation");

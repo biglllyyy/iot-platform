@@ -2,7 +2,20 @@ package me.iot.util.misc;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-
+/**
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
+ */
 public class Crc16Utils {
 
     private static final byte[] CRC_HI = {0x00, (byte) 0xC1, (byte) 0x81,

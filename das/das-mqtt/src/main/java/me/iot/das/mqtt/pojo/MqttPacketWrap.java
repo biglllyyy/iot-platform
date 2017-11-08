@@ -5,6 +5,20 @@ import me.iot.common.pojo.DeviceGuid;
 import java.io.Serializable;
 import java.nio.ByteBuffer;
 
+/**
+ * @FileName             :  MqttPacketWrap
+ * @@Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @@CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
+ */
 public class MqttPacketWrap implements Serializable {
     private int cmdCode;
     private String sourceDeviceType;

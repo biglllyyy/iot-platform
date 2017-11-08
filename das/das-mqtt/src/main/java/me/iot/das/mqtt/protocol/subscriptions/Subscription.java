@@ -4,6 +4,20 @@ import me.iot.das.mqtt.protocol.message.AbstractMessage;
 
 import java.io.Serializable;
 
+/**
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
+ */
 public class Subscription implements Serializable {
     private static final long serialVersionUID = 3312213897949373977L;
     /**max QoS acceptable*/

@@ -13,7 +13,18 @@ import org.springframework.context.annotation.Configuration;
 import javax.annotation.PostConstruct;
 
 /**
- * Created by sylar on 16/5/17.
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 @Configuration
 public class DmsConfig {

@@ -10,7 +10,18 @@ import org.springframework.data.repository.NoRepositoryBean;
 import java.io.Serializable;
 
 /**
- * Created by tyf on 2016/5/22.
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 @NoRepositoryBean
 public interface BaseMongoRepository<T, ID extends Serializable> extends MongoRepository<T, ID> {

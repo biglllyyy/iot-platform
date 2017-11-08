@@ -4,6 +4,20 @@ package me.iot.common.msg;
  * 设备连接消息
  * 协议解析时,在 decoder hanlder 中必须实现该消息的实例化
  */
+/**
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
+ */
 public class DeviceConnectionMsg extends AbstractDeviceMsg {
 
     /**

@@ -9,6 +9,20 @@ import javax.annotation.PostConstruct;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * @FileName             :  MqttAuthenticator
+ * @@Author               :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @@CopyRight            : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
+ */
 @Component
 public class MqttAuthenticator {
     private final static String PARAMKEY_MQTTUSER = "mqttUser";

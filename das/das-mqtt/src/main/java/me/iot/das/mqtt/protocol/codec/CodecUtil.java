@@ -11,6 +11,20 @@ import org.slf4j.LoggerFactory;
 
 import java.io.UnsupportedEncodingException;
 
+/**
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
+ */
 public class CodecUtil {
 
     static byte readMessageType(ByteBuf in) {
@@ -164,8 +178,8 @@ public class CodecUtil {
         return flags;
     }
 
-    static boolean isMQTT3_1_1(AttributeMap attrsMap) {
-        Attribute<Integer> versionAttr = attrsMap.attr(MQTTDecoder.PROTOCOL_VERSION);
+    static boolean isMQTT311(AttributeMap attrsMap) {
+        Attribute<Integer> versionAttr = attrsMap.attr(MqttDecoder.PROTOCOL_VERSION);
         Integer protocolVersion = versionAttr.get();
         if (protocolVersion == null) {
             return true;

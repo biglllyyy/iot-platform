@@ -12,7 +12,18 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 /**
- * Created by sylar on 16/7/26.
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 public abstract class AbstractServer implements IServer {
 

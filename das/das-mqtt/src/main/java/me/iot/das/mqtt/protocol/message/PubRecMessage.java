@@ -23,6 +23,6 @@ package me.iot.das.mqtt.protocol.message;
 public class PubRecMessage extends MessageIDMessage {
 
     public PubRecMessage() {
-        m_messageType = PUBREC;
+        mMessageType = PUBREC;
     }
 }

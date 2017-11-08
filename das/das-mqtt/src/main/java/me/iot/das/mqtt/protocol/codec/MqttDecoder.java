@@ -11,7 +11,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MQTTDecoder extends ByteToMessageDecoder {
+/**
+ * @FileName             :  MqttDecoder
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
+ */
+public class MqttDecoder extends ByteToMessageDecoder {
 
     /**
      * 3 = 3.1, 4 = 3.1.1
@@ -20,7 +34,7 @@ public class MQTTDecoder extends ByteToMessageDecoder {
 
     private final Map<Byte, AbstractDemuxDecoder> m_decoderMap = new HashMap<Byte, AbstractDemuxDecoder>();
 
-    public MQTTDecoder() {
+    public MqttDecoder() {
         m_decoderMap.put(AbstractMessage.CONNECT, new ConnectDecoderAbstract());
         m_decoderMap.put(AbstractMessage.CONNACK, new ConnAckDecoderAbstract());
         m_decoderMap.put(AbstractMessage.PUBLISH, new PublishDecoderAbstract());

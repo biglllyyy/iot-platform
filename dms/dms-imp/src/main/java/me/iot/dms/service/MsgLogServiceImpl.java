@@ -23,12 +23,23 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 /**
- * Created by sylar on 16/5/26.
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 @Service
-public class MsgLogService implements IDmsMsgProcessor<IMsg>, IMsgLogService {
+public class MsgLogServiceImpl implements IDmsMsgProcessor<IMsg>, IMsgLogService {
 
-    private static final Logger LOG = LoggerFactory.getLogger(MsgLogService.class);
+    private static final Logger LOG = LoggerFactory.getLogger(MsgLogServiceImpl.class);
 
     @Autowired
     MsgLogDao dao;

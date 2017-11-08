@@ -3,6 +3,20 @@ package me.iot.common.msg;
 /**
  * 设备事件消息
  */
+/**
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
+ */
 public class DeviceEventMsg extends AbstractDeviceMsg {
     private String eventCode;
     private String eventDescription;

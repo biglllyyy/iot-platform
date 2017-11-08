@@ -9,7 +9,18 @@ import org.springframework.stereotype.Component;
 import java.util.Map;
 
 /**
- * Created by sylar on 16/6/1.
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 @Component
 public class OtaFactory implements ApplicationListener<OtaNewTaskEvent> {

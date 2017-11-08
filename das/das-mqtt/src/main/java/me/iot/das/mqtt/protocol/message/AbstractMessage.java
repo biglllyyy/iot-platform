@@ -82,56 +82,56 @@ public abstract class AbstractMessage implements Serializable {
     /**
      * type
      */
-    protected boolean m_dupFlag;
-    protected QOSType m_qos;
-    protected boolean m_retainFlag;
-    protected int m_remainingLength;
-    protected byte m_messageType;
+    protected boolean mDupFlag;
+    protected QOSType mQos;
+    protected boolean mRetainFlag;
+    protected int mRemainingLength;
+    protected byte mMessageType;
 
     public byte getMessageType() {
-        return m_messageType;
+        return mMessageType;
     }
 
     public void setMessageType(byte messageType) {
-        this.m_messageType = messageType;
+        this.mMessageType = messageType;
     }
 
     public boolean isDupFlag() {
-        return m_dupFlag;
+        return mDupFlag;
     }
 
     public void setDupFlag(boolean dupFlag) {
-        this.m_dupFlag = dupFlag;
+        this.mDupFlag = dupFlag;
     }
 
     public QOSType getQos() {
-        return m_qos;
+        return mQos;
     }
 
     public void setQos(QOSType qos) {
-        this.m_qos = qos;
+        this.mQos = qos;
     }
 
     public boolean isRetainFlag() {
-        return m_retainFlag;
+        return mRetainFlag;
     }
 
     public void setRetainFlag(boolean retainFlag) {
-        this.m_retainFlag = retainFlag;
+        this.mRetainFlag = retainFlag;
     }
 
     /**
      * TOBE used only internally
      */
     public int getRemainingLength() {
-        return m_remainingLength;
+        return mRemainingLength;
     }
 
     /**
      * TOBE used only internally
      */
     public void setRemainingLength(int remainingLength) {
-        this.m_remainingLength = remainingLength;
+        this.mRemainingLength = remainingLength;
     }
 
     public enum QOSType {

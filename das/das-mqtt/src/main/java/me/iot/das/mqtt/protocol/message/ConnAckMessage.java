@@ -28,19 +28,19 @@ public class ConnAckMessage extends AbstractMessage {
     public static final byte BAD_USERNAME_OR_PASSWORD = 0x04;
     public static final byte NOT_AUTHORIZED = 0x05;
 
-    private byte m_returnCode;
+    private byte mReturnCode;
     private boolean sessionPresent;
 
     public ConnAckMessage() {
-        m_messageType = CONNACK;
+        mMessageType = CONNACK;
     }
 
     public byte getReturnCode() {
-        return m_returnCode;
+        return mReturnCode;
     }
 
     public void setReturnCode(byte returnCode) {
-        this.m_returnCode = returnCode;
+        this.mReturnCode = returnCode;
     }
 
     public boolean isSessionPresent() {

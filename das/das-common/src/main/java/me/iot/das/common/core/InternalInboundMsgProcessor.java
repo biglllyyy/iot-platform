@@ -22,7 +22,18 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 
 /**
- * Created by sylar on 16/5/27.
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 @Component
 public class InternalInboundMsgProcessor implements ApplicationListener<ChannelMsgEvent>, EventHandler<ValueEvent> {

@@ -25,14 +25,14 @@ package me.iot.das.mqtt.protocol.message;
  */
 public class MessageIDMessage extends AbstractMessage {
     /**could be null if Qos is == 0*/
-    private Integer m_messageID;
+    private Integer mMessageID;
 
     public Integer getMessageID() {
-        return m_messageID;
+        return mMessageID;
     }
 
     public void setMessageID(Integer messageID) {
-        this.m_messageID = messageID;
+        this.mMessageID = messageID;
     }
 
 }

@@ -9,12 +9,23 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
 /**
- * Created by sylar on 16/5/7.
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 @Component
-public class MessageQueueService implements IMessageQueueService {
+public class MessageQueueServiceImpl implements IMessageQueueService {
 
-    private static final Logger LOG = LoggerFactory.getLogger(MessageQueueService.class);
+    private static final Logger LOG = LoggerFactory.getLogger(MessageQueueServiceImpl.class);
 
     @Autowired
     StringRedisTemplate stringRedisTemplate;

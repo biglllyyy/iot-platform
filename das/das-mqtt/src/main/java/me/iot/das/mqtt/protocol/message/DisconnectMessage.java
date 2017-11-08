@@ -23,6 +23,6 @@ package me.iot.das.mqtt.protocol.message;
 public class DisconnectMessage extends ZeroLengthMessage {
 
     public DisconnectMessage() {
-        m_messageType = DISCONNECT;
+        mMessageType = DISCONNECT;
     }
 }

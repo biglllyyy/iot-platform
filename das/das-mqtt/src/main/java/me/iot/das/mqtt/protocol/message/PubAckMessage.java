@@ -23,6 +23,6 @@ package me.iot.das.mqtt.protocol.message;
 public class PubAckMessage extends MessageIDMessage {
 
     public PubAckMessage() {
-        m_messageType = PUBACK;
+        mMessageType = PUBACK;
     }
 }

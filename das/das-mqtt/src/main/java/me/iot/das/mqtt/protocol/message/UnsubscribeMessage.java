@@ -22,17 +22,17 @@ import java.util.List;
  * @author andrea
  */
 public class UnsubscribeMessage extends MessageIDMessage {
-    List<String> m_types = new ArrayList<String>();
+    List<String> mTypes = new ArrayList<String>();
 
     public UnsubscribeMessage() {
-        m_messageType = UNSUBSCRIBE;
+        mMessageType = UNSUBSCRIBE;
     }
 
     public List<String> topicFilters() {
-        return m_types;
+        return mTypes;
     }
 
     public void addTopicFilter(String type) {
-        m_types.add(type);
+        mTypes.add(type);
     }
 }

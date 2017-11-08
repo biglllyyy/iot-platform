@@ -34,7 +34,18 @@ import java.nio.ByteBuffer;
 import java.util.List;
 
 /**
- * Created by sylar on 16/5/27.
+ * @FileName             :  MqttEventProcessor
+ * @@Author               :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @@CopyRight            : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 @Component
 public class MqttEventProcessor implements ApplicationListener<MqttEvent>, EventHandler<ValueEvent> {

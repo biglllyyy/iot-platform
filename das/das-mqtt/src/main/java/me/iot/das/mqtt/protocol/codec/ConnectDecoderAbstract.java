@@ -13,6 +13,20 @@ import io.netty.util.AttributeMap;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 
+/**
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
+ */
 public class ConnectDecoderAbstract extends AbstractDemuxDecoder {
 
     static final AttributeKey<Boolean> CONNECT_STATUS = AttributeKey.valueOf("connected");
@@ -32,7 +46,7 @@ public class ConnectDecoderAbstract extends AbstractDemuxDecoder {
         int protocolNameLen = in.readUnsignedShort();
         byte[] encProtoName;
         String protoName;
-        Attribute<Integer> versionAttr = ctx.attr(MQTTDecoder.PROTOCOL_VERSION);
+        Attribute<Integer> versionAttr = ctx.attr(MqttDecoder.PROTOCOL_VERSION);
         switch (protocolNameLen) {
             case 6:
                 //MQTT version 3.1 "MQIsdp"
@@ -129,8 +143,9 @@ public class ConnectDecoderAbstract extends AbstractDemuxDecoder {
         int keepAlive = in.readUnsignedShort();
         message.setKeepAlive(keepAlive);
 
-        if ((remainingLength == 12 && message.getProcotolVersion() == MqttConst.VERSION_3_1) ||
-                (remainingLength == 10 && message.getProcotolVersion() == MqttConst.VERSION_3_1_1)) {
+        boolean flag = (remainingLength == 12 && message.getProcotolVersion() == MqttConst.VERSION_3_1) ||
+                (remainingLength == 10 && message.getProcotolVersion() == MqttConst.VERSION_3_1_1);
+        if (flag) {
             out.add(message);
             return;
         }

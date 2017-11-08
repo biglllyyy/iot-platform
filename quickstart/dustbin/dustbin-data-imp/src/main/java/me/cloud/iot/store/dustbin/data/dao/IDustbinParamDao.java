@@ -4,17 +4,17 @@ import me.cloud.iot.store.dustbin.data.entity.DustbinParam;
 import me.iot.util.jpa.BaseRepository;
 
 /**
- * File Name             :  IDustbinParamDao
- * Author                :  LiShijun
- * Create Date           :  2016/9/22
- * Description           :
- * Reviewed By           :
- * Reviewed On           :
- * Version History       :
- * Modified By           :
- * Modified Date         :
- * Comments              :
- * CopyRight             : COPYRIGHT(c) www.XXXXX.com   All Rights Reserved
+ * @FileName             :  IDustbinParamDao
+ * @Author                :  sylar
+ * @CreateDate           :  2016/9/22
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) www.XXXXX.com   All Rights Reserved
  * *******************************************************************************************
  */
 public interface IDustbinParamDao extends BaseRepository<DustbinParam, Long> {

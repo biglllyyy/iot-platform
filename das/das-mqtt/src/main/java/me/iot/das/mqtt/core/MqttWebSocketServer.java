@@ -7,8 +7,8 @@
 //import me.iot.das.mqtt.core.MqttChannelHandler;
 //import MqttConst;
 //import me.iot.das.mqtt.processor.MqttProtocolProcessor;
-//import MQTTDecoder;
-//import MQTTEncoder;
+//import MqttDecoder;
+//import MqttEncoder;
 //import io.netty.buffer.ByteBuf;
 //import io.netty.channel.ChannelHandlerContext;
 //import io.netty.channel.ChannelInitializer;
@@ -80,8 +80,8 @@
 //                            .addLast("bytebuf2wsEncoder", new ByteBufToWebSocketFrameEncoder())
 //                            .addFirst(MqttConst.IDLE_STATE_HANDLER_NAME, idleStateHandler)
 //                            .addLast("loggingHandler", new LoggingHandler(LogLevel.DEBUG))
-//                            .addLast("decoder", new MQTTDecoder())
-//                            .addLast("encoder", new MQTTEncoder())
+//                            .addLast("decoder", new MqttDecoder())
+//                            .addLast("encoder", new MqttEncoder())
 //                            .addLast("handler", new MqttChannelHandler(messagingService));
 //                }
 //            };

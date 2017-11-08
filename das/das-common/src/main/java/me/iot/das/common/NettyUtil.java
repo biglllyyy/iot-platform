@@ -11,6 +11,20 @@ import io.netty.util.AttributeKey;
 
 import java.net.InetSocketAddress;
 
+/**
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
+ */
 public class NettyUtil {
     public static final AttributeKey<String> ATTR_CLIENTID = AttributeKey.valueOf("clientId");
     public static final AttributeKey<String> ATTR_DEVICE_TYPE = AttributeKey.valueOf("deviceType");

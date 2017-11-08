@@ -9,7 +9,18 @@ import org.springframework.data.redis.connection.MessageListener;
 import java.nio.charset.Charset;
 
 /**
- * Created by sylar on 2017/2/8.
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 public abstract class AbstractMessageListener implements MessageListener {
     private final static Charset CHARSET = Charsets.UTF_8;

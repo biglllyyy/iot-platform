@@ -23,11 +23,22 @@ import java.util.List;
 import java.util.concurrent.*;
 
 /**
- * Created by sylar on 2017/2/8.
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 @Component
-public class SubscribePublishService implements ISubscribePublishService {
-    private static final Logger LOG = LoggerFactory.getLogger(SubscribePublishService.class);
+public class SubscribePublishServiceImpl implements ISubscribePublishService {
+    private static final Logger LOG = LoggerFactory.getLogger(SubscribePublishServiceImpl.class);
 
     @Autowired
     StringRedisTemplate stringRedisTemplate;

@@ -21,6 +21,6 @@ package me.iot.das.mqtt.protocol.message;
 public class PubRelMessage extends MessageIDMessage {
 
     public PubRelMessage() {
-        m_messageType = PUBREL;
+        mMessageType = PUBREL;
     }
 }

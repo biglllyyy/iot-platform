@@ -5,9 +5,20 @@ import com.google.common.cache.CacheBuilder;
 import io.netty.channel.Channel;
 import org.springframework.stereotype.Component;
 
+
 /**
- * key : clientId
- * clientId = deviceType + deviceId
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :  key : clientId   clientId = deviceType + deviceId
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 @Component
 public class ChannelCache {

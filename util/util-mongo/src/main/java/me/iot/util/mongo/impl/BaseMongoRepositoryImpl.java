@@ -13,9 +13,19 @@ import org.springframework.data.mongodb.repository.support.SimpleMongoRepository
 
 import java.io.Serializable;
 import java.util.List;
-
 /**
- * Created by sylar on 2017/2/28.
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 public class BaseMongoRepositoryImpl<T, ID extends Serializable> extends SimpleMongoRepository<T, ID> implements BaseMongoRepository<T, ID> {
     protected final MongoOperations mongoTemplate;

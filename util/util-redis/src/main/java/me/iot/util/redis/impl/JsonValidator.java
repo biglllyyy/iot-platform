@@ -4,7 +4,20 @@ import com.google.common.base.Strings;
 
 import java.text.CharacterIterator;
 import java.text.StringCharacterIterator;
-
+/**
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
+ */
 /**
  * 用于校验一个字符串是否是合法的JSON格式
  */

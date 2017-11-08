@@ -7,9 +7,9 @@ import me.iot.util.gps.common.BasicPosition;
 /**
  * 高德偏转
  *
- * @author dejunx
+ * @author sylar
  */
-public class AMapGpsCorrecter extends AbstractGpsCorrecter {
+public class AmapGpsCorrecter extends AbstractGpsCorrecter {
     final static double PI = 3.14159265358979324;
     final static double A = 6378245.0;
     final static double EE = 0.00669342162296594323;

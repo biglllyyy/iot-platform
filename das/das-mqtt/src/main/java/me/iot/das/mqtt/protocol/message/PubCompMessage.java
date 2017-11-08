@@ -21,7 +21,7 @@ package me.iot.das.mqtt.protocol.message;
 public class PubCompMessage extends MessageIDMessage {
 
     public PubCompMessage() {
-        m_messageType = PUBCOMP;
+        mMessageType = PUBCOMP;
     }
 }
 

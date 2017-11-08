@@ -11,17 +11,17 @@ import io.netty.handler.logging.LoggingHandler;
 import io.netty.util.internal.StringUtil;
 
 /**
- * File Name             :  ExLoggingHandler
- * Author                :  luhao
- * Create Date           :  2017/7/28
- * Description           :
- * Reviewed By           :
- * Reviewed On           :
- * Version History       :
- * Modified By           :
- * Modified Date         :
- * Comments              :
- * CopyRight             : COPYRIGHT(c) www.envcloud.com.cn (环境云) All Rights Reserved
+ * @FileName             :  ExLoggingHandler
+ * @Author                :  luhao
+ * @CreateDate           :  2017/7/28
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 @ChannelHandler.Sharable

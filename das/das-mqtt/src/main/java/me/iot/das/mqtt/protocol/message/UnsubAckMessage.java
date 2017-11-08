@@ -21,7 +21,7 @@ package me.iot.das.mqtt.protocol.message;
 public class UnsubAckMessage extends MessageIDMessage {
 
     public UnsubAckMessage() {
-        m_messageType = UNSUBACK;
+        mMessageType = UNSUBACK;
     }
 }
 

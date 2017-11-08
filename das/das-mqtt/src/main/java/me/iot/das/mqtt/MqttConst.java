@@ -1,5 +1,19 @@
 package me.iot.das.mqtt;
 
+/**
+ * @FileName             :  MqttConst
+ * @@Author               :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @@CopyRight            : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
+ */
 public class MqttConst {
 
     public static final int MAX_LENGTH_LIMIT = 1024 * 1024 * 255;

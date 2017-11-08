@@ -4,7 +4,18 @@ import me.iot.common.msg.MsgType;
 import me.iot.common.usual.CacheKeys;
 
 /**
- * Created by sylar on 16/5/25.
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 public class DasCacheKeys extends CacheKeys {
     protected final static String NODE = "node";
@@ -23,7 +34,7 @@ public class DasCacheKeys extends CacheKeys {
         return getDasKey(String.valueOf(nodeId), msgType.toString());
     }
 
-    public static String getCcsKeyForByClientIdAnsMsgType(String ClientId, MsgType msgType) {
-        return getDasKey(CLIENT, ClientId, msgType.toString());
+    public static String getCcsKeyForByClientIdAnsMsgType(String clientId, MsgType msgType) {
+        return getDasKey(CLIENT, clientId, msgType.toString());
     }
 }

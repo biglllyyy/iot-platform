@@ -6,11 +6,34 @@ import me.iot.common.msg.IMsg;
 import java.util.List;
 
 /**
- * Created by sylar on 16/5/29.
+ * @FileName             :  IMqttMsgResolver
+ * @@Author               :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @@CopyRight            : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 public interface IMqttMsgResolver {
 
+    /**
+     * 将ByteBuffer转换成IMsg
+     *
+     * @param wrap ByteBuffer数据
+     * @return IMsg列表
+     */
     List<IMsg> wrapToMsg(MqttPacketWrap wrap);
 
+    /**
+     * 将IMsg转换成 ByteBuffer
+     *
+     * @param msg IMsg信息
+     * @return ByteBuffer封装信息
+     */
     MqttPacketWrap msgToWrap(IMsg msg);
 }

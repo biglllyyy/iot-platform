@@ -12,10 +12,21 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 
 /**
- * Created by sylar on 16/6/2.
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 @Service
-public class DasStatusService implements IDmsMsgProcessor<DasConnectionMsg>, IDasStatusService {
+public class DasStatusServiceImpl implements IDmsMsgProcessor<DasConnectionMsg>, IDasStatusService {
 
     @Autowired
     DmsConfig dmsConfig;

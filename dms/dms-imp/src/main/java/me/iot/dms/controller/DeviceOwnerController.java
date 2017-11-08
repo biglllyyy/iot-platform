@@ -15,17 +15,17 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * File Name             :  DeviceOwnerController
- * Author                :  luhao
- * Create Date           :  2016/6/29
- * Description           :
- * Reviewed By           :
- * Reviewed On           :
- * Version History       :
- * Modified By           :
- * Modified Date         :
- * Comments              :
- * CopyRight             : COPYRIGHT(c) www.XXXXX.com   All Rights Reserved
+ * @FileName             :  DeviceOwnerController
+ * @Author                :  luhao
+ * @CreateDate           :  2016/6/29
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) www.XXXXX.com   All Rights Reserved
  * *******************************************************************************************
  */
 @RestController

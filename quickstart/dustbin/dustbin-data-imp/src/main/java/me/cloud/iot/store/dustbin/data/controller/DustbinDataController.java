@@ -14,6 +14,21 @@ import org.springframework.web.bind.annotation.RestController;
  * 垃圾桶数据服务对外Controller
  * Created by LiShijun on 2016/9/22.
  */
+
+/**
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
+ */
 @RestController
 @RequestMapping("/device/data/dustbin")
 public class DustbinDataController {

@@ -3,17 +3,17 @@ package me.iot.util.mq;
 import java.util.Properties;
 
 /**
- * File Name             :  IClient
- * Author                :  sylar
- * Create Date           :  2017/11/7
- * Description           :
- * Reviewed By           :
- * Reviewed On           :
- * Version History       :
- * Modified By           :
- * Modified Date         :
- * Comments              :
- * CopyRight             : COPYRIGHT(c) me.iot.com   All Rights Reserved
+ * @FileName             :  IClient
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/7
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com   All Rights Reserved
  * *******************************************************************************************
  */
 public interface IClient {

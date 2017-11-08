@@ -7,8 +7,12 @@ import me.iot.common.pojo.DeviceGuid;
 
 import java.util.List;
 
+
 /**
- * 1)	单播，unicast，用于节点之间的消息交互
+ * @FileName             :  TopicUtil
+ * @@Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :  1)	单播，unicast，用于节点之间的消息交互
  * /u/{TargetType}/{TargetID}{Message Payload}
  * <p>
  * 2)	广播，broadcast，主要用于状态的上报
@@ -18,6 +22,14 @@ import java.util.List;
  * TargetType：目标设备类型，TargetID：目标设备编码
  * SourceType：源设备类型，SourceID：源设备编码
  * Message Payload：指的是下文提到的消息数据
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @@CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 public class TopicUtil {
     public final static String TOPIC_SEPARATOR = "/";

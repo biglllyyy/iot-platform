@@ -23,6 +23,6 @@ package me.iot.das.mqtt.protocol.message;
 public class PingRespMessage extends ZeroLengthMessage {
 
     public PingRespMessage() {
-        m_messageType = PINGRESP;
+        mMessageType = PINGRESP;
     }
 }

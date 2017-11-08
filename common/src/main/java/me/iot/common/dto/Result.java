@@ -3,7 +3,20 @@ package me.iot.common.dto;
 import com.alibaba.fastjson.JSON;
 
 import java.io.Serializable;
-
+/**
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
+ */
 public class Result<T> implements Serializable {
 
     public final static int SUCCESS = 0;

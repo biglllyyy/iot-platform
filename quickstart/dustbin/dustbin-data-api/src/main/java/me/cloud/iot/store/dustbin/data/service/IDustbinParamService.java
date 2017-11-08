@@ -3,7 +3,18 @@ package me.cloud.iot.store.dustbin.data.service;
 import me.iot.store.dustbin.data.dto.DustbinParamDto;
 
 /**
- * Created by vortex on 2016/9/22.
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 public interface IDustbinParamService {
 

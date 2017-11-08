@@ -15,16 +15,27 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by sylar on 16/6/2.
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 @Service
-public class DeviceStatusService implements IDmsMsgProcessor<DeviceConnectionMsg>, IDeviceStatusService {
+public class DeviceStatusServiceImpl implements IDmsMsgProcessor<DeviceConnectionMsg>, IDeviceStatusService {
 
     @Autowired
     DmsConfig dmsConfig;
 
     @Autowired
-    DasStatusService dasStatusService;
+    DasStatusServiceImpl dasStatusServiceImpl;
 
     ICentralCacheService ccs;
 
@@ -41,7 +52,7 @@ public class DeviceStatusService implements IDmsMsgProcessor<DeviceConnectionMsg
         DeviceStatus pojo = new DeviceStatus(deviceId, msg.getDasNodeId(), msg.getTerminalIp(), msg.isConnected());
         ccs.putObject(ccsKey, pojo);
 
-        dasStatusService.updateDeviceConnection(msg.getDasNodeId(), deviceId, msg.isConnected());
+        dasStatusServiceImpl.updateDeviceConnection(msg.getDasNodeId(), deviceId, msg.isConnected());
     }
 
     @Override

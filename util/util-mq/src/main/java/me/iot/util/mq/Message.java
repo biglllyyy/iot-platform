@@ -3,6 +3,20 @@ package me.iot.util.mq;
 import com.alibaba.rocketmq.shade.com.alibaba.fastjson.JSON;
 import com.google.common.base.Preconditions;
 
+/**
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
+ */
 public class Message {
 
     public static <POJO> Message buildMessage(String topic, POJO pojo) {

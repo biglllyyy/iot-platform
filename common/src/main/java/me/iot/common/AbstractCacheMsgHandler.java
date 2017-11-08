@@ -18,6 +18,20 @@ import java.util.concurrent.TimeUnit;
  * 缓存消息处理器:从缓存队列中取出消息并处理
  */
 
+/**
+ * @FileName :  MqttConst
+ * @Author :  sylar
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
+ */
 @Deprecated
 public abstract class AbstractCacheMsgHandler<T extends IMsg> implements EventHandler<ValueEvent> {
 

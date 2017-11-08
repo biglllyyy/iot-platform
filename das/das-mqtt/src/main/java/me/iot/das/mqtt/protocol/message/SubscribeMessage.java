@@ -23,38 +23,38 @@ import java.util.List;
  */
 public class SubscribeMessage extends MessageIDMessage {
 
-    private List<Couple> m_subscriptions = new ArrayList<Couple>();
+    private List<Couple> mSubscriptions = new ArrayList<Couple>();
 
     public SubscribeMessage() {
         //Subscribe has always QoS 1
-        m_messageType = SUBSCRIBE;
-        m_qos = AbstractMessage.QOSType.LEAST_ONE;
+        mMessageType = SUBSCRIBE;
+        mQos = AbstractMessage.QOSType.LEAST_ONE;
     }
 
     public List<Couple> subscriptions() {
-        return m_subscriptions;
+        return mSubscriptions;
     }
 
     public void addSubscription(Couple subscription) {
-        m_subscriptions.add(subscription);
+        mSubscriptions.add(subscription);
     }
 
     public static class Couple {
 
-        private byte m_qos;
-        private String m_topicFilter;
+        private byte mQos;
+        private String mTopicfilter;
 
         public Couple(byte qos, String topic) {
-            m_qos = qos;
-            m_topicFilter = topic;
+            mQos = qos;
+            mTopicfilter = topic;
         }
 
         public byte getQos() {
-            return m_qos;
+            return mQos;
         }
 
         public String getTopicFilter() {
-            return m_topicFilter;
+            return mTopicfilter;
         }
     }
 }

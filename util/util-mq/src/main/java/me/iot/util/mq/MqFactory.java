@@ -5,15 +5,29 @@ import me.iot.util.mq.kafka.KafkaProcuder;
 import me.iot.util.mq.rocketmq.RocketmqConsumer;
 import me.iot.util.mq.rocketmq.RocketmqProcuder;
 
-public class MQFactory implements IFactory {
+/**
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
+ */
+public class MqFactory implements IFactory {
 
-    private static MQFactory factory = new MQFactory();
+    private static MqFactory factory = new MqFactory();
 
-    synchronized public static MQFactory getInstance() {
+    synchronized public static MqFactory getInstance() {
         return factory;
     }
 
-    private MQFactory() {
+    private MqFactory() {
     }
 
     @Override

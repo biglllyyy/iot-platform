@@ -1,7 +1,17 @@
 package me.cloud.iot.store.toilet.common.dic;
-
 /**
- * Created by sylar on 16/6/6.
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 public class FactorNode {
     private final static int AREA_PUBLIC = 1;

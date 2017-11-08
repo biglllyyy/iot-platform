@@ -15,52 +15,63 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 /**
- * Created by sylar on 16/5/25.
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 
 @Component("dms")
-public class DeviceManageService implements IDmsMsgProcessor<IMsg>, IDeviceManageService {
+public class DeviceManageServiceImpl implements IDmsMsgProcessor<IMsg>, IDeviceManageService {
 
-    private static final Logger LOG = LoggerFactory.getLogger(DeviceManageService.class);
-
-    @Autowired
-    MsgLogService msgLogService;
+    private static final Logger LOG = LoggerFactory.getLogger(DeviceManageServiceImpl.class);
 
     @Autowired
-    DasConnectionLogService dasConnectionLogService;
+    MsgLogServiceImpl msgLogServiceImpl;
 
     @Autowired
-    DasStatusService dasStatusService;
+    DasConnectionLogServiceImpl dasConnectionLogServiceImpl;
 
     @Autowired
-    DeviceAlarmService deviceAlarmService;
+    DasStatusServiceImpl dasStatusServiceImpl;
 
     @Autowired
-    DeviceConnectionLogService deviceConnectionLogService;
+    DeviceAlarmServiceImpl deviceAlarmServiceImpl;
+
+    @Autowired
+    DeviceConnectionLogServiceImpl deviceConnectionLogServiceImpl;
 
     @Autowired
     DeviceDataService deviceDataService;
 
     @Autowired
-    DeviceEventService deviceEventService;
+    DeviceEventServiceImpl deviceEventServiceImpl;
 
     @Autowired
-    DeviceInfoService deviceInfoService;
+    DeviceInfoServiceImpl deviceInfoServiceImpl;
 
     @Autowired
-    DeviceLogService deviceLogService;
+    DeviceLogServiceImpl deviceLogServiceImpl;
 
     @Autowired
-    DeviceMessageService deviceMessageService;
+    DeviceMessageServiceImpl deviceMessageServiceImpl;
 
     @Autowired
-    DeviceOtaService deviceOtaService;
+    DeviceOtaServiceImpl deviceOtaServiceImpl;
 
     @Autowired
-    DeviceStatusService deviceStatusService;
+    DeviceStatusServiceImpl deviceStatusServiceImpl;
 
     @Autowired
-    DeviceTokenService deviceTokenService;
+    DeviceTokenServiceImpl deviceTokenServiceImpl;
 
     @Autowired
     IDeviceOwnerService deviceOwnerService;
@@ -72,31 +83,31 @@ public class DeviceManageService implements IDmsMsgProcessor<IMsg>, IDeviceManag
     @Override
     public void processMsg(IMsg msg) {
         LOG.info("DMS process msg\n{}", msg);
-        msgLogService.processMsg(msg);
+        msgLogServiceImpl.processMsg(msg);
 
         switch (msg.getMsgType()) {
             case Undefine:
                 break;
             case DasConnection:
-                dasConnectionLogService.processMsg((DasConnectionMsg) msg);
+                dasConnectionLogServiceImpl.processMsg((DasConnectionMsg) msg);
                 break;
             case DeviceConnection:
-                deviceConnectionLogService.processMsg((DeviceConnectionMsg) msg);
+                deviceConnectionLogServiceImpl.processMsg((DeviceConnectionMsg) msg);
                 break;
             case DeviceAlarm:
-                deviceAlarmService.processMsg((DeviceAlarmMsg) msg);
+                deviceAlarmServiceImpl.processMsg((DeviceAlarmMsg) msg);
                 break;
             case DeviceData:
                 deviceDataService.processMsg((DeviceDataMsg) msg);
                 break;
             case DeviceEvent:
-                deviceEventService.processMsg((DeviceEventMsg) msg);
+                deviceEventServiceImpl.processMsg((DeviceEventMsg) msg);
                 break;
             case DeviceInfo:
-                deviceInfoService.processMsg((DeviceInfoMsg) msg);
+                deviceInfoServiceImpl.processMsg((DeviceInfoMsg) msg);
                 break;
             case DeviceLog:
-                deviceLogService.processMsg((DeviceLogMsg) msg);
+                deviceLogServiceImpl.processMsg((DeviceLogMsg) msg);
                 break;
             case DeviceOta:
                 //DeviceOtaMsg 是下发的,不用处理
@@ -105,7 +116,7 @@ public class DeviceManageService implements IDmsMsgProcessor<IMsg>, IDeviceManag
                 break;
         }
 
-        deviceMessageService.processMsg(msg);
+        deviceMessageServiceImpl.processMsg(msg);
     }
 
     @Override
@@ -115,117 +126,117 @@ public class DeviceManageService implements IDmsMsgProcessor<IMsg>, IDeviceManag
 
     @Override
     public DasStatus getDasStatus(String nodeId) {
-        return dasStatusService.getDasStatus(nodeId);
+        return dasStatusServiceImpl.getDasStatus(nodeId);
     }
 
     @Override
     public long countOfDeviceAlarm(long beginTime, long endTime) {
-        return deviceAlarmService.countOfDeviceAlarm(beginTime, endTime);
+        return deviceAlarmServiceImpl.countOfDeviceAlarm(beginTime, endTime);
     }
 
     @Override
     public long countOfDeviceAlarmByDeviceType(String deviceType, long beginTime, long endTime) {
-        return deviceAlarmService.countOfDeviceAlarmByDeviceType(deviceType, beginTime, endTime);
+        return deviceAlarmServiceImpl.countOfDeviceAlarmByDeviceType(deviceType, beginTime, endTime);
     }
 
     @Override
     public long countOfDeviceAlarmByDeviceId(String deviceId, long beginTime, long endTime) {
-        return deviceAlarmService.countOfDeviceAlarmByDeviceId(deviceId, beginTime, endTime);
+        return deviceAlarmServiceImpl.countOfDeviceAlarmByDeviceId(deviceId, beginTime, endTime);
     }
 
     @Override
     public QueryResult<DeviceAlarm> getDeviceAlarmsByDeviceId(String deviceId, List<String> alarmCodes, long beginTime, long endTime, int pageIndex, int pageSize) {
-        return deviceAlarmService.getDeviceAlarmsByDeviceId(deviceId, alarmCodes, beginTime, endTime, pageIndex, pageSize);
+        return deviceAlarmServiceImpl.getDeviceAlarmsByDeviceId(deviceId, alarmCodes, beginTime, endTime, pageIndex, pageSize);
     }
 
     @Override
     public QueryResult<DeviceConnectionLog> getDeviceConnectionLogsByDeviceId(String deviceId, long beginTime, long endTime, int pageIndex, int pageSize) {
-        return deviceConnectionLogService.getDeviceConnectionLogsByDeviceId(deviceId, beginTime, endTime, pageIndex, pageSize);
+        return deviceConnectionLogServiceImpl.getDeviceConnectionLogsByDeviceId(deviceId, beginTime, endTime, pageIndex, pageSize);
     }
 
     @Override
     public long countOfDeviceEvent(long beginTime, long endTime) {
-        return deviceEventService.countOfDeviceEvent(beginTime, endTime);
+        return deviceEventServiceImpl.countOfDeviceEvent(beginTime, endTime);
     }
 
     @Override
     public long countOfDeviceEventByDeviceType(String deviceType, long beginTime, long endTime) {
-        return deviceEventService.countOfDeviceEventByDeviceType(deviceType, beginTime, endTime);
+        return deviceEventServiceImpl.countOfDeviceEventByDeviceType(deviceType, beginTime, endTime);
     }
 
     @Override
     public long countOfDeviceEventByDeviceId(String deviceId, long beginTime, long endTime) {
-        return deviceEventService.countOfDeviceEventByDeviceId(deviceId, beginTime, endTime);
+        return deviceEventServiceImpl.countOfDeviceEventByDeviceId(deviceId, beginTime, endTime);
     }
 
     @Override
     public QueryResult<DeviceEvent> getDeviceEventsByDeviceId(String deviceId, List<String> eventCodes, long beginTime, long endTime, int pageIndex, int pageSize) {
-        return deviceEventService.getDeviceEventsByDeviceId(deviceId, eventCodes, beginTime, endTime, pageIndex, pageSize);
+        return deviceEventServiceImpl.getDeviceEventsByDeviceId(deviceId, eventCodes, beginTime, endTime, pageIndex, pageSize);
     }
 
     @Override
     public long countOfDeviceInfo() {
-        return deviceInfoService.countOfDeviceInfo();
+        return deviceInfoServiceImpl.countOfDeviceInfo();
     }
 
     @Override
     public long countOfDeviceInfoByDeviceType(String deviceType) {
-        return deviceInfoService.countOfDeviceInfoByDeviceType(deviceType);
+        return deviceInfoServiceImpl.countOfDeviceInfoByDeviceType(deviceType);
     }
 
     @Override
     public long countOfDeviceInfoByDeviceTypeAndVersionCode(String deviceType, int versionCode) {
-        return deviceInfoService.countOfDeviceInfoByDeviceTypeAndVersionCode(deviceType, versionCode);
+        return deviceInfoServiceImpl.countOfDeviceInfoByDeviceTypeAndVersionCode(deviceType, versionCode);
     }
 
     @Override
     public DeviceInfo getDeviceInfoById(long id) {
-        return deviceInfoService.getDeviceInfoById(id);
+        return deviceInfoServiceImpl.getDeviceInfoById(id);
     }
 
     @Override
     public DeviceInfo getDeviceInfoByDeviceId(String deviceId) {
-        return deviceInfoService.getDeviceInfoByDeviceId(deviceId);
+        return deviceInfoServiceImpl.getDeviceInfoByDeviceId(deviceId);
     }
 
     @Override
     public DeviceInfo getDeviceInfoByMac(String mac) {
-        return deviceInfoService.getDeviceInfoByMac(mac);
+        return deviceInfoServiceImpl.getDeviceInfoByMac(mac);
     }
 
     @Override
     public QueryResult<DeviceInfo> getDeviceInfosByDeviceType(String deviceType, int pageIndex, int pageSize) {
-        return deviceInfoService.getDeviceInfosByDeviceType(deviceType, pageIndex, pageSize);
+        return deviceInfoServiceImpl.getDeviceInfosByDeviceType(deviceType, pageIndex, pageSize);
     }
 
     @Override
     public QueryResult<DeviceInfo> getDeviceInfosByDeviceTypeAndVersion(String deviceType, int versionCode, int pageIndex, int pageSize) {
-        return deviceInfoService.getDeviceInfosByDeviceTypeAndVersion(deviceType, versionCode, pageIndex, pageSize);
+        return deviceInfoServiceImpl.getDeviceInfosByDeviceTypeAndVersion(deviceType, versionCode, pageIndex, pageSize);
     }
 
     @Override
     public QueryResult<DeviceLog> getDeviceLogsByTime(String deviceId, String logType, long beginTime, long endTime, int pageIndex, int pageSize) {
-        return deviceLogService.getDeviceLogsByTime(deviceId, logType, beginTime, endTime, pageIndex, pageSize);
+        return deviceLogServiceImpl.getDeviceLogsByTime(deviceId, logType, beginTime, endTime, pageIndex, pageSize);
     }
 
     @Override
     public QueryResult<DeviceLog> getDeviceLogsByTime(String deviceId, String deviceType, String logType, long beginTime, long endTime, int pageIndex, int pageSize) {
-        return deviceLogService.getDeviceLogsByTime(deviceId, deviceType, logType, beginTime, endTime, pageIndex, pageSize);
+        return deviceLogServiceImpl.getDeviceLogsByTime(deviceId, deviceType, logType, beginTime, endTime, pageIndex, pageSize);
     }
 
     @Override
     public void sendMsg(IMsg msg) {
-        deviceMessageService.sendMsg(msg);
+        deviceMessageServiceImpl.sendMsg(msg);
     }
 
     @Override
     public QueryResult<DeviceOtaFile> getDeviceOtaFilesByDeviceType(String deviceType, int pageIndex, int pageSize) {
-        return deviceOtaService.getDeviceOtaFilesByDeviceType(deviceType, pageIndex, pageSize);
+        return deviceOtaServiceImpl.getDeviceOtaFilesByDeviceType(deviceType, pageIndex, pageSize);
     }
 
     @Override
     public void uploadOtaFile(String otaFullName, String deviceType, int versionCode, String versionName, String description, String content) {
-        deviceOtaService.uploadOtaFile(otaFullName, deviceType, versionCode, versionName, description, content);
+        deviceOtaServiceImpl.uploadOtaFile(otaFullName, deviceType, versionCode, versionName, description, content);
     }
 
     /**
@@ -241,42 +252,42 @@ public class DeviceManageService implements IDmsMsgProcessor<IMsg>, IDeviceManag
      */
     @Override
     public QueryResult<?> findUpDocument(String deviceType, boolean connected, String deviceCode, int beginVersion, int endVersion, int pageIndex, int pageSize) {
-        return deviceOtaService.findUpDocument(deviceType, connected, deviceCode, beginVersion, endVersion, pageIndex, pageSize);
+        return deviceOtaServiceImpl.findUpDocument(deviceType, connected, deviceCode, beginVersion, endVersion, pageIndex, pageSize);
     }
 
     @Override
     public DeviceStatus getDeviceStatus(String deviceId) {
-        return deviceStatusService.getDeviceStatus(deviceId);
+        return deviceStatusServiceImpl.getDeviceStatus(deviceId);
     }
 
     @Override
     public List<DeviceStatus> getDeviceStatusBatch(String[] deviceIds) {
-        return deviceStatusService.getDeviceStatusBatch(deviceIds);
+        return deviceStatusServiceImpl.getDeviceStatusBatch(deviceIds);
     }
 
     @Override
     public long countOfDeviceToken() {
-        return deviceTokenService.countOfDeviceToken();
+        return deviceTokenServiceImpl.countOfDeviceToken();
     }
 
     @Override
     public String generateDeviceId(String deviceType, String token) {
-        return deviceTokenService.generateDeviceId(deviceType, token);
+        return deviceTokenServiceImpl.generateDeviceId(deviceType, token);
     }
 
     @Override
     public DeviceToken getDeviceTokenByDeviceId(String deviceId) {
-        return deviceTokenService.getDeviceTokenByDeviceId(deviceId);
+        return deviceTokenServiceImpl.getDeviceTokenByDeviceId(deviceId);
     }
 
     @Override
     public DeviceToken getDeviceTokenByToken(String token) {
-        return deviceTokenService.getDeviceTokenByToken(token);
+        return deviceTokenServiceImpl.getDeviceTokenByToken(token);
     }
 
     @Override
     public QueryResult<DeviceToken> getDeviceTokensByDeviceType(String deviceType, int pageIndex, int pageSize) {
-        return deviceTokenService.getDeviceTokensByDeviceType(deviceType, pageIndex, pageSize);
+        return deviceTokenServiceImpl.getDeviceTokensByDeviceType(deviceType, pageIndex, pageSize);
     }
 
     @Override
@@ -301,7 +312,7 @@ public class DeviceManageService implements IDmsMsgProcessor<IMsg>, IDeviceManag
 
     @Override
     public QueryResult<DeviceInfo> getDeviceInfoByOwnerId(String ownerId, int pageIndex, int pageSize) {
-        return deviceInfoService.getDeviceInfoByOwnerId(ownerId, pageIndex, pageSize);
+        return deviceInfoServiceImpl.getDeviceInfoByOwnerId(ownerId, pageIndex, pageSize);
     }
 
     @Override
@@ -311,7 +322,7 @@ public class DeviceManageService implements IDmsMsgProcessor<IMsg>, IDeviceManag
 
     @Override
     public QueryResult<DeviceInfo> findDeviceByParams(String[] ownerIds, String deviceType, boolean state, int pageIndex, int pageSize) {
-        return deviceInfoService.findDeviceByParams(ownerIds, deviceType, state, pageIndex, pageSize);
+        return deviceInfoServiceImpl.findDeviceByParams(ownerIds, deviceType, state, pageIndex, pageSize);
     }
 
     @Override
@@ -321,7 +332,7 @@ public class DeviceManageService implements IDmsMsgProcessor<IMsg>, IDeviceManag
 
     @Override
     public QueryResult<MsgLog> getMsgLogs(String deviceType, String deviceId, String msgType, long beginTime, long endTime, int pageIndex, int pageSize) {
-        return msgLogService.getMsgLogs(deviceType, deviceId, msgType, beginTime, endTime, pageIndex, pageSize);
+        return msgLogServiceImpl.getMsgLogs(deviceType, deviceId, msgType, beginTime, endTime, pageIndex, pageSize);
     }
 
     @Override

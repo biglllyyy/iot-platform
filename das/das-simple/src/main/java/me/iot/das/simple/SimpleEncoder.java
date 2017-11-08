@@ -11,6 +11,20 @@ import org.springframework.stereotype.Component;
 import java.nio.ByteBuffer;
 import java.util.List;
 
+/**
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
+ */
 @Component
 @ChannelHandler.Sharable
 public class SimpleEncoder extends MessageToMessageEncoder<IMsg> {

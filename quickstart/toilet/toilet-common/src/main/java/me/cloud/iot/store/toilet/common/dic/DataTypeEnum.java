@@ -3,7 +3,18 @@ package me.cloud.iot.store.toilet.common.dic;
 import java.io.Serializable;
 
 /**
- * Created by sylar on 16/6/5.
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 public enum DataTypeEnum implements Serializable {
 

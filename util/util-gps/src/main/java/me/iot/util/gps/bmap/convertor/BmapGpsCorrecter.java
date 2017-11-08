@@ -4,20 +4,20 @@ import me.iot.util.gps.AbstractGpsCorrecter;
 import me.iot.util.gps.common.BasicPosition;
 
 /**
- * File Name             :  BMapGpsCorrecter
- * Author                :  luhao
- * Create Date           :  2016/8/25
- * Description           :
- * Reviewed By           :
- * Reviewed On           :
- * Version History       :
- * Modified By           :
- * Modified Date         :
- * Comments              :
- * CopyRight             : COPYRIGHT(c) www.XXXXX.com   All Rights Reserved
+ * @FileName             :  BmapGpsCorrecter
+ * @Author                :  luhao
+ * @CreateDate           :  2016/8/25
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) www.XXXXX.com   All Rights Reserved
  * *******************************************************************************************
  */
-public class BMapGpsCorrecter extends AbstractGpsCorrecter {
+public class BmapGpsCorrecter extends AbstractGpsCorrecter {
     private String bmapGeoconvUrl;
 
     /**

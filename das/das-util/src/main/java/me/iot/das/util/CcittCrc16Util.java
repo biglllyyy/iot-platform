@@ -1,7 +1,18 @@
 package me.iot.das.util;
 
 /**
- * Created by sylar on 16/7/31.
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 public class CcittCrc16Util {
 
@@ -43,11 +54,11 @@ public class CcittCrc16Util {
 
     public static short calcCrc16(byte[] data) {
         // 初始化
-        int cRc_16 = 0x0000;
+        int crc16 = 0x0000;
         for (int i = 0; i < data.length; i++) {
-            cRc_16 = (cRc_16 << 8) ^ CRC_CCITT_TABLE[((cRc_16 >> 8) ^ data[i]) & 0xff];
+            crc16 = (crc16 << 8) ^ CRC_CCITT_TABLE[((crc16 >> 8) ^ data[i]) & 0xff];
         }
-        return (short) cRc_16;
+        return (short) crc16;
 
     }
 }

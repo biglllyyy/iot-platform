@@ -29,9 +29,19 @@ import org.springframework.stereotype.Component;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.List;
-
 /**
- * Created by sylar on 16/5/27.
+ * @FileName             :  DeviceMsgToMqttMsgEncoder
+ * @@Author               :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @@CopyRight            : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 @Component
 @ChannelHandler.Sharable

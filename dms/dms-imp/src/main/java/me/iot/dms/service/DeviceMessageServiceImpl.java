@@ -17,12 +17,23 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 
 /**
- * Created by sylar on 16/6/2.
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 @Service
-public class DeviceMessageService implements IDmsMsgProcessor<IMsg>, IDeviceMessageService {
+public class DeviceMessageServiceImpl implements IDmsMsgProcessor<IMsg>, IDeviceMessageService {
 
-    private static final Logger LOG = LoggerFactory.getLogger(DeviceMessageService.class);
+    private static final Logger LOG = LoggerFactory.getLogger(DeviceMessageServiceImpl.class);
 
     @Autowired
     DmsConfig dmsConfig;

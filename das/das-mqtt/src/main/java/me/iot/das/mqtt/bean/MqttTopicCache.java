@@ -12,6 +12,20 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * @FileName             :  MqttTopicCache
+ * @@Author               :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @@CopyRight            : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
+ */
 @Component
 public class MqttTopicCache {
     private Cache<String, ConcurrentSet<String>> clientTopicCache = CacheBuilder.newBuilder().maximumSize(1000000L).build();

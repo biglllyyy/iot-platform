@@ -17,15 +17,26 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 /**
- * Created by sylar on 16/5/25.
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 @Service
-public class DeviceConnectionLogService implements IDmsMsgProcessor<DeviceConnectionMsg>, IDeviceConnectionLogService {
+public class DeviceConnectionLogServiceImpl implements IDmsMsgProcessor<DeviceConnectionMsg>, IDeviceConnectionLogService {
     @Autowired
     DeviceConnectionLogDao dao;
 
     @Autowired
-    DeviceStatusService deviceStatusService;
+    DeviceStatusServiceImpl deviceStatusServiceImpl;
 
     @Override
     public void processMsg(DeviceConnectionMsg msg) {
@@ -37,7 +48,7 @@ public class DeviceConnectionLogService implements IDmsMsgProcessor<DeviceConnec
         log.setConnected(msg.isConnected());
 
         dao.saveAndFlush(log);
-        deviceStatusService.processMsg(msg);
+        deviceStatusServiceImpl.processMsg(msg);
     }
 
     @Override

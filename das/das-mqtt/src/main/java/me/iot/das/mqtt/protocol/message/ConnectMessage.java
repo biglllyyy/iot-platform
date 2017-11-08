@@ -21,150 +21,150 @@ package me.iot.das.mqtt.protocol.message;
  * @author andrea
  */
 public class ConnectMessage extends AbstractMessage {
-    String m_protocolName;
-    byte m_procotolVersion;
+    String mProtocolName;
+    byte mProtocolVersion;
 
     /**
      * Connection flags
      */
-    boolean m_cleanSession;
-    boolean m_willFlag;
-    byte m_willQos;
-    boolean m_willRetain;
-    boolean m_passwordFlag;
-    boolean m_userFlag;
-    int m_keepAlive;
+    boolean mCleanSession;
+    boolean mWillFlag;
+    byte mWillQos;
+    boolean mWillRetain;
+    boolean mPasswordFlag;
+    boolean mUserFlag;
+    int mKeepAlive;
 
     /**
      * Variable part
      */
-    String m_username;
-    String m_password;
-    String m_clientID;
-    String m_willtopic;
-    String m_willMessage;
+    String mUsername;
+    String mPassword;
+    String mClientID;
+    String mWilltopic;
+    String mWillMessage;
 
     public ConnectMessage() {
-        m_messageType = CONNECT;
+        mMessageType = CONNECT;
     }
 
     public boolean isCleanSession() {
-        return m_cleanSession;
+        return mCleanSession;
     }
 
     public void setCleanSession(boolean cleanSession) {
-        this.m_cleanSession = cleanSession;
+        this.mCleanSession = cleanSession;
     }
 
     public int getKeepAlive() {
-        return m_keepAlive;
+        return mKeepAlive;
     }
 
     public void setKeepAlive(int keepAlive) {
-        this.m_keepAlive = keepAlive;
+        this.mKeepAlive = keepAlive;
     }
 
     public boolean isPasswordFlag() {
-        return m_passwordFlag;
+        return mPasswordFlag;
     }
 
     public void setPasswordFlag(boolean passwordFlag) {
-        this.m_passwordFlag = passwordFlag;
+        this.mPasswordFlag = passwordFlag;
     }
 
     public byte getProcotolVersion() {
-        return m_procotolVersion;
+        return mProtocolVersion;
     }
 
     public void setProcotolVersion(byte procotolVersion) {
-        this.m_procotolVersion = procotolVersion;
+        this.mProtocolVersion = procotolVersion;
     }
 
     public String getProtocolName() {
-        return m_protocolName;
+        return mProtocolName;
     }
 
     public void setProtocolName(String protocolName) {
-        this.m_protocolName = protocolName;
+        this.mProtocolName = protocolName;
     }
 
     public boolean isUserFlag() {
-        return m_userFlag;
+        return mUserFlag;
     }
 
     public void setUserFlag(boolean userFlag) {
-        this.m_userFlag = userFlag;
+        this.mUserFlag = userFlag;
     }
 
     public boolean isWillFlag() {
-        return m_willFlag;
+        return mWillFlag;
     }
 
     public void setWillFlag(boolean willFlag) {
-        this.m_willFlag = willFlag;
+        this.mWillFlag = willFlag;
     }
 
     public byte getWillQos() {
-        return m_willQos;
+        return mWillQos;
     }
 
     public void setWillQos(byte willQos) {
-        this.m_willQos = willQos;
+        this.mWillQos = willQos;
     }
 
     public boolean isWillRetain() {
-        return m_willRetain;
+        return mWillRetain;
     }
 
     public void setWillRetain(boolean willRetain) {
-        this.m_willRetain = willRetain;
+        this.mWillRetain = willRetain;
     }
 
     public String getPassword() {
-        return m_password;
+        return mPassword;
     }
 
     public void setPassword(String password) {
-        this.m_password = password;
+        this.mPassword = password;
     }
 
     public String getUsername() {
-        return m_username;
+        return mUsername;
     }
 
     public void setUsername(String username) {
-        this.m_username = username;
+        this.mUsername = username;
     }
 
     public String getClientID() {
-        return m_clientID;
+        return mClientID;
     }
 
     public void setClientID(String clientID) {
-        this.m_clientID = clientID;
+        this.mClientID = clientID;
     }
 
     public String getWillTopic() {
-        return m_willtopic;
+        return mWilltopic;
     }
 
     public void setWillTopic(String topic) {
-        this.m_willtopic = topic;
+        this.mWilltopic = topic;
     }
 
     public String getWillMessage() {
-        return m_willMessage;
+        return mWillMessage;
     }
 
     public void setWillMessage(String willMessage) {
-        this.m_willMessage = willMessage;
+        this.mWillMessage = willMessage;
     }
 
     @Override
     public String toString() {
-        String base = String.format("Connect [clientID: %s, prot: %s, ver: %02X, clean: %b]", m_clientID, m_protocolName, m_procotolVersion, m_cleanSession);
-        if (m_willFlag) {
-            base += String.format(" Will [QoS: %d, retain: %b]", m_willQos, m_willRetain);
+        String base = String.format("Connect [clientID: %s, prot: %s, ver: %02X, clean: %b]", mClientID, mProtocolName, mProtocolVersion, mCleanSession);
+        if (mWillFlag) {
+            base += String.format(" Will [QoS: %d, retain: %b]", mWillQos, mWillRetain);
         }
         return base;
     }

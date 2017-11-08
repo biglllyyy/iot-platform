@@ -1,6 +1,6 @@
 package me.cloud.iot.store.dustbin.data.config;
 
-import me.iot.dms.DMS;
+import me.iot.dms.Dms;
 import me.iot.dms.IDeviceManageService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
@@ -8,7 +8,18 @@ import org.springframework.context.annotation.Configuration;
 import javax.annotation.PostConstruct;
 
 /**
- * Created by LiShijun on 16/9/22.
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 @Configuration
 public class DustbinConfig {
@@ -20,7 +31,7 @@ public class DustbinConfig {
 
     @PostConstruct
     public void init() {
-        dms = DMS.getService(zkConnectString);
+        dms = Dms.getService(zkConnectString);
     }
 
     public String getZkConnectString() {

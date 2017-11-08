@@ -23,10 +23,21 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by sylar on 16/5/26.
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 @Service
-public class DeviceOtaService implements IDeviceOtaService {
+public class DeviceOtaServiceImpl implements IDeviceOtaService {
 
     @Autowired
     DeviceOtaFileDao dao;
@@ -50,7 +61,8 @@ public class DeviceOtaService implements IDeviceOtaService {
         //解码文件内容并获取文件决定路径
         byte[] bytes = BaseEncoding.base64().decode(content);
         //StorageItem storageItem = new StorageItem(bytes);
-        String filePath = null; //dmsConfig.getFss().upload(storageItem);
+        //dmsConfig.getFss().upload(storageItem);
+        String filePath = null;
 
         //保存上传文件信息
         DeviceOtaFile deviceOtaFile = new DeviceOtaFile();

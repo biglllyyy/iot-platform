@@ -17,13 +17,24 @@ import org.springframework.stereotype.Component;
 import java.util.Calendar;
 
 /**
- * Created by sylar on 16/5/30.
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 @Component
 public class MsgProcessor implements InboundMsgProcessor {
 
-    int RC_SUCCESS = 0;
-    int RC_FAILED = 1;
+    private static final int RC_SUCCESS = 0;
+    private static final int RC_FAILED = 1;
 
     @Autowired
     ApplicationContext ctx;

@@ -19,17 +19,27 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.List;
-
 /**
- * Created by sylar on 16/5/25.
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 @Service
-public class DasConnectionLogService implements IDmsMsgProcessor<DasConnectionMsg>, IDasConnectionLogService {
+public class DasConnectionLogServiceImpl implements IDmsMsgProcessor<DasConnectionMsg>, IDasConnectionLogService {
     @Autowired
     DasConnectionLogDao dao;
 
     @Autowired
-    DasStatusService dasStatusService;
+    DasStatusServiceImpl dasStatusServiceImpl;
 
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -41,7 +51,7 @@ public class DasConnectionLogService implements IDmsMsgProcessor<DasConnectionMs
         log.setConnected(msg.isConnected());
         dao.saveAndFlush(log);
 
-        dasStatusService.processMsg(msg);
+        dasStatusServiceImpl.processMsg(msg);
     }
 
     @Override

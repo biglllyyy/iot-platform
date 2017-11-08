@@ -11,13 +11,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
- * Created by sylar on 16/5/31.
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 @Component
 public class CacheMsgHandler extends AbstractCacheMsgHandler {
 
     @Autowired
-    DeviceManageService deviceManageService;
+    DeviceManageServiceImpl deviceManageServiceImpl;
     @Autowired
     private DmsConfig dmsConfig;
 
@@ -52,7 +63,7 @@ public class CacheMsgHandler extends AbstractCacheMsgHandler {
             return;
         }
 
-        deviceManageService.processMsg(msg);
+        deviceManageServiceImpl.processMsg(msg);
     }
 
 }

@@ -8,7 +8,18 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 
 /**
- * Created by sylar on 16/4/8.
+ * @FileName             :  MqttConst
+ * @Author                :  sylar
+ * @CreateDate           :  2017/11/08
+ * @Description           :
+ * @ReviewedBy           :
+ * @ReviewedOn           :
+ * @VersionHistory       :
+ * @ModifiedBy           :
+ * @ModifiedDate         :
+ * @Comments              :
+ * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 public class SensorInfo {
     private static final Logger LOG = LoggerFactory.getLogger(SensorInfo.class);
