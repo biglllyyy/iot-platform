@@ -24,7 +24,9 @@ package me.iot.das.mqtt.protocol.message;
  * @author andrea
  */
 public class MessageIDMessage extends AbstractMessage {
-    /**could be null if Qos is == 0*/
+    /**
+     * could be null if Qos is == 0
+     */
     private Integer mMessageID;
 
     public Integer getMessageID() {

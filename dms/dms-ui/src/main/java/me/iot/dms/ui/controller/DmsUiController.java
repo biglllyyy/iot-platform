@@ -1,9 +1,9 @@
 package me.iot.dms.ui.controller;
 
-import me.iot.dms.dto.BindLocationParamsDto;
-import me.iot.dms.ui.service.IDmsFeignClient;
 import me.iot.common.dto.QueryResult;
 import me.iot.common.dto.Result;
+import me.iot.dms.dto.BindLocationParamsDto;
+import me.iot.dms.ui.service.IDmsFeignClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,17 +11,17 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  MqttConst
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 @RestController
@@ -31,7 +31,8 @@ public class DmsUiController {
     IDmsFeignClient client;
 
     @RequestMapping(value = "/getDasConnectionLogsByNodeId", method = RequestMethod.GET)
-    public Result<?> getDasConnectionLogsByNodeId(String nodeId, long beginTime, long endTime, int pageIndex, int pageSize) {
+    public Result<?> getDasConnectionLogsByNodeId(String nodeId, long beginTime, long endTime, int pageIndex, int
+            pageSize) {
         return client.getDasConnectionLogsByNodeId(nodeId, beginTime, endTime, pageIndex, pageSize);
     }
 
@@ -62,7 +63,8 @@ public class DmsUiController {
     }
 
     @RequestMapping(value = "/getDeviceConnectionLogsByDeviceId", method = RequestMethod.GET)
-    public Result<?> getDeviceConnectionLogsByDeviceId(String deviceId, long beginTime, long endTime, int pageIndex, int pageSize) {
+    public Result<?> getDeviceConnectionLogsByDeviceId(String deviceId, long beginTime, long endTime, int pageIndex,
+                                                       int pageSize) {
         return client.getDeviceConnectionLogsByDeviceId(deviceId, beginTime, endTime, pageIndex, pageSize);
     }
 
@@ -82,7 +84,8 @@ public class DmsUiController {
     }
 
     @RequestMapping(value = "/getDeviceEventsByDeviceId", method = RequestMethod.GET)
-    public Result<?> getDeviceEventsByDeviceId(String deviceId, List<String> eventCodes, long beginTime, long endTime, int pageIndex, int pageSize) {
+    public Result<?> getDeviceEventsByDeviceId(String deviceId, List<String> eventCodes, long beginTime, long
+            endTime, int pageIndex, int pageSize) {
         return client.getDeviceEventsByDeviceId(deviceId, eventCodes, beginTime, endTime, pageIndex, pageSize);
     }
 
@@ -122,7 +125,8 @@ public class DmsUiController {
     }
 
     @RequestMapping(value = "/getDeviceInfosByDeviceTypeAndVersion", method = RequestMethod.GET)
-    public Result<?> getDeviceInfosByDeviceTypeAndVersion(String deviceType, int versionCode, int pageIndex, int pageSize) {
+    public Result<?> getDeviceInfosByDeviceTypeAndVersion(String deviceType, int versionCode, int pageIndex, int
+            pageSize) {
         return client.getDeviceInfosByDeviceTypeAndVersion(deviceType, versionCode, pageIndex, pageSize);
     }
 

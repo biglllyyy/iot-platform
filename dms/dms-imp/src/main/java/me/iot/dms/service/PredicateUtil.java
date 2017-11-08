@@ -10,17 +10,17 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  MqttConst
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 public class PredicateUtil {
@@ -60,7 +60,8 @@ public class PredicateUtil {
     }
 
 
-    public static <T> Predicate newPredicateByDeviceType(Root<T> root, CriteriaBuilder criteriaBuilder, String deviceType) {
+    public static <T> Predicate newPredicateByDeviceType(Root<T> root, CriteriaBuilder criteriaBuilder, String
+            deviceType) {
         return criteriaBuilder.equal(root.get("deviceType").as(String.class), deviceType);
     }
 
@@ -68,7 +69,8 @@ public class PredicateUtil {
         return criteriaBuilder.equal(root.get("deviceId").as(String.class), deviceId);
     }
 
-    public static <T> Predicate newPredicateByCreateTime(Root<T> root, CriteriaBuilder criteriaBuilder, long beginTime, long endTime) {
+    public static <T> Predicate newPredicateByCreateTime(Root<T> root, CriteriaBuilder criteriaBuilder, long
+            beginTime, long endTime) {
         List<Predicate> predicateList = Lists.newArrayList();
         if (beginTime > 0 && endTime > 0 && endTime > beginTime) {
             predicateList.add(criteriaBuilder.greaterThanOrEqualTo(root.get("createTime").as(Long.class), beginTime));

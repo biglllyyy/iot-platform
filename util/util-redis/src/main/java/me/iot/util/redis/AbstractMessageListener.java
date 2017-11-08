@@ -9,23 +9,27 @@ import org.springframework.data.redis.connection.MessageListener;
 import java.nio.charset.Charset;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  AbstractMessageListener
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 public abstract class AbstractMessageListener implements MessageListener {
     private final static Charset CHARSET = Charsets.UTF_8;
     private final Logger LOG = LoggerFactory.getLogger(this.getClass());
 
+    /**
+     * @param topic
+     * @param jsonMsg
+     */
     protected abstract void handleMessage(String topic, String jsonMsg);
 
     @Override

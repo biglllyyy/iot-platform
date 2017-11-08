@@ -5,21 +5,19 @@ import com.google.common.base.Charsets;
 import me.iot.util.mq.AbstractProcuder;
 import me.iot.util.mq.Message;
 
-import java.util.Properties;
-
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  MqttConst
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 public class RocketmqProcuder extends AbstractProcuder {
@@ -42,7 +40,8 @@ public class RocketmqProcuder extends AbstractProcuder {
     @Override
     public void send(Message message) throws Exception {
         super.send(message);
-        producer.send(new com.alibaba.rocketmq.common.message.Message(message.getTopic(), message.getContent().getBytes(Charsets.UTF_8)));
+        producer.send(new com.alibaba.rocketmq.common.message.Message(message.getTopic(), message.getContent()
+                .getBytes(Charsets.UTF_8)));
     }
 
     @Override

@@ -14,8 +14,8 @@ import org.springframework.context.annotation.Configuration;
 import javax.annotation.PostConstruct;
 
 /**
+ * @author :  sylar
  * @FileName :  DmsConfig
- * @Author :  sylar
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :

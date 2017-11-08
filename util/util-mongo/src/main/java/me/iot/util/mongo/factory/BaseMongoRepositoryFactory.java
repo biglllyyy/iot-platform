@@ -33,7 +33,8 @@
 //        if (isQueryDslRepository(repositoryInterface)) {
 //            return new QueryDslMongoRepository(entityInformation, mongoOperations);
 //        } else {
-//            return new BaseMongoRepositoryImpl<S, ID>((MongoEntityInformation<S, ID>) entityInformation, this.mongoOperations);
+//            return new BaseMongoRepositoryImpl<S, ID>((MongoEntityInformation<S, ID>) entityInformation, this
+// .mongoOperations);
 //        }
 //    }
 //
@@ -43,7 +44,8 @@
 //
 //    @Override
 //    protected Class<?> getRepositoryBaseClass(RepositoryMetadata metadata) {
-//        return isQueryDslRepository(metadata.getRepositoryInterface()) ? QueryDslMongoRepository.class : BaseMongoRepositoryImpl.class;
+//        return isQueryDslRepository(metadata.getRepositoryInterface()) ? QueryDslMongoRepository.class :
+// BaseMongoRepositoryImpl.class;
 //    }
 //
 //}

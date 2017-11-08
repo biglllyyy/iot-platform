@@ -1,11 +1,11 @@
 package me.iot.das.mqtt.protocol.codec;
 
-import me.iot.das.mqtt.protocol.message.AbstractMessage;
-import me.iot.das.mqtt.protocol.message.PublishMessage;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.handler.codec.CorruptedFrameException;
 import io.netty.util.AttributeMap;
+import me.iot.das.mqtt.protocol.message.AbstractMessage;
+import me.iot.das.mqtt.protocol.message.PublishMessage;
 
 import java.util.List;
 
@@ -30,7 +30,8 @@ class PublishDecoderAbstract extends AbstractDemuxDecoder {
             }
 
             if (message.getQos() == AbstractMessage.QOSType.RESERVED) {
-                throw new CorruptedFrameException("Received a PUBLISH with QoS flags setted 10 b11, MQTT 3.1.1 violation");
+                throw new CorruptedFrameException("Received a PUBLISH with QoS flags setted 10 b11, MQTT 3.1.1 " +
+                        "violation");
             }
         }
 
@@ -43,7 +44,8 @@ class PublishDecoderAbstract extends AbstractDemuxDecoder {
             return;
         }
         if (topic.contains("+") || topic.contains("#")) {
-            throw new CorruptedFrameException("Received a PUBLISH with topic containting wild card chars, topic: " + topic);
+            throw new CorruptedFrameException("Received a PUBLISH with topic containting wild card chars, topic: " +
+                    topic);
         }
 
         message.setTopicName(topic);
@@ -55,7 +57,8 @@ class PublishDecoderAbstract extends AbstractDemuxDecoder {
         int stopPos = in.readerIndex();
 
         //read the payload
-        int payloadSize = remainingLength - (stopPos - startPos - 2) + (CodecUtil.numBytesToEncode(remainingLength) - 1);
+        int payloadSize = remainingLength - (stopPos - startPos - 2) + (CodecUtil.numBytesToEncode(remainingLength) -
+                1);
         if (in.readableBytes() < payloadSize) {
             in.resetReaderIndex();
             return;

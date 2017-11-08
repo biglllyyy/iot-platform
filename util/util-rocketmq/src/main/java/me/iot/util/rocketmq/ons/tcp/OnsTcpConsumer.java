@@ -59,7 +59,8 @@ public class OnsTcpConsumer extends AbsConsumer implements IConsumer {
                     listener.onSuccess(Lists.newArrayList(msg));
                     return Action.CommitMessage;
                 } catch (Exception e) {
-                    String err = String.format("处理消息发生异常. msgId:%s\ncontent:%s\n%s", message.getMsgID(), content, e.getMessage());
+                    String err = String.format("处理消息发生异常. msgId:%s\ncontent:%s\n%s", message.getMsgID(), content, e
+                            .getMessage());
                     System.out.println(err);
                     e.printStackTrace();
 

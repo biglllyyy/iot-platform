@@ -13,17 +13,17 @@ import java.util.Queue;
 import java.util.concurrent.LinkedBlockingDeque;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  MqttConst
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 @Component
@@ -118,7 +118,8 @@ public class SubscriptionsStore {
             } else if (s.equals(Token.MULTI.getName())) {
                 //check that multi is the last symbol
                 if (i != splitted.length - 1) {
-                    throw new ParseException("Bad format of topic, the multi symbol (#) has to be the last one after a separator", i);
+                    throw new ParseException("Bad format of topic, the multi symbol (#) has to be the last one after " +
+                            "a separator", i);
                 }
                 res.add(Token.MULTI);
             } else if (s.equals(Token.SINGLE.getName())) {

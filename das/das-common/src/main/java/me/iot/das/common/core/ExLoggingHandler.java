@@ -1,6 +1,5 @@
 package me.iot.das.common.core;
 
-import me.iot.das.common.NettyUtil;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufHolder;
 import io.netty.buffer.ByteBufUtil;
@@ -9,19 +8,20 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import io.netty.util.internal.StringUtil;
+import me.iot.das.common.NettyUtil;
 
 /**
- * @FileName             :  ExLoggingHandler
- * @Author                :  luhao
- * @CreateDate           :  2017/7/28
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  luhao
+ * @FileName :  ExLoggingHandler
+ * @CreateDate :  2017/7/28
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 @ChannelHandler.Sharable

@@ -10,17 +10,17 @@ import javax.persistence.EntityManager;
 import java.io.Serializable;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  MqttConst
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 public class BaseRepositoryFactory extends JpaRepositoryFactory {
@@ -30,7 +30,9 @@ public class BaseRepositoryFactory extends JpaRepositoryFactory {
     }
 
     @Override
-    protected <T, ID extends Serializable> SimpleJpaRepository<?, ?> getTargetRepository(RepositoryInformation information, EntityManager entityManager) {
+    protected <T, ID extends Serializable> SimpleJpaRepository<?, ?> getTargetRepository(RepositoryInformation
+                                                                                                     information,
+                                                                                         EntityManager entityManager) {
         return new BaseRepositoryImpl<T, ID>((Class<T>) information.getDomainType(), entityManager);
     }
 

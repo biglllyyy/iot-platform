@@ -2,11 +2,11 @@ package me.iot.dms.service;
 
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
+import me.iot.common.dto.QueryResult;
 import me.iot.common.msg.DasConnectionMsg;
 import me.iot.dms.IDasConnectionLogService;
 import me.iot.dms.dao.DasConnectionLogDao;
 import me.iot.dms.entity.DasConnectionLog;
-import me.iot.common.dto.QueryResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -19,18 +19,19 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.List;
+
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  MqttConst
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 @Service
@@ -55,10 +56,12 @@ public class DasConnectionLogServiceImpl implements IDmsMsgProcessor<DasConnecti
     }
 
     @Override
-    public QueryResult<DasConnectionLog> getDasConnectionLogsByNodeId(String nodeId, long beginTime, long endTime, int pageIndex, int pageSize) {
+    public QueryResult<DasConnectionLog> getDasConnectionLogsByNodeId(String nodeId, long beginTime, long endTime,
+                                                                      int pageIndex, int pageSize) {
         Page<DasConnectionLog> page = dao.findAll(new Specification<DasConnectionLog>() {
             @Override
-            public Predicate toPredicate(Root<DasConnectionLog> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+            public Predicate toPredicate(Root<DasConnectionLog> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder
+                    criteriaBuilder) {
                 List<Predicate> predicateList = Lists.newArrayList();
                 if (!Strings.isNullOrEmpty(nodeId)) {
                     predicateList.add(criteriaBuilder.equal(root.get("nodeId").as(String.class), nodeId));

@@ -3,17 +3,17 @@ package me.iot.dms;
 import java.util.List;
 
 /**
- * @FileName             :  IDeviceOwnerService
- * @Author                :  luhao
- * @CreateDate           :  2016/6/28
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) www.XXXXX.com   All Rights Reserved
+ * @author :  luhao
+ * @FileName :  IDeviceOwnerService
+ * @CreateDate :  2016/6/28
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) www.XXXXX.com   All Rights Reserved
  * *******************************************************************************************
  */
 public interface IDeviceOwnerService {

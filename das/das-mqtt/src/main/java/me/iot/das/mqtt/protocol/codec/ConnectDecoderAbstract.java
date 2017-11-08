@@ -1,30 +1,30 @@
 package me.iot.das.mqtt.protocol.codec;
 
 
-import me.iot.das.mqtt.MqttConst;
-import me.iot.das.mqtt.protocol.message.AbstractMessage;
-import me.iot.das.mqtt.protocol.message.ConnectMessage;
 import io.netty.buffer.ByteBuf;
 import io.netty.handler.codec.CorruptedFrameException;
 import io.netty.util.Attribute;
 import io.netty.util.AttributeKey;
 import io.netty.util.AttributeMap;
+import me.iot.das.mqtt.MqttConst;
+import me.iot.das.mqtt.protocol.message.AbstractMessage;
+import me.iot.das.mqtt.protocol.message.ConnectMessage;
 
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  MqttConst
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 public class ConnectDecoderAbstract extends AbstractDemuxDecoder {
@@ -130,7 +130,8 @@ public class ConnectDecoderAbstract extends AbstractDemuxDecoder {
         //a password is true iff user is true.
         if (!userFlag && passwordFlag) {
             in.resetReaderIndex();
-            throw new CorruptedFrameException("Expected password flag to true if the user flag is true but was: " + passwordFlag);
+            throw new CorruptedFrameException("Expected password flag to true if the user flag is true but was: " +
+                    passwordFlag);
         }
         message.setCleanSession(cleanSession);
         message.setWillFlag(willFlag);

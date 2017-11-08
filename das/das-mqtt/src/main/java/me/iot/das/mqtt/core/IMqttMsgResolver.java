@@ -1,22 +1,22 @@
 package me.iot.das.mqtt.core;
 
-import me.iot.das.mqtt.pojo.MqttPacketWrap;
 import me.iot.common.msg.IMsg;
+import me.iot.das.mqtt.pojo.MqttPacketWrap;
 
 import java.util.List;
 
 /**
- * @FileName             :  IMqttMsgResolver
- * @@Author               :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @@CopyRight            : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  IMqttMsgResolver
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @@CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 public interface IMqttMsgResolver {

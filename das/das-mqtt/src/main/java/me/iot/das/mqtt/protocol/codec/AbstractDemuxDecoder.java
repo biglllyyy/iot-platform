@@ -1,13 +1,21 @@
 package me.iot.das.mqtt.protocol.codec;
 
-import me.iot.das.mqtt.protocol.message.AbstractMessage;
 import io.netty.buffer.ByteBuf;
 import io.netty.handler.codec.CorruptedFrameException;
 import io.netty.util.AttributeMap;
+import me.iot.das.mqtt.protocol.message.AbstractMessage;
 
 import java.util.List;
 
 abstract class AbstractDemuxDecoder {
+    /**
+     * 解码
+     *
+     * @param ctx AttributeMap
+     * @param in  ByteBuf
+     * @param out List<Object>
+     * @throws Exception
+     */
     abstract void decode(AttributeMap ctx, ByteBuf in, List<Object> out) throws Exception;
 
     /**
@@ -41,7 +49,8 @@ abstract class AbstractDemuxDecoder {
             if ((byte) expectedFlags != flags) {
                 String hexExpected = Integer.toHexString(expectedFlags);
                 String hexReceived = Integer.toHexString(flags);
-                throw new CorruptedFrameException(String.format("Received a message with fixed header flags (%s) != expected (%s)", hexReceived, hexExpected));
+                throw new CorruptedFrameException(String.format("Received a message with fixed header flags (%s) != " +
+                        "expected (%s)", hexReceived, hexExpected));
             }
         }
 

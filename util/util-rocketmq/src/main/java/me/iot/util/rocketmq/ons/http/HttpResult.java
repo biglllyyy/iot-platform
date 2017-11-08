@@ -1,7 +1,6 @@
 package me.iot.util.rocketmq.ons.http;
 
 
-
 import com.alibaba.fastjson.JSON;
 
 import java.io.Serializable;

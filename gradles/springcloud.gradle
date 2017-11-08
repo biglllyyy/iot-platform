@@ -1,4 +1,4 @@
-apply from: gradlesPath+ "springboot-web.gradle"
+apply from: gradlesPath + "springboot-web.gradle"
 
 dependencyManagement {
     imports {

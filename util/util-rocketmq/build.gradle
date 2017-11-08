@@ -1,4 +1,4 @@
-ext{
+ext {
     rocketmqVersion = "3.6.2.Final"
 }
 

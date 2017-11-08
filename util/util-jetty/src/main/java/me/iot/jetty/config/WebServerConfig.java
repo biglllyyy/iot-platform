@@ -9,17 +9,17 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @FileName             :  WebServerConfig
- * @Author                :  luhao
- * @CreateDate           :  2017/7/6
- * @Description           :  jetty http请求post默认不支持压缩，需要修改默认配置
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) www.envcloud.com.cn (环境云) All Rights Reserved
+ * @author :  luhao
+ * @FileName :  WebServerConfig
+ * @CreateDate :  2017/7/6
+ * @Description :  jetty http请求post默认不支持压缩，需要修改默认配置
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) www.envcloud.com.cn (环境云) All Rights Reserved
  * *******************************************************************************************
  */
 @Configuration

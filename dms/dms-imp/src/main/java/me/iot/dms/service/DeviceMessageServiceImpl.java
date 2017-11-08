@@ -1,14 +1,14 @@
 package me.iot.dms.service;
 
 import com.google.common.base.Strings;
-import me.iot.dms.DmsConfig;
-import me.iot.util.redis.ISubscribePublishService;
 import me.iot.common.msg.DasConnectionMsg;
 import me.iot.common.msg.IMsg;
 import me.iot.common.pojo.CacheMsgWrap;
+import me.iot.dms.DmsConfig;
 import me.iot.dms.DmsTopics;
 import me.iot.dms.IDeviceMessageService;
 import me.iot.dms.bean.MsgSender;
+import me.iot.util.redis.ISubscribePublishService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,17 +17,17 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  MqttConst
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 @Service

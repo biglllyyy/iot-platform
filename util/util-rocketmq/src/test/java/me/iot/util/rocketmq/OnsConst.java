@@ -50,7 +50,8 @@ public class OnsConst {
         this.region = region;
     }
 
-    public OnsConst(String account, String region, String accessKey, String secretKey, String topic, String producerId, String consumerId) {
+    public OnsConst(String account, String region, String accessKey, String secretKey, String topic, String
+            producerId, String consumerId) {
         this.account = account;
         this.region = region;
         this.accessKey = accessKey;

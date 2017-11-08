@@ -25,7 +25,6 @@ dependencies {
     compile fileTree(dir: "libs", include: ["*.jar"])
 }
 
-
 //  V2.1.0 未正式发布前， 防止开发人员误操作， 执行发布。  by  sylar
 //上传到maven私服
 //uploadArchives {

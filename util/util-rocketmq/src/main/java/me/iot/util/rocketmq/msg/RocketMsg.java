@@ -39,7 +39,8 @@ public class RocketMsg {
     }
 
     public com.aliyun.openservices.shade.com.alibaba.rocketmq.common.message.Message getOwnMessage() {
-        return new com.aliyun.openservices.shade.com.alibaba.rocketmq.common.message.Message(topic, tags, keys, content.getBytes());
+        return new com.aliyun.openservices.shade.com.alibaba.rocketmq.common.message.Message(topic, tags, keys,
+                content.getBytes());
     }
 
     /**

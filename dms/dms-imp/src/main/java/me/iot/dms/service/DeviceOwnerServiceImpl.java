@@ -12,17 +12,17 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * @FileName             :  DeviceOwnerService
- * @Author                :  luhao
- * @CreateDate           :  2016/6/28
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) www.XXXXX.com   All Rights Reserved
+ * @author :  luhao
+ * @FileName :  DeviceOwnerService
+ * @CreateDate :  2016/6/28
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) www.XXXXX.com   All Rights Reserved
  * *******************************************************************************************
  */
 @Service

@@ -13,21 +13,23 @@ import org.springframework.data.mongodb.repository.support.SimpleMongoRepository
 
 import java.io.Serializable;
 import java.util.List;
+
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  MqttConst
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
-public class BaseMongoRepositoryImpl<T, ID extends Serializable> extends SimpleMongoRepository<T, ID> implements BaseMongoRepository<T, ID> {
+public class BaseMongoRepositoryImpl<T, ID extends Serializable> extends SimpleMongoRepository<T, ID> implements
+        BaseMongoRepository<T, ID> {
     protected final MongoOperations mongoTemplate;
 
     protected final MongoEntityInformation<T, ID> entityInformation;
@@ -74,7 +76,7 @@ public class BaseMongoRepositoryImpl<T, ID extends Serializable> extends SimpleM
 
     @Override
     public T findOne(Query query) {
-        query= query.limit(1);
+        query = query.limit(1);
         List<T> list = mongoTemplate.find(query, getEntityClass());
         if (list != null && list.size() > 0) {
             return list.get(0);

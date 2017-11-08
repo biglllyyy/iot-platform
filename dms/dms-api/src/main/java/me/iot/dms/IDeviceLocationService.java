@@ -3,17 +3,17 @@ package me.iot.dms;
 import me.iot.dms.dto.DeviceLocationDto;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  MqttConst
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 public interface IDeviceLocationService {
@@ -29,7 +29,8 @@ public interface IDeviceLocationService {
      * @param locationDesc 位置描述
      * @return 数据库记录编码
      */
-    long bindLocation(String userId, String deviceType, String deviceId, int coorType, double lon, double lat, String locationDesc);
+    long bindLocation(String userId, String deviceType, String deviceId, int coorType, double lon, double lat, String
+            locationDesc);
 
     /**
      * 获取设备位置

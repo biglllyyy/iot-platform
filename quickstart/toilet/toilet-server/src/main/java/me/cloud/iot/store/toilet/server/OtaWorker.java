@@ -1,27 +1,27 @@
 package me.cloud.iot.store.toilet.server;
 
 
-import me.iot.store.toilet.common.protolcol.MsgCodes;
-import me.iot.store.toilet.common.protolcol.MsgParams;
 import me.iot.common.constant.DeviceTypes;
 import me.iot.common.msg.DeviceMsg;
 import me.iot.common.msg.IMsg;
 import me.iot.das.common.ota.AbstractOtaWorker;
 import me.iot.das.common.ota.OtaSendType;
+import me.iot.store.toilet.common.protolcol.MsgCodes;
+import me.iot.store.toilet.common.protolcol.MsgParams;
 import org.springframework.stereotype.Component;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  MqttConst
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 @Component

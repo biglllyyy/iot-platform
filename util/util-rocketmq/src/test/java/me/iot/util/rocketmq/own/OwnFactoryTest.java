@@ -28,9 +28,9 @@ public class OwnFactoryTest {
 
     @Test
     public void createProducer() throws Exception {
-        IProducer producer = factory.createProducer( new IProducerConfig() {
+        IProducer producer = factory.createProducer(new IProducerConfig() {
             @Override
-            public String getProducerId () {
+            public String getProducerId() {
                 return ProducerId;
             }
         });

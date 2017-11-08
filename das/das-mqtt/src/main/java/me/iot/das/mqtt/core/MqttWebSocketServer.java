@@ -75,7 +75,8 @@
 //                    ch.pipeline().addLast("httpEncoder", new HttpResponseEncoder())
 //                            .addLast("httpDecoder", new HttpRequestDecoder())
 //                            .addLast("aggregator", new HttpObjectAggregator(65536))
-//                            .addLast("webSocketHandler", new WebSocketServerProtocolHandler("/mqtt", "mqttv3.1, mqttv3.1.1"))
+//                            .addLast("webSocketHandler", new WebSocketServerProtocolHandler("/mqtt", "mqttv3.1,
+// mqttv3.1.1"))
 //                            .addLast("ws2bytebufDecoder", new WebSocketFrameToByteBufDecoder())
 //                            .addLast("bytebuf2wsEncoder", new ByteBufToWebSocketFrameEncoder())
 //                            .addFirst(MqttConst.IDLE_STATE_HANDLER_NAME, idleStateHandler)
@@ -91,7 +92,8 @@
 //
 //    static class WebSocketFrameToByteBufDecoder extends MessageToMessageDecoder<BinaryWebSocketFrame> {
 //        @Override
-//        protected void decodePublishMessage(ChannelHandlerContext chc, BinaryWebSocketFrame frame, List<Object> out) throws Exception {
+//        protected void decodePublishMessage(ChannelHandlerContext chc, BinaryWebSocketFrame frame, List<Object>
+// out) throws Exception {
 //            //convert the frame to a ByteBuf
 //            ByteBuf bb = frame.content();
 //            bb.retain();

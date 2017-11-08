@@ -1,26 +1,26 @@
 package me.iot.das.mqtt.protocol.codec;
 
-import me.iot.das.mqtt.protocol.message.AbstractMessage;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.CorruptedFrameException;
 import io.netty.handler.codec.MessageToByteEncoder;
+import me.iot.das.mqtt.protocol.message.AbstractMessage;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  MqttConst
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 public class MqttEncoder extends MessageToByteEncoder<AbstractMessage> {
@@ -50,7 +50,8 @@ public class MqttEncoder extends MessageToByteEncoder<AbstractMessage> {
     protected void encode(ChannelHandlerContext chc, AbstractMessage msg, ByteBuf bb) throws Exception {
         AbstractDemuxEncoder encoder = mEncoderMap.get(msg.getMessageType());
         if (encoder == null) {
-            throw new CorruptedFrameException("Can't find any suitable decoder for message type: " + msg.getMessageType());
+            throw new CorruptedFrameException("Can't find any suitable decoder for message type: " + msg
+                    .getMessageType());
         }
         encoder.encode(chc, msg, bb);
     }

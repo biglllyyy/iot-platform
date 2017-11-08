@@ -4,7 +4,7 @@
       "id": "VS001",
       "factors": [
         {
-          "id":"CQ",
+          "id": "CQ",
           "name": "臭气",
           "len": "2",
           "type": "short",
@@ -16,14 +16,14 @@
       "id": "VS002",
       "factors": [
         {
-          "id":"CQ",
+          "id": "CQ",
           "name": "臭气",
           "len": "2",
           "type": "short",
           "desc": "ADC值"
         },
         {
-          "id":"WD",
+          "id": "WD",
           "name": "温度",
           "len": "2",
           "type": "short",
@@ -31,7 +31,7 @@
           "desc": "0.1摄氏度"
         },
         {
-          "id":"SD",
+          "id": "SD",
           "name": "湿度",
           "len": "2",
           "type": "short",
@@ -44,14 +44,14 @@
       "id": "VS003",
       "factors": [
         {
-          "id":"DL",
+          "id": "DL",
           "name": "用电量",
           "len": "4",
           "type": "int",
           "k": 0.01
         },
         {
-          "id":"GDL",
+          "id": "GDL",
           "name": "谷电量",
           "len": "4",
           "type": "int",
@@ -63,7 +63,7 @@
       "id": "VS004",
       "factors": [
         {
-          "id":"SL",
+          "id": "SL",
           "name": "用水量",
           "len": "4",
           "type": "int",
@@ -76,7 +76,7 @@
       "id": "VS005",
       "factors": [
         {
-          "id":"FJ",
+          "id": "FJ",
           "name": "风机状态",
           "len": "1",
           "type": "bool",
@@ -88,7 +88,7 @@
       "id": "VS006",
       "factors": [
         {
-          "id":"CC",
+          "id": "CC",
           "name": "除臭状态",
           "len": "1",
           "type": "bool",

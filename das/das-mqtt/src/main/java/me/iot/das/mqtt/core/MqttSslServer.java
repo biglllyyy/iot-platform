@@ -103,7 +103,8 @@
 //                    SSLContext serverContext = SSLContext.getInstance("TLS");
 //                    final KeyStore ks = KeyStore.getInstance("JKS");
 //                    ks.load(jksInputStream, storePwd.toCharArray());
-//                    final KeyManagerFactory kmf = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
+//                    final KeyManagerFactory kmf = KeyManagerFactory.getInstance(KeyManagerFactory
+// .getDefaultAlgorithm());
 //                    kmf.init(ks, managerPwd.toCharArray());
 //                    serverContext.init(kmf.getKeyManagers(), null, null);
 //

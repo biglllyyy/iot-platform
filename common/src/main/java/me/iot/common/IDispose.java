@@ -8,5 +8,8 @@ import java.io.Serializable;
  * @author sylar
  */
 public interface IDispose extends Serializable {
+    /**
+     *
+     */
     void dispose();
 }

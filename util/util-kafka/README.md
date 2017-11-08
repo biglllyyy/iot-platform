@@ -12,7 +12,7 @@ advertised.port=9092
 security.inter.broker.protocol=SASL_PLAINTEXT
 sasl.mechanism.inter.broker.protocol=PLAIN
 sasl.enabled.mechanisms=PLAIN
-authorizer.class.name = kafka.security.auth.SimpleAcl@Authorizer
+authorizer.class.name = kafka.security.auth.SimpleAcl@authorizer
 super.users=User:admin
 
 二、 broker 启动：

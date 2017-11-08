@@ -7,17 +7,17 @@ import me.iot.util.misc.NetUtils;
 import java.util.Properties;
 
 /**
- * @FileName             :  AbstractClient
- * @Author                :  sylar
- * @CreateDate           :  2017/11/7
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com   All Rights Reserved
+ * @author :  sylar
+ * @FileName :  AbstractClient
+ * @CreateDate :  2017/11/7
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com   All Rights Reserved
  * *******************************************************************************************
  */
 public abstract class AbstractClient implements IClient {

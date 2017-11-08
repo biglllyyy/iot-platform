@@ -23,17 +23,17 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  MqttConst
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 @Service
@@ -74,7 +74,8 @@ public class DeviceInfoServiceImpl implements IDmsMsgProcessor<DeviceInfoMsg>, I
     public long countOfDeviceInfoByDeviceType(String deviceType) {
         return dao.count(new Specification<DeviceInfo>() {
             @Override
-            public Predicate toPredicate(Root<DeviceInfo> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+            public Predicate toPredicate(Root<DeviceInfo> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder
+                    criteriaBuilder) {
                 return PredicateUtil.newPredicateByDeviceType(root, criteriaBuilder, deviceType);
             }
         });
@@ -84,7 +85,8 @@ public class DeviceInfoServiceImpl implements IDmsMsgProcessor<DeviceInfoMsg>, I
     public long countOfDeviceInfoByDeviceTypeAndVersionCode(String deviceType, int versionCode) {
         return dao.count(new Specification<DeviceInfo>() {
             @Override
-            public Predicate toPredicate(Root<DeviceInfo> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+            public Predicate toPredicate(Root<DeviceInfo> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder
+                    criteriaBuilder) {
                 return criteriaBuilder.and(
                         PredicateUtil.newPredicateByDeviceType(root, criteriaBuilder, deviceType),
                         criteriaBuilder.equal(root.get("versionCode").as(Integer.class), versionCode));
@@ -111,7 +113,8 @@ public class DeviceInfoServiceImpl implements IDmsMsgProcessor<DeviceInfoMsg>, I
     public QueryResult<DeviceInfo> getDeviceInfosByDeviceType(String deviceType, int pageIndex, int pageSize) {
         Page<DeviceInfo> page = dao.findAll(new Specification<DeviceInfo>() {
             @Override
-            public Predicate toPredicate(Root<DeviceInfo> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+            public Predicate toPredicate(Root<DeviceInfo> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder
+                    criteriaBuilder) {
                 return PredicateUtil.newPredicateByDeviceType(root, criteriaBuilder, deviceType);
             }
         }, new PageRequest(pageIndex - 1, pageSize));
@@ -119,11 +122,13 @@ public class DeviceInfoServiceImpl implements IDmsMsgProcessor<DeviceInfoMsg>, I
     }
 
     @Override
-    public QueryResult<DeviceInfo> getDeviceInfosByDeviceTypeAndVersion(String deviceType, int versionCode, int pageIndex, int pageSize) {
+    public QueryResult<DeviceInfo> getDeviceInfosByDeviceTypeAndVersion(String deviceType, int versionCode, int
+            pageIndex, int pageSize) {
         Page<DeviceInfo> page = dao.findAll(
                 new Specification<DeviceInfo>() {
                     @Override
-                    public Predicate toPredicate(Root<DeviceInfo> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+                    public Predicate toPredicate(Root<DeviceInfo> root, CriteriaQuery<?> criteriaQuery,
+                                                 CriteriaBuilder criteriaBuilder) {
                         return criteriaBuilder.and(
                                 PredicateUtil.newPredicateByDeviceType(root, criteriaBuilder, deviceType),
                                 criteriaBuilder.equal(root.get("versionCode").as(Integer.class), versionCode));
@@ -168,7 +173,8 @@ public class DeviceInfoServiceImpl implements IDmsMsgProcessor<DeviceInfoMsg>, I
      * @return 设备信息列表
      */
     @Override
-    public QueryResult<DeviceInfo> findDeviceByParams(String[] ownerIds, String deviceType, boolean connected, int pageIndex, int pageSize) {
+    public QueryResult<DeviceInfo> findDeviceByParams(String[] ownerIds, String deviceType, boolean connected, int
+            pageIndex, int pageSize) {
         Page<DeviceInfo> page = dao.findAll((root, query, cb) -> {
             List<Predicate> predicateList = Lists.newArrayList();
             Root<DeviceStatus> ownerRoot = query.from(DeviceStatus.class);

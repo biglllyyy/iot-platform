@@ -3,8 +3,8 @@ package me.iot.util.mq;
 import java.util.List;
 
 /**
+ * @author :  sylar
  * @FileName :  IConsumer
- * @Author :  sylar
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :

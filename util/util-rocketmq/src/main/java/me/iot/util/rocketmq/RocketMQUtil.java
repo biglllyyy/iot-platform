@@ -14,7 +14,8 @@ public class RocketMQUtil {
         return new OnsTcpFactory(accessKey, secretKey, serverEndpoint);
     }
 
-    public static IFactory createOnsMqttFactory(String accessKey, String secretKey, String serverEndpoint, String clientId) {
+    public static IFactory createOnsMqttFactory(String accessKey, String secretKey, String serverEndpoint, String
+            clientId) {
         return new OnsMqttFactory(accessKey, secretKey, serverEndpoint, clientId);
     }
 

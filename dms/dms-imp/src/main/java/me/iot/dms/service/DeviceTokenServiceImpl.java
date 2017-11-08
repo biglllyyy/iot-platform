@@ -1,10 +1,10 @@
 package me.iot.dms.service;
 
+import me.iot.common.dto.QueryResult;
 import me.iot.common.pojo.DeviceGuid;
 import me.iot.dms.IDeviceTokenService;
 import me.iot.dms.dao.DeviceTokenDao;
 import me.iot.dms.entity.DeviceToken;
-import me.iot.common.dto.QueryResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -17,17 +17,17 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  MqttConst
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 @Service
@@ -76,7 +76,8 @@ public class DeviceTokenServiceImpl implements IDeviceTokenService {
     public QueryResult<DeviceToken> getDeviceTokensByDeviceType(String deviceType, int pageIndex, int pageSize) {
         Page<DeviceToken> page = dao.findAll(new Specification<DeviceToken>() {
             @Override
-            public Predicate toPredicate(Root<DeviceToken> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+            public Predicate toPredicate(Root<DeviceToken> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder
+                    criteriaBuilder) {
                 return criteriaBuilder.equal(root.get("deviceType").as(String.class), deviceType);
             }
         }, new PageRequest(pageIndex - 1, pageSize));

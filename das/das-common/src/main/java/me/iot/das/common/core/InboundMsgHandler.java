@@ -7,13 +7,13 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.timeout.IdleState;
 import io.netty.handler.timeout.IdleStateEvent;
+import me.iot.common.msg.DeviceConnectionMsg;
+import me.iot.common.msg.IMsg;
+import me.iot.common.pojo.DeviceGuid;
 import me.iot.das.common.DasConfig;
 import me.iot.das.common.NettyUtil;
 import me.iot.das.common.bean.ChannelCache;
 import me.iot.das.common.event.ChannelMsgEvent;
-import me.iot.common.msg.DeviceConnectionMsg;
-import me.iot.common.msg.IMsg;
-import me.iot.common.pojo.DeviceGuid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,17 +21,17 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  MqttConst
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 @Component
@@ -89,7 +89,8 @@ public class InboundMsgHandler extends SimpleChannelInboundHandler<IMsg> {
      */
 
     private boolean isValidMsg(IMsg msg) {
-        if (msg == null || Strings.isNullOrEmpty(msg.getSourceDeviceId()) || Strings.isNullOrEmpty(msg.getSourceDeviceType())) {
+        if (msg == null || Strings.isNullOrEmpty(msg.getSourceDeviceId()) || Strings.isNullOrEmpty(msg
+                .getSourceDeviceType())) {
             LOG.error("invalid message: {}", msg);
             return false;
         }

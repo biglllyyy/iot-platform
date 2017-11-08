@@ -12,24 +12,25 @@ import java.util.Arrays;
 import java.util.Calendar;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  AbstractFrameCodec
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 public abstract class AbstractFrameCodec {
 
     /**
      * 协议帧结构:
-     * {HEAD 2B | PacketLen 2B | CmdId 1B | DeviceTypeLen 1B | DeviceType N | DeviceIdLen 1B | DeviceId N | RtcTime 7B | Content N | CRC 2B | TAIL 2B}
+     * {HEAD 2B | PacketLen 2B | CmdId 1B | DeviceTypeLen 1B | DeviceType N | DeviceIdLen 1B | DeviceId N | RtcTime
+     * 7B | Content N | CRC 2B | TAIL 2B}
      * <p>
      * 字节序:小端模式
      * 时间戳说明: 请求指令的时间戳使用请求方的时间, 回应指令的时间戳须等于对应的请求指令的时间戳
@@ -48,7 +49,8 @@ public abstract class AbstractFrameCodec {
     final int DevType_LEN_SIZE = 1;
     final int DevId_LEN_SIZE = 1;
     final int TIMESTAMP_SIZE = 7;
-    final int minFrameLen = HEAD_SIZE + PACKET_LEN_SIZE + CMD_SIZE + DevType_LEN_SIZE + 0 + DevId_LEN_SIZE + 0 + TIMESTAMP_SIZE + 0 + CRC_SIZE + TAIL_SIZE;
+    final int minFrameLen = HEAD_SIZE + PACKET_LEN_SIZE + CMD_SIZE + DevType_LEN_SIZE + 0 + DevId_LEN_SIZE + 0 +
+            TIMESTAMP_SIZE + 0 + CRC_SIZE + TAIL_SIZE;
 
     int devTypeLen, devIdLen, contentLen, dataPacketLen, frameLen;
 
@@ -70,7 +72,8 @@ public abstract class AbstractFrameCodec {
         devTypeLen = deviceType.length();
         devIdLen = deviceId.length();
         contentLen = content.length;
-        dataPacketLen = CMD_SIZE + DevType_LEN_SIZE + DevId_LEN_SIZE + devTypeLen + devIdLen + TIMESTAMP_SIZE + contentLen;
+        dataPacketLen = CMD_SIZE + DevType_LEN_SIZE + DevId_LEN_SIZE + devTypeLen + devIdLen + TIMESTAMP_SIZE +
+                contentLen;
         frameLen = HEAD_SIZE + PACKET_LEN_SIZE + dataPacketLen + CRC_SIZE + TAIL_SIZE;
 
         //packet content
@@ -173,7 +176,8 @@ public abstract class AbstractFrameCodec {
         wrap.timestamp = DateUtil.readDate(buf).getTime();
 
         //content
-        contentLen = dataPacketLen - CMD_SIZE - DevType_LEN_SIZE - DevId_LEN_SIZE - devTypeLen - devIdLen - TIMESTAMP_SIZE;
+        contentLen = dataPacketLen - CMD_SIZE - DevType_LEN_SIZE - DevId_LEN_SIZE - devTypeLen - devIdLen -
+                TIMESTAMP_SIZE;
         tmp = new byte[contentLen];
         buf.get(tmp);
         wrap.content = ByteBuffer.allocate(contentLen).order(ORDER);
@@ -183,9 +187,16 @@ public abstract class AbstractFrameCodec {
         return wrap;
     }
 
-
+    /**
+     * @param buf
+     * @param msg
+     */
     abstract protected void onEncodeMsg(ByteBuffer buf, IMsg msg);
 
+    /**
+     * @param wrap
+     * @return
+     */
     abstract protected IMsg onDecodeMsg(MsgWrap wrap);
 
     class MsgWrap {

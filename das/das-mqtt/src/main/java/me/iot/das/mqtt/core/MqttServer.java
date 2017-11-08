@@ -1,24 +1,24 @@
 package me.iot.das.mqtt.core;
 
+import io.netty.channel.ChannelPipeline;
 import me.iot.das.common.NettyConst;
 import me.iot.das.common.core.AbstractTcpServer;
 import me.iot.das.mqtt.protocol.codec.MqttDecoder;
 import me.iot.das.mqtt.protocol.codec.MqttEncoder;
-import io.netty.channel.ChannelPipeline;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * @FileName             :  MqttServer
- * @@Author               :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @@CopyRight            : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @fileName :  MqttServer
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @@CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 public class MqttServer extends AbstractTcpServer {

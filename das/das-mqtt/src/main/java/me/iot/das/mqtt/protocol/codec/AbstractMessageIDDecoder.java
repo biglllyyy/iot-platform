@@ -1,8 +1,8 @@
 package me.iot.das.mqtt.protocol.codec;
 
-import me.iot.das.mqtt.protocol.message.MessageIDMessage;
 import io.netty.buffer.ByteBuf;
 import io.netty.util.AttributeMap;
+import me.iot.das.mqtt.protocol.message.MessageIDMessage;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ abstract class AbstractMessageIDDecoder extends AbstractDemuxDecoder {
     /**
      * 创建消息内容
      *
-     * @return  MessageIDMessage
+     * @return MessageIDMessage
      */
     protected abstract MessageIDMessage createMessage();
 

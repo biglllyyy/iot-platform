@@ -1,11 +1,11 @@
 package me.iot.das.common.ota;
 
 import com.google.common.collect.Maps;
+import me.iot.common.msg.IMsg;
 import me.iot.das.common.bean.MsgSender;
 import me.iot.das.common.event.OtaCompletedEvent;
 import me.iot.das.common.event.OtaEachPacketResponseEvent;
 import me.iot.das.common.event.OtaEvent;
-import me.iot.common.msg.IMsg;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 
@@ -13,17 +13,17 @@ import javax.annotation.PostConstruct;
 import java.util.Map;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  MqttConst
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 public abstract class AbstractOtaWorker implements IOtaWorker,
@@ -35,7 +35,17 @@ public abstract class AbstractOtaWorker implements IOtaWorker,
     MsgSender msgSender;
     private Map<String, OtaTask> mapTask = Maps.newHashMap();
 
-    protected abstract IMsg buildEachPacketMsg(String deviceId, int packetCount, int packetIndex, byte[] eachPacketData);
+    /**
+     * 构建Imsg
+     *
+     * @param deviceId       设备id
+     * @param packetCount    包数量
+     * @param packetIndex    包索引
+     * @param eachPacketData 每个包的内容
+     * @return Imsg
+     */
+    protected abstract IMsg buildEachPacketMsg(String deviceId, int packetCount, int packetIndex, byte[]
+            eachPacketData);
 
     @PostConstruct
     private void init() {

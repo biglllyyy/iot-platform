@@ -29,18 +29,19 @@ import org.springframework.stereotype.Component;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.List;
+
 /**
- * @FileName             :  DeviceMsgToMqttMsgEncoder
- * @@Author               :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @@CopyRight            : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  DeviceMsgToMqttMsgEncoder
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @@CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 @Component
@@ -148,7 +149,8 @@ public class MqttMsgToDeviceMsgDecoder extends MessageToMessageDecoder<AbstractM
         //去除 guid + cmdCode, 共18个字节
         int offset = DeviceGuid.GUID_LENGTH + 1;
         byte[] bytes = payload.array();
-        payload = ByteBuffer.wrap(bytes, offset, bytes.length - offset).order(ByteOrder.LITTLE_ENDIAN).asReadOnlyBuffer();
+        payload = ByteBuffer.wrap(bytes, offset, bytes.length - offset).order(ByteOrder.LITTLE_ENDIAN)
+                .asReadOnlyBuffer();
         MqttPacketWrap wrap = new MqttPacketWrap();
         wrap.setCmdCode(cmdCode);
         wrap.setDevice(DeviceGuid.fromString(srcGuid), DeviceGuid.fromString(tgtGuid));

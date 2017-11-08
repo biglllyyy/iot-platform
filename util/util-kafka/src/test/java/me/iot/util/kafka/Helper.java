@@ -131,7 +131,8 @@ public class Helper {
         consumer.stop();
     }
 
-    public static void consumeByCustom(String topic, Integer partition, Long offset, String clientId, String groupId) throws Exception {
+    public static void consumeByCustom(String topic, Integer partition, Long offset, String clientId, String groupId)
+            throws Exception {
         IConsumerConfig config = new SimpleConsumerConfig(BrokerList, clientId, groupId);
         IConsumer consumer = new SimpleConsumer(config);
 

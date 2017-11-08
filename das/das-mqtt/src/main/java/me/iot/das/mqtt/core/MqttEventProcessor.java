@@ -6,6 +6,7 @@ import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.collect.Lists;
 import com.lmax.disruptor.EventHandler;
+import io.netty.channel.Channel;
 import me.iot.das.common.DasConfig;
 import me.iot.das.common.NettyUtil;
 import me.iot.das.common.bean.ChannelCache;
@@ -22,7 +23,6 @@ import me.iot.das.mqtt.protocol.subscriptions.Subscription;
 import me.iot.util.disruptor.IMessaging;
 import me.iot.util.disruptor.LmaxDiscuptorMessaging;
 import me.iot.util.disruptor.ValueEvent;
-import io.netty.channel.Channel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,17 +34,17 @@ import java.nio.ByteBuffer;
 import java.util.List;
 
 /**
- * @FileName             :  MqttEventProcessor
- * @@Author               :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @@CopyRight            : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  MqttEventProcessor
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @@CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 @Component
@@ -213,7 +213,8 @@ public class MqttEventProcessor implements ApplicationListener<MqttEvent>, Event
         }
         //handle will flag
         if (message.isWillFlag()) {
-            WillMessage will = new WillMessage(message.getWillTopic(), ByteBuffer.wrap(message.getWillMessage().getBytes(Charsets.UTF_8)),
+            WillMessage will = new WillMessage(message.getWillTopic(), ByteBuffer.wrap(message.getWillMessage()
+                    .getBytes(Charsets.UTF_8)),
                     message.isWillRetain(), AbstractMessage.QOSType.values()[message.getWillQos()]);
             willMessageCache.put(clientId, will);
             LOG.debug("save will message for clientId: {}", clientId);
@@ -291,7 +292,8 @@ public class MqttEventProcessor implements ApplicationListener<MqttEvent>, Event
         UnsubAckMessage ackMessage = new UnsubAckMessage();
         ackMessage.setMessageID(message.getMessageID());
         NettyUtil.writeData(channel, ackMessage);
-        LOG.debug("process unsubscribe message removing subscription on topics: {}, for clientId: {}", message.topicFilters(), clientId);
+        LOG.debug("process unsubscribe message removing subscription on topics: {}, for clientId: {}", message
+                .topicFilters(), clientId);
     }
 
     private void processPubAckMessage(Channel channel, PubAckMessage message) {
@@ -351,7 +353,8 @@ public class MqttEventProcessor implements ApplicationListener<MqttEvent>, Event
             ConnAckMessage badProto = new ConnAckMessage();
             badProto.setReturnCode(ConnAckMessage.UNNACEPTABLE_PROTOCOL_VERSION);
             NettyUtil.writeDataThenClose(channel, badProto);
-            LOG.warn("close channel for connect message with wrong protocol version:{} for clientId:{}", procotolVersion, clientId);
+            LOG.warn("close channel for connect message with wrong protocol version:{} for clientId:{}",
+                    procotolVersion, clientId);
             return false;
         }
         //check clientId
@@ -363,11 +366,13 @@ public class MqttEventProcessor implements ApplicationListener<MqttEvent>, Event
             return false;
         }
         //check userName and password
-        if (!message.isUserFlag() || !message.isPasswordFlag() || !authenticator.checkValid(message.getUsername(), message.getPassword())) {
+        if (!message.isUserFlag() || !message.isPasswordFlag() || !authenticator.checkValid(message.getUsername(),
+                message.getPassword())) {
             ConnAckMessage badAccount = new ConnAckMessage();
             badAccount.setReturnCode(ConnAckMessage.BAD_USERNAME_OR_PASSWORD);
             NettyUtil.writeDataThenClose(channel, badAccount);
-            LOG.warn("close channel for connect message with wrong userName:{} or password:{}", message.getUsername(), message.getPassword());
+            LOG.warn("close channel for connect message with wrong userName:{} or password:{}", message.getUsername()
+                    , message.getPassword());
             return false;
         }
         return true;

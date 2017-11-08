@@ -50,7 +50,8 @@ public class OwnConsumer extends AbsConsumer implements IConsumer {
 
         consumer.registerMessageListener(new MessageListenerConcurrently() {
             @Override
-            public ConsumeConcurrentlyStatus consumeMessage(List<MessageExt> list, ConsumeConcurrentlyContext consumeConcurrentlyContext) {
+            public ConsumeConcurrentlyStatus consumeMessage(List<MessageExt> list, ConsumeConcurrentlyContext
+                    consumeConcurrentlyContext) {
                 List<RocketMsg> msgList = Lists.newArrayList();
                 for (MessageExt ext : list) {
                     String content = new String(ext.getBody(), Charsets.UTF_8);

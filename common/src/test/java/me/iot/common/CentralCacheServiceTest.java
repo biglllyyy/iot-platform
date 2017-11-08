@@ -1,3 +1,4 @@
+/*
 package me.iot.common;
 
 import com.alibaba.fastjson.JSON;
@@ -15,9 +16,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import java.util.Arrays;
 import java.util.Map;
 
+*/
 /**
  * Created by tyf on 2017/7/6/0006.
- */
+ *//*
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ComponentScan("me.iot")
 @SpringBootApplication
@@ -142,7 +145,8 @@ public class CentralCacheServiceTest {
 
     @Test
     public void putObjectToListWithLimitAndExpireTime() {
-        centralCacheService.putObjectToListWithLimitAndExpireTime("list", "putObjectToListWithLimitAndExpireTime", 1, 10);
+        centralCacheService.putObjectToListWithLimitAndExpireTime("list", "putObjectToListWithLimitAndExpireTime", 1,
+                10);
     }
 
     @Test
@@ -156,3 +160,4 @@ public class CentralCacheServiceTest {
     }
 
 }
+*/

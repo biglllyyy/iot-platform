@@ -1,24 +1,24 @@
 package me.iot.dms.controller;
 
-import me.iot.dms.service.DeviceInfoServiceImpl;
 import me.iot.common.dto.Result;
+import me.iot.dms.service.DeviceInfoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  MqttConst
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 @RestController
@@ -42,7 +42,8 @@ public class DeviceInfoController {
 
     @RequestMapping(value = "/countOfDeviceInfoByDeviceTypeAndVersionCode", method = RequestMethod.GET)
     public Result<?> countOfDeviceInfoByDeviceTypeAndVersionCode(String deviceType, int versionCode) {
-        return Result.newSuccess(deviceInfoServiceImpl.countOfDeviceInfoByDeviceTypeAndVersionCode(deviceType, versionCode));
+        return Result.newSuccess(deviceInfoServiceImpl.countOfDeviceInfoByDeviceTypeAndVersionCode(deviceType,
+                versionCode));
     }
 
 
@@ -71,8 +72,10 @@ public class DeviceInfoController {
 
 
     @RequestMapping(value = "/getDeviceInfosByDeviceTypeAndVersion", method = RequestMethod.GET)
-    public Result<?> getDeviceInfosByDeviceTypeAndVersion(String deviceType, int versionCode, int pageIndex, int pageSize) {
-        return Result.newSuccess(deviceInfoServiceImpl.getDeviceInfosByDeviceTypeAndVersion(deviceType, versionCode, pageIndex, pageSize));
+    public Result<?> getDeviceInfosByDeviceTypeAndVersion(String deviceType, int versionCode, int pageIndex, int
+            pageSize) {
+        return Result.newSuccess(deviceInfoServiceImpl.getDeviceInfosByDeviceTypeAndVersion(deviceType, versionCode,
+                pageIndex, pageSize));
     }
 
 }

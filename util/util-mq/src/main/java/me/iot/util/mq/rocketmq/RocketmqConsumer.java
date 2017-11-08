@@ -16,17 +16,17 @@ import java.util.Enumeration;
 import java.util.List;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  MqttConst
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 public class RocketmqConsumer extends AbstractConsumer {
@@ -41,9 +41,11 @@ public class RocketmqConsumer extends AbstractConsumer {
             initConsumer();
             consumer.registerMessageListener(new MessageListenerConcurrently() {
                 @Override
-                public ConsumeConcurrentlyStatus consumeMessage(List<MessageExt> list, ConsumeConcurrentlyContext consumeConcurrentlyContext) {
+                public ConsumeConcurrentlyStatus consumeMessage(List<MessageExt> list, ConsumeConcurrentlyContext
+                        consumeConcurrentlyContext) {
                     list.forEach(messageExt -> {
-                        Message message = new Message(messageExt.getTopic(), new String(messageExt.getBody(), Charsets.UTF_8));
+                        Message message = new Message(messageExt.getTopic(), new String(messageExt.getBody(),
+                                Charsets.UTF_8));
                         message.setTag(messageExt);
                         messageListener.onSuccess(message);
                     });
@@ -73,7 +75,8 @@ public class RocketmqConsumer extends AbstractConsumer {
     public void unsubscribe() {
 
         if (consumer != null) {
-            Enumeration<String> topics = consumer.getDefaultMQPushConsumerImpl().getRebalanceImpl().getTopicSubscribeInfoTable().keys();
+            Enumeration<String> topics = consumer.getDefaultMQPushConsumerImpl().getRebalanceImpl()
+                    .getTopicSubscribeInfoTable().keys();
             while (topics.hasMoreElements()) {
                 consumer.unsubscribe(topics.nextElement());
             }

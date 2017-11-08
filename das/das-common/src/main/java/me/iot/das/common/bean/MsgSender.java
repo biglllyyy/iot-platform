@@ -21,8 +21,8 @@ import org.springframework.stereotype.Component;
 
 
 /**
+ * @author :  sylar
  * @FileName :  MsgSender
- * @Author :  sylar
  * @CreateDate :  2017/11/08
  * @Description :  消息发送器:  将消息发给 channel
  * @ReviewedBy :

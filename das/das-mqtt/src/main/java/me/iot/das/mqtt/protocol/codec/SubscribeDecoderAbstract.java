@@ -1,10 +1,10 @@
 package me.iot.das.mqtt.protocol.codec;
 
-import me.iot.das.mqtt.protocol.message.AbstractMessage;
-import me.iot.das.mqtt.protocol.message.SubscribeMessage;
 import io.netty.buffer.ByteBuf;
 import io.netty.handler.codec.CorruptedFrameException;
 import io.netty.util.AttributeMap;
+import me.iot.das.mqtt.protocol.message.AbstractMessage;
+import me.iot.das.mqtt.protocol.message.SubscribeMessage;
 
 import java.io.UnsupportedEncodingException;
 import java.util.List;
@@ -24,7 +24,8 @@ class SubscribeDecoderAbstract extends AbstractDemuxDecoder {
 
         //check qos level
         if (message.getQos() != AbstractMessage.QOSType.LEAST_ONE) {
-            throw new CorruptedFrameException("Received Subscribe message with QoS other than LEAST_ONE, was: " + message.getQos());
+            throw new CorruptedFrameException("Received Subscribe message with QoS other than LEAST_ONE, was: " +
+                    message.getQos());
         }
 
         int start = in.readerIndex();
@@ -51,7 +52,8 @@ class SubscribeDecoderAbstract extends AbstractDemuxDecoder {
         byte qosByte = in.readByte();
         if ((qosByte & 0xFC) > 0) {
             //the first 6 bits is reserved => has to be 0
-            throw new CorruptedFrameException("subscribe MUST have QoS byte with reserved buts to 0, found " + Integer.toHexString(qosByte));
+            throw new CorruptedFrameException("subscribe MUST have QoS byte with reserved buts to 0, found " +
+                    Integer.toHexString(qosByte));
         }
         byte qos = (byte) (qosByte & 0x03);
         //TODO check qos id 000000xx

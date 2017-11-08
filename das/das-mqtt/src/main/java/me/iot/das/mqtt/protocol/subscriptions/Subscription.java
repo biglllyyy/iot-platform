@@ -5,29 +5,32 @@ import me.iot.das.mqtt.protocol.message.AbstractMessage;
 import java.io.Serializable;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  MqttConst
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 public class Subscription implements Serializable {
     private static final long serialVersionUID = 3312213897949373977L;
-    /**max QoS acceptable*/
+    /**
+     * max QoS acceptable
+     */
     private AbstractMessage.QOSType requestedQos;
     private String clientId;
     private String topicFilter;
     private boolean cleanSession;
     private boolean active = true;
 
-    public Subscription(String clientId, String topicFilter, AbstractMessage.QOSType requestedQos, boolean cleanSession) {
+    public Subscription(String clientId, String topicFilter, AbstractMessage.QOSType requestedQos, boolean
+            cleanSession) {
         this.requestedQos = requestedQos;
         this.clientId = clientId;
         this.topicFilter = topicFilter;
@@ -90,6 +93,7 @@ public class Subscription implements Serializable {
 
     @Override
     public String toString() {
-        return String.format("[filter:%s, cliID: %s, qos: %s, active: %s]", this.topicFilter, this.clientId, this.requestedQos, this.active);
+        return String.format("[filter:%s, cliID: %s, qos: %s, active: %s]", this.topicFilter, this.clientId, this
+                .requestedQos, this.active);
     }
 }

@@ -14,25 +14,25 @@
 
     <!--&lt;!&ndash;控制台 appender 定义&ndash;&gt;-->
     <!--<appender name="console" class="ch.qos.logback.core.ConsoleAppender">-->
-        <!--<encoder>-->
-            <!--<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n</pattern>-->
-        <!--</encoder>-->
+    <!--<encoder>-->
+    <!--<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n</pattern>-->
+    <!--</encoder>-->
     <!--</appender>-->
 
     <!--&lt;!&ndash;文件 appender 定义&ndash;&gt;-->
     <!--<appender name="logFile" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
-        <!--<file>logs/${APP_NAME:-.}.log</file>-->
-        <!--&lt;!&ndash; 按每小时滚动文件，如果一个小时内达到10M也会滚动文件, 滚动文件将会压缩成zip格式 &ndash;&gt;-->
-        <!--<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
-            <!--<fileNamePattern>logs/${APP_NAME:-.}-%d{yyyy-MM-dd_HH}.%i.zip</fileNamePattern>-->
-            <!--<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">-->
-                <!--<maxFileSize>10MB</maxFileSize>-->
-            <!--</timeBasedFileNamingAndTriggeringPolicy>-->
-        <!--</rollingPolicy>-->
-        <!--&lt;!&ndash; 独立的pattern &ndash;&gt;-->
-        <!--<encoder>-->
-            <!--<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n</pattern>-->
-        <!--</encoder>-->
+    <!--<file>logs/${APP_NAME:-.}.log</file>-->
+    <!--&lt;!&ndash; 按每小时滚动文件，如果一个小时内达到10M也会滚动文件, 滚动文件将会压缩成zip格式 &ndash;&gt;-->
+    <!--<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+    <!--<fileNamePattern>logs/${APP_NAME:-.}-%d{yyyy-MM-dd_HH}.%i.zip</fileNamePattern>-->
+    <!--<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">-->
+    <!--<maxFileSize>10MB</maxFileSize>-->
+    <!--</timeBasedFileNamingAndTriggeringPolicy>-->
+    <!--</rollingPolicy>-->
+    <!--&lt;!&ndash; 独立的pattern &ndash;&gt;-->
+    <!--<encoder>-->
+    <!--<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n</pattern>-->
+    <!--</encoder>-->
     <!--</appender>-->
 
     <!--logstash appender 定义-->

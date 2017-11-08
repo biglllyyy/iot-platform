@@ -16,17 +16,17 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @FileName             :  TsdbOps
- * @Author                :  luhao
- * @CreateDate           :  2017/6/21
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) www.envcloud.com.cn (环境云) All Rights Reserved
+ * @author :  luhao
+ * @FileName :  TsdbOps
+ * @CreateDate :  2017/6/21
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) www.envcloud.com.cn (环境云) All Rights Reserved
  * *******************************************************************************************
  */
 public final class TsdbOps implements IService {

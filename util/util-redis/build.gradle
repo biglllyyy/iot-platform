@@ -1,4 +1,4 @@
-apply from: gradlesPath+ "springboot.gradle"
+apply from: gradlesPath + "springboot.gradle"
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-data-redis:${springBootVersion}")

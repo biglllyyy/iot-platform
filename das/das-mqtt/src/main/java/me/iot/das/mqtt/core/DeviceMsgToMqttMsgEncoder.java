@@ -1,12 +1,12 @@
 package me.iot.das.mqtt.core;
 
-import me.iot.das.mqtt.pojo.MqttPacketWrap;
-import me.iot.das.mqtt.protocol.message.PublishMessage;
-import me.iot.das.mqtt.util.MqttUtil;
-import me.iot.common.msg.IMsg;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToMessageEncoder;
+import me.iot.common.msg.IMsg;
+import me.iot.das.mqtt.pojo.MqttPacketWrap;
+import me.iot.das.mqtt.protocol.message.PublishMessage;
+import me.iot.das.mqtt.util.MqttUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,17 +15,17 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 /**
- * @FileName             :  DeviceMsgToMqttMsgEncoder
- * @@Author               :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @@CopyRight            : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  DeviceMsgToMqttMsgEncoder
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @@CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 @Component

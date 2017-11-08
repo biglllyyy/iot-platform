@@ -6,8 +6,6 @@ import com.google.common.base.Preconditions;
 import com.google.common.base.Splitter;
 import org.apache.kafka.clients.producer.ProducerConfig;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.util.List;
 
 /**

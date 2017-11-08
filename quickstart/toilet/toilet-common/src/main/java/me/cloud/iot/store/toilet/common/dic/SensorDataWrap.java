@@ -2,24 +2,24 @@ package me.cloud.iot.store.toilet.common.dic;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import com.google.common.collect.Lists;
-import me.iot.common.util.ByteUtils;
+import me.iot.util.misc.ByteUtils;
 
 import java.io.Serializable;
 import java.nio.ByteOrder;
 import java.util.List;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  SensorDataWrap
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 public class SensorDataWrap implements Serializable {
@@ -159,7 +159,8 @@ public class SensorDataWrap implements Serializable {
             }
             return offset;
         } catch (Exception e) {
-            throw new Exception(String.format("onDecodeFactorValue Error!  guid:%s, FactorInfo:%s", sensorGuid, cfg), e);
+            throw new Exception(String.format("onDecodeFactorValue Error!  guid:%s, FactorInfo:%s", sensorGuid, cfg),
+                    e);
         }
     }
 }

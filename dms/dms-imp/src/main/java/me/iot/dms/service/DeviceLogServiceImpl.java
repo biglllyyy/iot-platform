@@ -2,11 +2,11 @@ package me.iot.dms.service;
 
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
+import me.iot.common.dto.QueryResult;
 import me.iot.common.msg.DeviceLogMsg;
 import me.iot.dms.IDeviceLogService;
 import me.iot.dms.dao.DeviceLogDao;
 import me.iot.dms.entity.DeviceLog;
-import me.iot.common.dto.QueryResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -20,17 +20,17 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  MqttConst
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 @Service
@@ -51,13 +51,16 @@ public class DeviceLogServiceImpl implements IDmsMsgProcessor<DeviceLogMsg>, IDe
     }
 
     @Override
-    public QueryResult<DeviceLog> getDeviceLogsByTime(String deviceId, String logType, long beginTime, long endTime, int pageIndex, int pageSize) {
+    public QueryResult<DeviceLog> getDeviceLogsByTime(String deviceId, String logType, long beginTime, long endTime,
+                                                      int pageIndex, int pageSize) {
         Page<DeviceLog> page = dao.findAll(
                 new Specification<DeviceLog>() {
                     @Override
-                    public Predicate toPredicate(Root<DeviceLog> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+                    public Predicate toPredicate(Root<DeviceLog> root, CriteriaQuery<?> criteriaQuery,
+                                                 CriteriaBuilder criteriaBuilder) {
                         return criteriaBuilder.and(
-                                PredicateUtil.newPredicateByDeviceIdAndCreateTime(root, criteriaBuilder, deviceId, beginTime, endTime),
+                                PredicateUtil.newPredicateByDeviceIdAndCreateTime(root, criteriaBuilder, deviceId,
+                                        beginTime, endTime),
                                 criteriaBuilder.equal(root.get("logType").as(String.class), logType));
                     }
                 },
@@ -67,10 +70,12 @@ public class DeviceLogServiceImpl implements IDmsMsgProcessor<DeviceLogMsg>, IDe
     }
 
     @Override
-    public QueryResult<DeviceLog> getDeviceLogsByTime(String deviceId, String deviceType, String logType, long beginTime, long endTime, int pageIndex, int pageSize) {
+    public QueryResult<DeviceLog> getDeviceLogsByTime(String deviceId, String deviceType, String logType, long
+            beginTime, long endTime, int pageIndex, int pageSize) {
         Page<DeviceLog> page = dao.findAll(new Specification<DeviceLog>() {
             @Override
-            public Predicate toPredicate(Root<DeviceLog> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+            public Predicate toPredicate(Root<DeviceLog> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder
+                    criteriaBuilder) {
                 List<Predicate> predicateList = Lists.newArrayList();
                 if (!Strings.isNullOrEmpty(deviceId)) {
                     predicateList.add(PredicateUtil.newPredicateByDeviceId(root, criteriaBuilder, deviceId));

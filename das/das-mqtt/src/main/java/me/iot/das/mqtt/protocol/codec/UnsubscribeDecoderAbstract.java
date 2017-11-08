@@ -1,10 +1,10 @@
 package me.iot.das.mqtt.protocol.codec;
 
-import me.iot.das.mqtt.protocol.message.AbstractMessage;
-import me.iot.das.mqtt.protocol.message.UnsubscribeMessage;
 import io.netty.buffer.ByteBuf;
 import io.netty.handler.codec.CorruptedFrameException;
 import io.netty.util.AttributeMap;
+import me.iot.das.mqtt.protocol.message.AbstractMessage;
+import me.iot.das.mqtt.protocol.message.UnsubscribeMessage;
 
 import java.util.List;
 
@@ -22,7 +22,8 @@ class UnsubscribeDecoderAbstract extends AbstractDemuxDecoder {
 
         //check qos level
         if (message.getQos() != AbstractMessage.QOSType.LEAST_ONE) {
-            throw new CorruptedFrameException("Found an Usubscribe message with qos other than LEAST_ONE, was: " + message.getQos());
+            throw new CorruptedFrameException("Found an Usubscribe message with qos other than LEAST_ONE, was: " +
+                    message.getQos());
         }
 
         int start = in.readerIndex();

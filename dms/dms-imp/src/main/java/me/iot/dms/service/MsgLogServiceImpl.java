@@ -2,12 +2,12 @@ package me.iot.dms.service;
 
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
+import me.iot.common.dto.QueryResult;
 import me.iot.common.msg.DasConnectionMsg;
 import me.iot.common.msg.IMsg;
 import me.iot.dms.IMsgLogService;
 import me.iot.dms.dao.MsgLogDao;
 import me.iot.dms.entity.MsgLog;
-import me.iot.common.dto.QueryResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,17 +23,17 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  MqttConst
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 @Service
@@ -50,10 +50,12 @@ public class MsgLogServiceImpl implements IDmsMsgProcessor<IMsg>, IMsgLogService
     }
 
     @Override
-    public QueryResult<MsgLog> getMsgLogs(String deviceType, String deviceId, String msgType, long beginTime, long endTime, int pageIndex, int pageSize) {
+    public QueryResult<MsgLog> getMsgLogs(String deviceType, String deviceId, String msgType, long beginTime, long
+            endTime, int pageIndex, int pageSize) {
         Page<MsgLog> page = dao.findAll(new Specification<MsgLog>() {
             @Override
-            public Predicate toPredicate(Root<MsgLog> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+            public Predicate toPredicate(Root<MsgLog> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder
+                    criteriaBuilder) {
                 List<Predicate> predicateList = Lists.newArrayList();
                 if (!Strings.isNullOrEmpty(deviceType)) {
                     predicateList.add(PredicateUtil.newPredicateByDeviceType(root, criteriaBuilder, deviceType));

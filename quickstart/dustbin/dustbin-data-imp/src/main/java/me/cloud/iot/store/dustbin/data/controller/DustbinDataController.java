@@ -1,9 +1,9 @@
 package me.cloud.iot.store.dustbin.data.controller;
 
 import com.google.common.base.Strings;
+import me.iot.common.dto.Result;
 import me.iot.store.dustbin.data.dto.DustbinParamDto;
 import me.iot.store.dustbin.data.service.IDustbinParamService;
-import me.iot.common.dto.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,17 +16,17 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  MqttConst
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 @RestController
@@ -37,13 +37,14 @@ public class DustbinDataController {
 
     /**
      * 保存（新增/更新） 垃圾桶的参数。
+     *
      * @param dustbinParamDto
      * @return
      */
     @RequestMapping(value = "/saveParams", method = RequestMethod.POST)
     public Result<?> saveParams(@RequestBody DustbinParamDto dustbinParamDto) {
         Result<?> result = this.validateOnSave(dustbinParamDto);
-        if(Result.FAILD == result.getRc()) {
+        if (Result.FAILD == result.getRc()) {
             return result;
         }
 
@@ -74,7 +75,7 @@ public class DustbinDataController {
             errMsg.append("半满阈值不能为空！");
         }
 
-        if(errMsg.length() > 0) {
+        if (errMsg.length() > 0) {
             return Result.newFaild("参数错误：" + errMsg.toString());
         }
 
@@ -83,7 +84,8 @@ public class DustbinDataController {
 
     /**
      * 获取垃圾桶的参数设置
-     * @param deviceId    要求格式为：deviceType + deviceNumber。如TRCAN867587029315130
+     *
+     * @param deviceId 要求格式为：deviceType + deviceNumber。如TRCAN867587029315130
      * @return
      */
     @RequestMapping(value = "/getParams", method = RequestMethod.GET)
@@ -93,7 +95,7 @@ public class DustbinDataController {
         }
 
         DustbinParamDto dustbinParamDto = dustbinParamService.getByDeviceId(deviceId);
-        if(dustbinParamDto == null) {
+        if (dustbinParamDto == null) {
             return Result.newFaild(Result.FAILD, "no record found for deviceId[" + deviceId + "]");
         }
 

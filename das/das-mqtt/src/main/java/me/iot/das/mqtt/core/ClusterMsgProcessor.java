@@ -21,8 +21,8 @@ import java.util.Set;
 
 
 /**
+ * @author :  sylar
  * @FileName :  ClusterMsgProcessor
- * @@Author :  sylar
  * @CreateDate :  2017/11/08
  * @Description :  1\通过SPS订阅集群中其它DAS实例发本的当前节点所关注的topic消息
  * 2\通过SPS发布集群中其它DAS实例所关注的topic消息
@@ -94,7 +94,7 @@ public class ClusterMsgProcessor extends AbstractMessageListener implements Even
             for (String nodeId : nodeSet) {
                 //通过sps将消息发给其它 das node
                 String nodeTopic = MqttCacheKeys.getCcsKeyForTopicByNode(nodeId);
-                dasConfig.getSps().publishMessage(nodeTopic, msg);
+                //dasConfig.getSps().publishMessage(nodeTopic, msg);
             }
         }
     }

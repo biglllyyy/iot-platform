@@ -12,9 +12,19 @@ import me.iot.util.disruptor.ValueEvent;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
-
 /**
- * 抽象的设备消息管道，管道上游是消息来源或生产者， 下游是消息消费方
+ * @author :  sylar
+ * @FileName :  AbstractDeviceMessagePipe
+ * @CreateDate :  2017/11/08
+ * @Description : 抽象的设备消息管道，管道上游是消息来源或生产者， 下游是消息消费方
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 public abstract class AbstractDeviceMessagePipe {
 

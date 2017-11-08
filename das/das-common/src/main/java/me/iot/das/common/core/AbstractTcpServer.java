@@ -14,17 +14,17 @@ import me.iot.das.common.DasProperties;
 import me.iot.das.common.NettyConst;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  MqttConst
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 public abstract class AbstractTcpServer extends AbstractServer {
@@ -32,7 +32,11 @@ public abstract class AbstractTcpServer extends AbstractServer {
     protected NioEventLoopGroup acceptorGroup;
     protected NioEventLoopGroup workerGroup;
 
-
+    /**
+     * 构建通道处理器
+     *
+     * @param pipeline 管道
+     */
     protected abstract void buildChannelHandler(ChannelPipeline pipeline);
 
     @Override

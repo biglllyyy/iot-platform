@@ -9,17 +9,17 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
- * @FileName             :  DeviceOwnerServiceTest
- * @Author                :  luhao
- * @CreateDate           :  2016/6/28
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) www.XXXXX.com   All Rights Reserved
+ * @author :  luhao
+ * @FileName :  DeviceOwnerServiceTest
+ * @CreateDate :  2016/6/28
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) www.XXXXX.com   All Rights Reserved
  * *******************************************************************************************
  */
 @RunWith(SpringRunner.class)

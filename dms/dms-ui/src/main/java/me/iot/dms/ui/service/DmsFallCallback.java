@@ -1,31 +1,32 @@
 package me.iot.dms.ui.service;
 
-import me.iot.dms.dto.BindLocationParamsDto;
 import me.iot.common.dto.QueryResult;
 import me.iot.common.dto.Result;
+import me.iot.dms.dto.BindLocationParamsDto;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Map;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  MqttConst
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 @Component
 public class DmsFallCallback implements IDmsFeignClient {
     @Override
-    public Result<?> getDasConnectionLogsByNodeId(String nodeId, long beginTime, long endTime, int pageIndex, int pageSize) {
+    public Result<?> getDasConnectionLogsByNodeId(String nodeId, long beginTime, long endTime, int pageIndex, int
+            pageSize) {
         return null;
     }
 
@@ -50,12 +51,14 @@ public class DmsFallCallback implements IDmsFeignClient {
     }
 
     @Override
-    public Result<?> getDeviceAlarmsByDeviceId(String deviceId, List<String> alarmCodes, long beginTime, long endTime, int pageIndex, int pageSize) {
+    public Result<?> getDeviceAlarmsByDeviceId(String deviceId, List<String> alarmCodes, long beginTime, long
+            endTime, int pageIndex, int pageSize) {
         return null;
     }
 
     @Override
-    public Result<?> getDeviceConnectionLogsByDeviceId(String deviceId, long beginTime, long endTime, int pageIndex, int pageSize) {
+    public Result<?> getDeviceConnectionLogsByDeviceId(String deviceId, long beginTime, long endTime, int pageIndex,
+                                                       int pageSize) {
         return null;
     }
 
@@ -75,7 +78,8 @@ public class DmsFallCallback implements IDmsFeignClient {
     }
 
     @Override
-    public Result<?> getDeviceEventsByDeviceId(String deviceId, List<String> eventCodes, long beginTime, long endTime, int pageIndex, int pageSize) {
+    public Result<?> getDeviceEventsByDeviceId(String deviceId, List<String> eventCodes, long beginTime, long
+            endTime, int pageIndex, int pageSize) {
         return null;
     }
 
@@ -115,7 +119,8 @@ public class DmsFallCallback implements IDmsFeignClient {
     }
 
     @Override
-    public Result<?> getDeviceInfosByDeviceTypeAndVersion(String deviceType, int versionCode, int pageIndex, int pageSize) {
+    public Result<?> getDeviceInfosByDeviceTypeAndVersion(String deviceType, int versionCode, int pageIndex, int
+            pageSize) {
         return null;
     }
 
@@ -130,7 +135,8 @@ public class DmsFallCallback implements IDmsFeignClient {
     }
 
     @Override
-    public Result<?> getDeviceLogsByTime(String deviceId, String deviceType, String logType, long beginTime, long endTime, int pageIndex, int pageSize) {
+    public Result<?> getDeviceLogsByTime(String deviceId, String deviceType, String logType, long beginTime, long
+            endTime, int pageIndex, int pageSize) {
         return null;
     }
 
@@ -145,7 +151,8 @@ public class DmsFallCallback implements IDmsFeignClient {
     }
 
     @Override
-    public Result<QueryResult<?>> findUpDocument(String deviceType, boolean connected, String deviceCode, int beginVersion, int endVersion, int pageIdnex, int pageSize) {
+    public Result<QueryResult<?>> findUpDocument(String deviceType, boolean connected, String deviceCode, int
+            beginVersion, int endVersion, int pageIdnex, int pageSize) {
         return null;
     }
 
@@ -170,7 +177,8 @@ public class DmsFallCallback implements IDmsFeignClient {
     }
 
     @Override
-    public Result<?> findDeviceByParams(String[] ownerIds, String deviceType, boolean connected, int pageIdnex, int pageSize) {
+    public Result<?> findDeviceByParams(String[] ownerIds, String deviceType, boolean connected, int pageIdnex, int
+            pageSize) {
         return null;
     }
 

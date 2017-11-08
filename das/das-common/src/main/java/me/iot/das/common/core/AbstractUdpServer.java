@@ -1,7 +1,5 @@
 package me.iot.das.common.core;
 
-import me.iot.das.common.DasProperties;
-import me.iot.das.common.NettyConst;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -11,25 +9,32 @@ import io.netty.channel.socket.DatagramChannel;
 import io.netty.channel.socket.nio.NioDatagramChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
+import me.iot.das.common.DasProperties;
+import me.iot.das.common.NettyConst;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  MqttConst
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 public abstract class AbstractUdpServer extends AbstractServer {
 
     protected NioEventLoopGroup nioEventLoopGroup;
 
+    /**
+     * 构建通道处理器
+     *
+     * @param pipeline 管道
+     */
     protected abstract void buildChannelHandler(ChannelPipeline pipeline);
 
     @Override

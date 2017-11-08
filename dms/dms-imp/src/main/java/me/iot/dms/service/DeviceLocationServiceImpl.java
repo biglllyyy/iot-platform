@@ -14,17 +14,17 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  MqttConst
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 @Service
@@ -36,7 +36,8 @@ public class DeviceLocationServiceImpl implements IDeviceLocationService {
     DeviceLocationDao deviceLocationDao;
 
     @Override
-    public long bindLocation(String userId, String deviceType, String deviceId, int coorType, double lon, double lat, String locationDesc) {
+    public long bindLocation(String userId, String deviceType, String deviceId, int coorType, double lon, double lat,
+                             String locationDesc) {
         String wgsCoor, gcjCoor, bdCoor;
         double[] coor;
 

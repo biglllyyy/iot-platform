@@ -16,17 +16,17 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
- * @FileName             :  DeviceStatusControllerTest
- * @Author                :  luhao
- * @CreateDate           :  2016/10/21
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) www.XXXXX.com   All Rights Reserved
+ * @author :  luhao
+ * @FileName :  DeviceStatusControllerTest
+ * @CreateDate :  2016/10/21
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) www.XXXXX.com   All Rights Reserved
  * *******************************************************************************************
  */
 @RunWith(SpringRunner.class)

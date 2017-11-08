@@ -4,7 +4,6 @@ package me.iot.util.kafka;
 import java.util.Map;
 
 /**
- *
  * Created by sylar on 2017/1/5.
  */
 public interface IServiceConfig extends Map<String, Object> {

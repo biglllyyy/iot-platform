@@ -16,7 +16,6 @@
 package me.iot.das.mqtt.protocol.message;
 
 
-
 import com.alibaba.fastjson.annotation.JSONField;
 
 import java.nio.ByteBuffer;

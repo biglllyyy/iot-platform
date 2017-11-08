@@ -35,8 +35,8 @@ public class OnsMqttProducer extends AbsClient implements IProducer {
         MqttMessage message = new MqttMessage(msg.getContent().getBytes());
         message.setQos(0);
 
-        System.out.println("topic:"+ msg.getMqttTopic());
-        System.out.println("content:"+ msg.getContent());
+        System.out.println("topic:" + msg.getMqttTopic());
+        System.out.println("content:" + msg.getContent());
         send(msg.getMqttTopic(), message);
         return null;
     }

@@ -1,28 +1,28 @@
 package me.iot.das.mqtt.protocol.codec;
 
-import me.iot.das.mqtt.MqttConst;
-import me.iot.das.mqtt.protocol.message.AbstractMessage;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.handler.codec.CorruptedFrameException;
 import io.netty.util.Attribute;
 import io.netty.util.AttributeMap;
+import me.iot.das.mqtt.MqttConst;
+import me.iot.das.mqtt.protocol.message.AbstractMessage;
 import org.slf4j.LoggerFactory;
 
 import java.io.UnsupportedEncodingException;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  MqttConst
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 public class CodecUtil {
@@ -85,7 +85,8 @@ public class CodecUtil {
      */
     static ByteBuf encodeRemainingLength(int value) throws CorruptedFrameException {
         if (value > MqttConst.MAX_LENGTH_LIMIT || value < 0) {
-            throw new CorruptedFrameException("Value should in range 0.." + MqttConst.MAX_LENGTH_LIMIT + " found " + value);
+            throw new CorruptedFrameException("Value should in range 0.." + MqttConst.MAX_LENGTH_LIMIT + " found " +
+                    value);
         }
 
         ByteBuf encoded = Unpooled.buffer(4);

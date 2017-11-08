@@ -162,7 +162,8 @@ public class ConnectMessage extends AbstractMessage {
 
     @Override
     public String toString() {
-        String base = String.format("Connect [clientID: %s, prot: %s, ver: %02X, clean: %b]", mClientID, mProtocolName, mProtocolVersion, mCleanSession);
+        String base = String.format("Connect [clientID: %s, prot: %s, ver: %02X, clean: %b]", mClientID,
+                mProtocolName, mProtocolVersion, mCleanSession);
         if (mWillFlag) {
             base += String.format(" Will [QoS: %d, retain: %b]", mWillQos, mWillRetain);
         }

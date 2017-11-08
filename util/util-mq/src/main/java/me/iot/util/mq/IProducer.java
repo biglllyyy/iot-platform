@@ -1,8 +1,8 @@
 package me.iot.util.mq;
 
 /**
+ * @author :  sylar
  * @FileName :  IProducer
- * @Author :  sylar
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :

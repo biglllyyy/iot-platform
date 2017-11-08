@@ -3,32 +3,34 @@ package me.iot.util.mq;
 import java.util.Properties;
 
 /**
- * @FileName             :  IClient
- * @Author                :  sylar
- * @CreateDate           :  2017/11/7
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com   All Rights Reserved
+ * @author :  sylar
+ * @FileName :  IClient
+ * @CreateDate :  2017/11/7
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com   All Rights Reserved
  * *******************************************************************************************
  */
 public interface IClient {
 
     /**
      * 设置基本参数
-     * @param brokers 服务器列表，形如 ip:port,ip:port
-     * @param groupId 所属组标识
+     *
+     * @param brokers  服务器列表，形如 ip:port,ip:port
+     * @param groupId  所属组标识
      * @param clientId 客户端标识
      */
     void setBasicParameter(String brokers, String groupId, String clientId);
 
     /**
      * 设置额外参数配置
-     * @param properties  参数配置
+     *
+     * @param properties 参数配置
      */
     void setProperties(Properties properties);
 }

@@ -12,17 +12,17 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  MqttConst
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 public abstract class AbstractServer implements IServer {
@@ -66,11 +66,13 @@ public abstract class AbstractServer implements IServer {
     }
 
     protected void onInitServer() {
-        ctx.publishEvent(new ServerConnectEvent(this, dasConfig.getDasNodeId(), dasConfig.getDasProperties().getHost(), dasConfig.getDasProperties().getPort(), true));
+        ctx.publishEvent(new ServerConnectEvent(this, dasConfig.getDasNodeId(), dasConfig.getDasProperties().getHost
+                (), dasConfig.getDasProperties().getPort(), true));
     }
 
     protected void onDisposeServer() {
-        ctx.publishEvent(new ServerConnectEvent(this, dasConfig.getDasNodeId(), dasConfig.getDasProperties().getHost(), dasConfig.getDasProperties().getPort(), false));
+        ctx.publishEvent(new ServerConnectEvent(this, dasConfig.getDasNodeId(), dasConfig.getDasProperties().getHost
+                (), dasConfig.getDasProperties().getPort(), false));
     }
 
 }

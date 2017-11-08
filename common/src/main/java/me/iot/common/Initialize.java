@@ -7,6 +7,9 @@ package me.iot.common;
  */
 public interface Initialize {
 
+    /**
+     * @param params
+     */
     void init(Object... params);
 
 }

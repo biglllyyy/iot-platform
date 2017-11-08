@@ -13,17 +13,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  MqttConst
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 public class DubboUtils {
@@ -146,7 +146,8 @@ public class DubboUtils {
         declareService(appName, connectString, REGISTRY_ZOOKEEPER, serviceInterface, ref);
     }
 
-    public static <T> void declareService(String appName, String connectString, String registryProrocol, Class<T> serviceInterface, T serviceRef) {
+    public static <T> void declareService(String appName, String connectString, String registryProrocol, Class<T>
+            serviceInterface, T serviceRef) {
 
         ApplicationConfig app = new ApplicationConfig(appName);
         RegistryConfig registry = new RegistryConfig();

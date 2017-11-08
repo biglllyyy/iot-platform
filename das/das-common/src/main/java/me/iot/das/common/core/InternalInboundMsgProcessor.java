@@ -2,14 +2,14 @@ package me.iot.das.common.core;
 
 import com.lmax.disruptor.EventHandler;
 import io.netty.channel.Channel;
+import me.iot.common.msg.DeviceConnectionMsg;
+import me.iot.common.msg.IMsg;
+import me.iot.common.msg.MsgType;
 import me.iot.das.common.DasConfig;
 import me.iot.das.common.NettyUtil;
 import me.iot.das.common.bean.ChannelCache;
 import me.iot.das.common.bean.MsgThrower;
 import me.iot.das.common.event.ChannelMsgEvent;
-import me.iot.common.msg.DeviceConnectionMsg;
-import me.iot.common.msg.IMsg;
-import me.iot.common.msg.MsgType;
 import me.iot.util.disruptor.IMessaging;
 import me.iot.util.disruptor.LmaxDiscuptorMessaging;
 import me.iot.util.disruptor.ValueEvent;
@@ -22,17 +22,17 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  MqttConst
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 @Component

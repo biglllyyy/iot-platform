@@ -23,17 +23,17 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  MqttConst
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 @Service
@@ -48,7 +48,8 @@ public class DeviceOtaServiceImpl implements IDeviceOtaService {
     public QueryResult<DeviceOtaFile> getDeviceOtaFilesByDeviceType(String deviceType, int pageIndex, int pageSize) {
         Page<DeviceOtaFile> page = dao.findAll(new Specification<DeviceOtaFile>() {
             @Override
-            public Predicate toPredicate(Root<DeviceOtaFile> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+            public Predicate toPredicate(Root<DeviceOtaFile> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder
+                    criteriaBuilder) {
                 return PredicateUtil.newPredicateByDeviceType(root, criteriaBuilder, deviceType);
             }
         }, new PageRequest(pageIndex - 1, pageSize));
@@ -57,7 +58,8 @@ public class DeviceOtaServiceImpl implements IDeviceOtaService {
 
 
     @Override
-    public void uploadOtaFile(String otaFullName, String deviceType, int versionCode, String versionName, String description, String content) {
+    public void uploadOtaFile(String otaFullName, String deviceType, int versionCode, String versionName, String
+            description, String content) {
         //解码文件内容并获取文件决定路径
         byte[] bytes = BaseEncoding.base64().decode(content);
         //StorageItem storageItem = new StorageItem(bytes);
@@ -90,7 +92,8 @@ public class DeviceOtaServiceImpl implements IDeviceOtaService {
      * @return 设备升级文档信息
      */
     @Override
-    public QueryResult<?> findUpDocument(String deviceType, boolean connected, String deviceCode, int beginVersion, int endVersion, int pageIndex, int pageSize) {
+    public QueryResult<?> findUpDocument(String deviceType, boolean connected, String deviceCode, int beginVersion,
+                                         int endVersion, int pageIndex, int pageSize) {
         Page<DeviceOtaFile> page = dao.findAll((root, query, cb) -> {
             List<Predicate> predicateList = Lists.newArrayList();
             Root<DeviceInfo> diRoot = query.from(DeviceInfo.class);

@@ -9,17 +9,17 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 /**
- * @FileName             :  DeviceOwnerDao
- * @Author                :  luhao
- * @CreateDate           :  2016/6/28
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) www.XXXXX.com   All Rights Reserved
+ * @author :  luhao
+ * @FileName :  DeviceOwnerDao
+ * @CreateDate :  2016/6/28
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) www.XXXXX.com   All Rights Reserved
  * *******************************************************************************************
  */
 public interface DeviceOwnerDao extends BaseRepository<DeviceOwner, Long> {
@@ -40,7 +40,8 @@ public interface DeviceOwnerDao extends BaseRepository<DeviceOwner, Long> {
      * @param ownerId
      */
     @Modifying
-    @Query(" update DeviceOwner set isBound = false, unBindDatetime=UNIX_TIMESTAMP() where ownerId=:ownerId and isBound=true ")
+    @Query(" update DeviceOwner set isBound = false, unBindDatetime=UNIX_TIMESTAMP() where ownerId=:ownerId and " +
+            "isBound=true ")
     void unBindDeviceOwner(@Param("ownerId") String ownerId);
 
 
@@ -51,6 +52,7 @@ public interface DeviceOwnerDao extends BaseRepository<DeviceOwner, Long> {
      * @param deviceList
      */
     @Modifying
-    @Query(" update DeviceOwner set isBound = false, unBindDatetime=UNIX_TIMESTAMP() where ownerId=:ownerId and deviceId in( :deviceList ) and isBound=true ")
+    @Query(" update DeviceOwner set isBound = false, unBindDatetime=UNIX_TIMESTAMP() where ownerId=:ownerId and " +
+            "deviceId in( :deviceList ) and isBound=true ")
     void unBindDeviceOwner(@Param("ownerId") String ownerId, @Param("deviceList") List<String> deviceList);
 }

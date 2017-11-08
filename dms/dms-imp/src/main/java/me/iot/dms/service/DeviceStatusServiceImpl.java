@@ -1,12 +1,12 @@
 package me.iot.dms.service;
 
 import com.google.common.collect.Lists;
-import me.iot.util.redis.ICentralCacheService;
 import me.iot.common.msg.DeviceConnectionMsg;
 import me.iot.dms.DmsCacheKeys;
 import me.iot.dms.DmsConfig;
 import me.iot.dms.IDeviceStatusService;
 import me.iot.dms.entity.DeviceStatus;
+import me.iot.util.redis.ICentralCacheService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,17 +15,17 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  MqttConst
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 @Service

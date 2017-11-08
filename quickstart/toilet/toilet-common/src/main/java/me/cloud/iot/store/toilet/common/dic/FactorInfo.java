@@ -1,7 +1,6 @@
 package me.cloud.iot.store.toilet.common.dic;
 
 import com.alibaba.fastjson.annotation.JSONField;
-
 import com.google.common.base.Enums;
 import com.google.common.base.Objects;
 import com.google.common.base.Preconditions;
@@ -10,17 +9,17 @@ import com.google.common.base.Strings;
 import java.io.Serializable;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  FactorInfo
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 public class FactorInfo implements Serializable {

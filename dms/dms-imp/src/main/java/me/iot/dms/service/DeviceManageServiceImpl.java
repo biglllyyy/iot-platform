@@ -1,12 +1,12 @@
 package me.iot.dms.service;
 
+import me.iot.common.dto.QueryResult;
 import me.iot.common.msg.*;
 import me.iot.dms.IDeviceLocationService;
 import me.iot.dms.IDeviceManageService;
 import me.iot.dms.IDeviceOwnerService;
 import me.iot.dms.dto.DeviceLocationDto;
 import me.iot.dms.entity.*;
-import me.iot.common.dto.QueryResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,17 +15,17 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  MqttConst
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 
@@ -120,7 +120,8 @@ public class DeviceManageServiceImpl implements IDmsMsgProcessor<IMsg>, IDeviceM
     }
 
     @Override
-    public QueryResult<DasConnectionLog> getDasConnectionLogsByNodeId(String nodeId, long beginTime, long endTime, int pageIndex, int pageSize) {
+    public QueryResult<DasConnectionLog> getDasConnectionLogsByNodeId(String nodeId, long beginTime, long endTime,
+                                                                      int pageIndex, int pageSize) {
         return null;
     }
 
@@ -145,13 +146,17 @@ public class DeviceManageServiceImpl implements IDmsMsgProcessor<IMsg>, IDeviceM
     }
 
     @Override
-    public QueryResult<DeviceAlarm> getDeviceAlarmsByDeviceId(String deviceId, List<String> alarmCodes, long beginTime, long endTime, int pageIndex, int pageSize) {
-        return deviceAlarmServiceImpl.getDeviceAlarmsByDeviceId(deviceId, alarmCodes, beginTime, endTime, pageIndex, pageSize);
+    public QueryResult<DeviceAlarm> getDeviceAlarmsByDeviceId(String deviceId, List<String> alarmCodes, long
+            beginTime, long endTime, int pageIndex, int pageSize) {
+        return deviceAlarmServiceImpl.getDeviceAlarmsByDeviceId(deviceId, alarmCodes, beginTime, endTime, pageIndex,
+                pageSize);
     }
 
     @Override
-    public QueryResult<DeviceConnectionLog> getDeviceConnectionLogsByDeviceId(String deviceId, long beginTime, long endTime, int pageIndex, int pageSize) {
-        return deviceConnectionLogServiceImpl.getDeviceConnectionLogsByDeviceId(deviceId, beginTime, endTime, pageIndex, pageSize);
+    public QueryResult<DeviceConnectionLog> getDeviceConnectionLogsByDeviceId(String deviceId, long beginTime, long
+            endTime, int pageIndex, int pageSize) {
+        return deviceConnectionLogServiceImpl.getDeviceConnectionLogsByDeviceId(deviceId, beginTime, endTime,
+                pageIndex, pageSize);
     }
 
     @Override
@@ -170,8 +175,10 @@ public class DeviceManageServiceImpl implements IDmsMsgProcessor<IMsg>, IDeviceM
     }
 
     @Override
-    public QueryResult<DeviceEvent> getDeviceEventsByDeviceId(String deviceId, List<String> eventCodes, long beginTime, long endTime, int pageIndex, int pageSize) {
-        return deviceEventServiceImpl.getDeviceEventsByDeviceId(deviceId, eventCodes, beginTime, endTime, pageIndex, pageSize);
+    public QueryResult<DeviceEvent> getDeviceEventsByDeviceId(String deviceId, List<String> eventCodes, long
+            beginTime, long endTime, int pageIndex, int pageSize) {
+        return deviceEventServiceImpl.getDeviceEventsByDeviceId(deviceId, eventCodes, beginTime, endTime, pageIndex,
+                pageSize);
     }
 
     @Override
@@ -210,18 +217,22 @@ public class DeviceManageServiceImpl implements IDmsMsgProcessor<IMsg>, IDeviceM
     }
 
     @Override
-    public QueryResult<DeviceInfo> getDeviceInfosByDeviceTypeAndVersion(String deviceType, int versionCode, int pageIndex, int pageSize) {
+    public QueryResult<DeviceInfo> getDeviceInfosByDeviceTypeAndVersion(String deviceType, int versionCode, int
+            pageIndex, int pageSize) {
         return deviceInfoServiceImpl.getDeviceInfosByDeviceTypeAndVersion(deviceType, versionCode, pageIndex, pageSize);
     }
 
     @Override
-    public QueryResult<DeviceLog> getDeviceLogsByTime(String deviceId, String logType, long beginTime, long endTime, int pageIndex, int pageSize) {
+    public QueryResult<DeviceLog> getDeviceLogsByTime(String deviceId, String logType, long beginTime, long endTime,
+                                                      int pageIndex, int pageSize) {
         return deviceLogServiceImpl.getDeviceLogsByTime(deviceId, logType, beginTime, endTime, pageIndex, pageSize);
     }
 
     @Override
-    public QueryResult<DeviceLog> getDeviceLogsByTime(String deviceId, String deviceType, String logType, long beginTime, long endTime, int pageIndex, int pageSize) {
-        return deviceLogServiceImpl.getDeviceLogsByTime(deviceId, deviceType, logType, beginTime, endTime, pageIndex, pageSize);
+    public QueryResult<DeviceLog> getDeviceLogsByTime(String deviceId, String deviceType, String logType, long
+            beginTime, long endTime, int pageIndex, int pageSize) {
+        return deviceLogServiceImpl.getDeviceLogsByTime(deviceId, deviceType, logType, beginTime, endTime, pageIndex,
+                pageSize);
     }
 
     @Override
@@ -235,7 +246,8 @@ public class DeviceManageServiceImpl implements IDmsMsgProcessor<IMsg>, IDeviceM
     }
 
     @Override
-    public void uploadOtaFile(String otaFullName, String deviceType, int versionCode, String versionName, String description, String content) {
+    public void uploadOtaFile(String otaFullName, String deviceType, int versionCode, String versionName, String
+            description, String content) {
         deviceOtaServiceImpl.uploadOtaFile(otaFullName, deviceType, versionCode, versionName, description, content);
     }
 
@@ -251,8 +263,10 @@ public class DeviceManageServiceImpl implements IDmsMsgProcessor<IMsg>, IDeviceM
      * @param pageSize     @return 设备升级文档信息
      */
     @Override
-    public QueryResult<?> findUpDocument(String deviceType, boolean connected, String deviceCode, int beginVersion, int endVersion, int pageIndex, int pageSize) {
-        return deviceOtaServiceImpl.findUpDocument(deviceType, connected, deviceCode, beginVersion, endVersion, pageIndex, pageSize);
+    public QueryResult<?> findUpDocument(String deviceType, boolean connected, String deviceCode, int beginVersion,
+                                         int endVersion, int pageIndex, int pageSize) {
+        return deviceOtaServiceImpl.findUpDocument(deviceType, connected, deviceCode, beginVersion, endVersion,
+                pageIndex, pageSize);
     }
 
     @Override
@@ -321,7 +335,8 @@ public class DeviceManageServiceImpl implements IDmsMsgProcessor<IMsg>, IDeviceM
     }
 
     @Override
-    public QueryResult<DeviceInfo> findDeviceByParams(String[] ownerIds, String deviceType, boolean state, int pageIndex, int pageSize) {
+    public QueryResult<DeviceInfo> findDeviceByParams(String[] ownerIds, String deviceType, boolean state, int
+            pageIndex, int pageSize) {
         return deviceInfoServiceImpl.findDeviceByParams(ownerIds, deviceType, state, pageIndex, pageSize);
     }
 
@@ -331,12 +346,14 @@ public class DeviceManageServiceImpl implements IDmsMsgProcessor<IMsg>, IDeviceM
     }
 
     @Override
-    public QueryResult<MsgLog> getMsgLogs(String deviceType, String deviceId, String msgType, long beginTime, long endTime, int pageIndex, int pageSize) {
+    public QueryResult<MsgLog> getMsgLogs(String deviceType, String deviceId, String msgType, long beginTime, long
+            endTime, int pageIndex, int pageSize) {
         return msgLogServiceImpl.getMsgLogs(deviceType, deviceId, msgType, beginTime, endTime, pageIndex, pageSize);
     }
 
     @Override
-    public long bindLocation(String userId, String deviceType, String deviceId, int coorType, double lon, double lat, String locationDesc) {
+    public long bindLocation(String userId, String deviceType, String deviceId, int coorType, double lon, double lat,
+                             String locationDesc) {
         return deviceLocationService.bindLocation(userId, deviceType, deviceId, coorType, lon, lat, locationDesc);
     }
 

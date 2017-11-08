@@ -46,7 +46,8 @@ public class HttpUtil {
         Request req = httpClient.POST(fullUrl);
         ContentProvider content = new StringContentProvider(msgContent);
         req.content(content);
-        String signString = topic + NEWLINE + producerId + NEWLINE + MD5.getInstance().getMD5String(msgContent) + NEWLINE + time;
+        String signString = topic + NEWLINE + producerId + NEWLINE + MD5.getInstance().getMD5String(msgContent) +
+                NEWLINE + time;
         System.out.println("signString<---------------" + signString);
         System.out.println("signString--------------->");
         String sign = AuthUtil.calSignature(signString.getBytes(Charset.forName("UTF-8")), secretKey);

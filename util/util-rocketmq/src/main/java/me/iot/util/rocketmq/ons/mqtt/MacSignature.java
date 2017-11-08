@@ -19,7 +19,8 @@ public class MacSignature {
      * @throws InvalidKeyException
      * @throws NoSuchAlgorithmException
      */
-    public static String macSignature(String text, String secretKey) throws InvalidKeyException, NoSuchAlgorithmException {
+    public static String macSignature(String text, String secretKey) throws InvalidKeyException,
+            NoSuchAlgorithmException {
         Charset charset = Charset.forName("UTF-8");
         String algorithm = "HmacSHA1";
         Mac mac = Mac.getInstance(algorithm);
@@ -27,6 +28,7 @@ public class MacSignature {
         byte[] bytes = mac.doFinal(text.getBytes(charset));
         return new String(Base64.encodeBase64(bytes), charset);
     }
+
     /**
      * 发送方签名方法
      *
@@ -36,9 +38,11 @@ public class MacSignature {
      * @throws NoSuchAlgorithmException
      * @throws InvalidKeyException
      */
-    public static String publishSignature(String clientId, String secretKey) throws NoSuchAlgorithmException, InvalidKeyException {
+    public static String publishSignature(String clientId, String secretKey) throws NoSuchAlgorithmException,
+            InvalidKeyException {
         return macSignature(clientId, secretKey);
     }
+
     /**
      * 订阅方签名方法
      *
@@ -49,7 +53,8 @@ public class MacSignature {
      * @throws NoSuchAlgorithmException
      * @throws InvalidKeyException
      */
-    public static String subSignature(List<String> topics, String clientId, String secretKey) throws NoSuchAlgorithmException, InvalidKeyException {
+    public static String subSignature(List<String> topics, String clientId, String secretKey) throws
+            NoSuchAlgorithmException, InvalidKeyException {
         Collections.sort(topics); //以字典顺序排序
         String topicText = "";
         for (String topic : topics) {
@@ -58,6 +63,7 @@ public class MacSignature {
         String text = topicText + clientId;
         return macSignature(text, secretKey);
     }
+
     /**
      * 订阅方签名方法
      *
@@ -68,7 +74,8 @@ public class MacSignature {
      * @throws NoSuchAlgorithmException
      * @throws InvalidKeyException
      */
-    public static String subSignature(String topic, String clientId, String secretKey) throws NoSuchAlgorithmException, InvalidKeyException {
+    public static String subSignature(String topic, String clientId, String secretKey) throws
+            NoSuchAlgorithmException, InvalidKeyException {
         List<String> topics = new ArrayList<String>();
         topics.add(topic);
         return subSignature(topics, clientId, secretKey);

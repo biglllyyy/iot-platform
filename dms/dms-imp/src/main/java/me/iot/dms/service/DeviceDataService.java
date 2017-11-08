@@ -3,9 +3,6 @@ package me.iot.dms.service;
 import com.google.common.base.Strings;
 import me.iot.common.msg.DeviceDataMsg;
 import me.iot.dms.DmsConfig;
-import me.iot.sds.dto.DeviceFactorData;
-import me.iot.sds.dto.DeviceFactorsData;
-import me.iot.sds.service.ISimpleDataService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,20 +10,19 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.util.Map;
-import java.util.Set;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  MqttConst
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 @Service
@@ -36,11 +32,11 @@ public class DeviceDataService implements IDmsMsgProcessor<DeviceDataMsg> {
     @Autowired
     DmsConfig dmsConfig;
 
-    ISimpleDataService sds;
+    //ISimpleDataService sds;
 
     @PostConstruct
     private void init() {
-        sds = dmsConfig.getSds();
+       // sds = dmsConfig.getSds();
     }
 
     @Override
@@ -61,7 +57,7 @@ public class DeviceDataService implements IDmsMsgProcessor<DeviceDataMsg> {
             return;
         }
 
-        DeviceFactorsData factorsData = new DeviceFactorsData();
+        /*DeviceFactorsData factorsData = new DeviceFactorsData();
         factorsData.setDeviceCode(fullId);
 
         DeviceFactorData factorData;
@@ -88,6 +84,6 @@ public class DeviceDataService implements IDmsMsgProcessor<DeviceDataMsg> {
             factorsData.getDeviceFactorDataList().add(factorData);
         }
 
-        sds.saveDeviceFactorsData(factorsData);
+        sds.saveDeviceFactorsData(factorsData);*/
     }
 }

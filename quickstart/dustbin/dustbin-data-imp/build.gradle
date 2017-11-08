@@ -1,4 +1,3 @@
-
 dependencies {
     compile project(":util:util-jpa")
     compile project(":util:util-redis")

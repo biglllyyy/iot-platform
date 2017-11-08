@@ -1,7 +1,9 @@
-package me.cloud.iot.store.toilet.common.dic;
+package me.cloud.iot.store.toilet.server.config;
 
 import com.alibaba.fastjson.JSON;
 import com.google.common.base.Charsets;
+import me.cloud.iot.store.toilet.common.dic.SensorInfoManager;
+import me.cloud.iot.store.toilet.common.dic.SensorInfos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.io.Resource;
@@ -12,17 +14,17 @@ import java.io.File;
 import java.io.FileInputStream;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  SensorConfig
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 @Component

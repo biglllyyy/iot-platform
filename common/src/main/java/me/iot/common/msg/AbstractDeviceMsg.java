@@ -12,18 +12,19 @@ import java.util.Objects;
 /**
  * 抽象设备消息
  */
+
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  AbstractDeviceMsg
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 public abstract class AbstractDeviceMsg implements IMsg {
@@ -37,6 +38,9 @@ public abstract class AbstractDeviceMsg implements IMsg {
     protected long occurTime = System.currentTimeMillis();
     protected Map<String, Object> params = Maps.newLinkedHashMap();
 
+    /**
+     * @return
+     */
     @JSONField(serialize = false, deserialize = false)
     @Override
     public abstract MsgType getMsgType();

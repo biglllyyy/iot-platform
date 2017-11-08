@@ -1,7 +1,12 @@
 package me.cloud.iot.store.dustbin.data.service.impl;
 
 import com.alibaba.fastjson.JSON;
-
+import me.iot.common.constant.DeviceTypes;
+import me.iot.common.msg.DeviceMsg;
+import me.iot.common.msg.IMsg;
+import me.iot.common.pojo.CacheMsgWrap;
+import me.iot.dms.DmsTopics;
+import me.iot.dms.IDeviceManageService;
 import me.iot.store.dustbin.common.MsgCodes;
 import me.iot.store.dustbin.common.MsgParams;
 import me.iot.store.dustbin.data.config.DustbinConfig;
@@ -9,12 +14,6 @@ import me.iot.store.dustbin.data.dao.IDustbinParamDao;
 import me.iot.store.dustbin.data.dto.DustbinParamDto;
 import me.iot.store.dustbin.data.entity.DustbinParam;
 import me.iot.store.dustbin.data.service.IDustbinParamService;
-import me.iot.common.constant.DeviceTypes;
-import me.iot.common.msg.DeviceMsg;
-import me.iot.common.msg.IMsg;
-import me.iot.common.pojo.CacheMsgWrap;
-import me.iot.dms.DmsTopics;
-import me.iot.dms.IDeviceManageService;
 import me.iot.util.redis.AbstractMessageListener;
 import me.iot.util.redis.ISubscribePublishService;
 import org.slf4j.Logger;
@@ -22,27 +21,25 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  MqttConst
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 @Service
@@ -65,7 +62,8 @@ public class DustbinParamServiceImpl extends AbstractMessageListener implements 
     private void init() {
         dms = dustbinConfig.getDms();
 
-        List<String> topics = Collections.singletonList(DmsTopics.getTopicByDeviceType(DeviceTypes.DEVICE_TYPE_DUSTBIN));
+        List<String> topics = Collections.singletonList(DmsTopics.getTopicByDeviceType(DeviceTypes
+                .DEVICE_TYPE_DUSTBIN));
         sps.subscribeMessage(this, topics);
         LOG.info("subscribe DeviceMessage.  topics: {}", topics);
     }

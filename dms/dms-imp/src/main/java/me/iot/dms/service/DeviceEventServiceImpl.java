@@ -1,11 +1,11 @@
 package me.iot.dms.service;
 
 import com.google.common.collect.Lists;
+import me.iot.common.dto.QueryResult;
 import me.iot.common.msg.DeviceEventMsg;
 import me.iot.dms.IDeviceEventService;
 import me.iot.dms.dao.DeviceEventDao;
 import me.iot.dms.entity.DeviceEvent;
-import me.iot.common.dto.QueryResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -19,17 +19,17 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @author :  sylar
+ * @FileName :  MqttConst
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 @Service
@@ -54,7 +54,8 @@ public class DeviceEventServiceImpl implements IDmsMsgProcessor<DeviceEventMsg>,
     public long countOfDeviceEvent(long beginTime, long endTime) {
         return dao.count(new Specification<DeviceEvent>() {
             @Override
-            public Predicate toPredicate(Root<DeviceEvent> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+            public Predicate toPredicate(Root<DeviceEvent> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder
+                    criteriaBuilder) {
                 return PredicateUtil.newPredicateByCreateTime(root, criteriaBuilder, beginTime, endTime);
             }
         });
@@ -64,8 +65,10 @@ public class DeviceEventServiceImpl implements IDmsMsgProcessor<DeviceEventMsg>,
     public long countOfDeviceEventByDeviceType(String deviceType, long beginTime, long endTime) {
         return dao.count(new Specification<DeviceEvent>() {
             @Override
-            public Predicate toPredicate(Root<DeviceEvent> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
-                return PredicateUtil.newPredicateByDeviceTypeAndCreateTime(root, criteriaBuilder, deviceType, beginTime, endTime);
+            public Predicate toPredicate(Root<DeviceEvent> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder
+                    criteriaBuilder) {
+                return PredicateUtil.newPredicateByDeviceTypeAndCreateTime(root, criteriaBuilder, deviceType,
+                        beginTime, endTime);
             }
         });
     }
@@ -74,19 +77,24 @@ public class DeviceEventServiceImpl implements IDmsMsgProcessor<DeviceEventMsg>,
     public long countOfDeviceEventByDeviceId(String deviceId, long beginTime, long endTime) {
         return dao.count(new Specification<DeviceEvent>() {
             @Override
-            public Predicate toPredicate(Root<DeviceEvent> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
-                return PredicateUtil.newPredicateByDeviceIdAndCreateTime(root, criteriaBuilder, deviceId, beginTime, endTime);
+            public Predicate toPredicate(Root<DeviceEvent> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder
+                    criteriaBuilder) {
+                return PredicateUtil.newPredicateByDeviceIdAndCreateTime(root, criteriaBuilder, deviceId, beginTime,
+                        endTime);
             }
         });
     }
 
     @Override
-    public QueryResult<DeviceEvent> getDeviceEventsByDeviceId(String deviceId, List<String> eventCodes, long beginTime, long endTime, int pageIndex, int pageSize) {
+    public QueryResult<DeviceEvent> getDeviceEventsByDeviceId(String deviceId, List<String> eventCodes, long
+            beginTime, long endTime, int pageIndex, int pageSize) {
         Page<DeviceEvent> page = dao.findAll(new Specification<DeviceEvent>() {
             @Override
-            public Predicate toPredicate(Root<DeviceEvent> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+            public Predicate toPredicate(Root<DeviceEvent> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder
+                    criteriaBuilder) {
                 List<Predicate> predicateList = Lists.newArrayList();
-                predicateList.add(PredicateUtil.newPredicateByDeviceIdAndCreateTime(root, criteriaBuilder, deviceId, beginTime, endTime));
+                predicateList.add(PredicateUtil.newPredicateByDeviceIdAndCreateTime(root, criteriaBuilder, deviceId,
+                        beginTime, endTime));
 
                 if (eventCodes != null && !eventCodes.isEmpty()) {
                     predicateList.add(criteriaBuilder.and(root.get("eventCode").as(String.class).in(eventCodes)));

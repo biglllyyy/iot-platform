@@ -4,8 +4,8 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Preconditions;
 
 /**
+ * @author :  sylar
  * @FileName :  TopicConsts
- * @Author :  sylar
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :
