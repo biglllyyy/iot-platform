@@ -6,10 +6,6 @@ import me.iot.util.mq.Provider;
 import me.iot.util.redis.ICentralCacheService;
 import me.iot.util.redis.IMessageQueueService;
 import me.iot.util.redis.ISubscribePublishService;
-import me.iot.fss.FSS;
-import me.iot.fss.IFileStorageService;
-import me.iot.sds.SDS;
-import me.iot.sds.service.ISimpleDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
@@ -45,8 +41,6 @@ public class DmsConfig {
 
     @PostConstruct
     public void init() {
-//        sds = SDS.getService(zkConnectString);
-//        fss = FSS.getService(zkConnectString);
     }
 
     public String getZkConnectString() {
@@ -64,14 +58,6 @@ public class DmsConfig {
     public ISubscribePublishService getSps() {
         return sps;
     }
-
-//    public ISimpleDataService getSds() {
-//        return sds;
-//    }
-//
-//    public IFileStorageService getFss() {
-//        return fss;
-//    }
 
     public IProducer getProducer() {
         return producer;

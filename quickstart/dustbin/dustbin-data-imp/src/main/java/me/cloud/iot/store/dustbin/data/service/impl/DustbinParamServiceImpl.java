@@ -88,12 +88,11 @@ public class DustbinParamServiceImpl extends AbstractMessageListener implements 
         BeanUtils.copyProperties(dustbinParamDto, dustbinParam);
         dustbinParam.setUserId(dustbinParamDto.getUserId());
         dustbinParam.setCreateUserId(dustbinParamDto.getUserId());
-        dustbinParam.setCreateTime(new Date().getTime());
+        dustbinParam.setCreateTime(System.currentTimeMillis());
         dustbinParamDao.saveAndFlush(dustbinParam);
     }
 
     @Override
-    @Transactional(readOnly = true)
     public DustbinParamDto getByDeviceId(String deviceId) {
         DustbinParam dustbinParam = dustbinParamDao.getByDeviceId(deviceId);
         if (dustbinParam == null) {
@@ -132,7 +131,7 @@ public class DustbinParamServiceImpl extends AbstractMessageListener implements 
         dustbinParam.setHalfFullThreshold(dustbinParamDto.getHalfFullThreshold());
         dustbinParam.setUserId(dustbinParamDto.getUserId());
         dustbinParam.setUpdateUserId(dustbinParamDto.getUserId());
-        dustbinParam.setUpdateTime(new Date().getTime());
+        dustbinParam.setUpdateTime(System.currentTimeMillis());
         dustbinParamDao.saveAndFlush(dustbinParam);
     }
 
@@ -204,7 +203,8 @@ public class DustbinParamServiceImpl extends AbstractMessageListener implements 
         Integer halfFullThreshold = 50;
         Integer reportInterval = 0;
         Integer connectStringLen = 0;
-        int rc = 1; // 0 - 成功，1 - 失败
+        // 0 - 成功，1 - 失败
+        int rc = 1;
 
         try {
             DustbinParamDto dustbinParamDto = this.getByDeviceId(msg.getSourceDeviceType() + msg.getSourceDeviceId());

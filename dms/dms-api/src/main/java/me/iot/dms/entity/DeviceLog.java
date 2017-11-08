@@ -6,7 +6,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class DeviceLog extends AbsDeviceEntity {
+public class DeviceLog extends AbstractDeviceEntity {
 
     @Column(nullable = false)
     private String logType;

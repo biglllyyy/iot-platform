@@ -4,7 +4,7 @@ package me.iot.common.msg;
  * 设备连接消息
  * 协议解析时,在 decoder hanlder 中必须实现该消息的实例化
  */
-public class DeviceConnectionMsg extends AbsDeviceMsg {
+public class DeviceConnectionMsg extends AbstractDeviceMsg {
 
     /**
      * DAS集群节点实例编码

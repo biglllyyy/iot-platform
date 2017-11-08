@@ -2,14 +2,14 @@ package me.iot.dms.service;
 
 import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Lists;
-import me.iot.common.util.StringUtils;
+import me.iot.common.dto.QueryResult;
 import me.iot.common.msg.DeviceInfoMsg;
 import me.iot.dms.IDeviceInfoService;
 import me.iot.dms.dao.DeviceInfoDao;
 import me.iot.dms.entity.DeviceInfo;
 import me.iot.dms.entity.DeviceOwner;
 import me.iot.dms.entity.DeviceStatus;
-import me.iot.common.dto.QueryResult;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -47,7 +47,6 @@ public class DeviceInfoService implements IDmsMsgProcessor<DeviceInfoMsg>, IDevi
 
         if (msg.getParams() != null && msg.getParams().size() > 0) {
             String params = JSON.toJSONString(msg.getParams());
-            //JsonUtils.pojo2Json(msg.getParams());
             pojo.setParams(params);
         }
 

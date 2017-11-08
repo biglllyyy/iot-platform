@@ -33,7 +33,7 @@ public class DeviceOwnerService implements IDeviceOwnerService {
     @Autowired
     private DeviceOwnerDao deviceOwnerDao;
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public void bindDevice(String ownerId, String deviceId) {
         //查询device是否已经绑定
@@ -67,13 +67,13 @@ public class DeviceOwnerService implements IDeviceOwnerService {
 
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public void unBindDevice(String ownerId) {
         deviceOwnerDao.unBindDeviceOwner(ownerId);
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public void unBindDevice(String ownerId, List<String> deviceList) {
         deviceOwnerDao.unBindDeviceOwner(ownerId, deviceList);

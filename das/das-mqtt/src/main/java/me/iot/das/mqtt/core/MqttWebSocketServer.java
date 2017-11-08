@@ -3,7 +3,7 @@
 //import me.iot.common.lamx.IMessaging;
 //import me.iot.common.lamx.LmaxDiscuptorMessaging;
 //import DasProperties;
-//import AbsTcpServer;
+//import AbstractTcpServer;
 //import me.iot.das.mqtt.core.MqttChannelHandler;
 //import MqttConst;
 //import me.iot.das.mqtt.processor.MqttProtocolProcessor;
@@ -31,7 +31,7 @@
 //import java.util.List;
 //
 ////@Service
-//public class MqttWebSocketServer extends AbsTcpServer {
+//public class MqttWebSocketServer extends AbstractTcpServer {
 //    private static final Logger LOG = LoggerFactory.getLogger(MqttWebSocketServer.class);
 //
 //    @Autowired

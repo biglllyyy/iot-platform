@@ -42,11 +42,11 @@ public class BcdUtils {
             asc = "0" + asc;
             len = asc.length();
         }
-        byte abt[] = new byte[len];
+        byte[] abt = new byte[len];
         if (len >= 2) {
             len = len / 2;
         }
-        byte bbt[] = new byte[len];
+        byte[] bbt = new byte[len];
         abt = asc.getBytes();
         int j, k;
         for (int p = 0; p < asc.length() / 2; p++) {

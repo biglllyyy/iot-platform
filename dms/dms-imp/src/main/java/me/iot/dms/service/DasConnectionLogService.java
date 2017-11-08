@@ -32,7 +32,7 @@ public class DasConnectionLogService implements IDmsMsgProcessor<DasConnectionMs
     DasStatusService dasStatusService;
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public void processMsg(DasConnectionMsg msg) {
         DasConnectionLog log = new DasConnectionLog();
         log.setNodeId(msg.getDasNodeId());

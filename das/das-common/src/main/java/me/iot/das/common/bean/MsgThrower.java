@@ -21,16 +21,6 @@ public class MsgThrower {
     DasConfig dasConfig;
 
     public void sendToQueue(IMsg msg) {
-//        try {
-//            String mqsKey = DasCacheKeys.getMqsKeyFromDasToDms();
-//            CacheMsgWrap wrap = new CacheMsgWrap(msg);
-//            dasConfig.getMqs().sendMessage(mqsKey, wrap);
-//        } catch (Exception e) {
-//            LOG.error("sendToQueue error:{}", e.getMessage());
-//            e.printStackTrace();
-//        }
-
-
         try {
             String topic = TopicConsts.getTopicFromDasToDms();
             dasConfig.getProducer().send(Message.buildMessage(topic, msg));

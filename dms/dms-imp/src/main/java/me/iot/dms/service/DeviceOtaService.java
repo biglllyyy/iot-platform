@@ -2,14 +2,13 @@ package me.iot.dms.service;
 
 import com.google.common.collect.Lists;
 import com.google.common.io.BaseEncoding;
+import me.iot.common.dto.QueryResult;
 import me.iot.dms.DmsConfig;
 import me.iot.dms.IDeviceOtaService;
 import me.iot.dms.dao.DeviceOtaFileDao;
 import me.iot.dms.entity.DeviceConnectionLog;
 import me.iot.dms.entity.DeviceInfo;
 import me.iot.dms.entity.DeviceOtaFile;
-import me.iot.common.dto.QueryResult;
-import me.iot.fss.StorageItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -50,8 +49,8 @@ public class DeviceOtaService implements IDeviceOtaService {
     public void uploadOtaFile(String otaFullName, String deviceType, int versionCode, String versionName, String description, String content) {
         //解码文件内容并获取文件决定路径
         byte[] bytes = BaseEncoding.base64().decode(content);
-        StorageItem storageItem = new StorageItem(bytes);
-        String filePath = dmsConfig.getFss().upload(storageItem);
+        //StorageItem storageItem = new StorageItem(bytes);
+        String filePath = null; //dmsConfig.getFss().upload(storageItem);
 
         //保存上传文件信息
         DeviceOtaFile deviceOtaFile = new DeviceOtaFile();
@@ -62,7 +61,8 @@ public class DeviceOtaService implements IDeviceOtaService {
         deviceOtaFile.setDescription(description);
         deviceOtaFile.setFilePath(filePath);
         if (dao.getByDeviceTypeAndVersionCode(deviceType, versionCode) == null) {
-            deviceOtaFile.setCreateTime(new Date());//如果不存在该条记录，则插入创建时间
+            //如果不存在该条记录，则插入创建时间
+            deviceOtaFile.setCreateTime(new Date());
         }
         dao.save(deviceOtaFile);
     }

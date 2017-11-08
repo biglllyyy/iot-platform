@@ -6,7 +6,7 @@ import me.iot.store.toilet.common.protolcol.MsgParams;
 import me.iot.common.constant.DeviceTypes;
 import me.iot.common.msg.DeviceMsg;
 import me.iot.common.msg.IMsg;
-import me.iot.das.common.ota.AbsOtaWorker;
+import me.iot.das.common.ota.AbstractOtaWorker;
 import me.iot.das.common.ota.OtaSendType;
 import org.springframework.stereotype.Component;
 
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
  * Created by sylar on 16/6/2.
  */
 @Component
-public class OtaWorker extends AbsOtaWorker {
+public class OtaWorker extends AbstractOtaWorker {
 
     @Override
     public String getDeviceType() {

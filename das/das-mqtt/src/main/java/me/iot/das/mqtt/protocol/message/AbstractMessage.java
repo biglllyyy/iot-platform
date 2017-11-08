@@ -6,10 +6,10 @@
  * and Apache License v2.0 which accompanies this distribution.
  *
  * The Eclipse Public License is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * http:/**www.eclipse.org/legal/epl-v10.html
  *
  * The Apache License v2.0 is available at
- * http://www.opensource.org/licenses/apache2.0.php
+ * http:/**www.opensource.org/licenses/apache2.0.php
  *
  * You may elect to redistribute this code under either of these licenses.
  */
@@ -23,22 +23,65 @@ import java.io.Serializable;
  * @author andrea
  */
 public abstract class AbstractMessage implements Serializable {
-
-    public static final byte CONNECT = 1; // Client request to connect to Server
-    public static final byte CONNACK = 2; // Connect Acknowledgment
-    public static final byte PUBLISH = 3; // Publish message
-    public static final byte PUBACK = 4; // Publish Acknowledgment
-    public static final byte PUBREC = 5; //Publish Received (assured delivery part 1)
-    public static final byte PUBREL = 6; // Publish Release (assured delivery part 2)
-    public static final byte PUBCOMP = 7; //Publish Complete (assured delivery part 3)
-    public static final byte SUBSCRIBE = 8; //Client Subscribe request
-    public static final byte SUBACK = 9; // Subscribe Acknowledgment
-    public static final byte UNSUBSCRIBE = 10; //Client Unsubscribe request
-    public static final byte UNSUBACK = 11; // Unsubscribe Acknowledgment
-    public static final byte PINGREQ = 12; //PING Request
-    public static final byte PINGRESP = 13; //PING Response
-    public static final byte DISCONNECT = 14; //Client is Disconnecting
-    //type
+    /**
+     * Client request to connect to Server
+     */
+    public static final byte CONNECT = 1;
+    /**
+     * Connect Acknowledgment
+     */
+    public static final byte CONNACK = 2;
+    /**
+     * Publish message
+     */
+    public static final byte PUBLISH = 3;
+    /**
+     * Publish Acknowledgment
+     */
+    public static final byte PUBACK = 4;
+    /**
+     * Publish Received (assured delivery part 1)
+     */
+    public static final byte PUBREC = 5;
+    /**
+     * Publish Release (assured delivery part 2)
+     */
+    public static final byte PUBREL = 6;
+    /**
+     * Publish Complete (assured delivery part 3)
+     */
+    public static final byte PUBCOMP = 7;
+    /**
+     * Client Subscribe request
+     */
+    public static final byte SUBSCRIBE = 8;
+    /**
+     * Subscribe Acknowledgment
+     */
+    public static final byte SUBACK = 9;
+    /**
+     * Client Unsubscribe request
+     */
+    public static final byte UNSUBSCRIBE = 10;
+    /**
+     * Unsubscribe Acknowledgment
+     */
+    public static final byte UNSUBACK = 11;
+    /**
+     * PING Request
+     */
+    public static final byte PINGREQ = 12;
+    /**
+     * PING Response
+     */
+    public static final byte PINGRESP = 13;
+    /**
+     * Client is Disconnecting
+     */
+    public static final byte DISCONNECT = 14;
+    /**
+     * type
+     */
     protected boolean m_dupFlag;
     protected QOSType m_qos;
     protected boolean m_retainFlag;
@@ -92,7 +135,22 @@ public abstract class AbstractMessage implements Serializable {
     }
 
     public enum QOSType {
-        MOST_ONE, LEAST_ONE, EXACTLY_ONCE, RESERVED;
+        /**
+         * 最多一次，有可能重复或丢失。
+         */
+        MOST_ONE,
+        /**
+         * 至少一次，有可能重复。
+         */
+        LEAST_ONE,
+        /**
+         * 只有一次，确保消息只到达一次
+         */
+        EXACTLY_ONCE,
+        /**
+         * 保留
+         */
+        RESERVED;
 
         public static String formatQoS(QOSType qos) {
             return String.format("%d - %s", qos.ordinal(), qos.name());

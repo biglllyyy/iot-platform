@@ -6,21 +6,27 @@ import java.util.Map;
 import java.util.Set;
 
 public interface ICentralCacheService {
-    //common
+    /**
+     * common
+     */
     boolean containsKey(String key);
 
     void removeObject(String key);
 
     void removeObjects(Collection<String> keys);
 
-    //Value
+    /**
+     * Value
+     */
     <T> T getObject(String key, Class<T> clazz);
 
     <T> void putObject(String key, T t);
 
     <T> void putObjectWithExpireTime(String key, T t, long expireTime);
 
-    //Map
+    /**
+     * Map
+     */
     <T> void putMapValue(String key, String fieldName, T t, long expireTime);
 
     <T> void putMapValue(String key, String fieldName, T t);
@@ -35,14 +41,18 @@ public interface ICentralCacheService {
 
     <T> Map<String, T> getAll(String key, Class<T> clazz);
 
-    //Set
+    /**
+     * Set
+     */
     <T> long putObjectToSet(String key, T t);
 
     <T> Set<T> getObjectsFromSet(String key, Class<T> clazz);
 
     <T> long removeObjectFromSet(String key, T t);
 
-    //ZSet
+    /**
+     * ZSet
+     */
     <T> boolean putObjectToZSet(String key, T t, double score);
 
     <T> void putObjectToZSetWithExpireTime(String key, T t, double score, long expireTime);
@@ -53,7 +63,9 @@ public interface ICentralCacheService {
 
     <T> void removeObjectFromZSet(String key, T t);
 
-    //List
+    /**
+     * List
+     */
     <T> void putObjectToListWithLimitAndExpireTime(String key, T t, int limit, long expireTime);
 
     <T> List<T> getObjectsFromList(String key, int start, int end, Class<T> clazz);

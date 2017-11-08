@@ -6,7 +6,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class DeviceToken extends AbsDeviceEntity {
+public class DeviceToken extends AbstractDeviceEntity {
 
     @Column(nullable = false, unique = true)
     private String token;

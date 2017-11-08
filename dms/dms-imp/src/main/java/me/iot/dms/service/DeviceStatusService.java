@@ -47,8 +47,9 @@ public class DeviceStatusService implements IDmsMsgProcessor<DeviceConnectionMsg
     @Override
     public DeviceStatus getDeviceStatus(String deviceId) {
         String ccsKey = DmsCacheKeys.getCcsKeyForDeviceStatus(deviceId);
-        if (!ccs.containsKey(ccsKey))
+        if (!ccs.containsKey(ccsKey)) {
             return null;
+        }
 
         return ccs.getObject(ccsKey, DeviceStatus.class);
     }

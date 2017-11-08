@@ -4,7 +4,7 @@
 //import me.iot.common.lamx.IMessaging;
 //import me.iot.common.lamx.LmaxDiscuptorMessaging;
 //import DasProperties;
-//import AbsTcpServer;
+//import AbstractTcpServer;
 //import me.iot.das.mqtt.core.MqttChannelHandler;
 //import me.iot.das.mqtt.processor.MqttProtocolProcessor;
 //import MQTTDecoder;
@@ -29,7 +29,7 @@
 //import java.security.KeyStore;
 //
 ////@Service
-//public class MqttSslServer extends AbsTcpServer {
+//public class MqttSslServer extends AbstractTcpServer {
 //    private static final Logger LOG = LoggerFactory.getLogger(MqttSslServer.class);
 //
 //    private static final String ParamKey_SslJksPath = "SslJksPath";

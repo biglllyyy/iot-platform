@@ -1,15 +1,13 @@
 package me.iot.das.mqtt.protocol.subscriptions;
 
-
-
 import me.iot.das.mqtt.protocol.message.AbstractMessage;
 
 import java.io.Serializable;
 
 public class Subscription implements Serializable {
     private static final long serialVersionUID = 3312213897949373977L;
-
-    private AbstractMessage.QOSType requestedQos; //max QoS acceptable
+    /**max QoS acceptable*/
+    private AbstractMessage.QOSType requestedQos;
     private String clientId;
     private String topicFilter;
     private boolean cleanSession;

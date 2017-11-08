@@ -6,7 +6,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class MsgLog extends AbsDeviceEntity {
+public class MsgLog extends AbstractDeviceEntity {
 
     @Column
     private String msgType;

@@ -24,8 +24,9 @@ public class OtaFactory implements ApplicationListener<OtaNewTaskEvent> {
     public void onApplicationEvent(OtaNewTaskEvent event) {
         DeviceOtaMsg msg = event.getMsg();
         String deviceType = msg.getTargetDeviceType();
-        if (!mapWorker.containsKey(deviceType))
+        if (!mapWorker.containsKey(deviceType)) {
             return;
+        }
 
         IOtaWorker worker = mapWorker.get(deviceType);
         String deivceId = msg.getTargetDeviceId();

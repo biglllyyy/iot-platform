@@ -6,7 +6,7 @@
 //
 //@Entity
 //@Table
-//public class MsgLog_4Mysql extends AbsDeviceEntity {
+//public class MsgLog_4Mysql extends AbstractDeviceEntity {
 //
 //    @Column
 //    private String msgType;

@@ -44,6 +44,7 @@ public class ExLoggingHandler extends LoggingHandler {
      * @param eventName the name of the event
      * @param arg       the argument of the event
      */
+    @Override
     protected String format(ChannelHandlerContext ctx, String eventName, Object arg) {
         if (arg instanceof ByteBuf) {
             return formatByteBuf(ctx, eventName, (ByteBuf) arg);

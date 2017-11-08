@@ -5,7 +5,7 @@ import me.iot.common.pojo.DeviceGuid;
 /**
  * 普通设备消息
  */
-public class DeviceMsg extends AbsDeviceMsg {
+public class DeviceMsg extends AbstractDeviceMsg {
 
     public static DeviceMsg newMsgFromCloud(String msgCode, String targetDeviceType, String targetDeviceId) {
         DeviceMsg msg = newMsgFromCloud(msgCode);

@@ -10,88 +10,88 @@ public interface MsgParams {
     /**
      * 时间戳
      */
-    String Timestamp = "Timestamp";
+    String TIMESTAMP = "Timestamp";
 
 
     /**
      * RTC实时时间
      */
-    String RtcTime = "RtcTime";
+    String RTCTIME = "RtcTime";
 
     /**
      * 垃圾桶空余空间  探头1
      */
-    String Remain1 = "Remain1";
+    String REMAIN1 = "Remain1";
 
     /**
      * 垃圾桶空余空间  探头3
      */
-    String Remain2 = "Remain2";
+    String REMAIN2 = "Remain2";
 
     /**
      * 垃圾桶空余空间  探头3
      */
-    String Remain3 = "Remain3";
+    String REMAIN3 = "Remain3";
 
     /**
      * 垃圾桶倾斜角度[1Byte]，单位度，范围0~180
      */
-    String Tilt = "Tilt";
+    String TILT = "Tilt";
 
     /**
      * 垃圾桶电池电压[2Byte],单位mV
      */
-    String Battery = "Battery";
+    String BATTERY = "Battery";
 
 
     /**
      * 垃圾桶温度[2Byte]，单位0.1摄氏度
      */
-    String Temperatue = "Temperatue";
+    String TEMPERATUE = "Temperatue";
 
     /**
      * 垃圾桶满阈值[1Byte]，单位cm
      */
-    String Limit1 = "Limit1";
+    String LIMIT1 = "Limit1";
 
     /**
      * 垃圾桶半满阈值[1Byte]，单位cm
      */
-    String Limit2 = "Limit2";
+    String LIMIT2 = "Limit2";
 
     /**
      * 垃圾桶上报间隔[1Byte]，单位小时
      */
-    String ReportInterval = "ReportInterval";
+    String REPORTINTERVAL = "ReportInterval";
 
     /**
      * 垃圾桶云端地址长度[1Byte]
      */
-    String ConnectStringLen = "ConnectStringLen";
+    String CONNECTSTRINGLEN = "ConnectStringLen";
 
     /**
      * 垃圾桶云端地址[NByte],内容包括地址和端口，格式为 ip:port
      */
-    String ConnectString = "ConnectString";
+    String CONNECTSTRING = "ConnectString";
 
     /**
      * 移动报警[1Byte]，0:无报警，其他:有报警
      */
-    String AlarmMove = "AlarmMove";
+    String ALARMMOVE = "AlarmMove";
 
     /**
      * 传感器故障报警 探头1
      */
-    String AlarmError1 = "AlarmError1";
+    String ALARMERROR1 = "AlarmError1";
 
     /**
      * 传感器故障报警 探头2
      */
-    String AlarmError2 = "AlarmError2";
+    String ALARMERROR2 = "AlarmError2";
 
     /**
      * 传感器故障报警 探头3
      */
-    String AlarmError3 = "AlarmError3";
+    String ALARMERROR3 = "AlarmError3";
 
 }

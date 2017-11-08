@@ -24,14 +24,6 @@ public class CacheMsgHandler extends AbstractCacheMsgHandler {
     @Override
     public IMsg getMsgFromCache() {
 
-//        String queueName = DasCacheKeys.getMqsKeyFromDasToDms();
-//        CacheMsgWrap wrap = dmsConfig.getMqs().receiveMessage(queueName, CacheMsgWrap.class);
-//        if (wrap != null) {
-//            return wrap.getMsg();
-//        } else {
-//            return null;
-//        }
-
         String topic = TopicConsts.getTopicFromDasToDms();
 
         try {
@@ -50,6 +42,8 @@ public class CacheMsgHandler extends AbstractCacheMsgHandler {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        return null;
     }
 
     @Override

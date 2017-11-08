@@ -17,15 +17,15 @@ import java.util.Map;
  */
 public class DubboUtils {
 
-    public final static String Registry_Zookeeper = "zookeeper";
-    public final static String Registry_Redis = "redis";
-    public final static String Prorocol_Dubbo = "dubbo";
-    public final static String Prorocol_Rest = "rest";
-    public final static String Prorocol_Http = "http";
-    public final static String Prorocol_Hessian = "hessian";
-    public final static String Prorocol_Webservice = "webservice";
+    public final static String REGISTRY_ZOOKEEPER = "zookeeper";
+    public final static String REGISTRY_REDIS = "redis";
+    public final static String PROROCOL_DUBBO = "dubbo";
+    public final static String PROROCOL_REST = "rest";
+    public final static String PROROCOL_HTTP = "http";
+    public final static String PROROCOL_HESSIAN = "hessian";
+    public final static String PROROCOL_WEBSERVICE = "webservice";
 
-    private final static Map<Class<?>, Object> map = new HashMap<>();
+    private final static Map<Class<?>, Object> MAP = new HashMap<>();
 
 
     /**
@@ -43,7 +43,7 @@ public class DubboUtils {
     public static <T> T getServcieReference(String appName,
                                             String connectString,
                                             Class<T> clazz) {
-        return getServcieReference(appName, connectString, Registry_Zookeeper, Prorocol_Dubbo, clazz, true);
+        return getServcieReference(appName, connectString, REGISTRY_ZOOKEEPER, PROROCOL_DUBBO, clazz, true);
     }
 
     /**
@@ -62,7 +62,7 @@ public class DubboUtils {
                                             String connectString,
                                             Class<T> clazz,
                                             boolean isLazy) {
-        return getServcieReference(appName, connectString, Registry_Zookeeper, Prorocol_Dubbo, clazz, isLazy);
+        return getServcieReference(appName, connectString, REGISTRY_ZOOKEEPER, PROROCOL_DUBBO, clazz, isLazy);
     }
 
     /**
@@ -81,7 +81,7 @@ public class DubboUtils {
                                             String referenceProrocol,
                                             Class<T> clazz,
                                             boolean isLazy) {
-        return getServcieReference(appName, connectString, Registry_Zookeeper, referenceProrocol, clazz, isLazy);
+        return getServcieReference(appName, connectString, REGISTRY_ZOOKEEPER, referenceProrocol, clazz, isLazy);
     }
 
     /**
@@ -102,8 +102,8 @@ public class DubboUtils {
                                             Class<T> clazz,
                                             boolean isLazy) {
 
-        if (map.containsKey(clazz)) {
-            return (T) map.get(clazz);
+        if (MAP.containsKey(clazz)) {
+            return (T) MAP.get(clazz);
         }
 
         ApplicationConfig app = new ApplicationConfig(appName);
@@ -124,7 +124,7 @@ public class DubboUtils {
         // 和本地bean一样使用xxxService
         // 注意：此代理对象内部封装了所有通讯细节，对象较重，请缓存复用
         T t = reference.get();
-        map.put(clazz, t);
+        MAP.put(clazz, t);
 
         return t;
 
@@ -132,7 +132,7 @@ public class DubboUtils {
 
 
     public static void declareService(String appName, String connectString, Class serviceInterface, Object ref) {
-        declareService(appName, connectString, Registry_Zookeeper, serviceInterface, ref);
+        declareService(appName, connectString, REGISTRY_ZOOKEEPER, serviceInterface, ref);
     }
 
     public static <T> void declareService(String appName, String connectString, String registryProrocol, Class<T> serviceInterface, T serviceRef) {
@@ -158,8 +158,9 @@ public class DubboUtils {
      * @return
      */
     public static boolean checkType(Object obj) {
-        if (obj == null)
+        if (obj == null) {
             return true;
+        }
 
         if (obj instanceof Collection) {
             Class clazz = getGenericType((Collection) obj);
@@ -172,12 +173,17 @@ public class DubboUtils {
 
     public static boolean checkType(Class clazz) {
 
-        if (Serializable.class.isAssignableFrom(clazz))
+        if (Serializable.class.isAssignableFrom(clazz)) {
             return true;
-        if (String.class.isAssignableFrom(clazz))
+        }
+
+        if (String.class.isAssignableFrom(clazz)) {
             return true;
-        if (clazz.isPrimitive() || Primitives.isWrapperType(clazz))
+        }
+
+        if (clazz.isPrimitive() || Primitives.isWrapperType(clazz)) {
             return true;
+        }
 
         return false;
     }

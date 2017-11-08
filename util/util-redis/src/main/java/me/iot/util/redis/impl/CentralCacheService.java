@@ -52,14 +52,19 @@ public class CentralCacheService implements ICentralCacheService {
 
     @Override
     public <T> void putObject(String key, T t) {
-        if (t == null) return;
+        if (t == null) {
+            return;
+        }
+
         String value = encode(t);
         valOps(key).set(value);
     }
 
     @Override
     public <T> void putObjectWithExpireTime(String key, T t, long expireTime) {
-        if (t == null) return;
+        if (t == null) {
+            return;
+        }
         String value = encode(t);
         valOps(key).set(value, expireTime, TimeUnit.SECONDS);
     }
@@ -236,7 +241,6 @@ public class CentralCacheService implements ICentralCacheService {
                 value = String.valueOf(obj);
             } else {
                 //pojo
-//                value = JsonUtils.pojo2Json(obj);
                 value = JSON.toJSONString(obj);
             }
 
@@ -245,8 +249,9 @@ public class CentralCacheService implements ICentralCacheService {
     }
 
     <T> T decode(String text, Class<T> clazz) {
-        if (text == null)
+        if (text == null) {
             return null;
+        }
 
         JsonValidator jsonValidator = new JsonValidator();
         if (jsonValidator.validate(text)) {
