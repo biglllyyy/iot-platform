@@ -29,8 +29,9 @@ public class MsgSender {
     DeviceStatusService deviceStatusService;
 
     public void sendToQueue(IMsg msg) {
-        if (msg == null)
+        if (msg == null) {
             return;
+        }
 
         DeviceStatus deviceStatus = deviceStatusService.getDeviceStatus(msg.getTargetDeviceType() + msg.getTargetDeviceId());
         if (deviceStatus == null) {

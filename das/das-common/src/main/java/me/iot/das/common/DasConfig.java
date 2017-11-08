@@ -6,9 +6,6 @@ import me.iot.util.mq.IProducer;
 import me.iot.util.mq.MQFactory;
 import me.iot.util.mq.Provider;
 import me.iot.util.redis.ICentralCacheService;
-import me.iot.util.redis.IMessageQueueService;
-import me.iot.util.redis.ISubscribePublishService;
-import oracle.jvm.hotspot.jfr.Producer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
@@ -29,11 +26,11 @@ public class DasConfig {
     @Autowired
     ICentralCacheService ccs;
 
-    @Autowired
-    IMessageQueueService mqs;
-
-    @Autowired
-    ISubscribePublishService sps;
+//    @Autowired
+//    IMessageQueueService mqs;
+//
+//    @Autowired
+//    ISubscribePublishService sps;
 
 
     Provider provider = Provider.Rocketmq;
@@ -71,13 +68,13 @@ public class DasConfig {
         return ccs;
     }
 
-    public IMessageQueueService getMqs() {
-        return mqs;
-    }
-
-    public ISubscribePublishService getSps() {
-        return sps;
-    }
+//    public IMessageQueueService getMqs() {
+//        return mqs;
+//    }
+//
+//    public ISubscribePublishService getSps() {
+//        return sps;
+//    }
 
     public IProducer getProducer() {
         return producer;

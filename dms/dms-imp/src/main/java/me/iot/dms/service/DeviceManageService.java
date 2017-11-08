@@ -218,21 +218,6 @@ public class DeviceManageService implements IDmsMsgProcessor<IMsg>, IDeviceManag
         deviceMessageService.sendMsg(msg);
     }
 
-//    @Override
-//    public void subscribeMsgByDeviceTypes(Callback<IMsg> callback, List<String> deviceTypes) {
-//        deviceMessageService.subscribeMsgByDeviceTypes(callback, deviceTypes);
-//    }
-//
-//    @Override
-//    public void subscribeMsgByDeviceIds(Callback<IMsg> callback, List<String> deviceIds) {
-//        deviceMessageService.subscribeMsgByDeviceIds(callback, deviceIds);
-//    }
-//
-//    @Override
-//    public void unsubscribeMsg(Callback<IMsg> callback) {
-//        deviceMessageService.unsubscribeMsg(callback);
-//    }
-
     @Override
     public QueryResult<DeviceOtaFile> getDeviceOtaFilesByDeviceType(String deviceType, int pageIndex, int pageSize) {
         return deviceOtaService.getDeviceOtaFilesByDeviceType(deviceType, pageIndex, pageSize);

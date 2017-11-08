@@ -3,7 +3,7 @@ package me.iot.common.msg;
 /**
  * 未知设备消息
  */
-public class UnknownMsg extends AbsDeviceMsg {
+public class UnknownMsg extends AbstractDeviceMsg {
     private byte[] bytes;
 
     @Override

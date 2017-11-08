@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class DeviceAlarm extends AbsDeviceEntity {
+public class DeviceAlarm extends AbstractDeviceEntity {
 
     @Column(nullable = false)
     private String alarmCode;

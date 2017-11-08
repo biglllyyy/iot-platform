@@ -4,9 +4,17 @@ package me.iot.util.gps.enums;
  * Created by sylar on 16/8/26.
  */
 public enum CoorType {
-
+    /**
+     * 国际
+     */
     WGS84(0),
+    /**
+     * 国测局
+     */
     GCJ02(1),
+    /**
+     * 百度
+     */
     BD09LL(2);
 
     private int value;

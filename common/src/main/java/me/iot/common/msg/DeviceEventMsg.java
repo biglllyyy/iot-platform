@@ -3,7 +3,7 @@ package me.iot.common.msg;
 /**
  * 设备事件消息
  */
-public class DeviceEventMsg extends AbsDeviceMsg {
+public class DeviceEventMsg extends AbstractDeviceMsg {
     private String eventCode;
     private String eventDescription;
 

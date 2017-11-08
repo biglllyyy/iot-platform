@@ -121,15 +121,17 @@ public class SensorInfoManager {
         }
 
         String deviceTypeId = null;
-        if (id.length() == DeviceGuid.GUID_LENGTH)
+        if (id.length() == DeviceGuid.GUID_LENGTH) {
             deviceTypeId = DeviceGuid.fromString(id).getDeviceTypeId();
-        else if (id.length() == DeviceGuid.DEVICE_TYPE_LENGTH)
+        } else if (id.length() == DeviceGuid.DEVICE_TYPE_LENGTH) {
             deviceTypeId = id;
+        }
 
-        if (deviceTypeId != null)
+        if (deviceTypeId != null) {
             return sensorMap.get(deviceTypeId);
-        else
+        } else {
             return null;
+        }
     }
 
     public Map<String, Object> buildSensorDataMap(List<SensorDataWrap> wrapList) {

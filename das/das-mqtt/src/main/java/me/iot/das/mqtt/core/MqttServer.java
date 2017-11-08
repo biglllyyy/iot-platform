@@ -1,13 +1,13 @@
 package me.iot.das.mqtt.core;
 
 import me.iot.das.common.NettyConst;
-import me.iot.das.common.core.AbsTcpServer;
+import me.iot.das.common.core.AbstractTcpServer;
 import me.iot.das.mqtt.protocol.codec.MQTTDecoder;
 import me.iot.das.mqtt.protocol.codec.MQTTEncoder;
 import io.netty.channel.ChannelPipeline;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class MqttServer extends AbsTcpServer {
+public class MqttServer extends AbstractTcpServer {
 
     public static final String MQTT_ENCODER_HANDLER_NAME = "mqttEncoderHandler";
     public static final String MQTT_DECODER_HANDLER_NAME = "mqttDecoderHandler";

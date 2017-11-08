@@ -24,7 +24,9 @@ public class ConnectMessage extends AbstractMessage {
     String m_protocolName;
     byte m_procotolVersion;
 
-    //Connection flags
+    /**
+     * Connection flags
+     */
     boolean m_cleanSession;
     boolean m_willFlag;
     byte m_willQos;
@@ -33,7 +35,9 @@ public class ConnectMessage extends AbstractMessage {
     boolean m_userFlag;
     int m_keepAlive;
 
-    //Variable part
+    /**
+     * Variable part
+     */
     String m_username;
     String m_password;
     String m_clientID;

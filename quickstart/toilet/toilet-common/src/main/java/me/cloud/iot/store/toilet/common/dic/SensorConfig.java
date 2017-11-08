@@ -23,7 +23,9 @@ public class SensorConfig {
     @PostConstruct
     private void init() {
         Resource resource = ctx.getResource("classpath:toilet_sensor_config.json");
-        if (!resource.exists()) return;
+        if (!resource.exists()) {
+            return;
+        }
         try {
             File file = resource.getFile();
             byte[] buffer = new byte[(int) file.length()];

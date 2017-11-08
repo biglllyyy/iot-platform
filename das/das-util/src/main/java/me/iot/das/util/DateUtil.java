@@ -4,6 +4,7 @@ import java.nio.ByteBuffer;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  * Created by sylar on 16/7/31.
@@ -21,12 +22,12 @@ public class DateUtil {
     public static Date readDate(ByteBuffer payload) {
         byte[] timeBytes = new byte[7];
         payload.get(timeBytes);
-        Date time = new Date(100 + timeBytes[0],
+        Date time = new GregorianCalendar(100 + timeBytes[0] + 1900,
                 timeBytes[1],
                 timeBytes[2],
                 timeBytes[3],
                 timeBytes[4],
-                timeBytes[5]);
+                timeBytes[5]).getTime();
 
         return time;
     }
@@ -41,12 +42,12 @@ public class DateUtil {
     public static Date readDateBySix(ByteBuffer payload) {
         byte[] timeBytes = new byte[6];
         payload.get(timeBytes);
-        Date time = new Date(100 + timeBytes[0],
+        Date time = new GregorianCalendar(100 + timeBytes[0] + 1900,
                 timeBytes[1],
                 timeBytes[2],
                 timeBytes[3],
                 timeBytes[4],
-                timeBytes[5]);
+                timeBytes[5]).getTime();
 
         return time;
     }
@@ -95,10 +96,8 @@ public class DateUtil {
     /**
      * 将日期字符串解析为日期类型(String to Date)
      *
-     * @param dateString
-     *            不可心为null或空
-     * @param format
-     *            可以为null,默认格式化"yyyy-MM-dd"
+     * @param dateString 不可心为null或空
+     * @param format     可以为null,默认格式化"yyyy-MM-dd"
      * @return
      * @throws Exception
      */

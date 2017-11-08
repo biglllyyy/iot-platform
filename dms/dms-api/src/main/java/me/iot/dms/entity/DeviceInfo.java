@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class DeviceInfo extends AbsDeviceEntity {
+public class DeviceInfo extends AbstractDeviceEntity {
 
     @Column(nullable = false)
     private int versionCode;

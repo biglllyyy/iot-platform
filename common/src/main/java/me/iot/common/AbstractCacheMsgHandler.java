@@ -1,6 +1,6 @@
 package me.iot.common;
 
-
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.lmax.disruptor.EventHandler;
 import me.iot.common.msg.IMsg;
 import me.iot.util.disruptor.IMessaging;
@@ -10,10 +10,9 @@ import me.iot.util.disruptor.ValueEvent;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 缓存消息处理器:从缓存队列中取出消息并处理
@@ -21,9 +20,12 @@ import java.util.concurrent.Executors;
 
 @Deprecated
 public abstract class AbstractCacheMsgHandler<T extends IMsg> implements EventHandler<ValueEvent> {
-//    protected final Logger LOG = LoggerFactory.getLogger(this.getClass());
 
-    private final ExecutorService executorService = Executors.newSingleThreadExecutor();
+    private final ExecutorService executorService = new ThreadPoolExecutor(1, 1,
+            0L, TimeUnit.MILLISECONDS,
+            new LinkedBlockingQueue<>(), new ThreadFactoryBuilder()
+            .setNameFormat("cache-pull-pool-%d").build(), new ThreadPoolExecutor.AbortPolicy());
+
     private final IMessaging messagingService = new LmaxDiscuptorMessaging(this);
 
     public abstract T getMsgFromCache();
@@ -43,7 +45,6 @@ public abstract class AbstractCacheMsgHandler<T extends IMsg> implements EventHa
                         }
                         Thread.sleep(10);
                     } catch (Exception e) {
-//                        LOG.error("getMsgFromCache error: {}", e);
                     }
                 }
             }
@@ -65,9 +66,6 @@ public abstract class AbstractCacheMsgHandler<T extends IMsg> implements EventHa
                 handleMsg(msg);
             }
         } catch (Exception e) {
-//            LOG.error("handleMsg error. \nmsg content: {}\nexception:{}", msg, e.getMessage());
         }
     }
-
-
 }

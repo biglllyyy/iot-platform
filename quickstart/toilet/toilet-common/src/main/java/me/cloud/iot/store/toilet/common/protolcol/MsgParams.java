@@ -10,71 +10,71 @@ public interface MsgParams {
     /**
      * 总包号
      */
-    String OtaPacketCount = "OtaPacketCount";
+    String OTAPACKETCOUNT = "OtaPacketCount";
 
     /**
      * 当前包号
      */
-    String OtaCurrentPacketIndex = "OtaCurrentPacketIndex";
+    String OTACURRENTPACKETINDEX = "OtaCurrentPacketIndex";
 
     /**
      * 包内容
      */
-    String OtaPacketData = "OtaPacketData";
+    String OTAPACKETDATA = "OtaPacketData";
 
     /**
      * 云端推送内容
      */
-    String PushContent = "PushContent";
+    String PUSHCONTENT = "PushContent";
 
     /**
      * 上报间隔
      */
-    String ReportInterval = "ReportInterval";
+    String REPORTINTERVAL = "ReportInterval";
 
     /**
      * SSID String 根据WifiSsid_Len确定长度
      */
-    String WifiSsid = "WifiSsid";
+    String WIFISSID = "WifiSsid";
 
     /**
      * Wifi pasword String 根据WifiPwd_Len确定长度
      */
-    String WifiPwd = "WifiPwd";
+    String WIFIPWD = "WifiPwd";
 
     /**
      * 设备个数 1B
      */
-    String DeviceNum = "DeviceNum";
+    String DEVICENUM = "DeviceNum";
 
     /**
      * 实时时间
      */
-    String Time = "Time";
+    String TIME = "Time";
 
     /**
      * 考勤卡ID
      */
-    String Rfid = "Rfid";
+    String RFID = "Rfid";
 
     /**
      * 传感器列表
      */
-    String Sensons = "Sensons";
+    String SENSONS = "Sensons";
 
     /**
      * 设备Guid
      */
-    String Guid = "Guid";
+    String GUID = "Guid";
 
     /**
      * 开关风机阈值
      */
-    String ToiletParamFan = "ToiletParamFan";
+    String TOILETPARAMFAN = "ToiletParamFan";
 
     /**
      * 喷除臭剂阈值
      */
-    String ToiletParamDeodorant = "ToiletParamDeodorant";
+    String TOILETPARAMDEODORANT = "ToiletParamDeodorant";
 
 }

@@ -6,7 +6,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class DeviceConnectionLog extends AbsDeviceEntity {
+public class DeviceConnectionLog extends AbstractDeviceEntity {
 
     @Column(nullable = false)
     private String nodeId;

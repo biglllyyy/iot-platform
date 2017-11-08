@@ -25,7 +25,7 @@ public class DasConnectionLog implements Serializable {
     private boolean connected;
 
     @Column
-    private long createTime = new Date().getTime();
+    private long createTime = System.currentTimeMillis();
 
     public Long getId() {
         return id;

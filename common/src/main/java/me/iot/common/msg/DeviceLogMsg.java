@@ -3,7 +3,7 @@ package me.iot.common.msg;
 /**
  * 设备上报的日志消息
  */
-public class DeviceLogMsg extends AbsDeviceMsg {
+public class DeviceLogMsg extends AbstractDeviceMsg {
     private String logType;
     private String logContent;
 

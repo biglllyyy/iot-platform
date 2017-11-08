@@ -3,7 +3,7 @@ package me.iot.common.msg;
 /**
  * 设备实时数据消息
  */
-public class DeviceDataMsg extends AbsDeviceMsg {
+public class DeviceDataMsg extends AbstractDeviceMsg {
 
     private long timestamp = System.currentTimeMillis();
 

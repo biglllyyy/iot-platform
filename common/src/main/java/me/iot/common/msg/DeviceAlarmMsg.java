@@ -3,7 +3,7 @@ package me.iot.common.msg;
 /**
  * 设备报警消息
  */
-public class DeviceAlarmMsg extends AbsDeviceMsg {
+public class DeviceAlarmMsg extends AbstractDeviceMsg {
     private String alarmCode;
     private String alarmDescription;
 

@@ -6,16 +6,45 @@ import java.io.Serializable;
  * Created by sylar on 16/5/25.
  */
 public enum MsgType implements Serializable {
-
+    /**
+     * 未知
+     */
     Unknown(-1),
+    /**
+     * 未定义
+     */
     Undefine(0),
+    /**
+     * das 连接
+     */
     DasConnection(1),
+    /**
+     * 设备连接
+     */
     DeviceConnection(2),
+    /**
+     * 设备信息
+     */
     DeviceInfo(11),
+    /**
+     * 设备报警
+     */
     DeviceAlarm(12),
+    /**
+     * 设备事件
+     */
     DeviceEvent(13),
+    /**
+     * 设备日志
+     */
     DeviceLog(14),
+    /**
+     * 设备业务数据
+     */
     DeviceData(15),
+    /**
+     * 设备在线升级
+     */
     DeviceOta(16);
 
     private int value;

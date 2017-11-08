@@ -4,7 +4,7 @@ package me.iot.common.msg;
  * 设备ota升级消息
  * 设备ota是由云端发起,并作分包处理后发给设备的
  */
-public class DeviceOtaMsg extends AbsDeviceMsg {
+public class DeviceOtaMsg extends AbstractDeviceMsg {
 
     private byte[] otaData;
 

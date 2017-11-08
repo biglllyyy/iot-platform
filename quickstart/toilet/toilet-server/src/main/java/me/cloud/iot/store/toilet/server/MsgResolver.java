@@ -32,7 +32,7 @@ public class MsgResolver implements IMqttMsgResolver {
 
     public static final Charset CHARSET = Charset.forName("utf-8");
     private static final Logger LOG = LoggerFactory.getLogger(MsgResolver.class);
-    private static final ByteOrder Order = ByteOrder.LITTLE_ENDIAN;
+    private static final ByteOrder ORDER = ByteOrder.LITTLE_ENDIAN;
 
     static List<SensorDataWrap> readSensons(ByteBuffer payload) {
         String sensorGuid;
@@ -262,7 +262,6 @@ public class MsgResolver implements IMqttMsgResolver {
         msg.setDevice(srcGuid, dstGuid);
 
         msg.setEventCode(String.valueOf(eventCode));
-//        msg.setEventDescription(eventData);
         return msg;
     }
 

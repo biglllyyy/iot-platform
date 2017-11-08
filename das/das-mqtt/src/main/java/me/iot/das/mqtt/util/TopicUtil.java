@@ -25,8 +25,9 @@ public class TopicUtil {
     public final static String TOPIC_BROADCAST = "b";
 
     public static String getSourceGuid(String topic) {
+        int topicSplitLength = 3;
         List<String> list = split(topic);
-        if (list.size() == 3 && Objects.equal(list.get(0), TOPIC_BROADCAST)) {
+        if (list.size() == topicSplitLength && Objects.equal(list.get(0), TOPIC_BROADCAST)) {
             return list.get(1) + list.get(2);
         } else {
             return null;
@@ -34,8 +35,9 @@ public class TopicUtil {
     }
 
     public static String getTargetGuid(String topic) {
+        int topicSplitLength = 3;
         List<String> list = split(topic);
-        if (list.size() == 3 && Objects.equal(list.get(0), TOPIC_UNICAST)) {
+        if (list.size() == topicSplitLength && Objects.equal(list.get(0), TOPIC_UNICAST)) {
             return list.get(1) + list.get(2);
         } else {
             return null;

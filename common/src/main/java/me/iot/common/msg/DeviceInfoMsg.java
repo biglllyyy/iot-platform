@@ -3,7 +3,7 @@ package me.iot.common.msg;
 /**
  * 设备基本信息消息
  */
-public class DeviceInfoMsg extends AbsDeviceMsg {
+public class DeviceInfoMsg extends AbstractDeviceMsg {
 
     /**
      * 设备的业务编码,可由业务层指定

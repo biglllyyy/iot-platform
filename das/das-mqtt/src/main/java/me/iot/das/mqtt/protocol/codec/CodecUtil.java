@@ -23,9 +23,9 @@ public class CodecUtil {
         if (in.readableBytes() < 1) {
             return false;
         }
-        //byte h1 = in.get();
-        //byte messageType = (byte) ((h1 & 0x00F0) >> 4);
-        in.skipBytes(1); //skip the messageType byte
+
+        //skip the messageType byte
+        in.skipBytes(1);
 
         int remainingLength = CodecUtil.decodeRemainingLenght(in);
         if (remainingLength == -1) {
@@ -98,7 +98,7 @@ public class CodecUtil {
         if (in.readableBytes() < 2) {
             return null;
         }
-        //int strLen = Utils.readWord(in);
+
         int strLen = in.readUnsignedShort();
         if (in.readableBytes() < strLen) {
             return null;
@@ -125,7 +125,7 @@ public class CodecUtil {
             LoggerFactory.getLogger(CodecUtil.class).error(null, ex);
             return null;
         }
-        //Utils.writeWord(out, raw.length);
+
         out.writeShort(raw.length);
         out.writeBytes(raw);
         return out;
@@ -135,10 +135,18 @@ public class CodecUtil {
      * Return the number of bytes to encode the given remaining length value
      */
     static int numBytesToEncode(int len) {
-        if (0 <= len && len <= 127) return 1;
-        if (128 <= len && len <= 16383) return 2;
-        if (16384 <= len && len <= 2097151) return 3;
-        if (2097152 <= len && len <= 268435455) return 4;
+        if (0 <= len && len <= 127) {
+            return 1;
+        }
+        if (128 <= len && len <= 16383) {
+            return 2;
+        }
+        if (16384 <= len && len <= 2097151) {
+            return 3;
+        }
+        if (2097152 <= len && len <= 268435455) {
+            return 4;
+        }
         throw new IllegalArgumentException("value shoul be in the range [0..268435455]");
     }
 
@@ -147,6 +155,7 @@ public class CodecUtil {
         if (message.isDupFlag()) {
             flags |= 0x08;
         }
+
         if (message.isRetainFlag()) {
             flags |= 0x01;
         }

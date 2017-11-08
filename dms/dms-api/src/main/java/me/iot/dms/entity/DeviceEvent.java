@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class DeviceEvent extends AbsDeviceEntity {
+public class DeviceEvent extends AbstractDeviceEntity {
 
     @Column(nullable = false)
     private String eventCode;

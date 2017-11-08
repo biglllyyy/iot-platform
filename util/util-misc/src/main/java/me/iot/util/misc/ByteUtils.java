@@ -9,9 +9,11 @@ import java.nio.charset.Charset;
 public class ByteUtils {
 
     public static final Charset CHARSET = Charsets.UTF_8;
-    public static final ByteOrder DefaultByteOrder = ByteOrder.LITTLE_ENDIAN;
+    public static final ByteOrder DEFAULT_BYTE_ORDER = ByteOrder.LITTLE_ENDIAN;
 
-    // byte 与 int 的相互转换
+    /**
+     * byte 与 int 的相互转换
+     */
     public static byte toByte(int x) {
         return (byte) x;
     }

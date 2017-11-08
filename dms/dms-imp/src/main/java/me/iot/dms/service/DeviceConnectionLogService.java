@@ -29,7 +29,6 @@ public class DeviceConnectionLogService implements IDmsMsgProcessor<DeviceConnec
 
     @Override
     public void processMsg(DeviceConnectionMsg msg) {
-
         DeviceConnectionLog log = new DeviceConnectionLog();
         log.setDeviceType(msg.getSourceDeviceType());
         log.setDeviceId(msg.getSourceDeviceId());

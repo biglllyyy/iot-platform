@@ -23,8 +23,13 @@ public class CacheMsgHandler extends AbstractDeviceMessagePipe {
     private DmsConfig dmsConfig;
 
     @Override
+<<<<<<< HEAD
     public void input(Callback<IMsg> callback) {
         //"iot.DasToDms"
+=======
+    public IMsg getMsgFromCache() {
+
+>>>>>>> 9c347c47c9c552df48d24dbaaa5e1f5da7624757
         String topic = TopicConsts.getTopicFromDasToDms();
 
         try {
@@ -44,6 +49,8 @@ public class CacheMsgHandler extends AbstractDeviceMessagePipe {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        return null;
     }
 
     @Override

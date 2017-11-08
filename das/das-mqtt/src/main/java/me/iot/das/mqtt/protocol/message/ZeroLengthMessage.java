@@ -18,6 +18,6 @@ package me.iot.das.mqtt.protocol.message;
 /**
  * @author andrea
  */
-public abstract class ZeroLengthMessage extends AbstractMessage {
+public class ZeroLengthMessage extends AbstractMessage {
 
 }

@@ -103,17 +103,26 @@ public class GpsUtil {
             double[] tmp = wgs84ToGcj02(wgsLon, wgsLat);
             dLat = tmp[1] - wgLat;
             dLon = tmp[0] - wgLon;
-            if ((Math.abs(dLat) < threshold) && (Math.abs(dLon) < threshold))
+            if ((Math.abs(dLat) < threshold) && (Math.abs(dLon) < threshold)) {
                 break;
+            }
 
-            if (dLat > 0) pLat = wgsLat;
-            else mLat = wgsLat;
-            if (dLon > 0) pLon = wgsLon;
-            else mLon = wgsLon;
+            if (dLat > 0) {
+                pLat = wgsLat;
+            } else {
+                mLat = wgsLat;
+            }
+            if (dLon > 0) {
+                pLon = wgsLon;
+            } else {
+                mLon = wgsLon;
+            }
 
-            if (++i > 10000) break;
+            if (++i > 10000) {
+                break;
+            }
         }
-        //console.log(i);
+
         return new double[]{wgsLon, wgsLat};
     }
 
@@ -184,8 +193,10 @@ public class GpsUtil {
         return new double[]{dLon, dLat};
     }
 
-    //WGS-84 to Web mercator
-    //mercatorLat -> y mercatorLon -> x
+    /**
+     * WGS-84 to Web mercator
+     * mercatorLat -> y mercatorLon -> x
+     */
     private double[] wsg84Tomercator(double wgsLon, double wgsLat) {
         double x = wgsLon * 20037508.34 / 180.;
         double y = Math.log(Math.tan((90. + wgsLat) * Math.PI / 360.)) / (Math.PI / 180.);
@@ -194,8 +205,10 @@ public class GpsUtil {
 
     }
 
-    // Web mercator to WGS-84
-    // mercatorLat -> y mercatorLon -> x
+    /**
+     * Web mercator to WGS-84
+     * mercatorLat -> y mercatorLon -> x
+     */
     private double[] mercatorToWsg84(double mercatorLon, double mercatorLat) {
         double x = mercatorLon / 20037508.34 * 180.;
         double y = mercatorLat / 20037508.34 * 180.;
@@ -203,23 +216,32 @@ public class GpsUtil {
         return new double[]{y, x};
     }
 
-    // two point's distance
+    /**
+     * two point's distance
+     */
     private double distance(double latA, double lonA, double latB, double lonB) {
         double earthR = 6371000.;
         double x = Math.cos(latA * Math.PI / 180.) * Math.cos(latB * Math.PI / 180.) * Math.cos((lonA - lonB) * Math
                 .PI / 180);
         double y = Math.sin(latA * Math.PI / 180.) * Math.sin(latB * Math.PI / 180.);
         double s = x + y;
-        if (s > 1) s = 1;
-        if (s < -1) s = -1;
+        if (s > 1) {
+            s = 1;
+        }
+
+        if (s < -1) {
+            s = -1;
+        }
         double alpha = Math.acos(s);
         double distance = alpha * earthR;
         return distance;
     }
 
     private static boolean outOfChina(double lon, double lat) {
-        if (lon < 72.004 || lon > 137.8347)
+        if (lon < 72.004 || lon > 137.8347) {
             return true;
+        }
+
         return lat < 0.8293 || lat > 55.8271;
     }
 

@@ -1,5 +1,6 @@
 package me.iot.util.mq.kafka.loop;
 
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import me.iot.util.mq.Message;
 import me.iot.util.mq.MessageListener;
 import org.apache.kafka.clients.consumer.CommitFailedException;
@@ -7,9 +8,7 @@ import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.errors.WakeupException;
 
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
@@ -33,7 +32,14 @@ public class PullLoop implements Runnable {
         this.shutdown = new AtomicBoolean(false);
         this.shutdownLatch = new CountDownLatch(1);
 
-        executorService = Executors.newSingleThreadExecutor();
+        //namethreadfactory
+        ThreadFactory namedThreadFactory = new ThreadFactoryBuilder()
+                .setNameFormat("kafka-pull-pool-%d").build();
+
+        executorService = new ThreadPoolExecutor(1, 1,
+                0L, TimeUnit.MILLISECONDS,
+                new LinkedBlockingQueue<>(), namedThreadFactory, new ThreadPoolExecutor.AbortPolicy());
+
         executorService.execute(this);
     }
 

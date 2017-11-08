@@ -22,7 +22,7 @@ import java.util.List;
  * Created by sylar on 16/7/28.
  */
 @Component
-public class MsgResolver extends FrameCodec implements ISimpleMsgResolver {
+public class MsgResolver extends AbstractFrameCodec implements ISimpleMsgResolver {
 
     @Autowired
     DasConfig dasConfig;
@@ -31,12 +31,14 @@ public class MsgResolver extends FrameCodec implements ISimpleMsgResolver {
     public List<IMsg> bufToMsg(ChannelHandlerContext ctx, ByteBuffer buf) {
 
         IMsg msg = decode(buf);
-        if (msg == null || msg.getSourceDeviceId() == null)
+        if (msg == null || msg.getSourceDeviceId() == null) {
             return null;
+        }
 
         DeviceConnectionMsg dcMsg = new DeviceConnectionMsg();
         dcMsg.setSourceDevice(msg.getSourceDeviceType(), msg.getSourceDeviceId());
-        dcMsg.setTargetDevice(DeviceGuid.getCloudType(), DeviceGuid.getCloudNum()); // 云平台的deviceType,deviceId 是约定的，使用内置实现
+        // 云平台的deviceType,deviceId 是约定的，使用内置实现
+        dcMsg.setTargetDevice(DeviceGuid.getCloudType(), DeviceGuid.getCloudNum());
         dcMsg.setTag(msg.getMsgCode());
         dcMsg.setConnected(true);
         dcMsg.setDasNodeId(dasConfig.getDasNodeId());
@@ -95,7 +97,7 @@ public class MsgResolver extends FrameCodec implements ISimpleMsgResolver {
     protected IMsg onDecodeMsg(MsgWrap wrap) {
         int cmdId = wrap.cmdId;
         String msgCode = String.valueOf(cmdId);
-        AbsDeviceMsg msg = new DeviceMsg();
+        AbstractDeviceMsg msg = new DeviceMsg();
 
         byte[] tmp;
         ByteBuffer buf = wrap.content;

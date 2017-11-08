@@ -6,7 +6,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class DeviceLocation extends AbsDeviceEntity {
+public class DeviceLocation extends AbstractDeviceEntity {
 
     @Column
     private String userId;

@@ -12,7 +12,7 @@ public class DustbinParam extends BaseEntity {
     /**
      * 设备类型
      */
-    @Column//(nullable = false)
+    @Column
     private String deviceType;
 
     /**
@@ -31,7 +31,7 @@ public class DustbinParam extends BaseEntity {
      * 全满阈值
      */
     @Column
-    private Integer fullThreshold ;
+    private Integer fullThreshold;
 
     /**
      * 半满阈值

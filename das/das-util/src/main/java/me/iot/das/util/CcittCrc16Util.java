@@ -5,7 +5,7 @@ package me.iot.das.util;
  */
 public class CcittCrc16Util {
 
-    private static final int[] crc_ccitt_table = {
+    private static final int[] CRC_CCITT_TABLE = {
             0x0000, 0x1021, 0x2042, 0x3063, 0x4084, 0x50a5, 0x60c6, 0x70e7,
             0x8108, 0x9129, 0xa14a, 0xb16b, 0xc18c, 0xd1ad, 0xe1ce, 0xf1ef,
             0x1231, 0x0210, 0x3273, 0x2252, 0x52b5, 0x4294, 0x72f7, 0x62d6,
@@ -42,12 +42,12 @@ public class CcittCrc16Util {
     };
 
     public static short calcCrc16(byte[] data) {
-        {
-            int cRc_16 = 0x0000;     // 初始化
-            for (int i = 0; i < data.length; i++) {
-                cRc_16 = (cRc_16 << 8) ^ crc_ccitt_table[((cRc_16 >> 8) ^ data[i]) & 0xff];
-            }
-            return (short) cRc_16;
+        // 初始化
+        int cRc_16 = 0x0000;
+        for (int i = 0; i < data.length; i++) {
+            cRc_16 = (cRc_16 << 8) ^ CRC_CCITT_TABLE[((cRc_16 >> 8) ^ data[i]) & 0xff];
         }
+        return (short) cRc_16;
+
     }
 }

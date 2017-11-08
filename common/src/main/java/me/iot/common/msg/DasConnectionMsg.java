@@ -3,7 +3,7 @@ package me.iot.common.msg;
 /**
  * DAS 服务器节点连接(上/下线)消息
  */
-public class DasConnectionMsg extends AbsDeviceMsg {
+public class DasConnectionMsg extends AbstractDeviceMsg {
 
     /**
      * DAS集群节点实例编码

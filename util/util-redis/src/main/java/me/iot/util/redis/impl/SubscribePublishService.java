@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import me.iot.util.redis.AbstractMessageListener;
 import me.iot.util.redis.ISubscribePublishService;
 import org.slf4j.Logger;
@@ -19,7 +20,7 @@ import org.springframework.data.redis.listener.Topic;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 /**
  * Created by sylar on 2017/2/8.
@@ -37,8 +38,23 @@ public class SubscribePublishService implements ISubscribePublishService {
     public RedisMessageListenerContainer redisMessageListenerContainer(JedisConnectionFactory jedisConnectionFactory) {
         RedisMessageListenerContainer container = new RedisMessageListenerContainer();
         container.setConnectionFactory(jedisConnectionFactory);
-        container.setSubscriptionExecutor(Executors.newCachedThreadPool());
-        container.setTaskExecutor(Executors.newCachedThreadPool());
+
+        //namethreadfactory
+        ThreadFactory subNameThreadFactory = new ThreadFactoryBuilder()
+                .setNameFormat("subscription-pool-%d").build();
+        Executor subscriptionExecutor = new ThreadPoolExecutor(0, Integer.MAX_VALUE,
+                60L, TimeUnit.SECONDS,
+                new SynchronousQueue<>(), subNameThreadFactory);
+
+        //namethreadfactory
+        ThreadFactory taskNameThreadFactory = new ThreadFactoryBuilder()
+                .setNameFormat("task-pool-%d").build();
+        Executor taskExecutor = new ThreadPoolExecutor(0, Integer.MAX_VALUE,
+                60L, TimeUnit.SECONDS,
+                new SynchronousQueue<>(), taskNameThreadFactory);
+
+        container.setSubscriptionExecutor(subscriptionExecutor);
+        container.setTaskExecutor(taskExecutor);
         return container;
     }
 

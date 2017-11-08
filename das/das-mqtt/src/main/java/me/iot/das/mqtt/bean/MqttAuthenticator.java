@@ -11,8 +11,8 @@ import java.util.Objects;
 
 @Component
 public class MqttAuthenticator {
-    private final static String ParamKey_MqttUser = "mqttUser";
-    private final static String ParamKey_MqttPassword = "mqttPassword";
+    private final static String PARAMKEY_MQTTUSER = "mqttUser";
+    private final static String PARAMKEY_MQTTPASSWORD = "mqttPassword";
 
     @Autowired
     private DasConfig dasConfig;
@@ -20,8 +20,8 @@ public class MqttAuthenticator {
 
     @PostConstruct
     public void init() {
-        String user = dasConfig.getDasProperties().getParam(ParamKey_MqttUser);
-        String pwd = dasConfig.getDasProperties().getParam(ParamKey_MqttPassword);
+        String user = dasConfig.getDasProperties().getParam(PARAMKEY_MQTTUSER);
+        String pwd = dasConfig.getDasProperties().getParam(PARAMKEY_MQTTPASSWORD);
         if (user != null && pwd != null) {
             mapUsers.put(user, pwd);
         }
