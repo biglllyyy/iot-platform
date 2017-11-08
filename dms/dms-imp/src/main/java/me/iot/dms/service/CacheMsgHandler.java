@@ -11,14 +11,26 @@ import me.iot.util.mq.MessageListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+
 /**
- * Created by sylar on 16/5/31.
+ * @FileName :  CacheMsgHandler
+ * @Author :  sylar
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 @Component
 public class CacheMsgHandler extends AbstractDeviceMessagePipe {
 
     @Autowired
-    DeviceManageService deviceManageService;
+    DeviceManageServiceImpl deviceManageService;
     @Autowired
     private DmsConfig dmsConfig;
 

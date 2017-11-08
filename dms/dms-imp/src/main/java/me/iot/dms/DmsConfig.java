@@ -1,33 +1,30 @@
 package me.iot.dms;
 
-import me.iot.util.misc.NetUtils;
 import me.iot.util.mq.IConsumer;
 import me.iot.util.mq.IProducer;
-import me.iot.util.mq.MQFactory;
+import me.iot.util.mq.MqFactory;
 import me.iot.util.mq.Provider;
 import me.iot.util.redis.ICentralCacheService;
 import me.iot.util.redis.IMessageQueueService;
 import me.iot.util.redis.ISubscribePublishService;
-import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
-import java.util.Properties;
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @FileName :  DmsConfig
+ * @Author :  sylar
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 @Configuration
@@ -61,10 +58,10 @@ public class DmsConfig {
 //        sds = SDS.getService(zkConnectString);
 //        fss = FSS.getService(zkConnectString);
 
-        producer = MQFactory.getInstance().createProducer(provider);
+        producer = MqFactory.getInstance().createProducer(provider);
         producer.setBasicParameter(brokers, groupId, clientId);
 
-        consumer = MQFactory.getInstance().createConsumer(provider);
+        consumer = MqFactory.getInstance().createConsumer(provider);
         consumer.setBasicParameter(brokers, groupId, clientId);
         consumer.setBroadcasting(false);
     }

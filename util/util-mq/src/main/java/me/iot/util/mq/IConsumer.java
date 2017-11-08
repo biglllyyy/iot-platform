@@ -2,7 +2,21 @@ package me.iot.util.mq;
 
 import java.util.List;
 
-public interface IConsumer extends IClient{
+/**
+ * @FileName :  IConsumer
+ * @Author :  sylar
+ * @CreateDate :  2017/11/08
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
+ */
+public interface IConsumer extends IClient {
 
 
     /**

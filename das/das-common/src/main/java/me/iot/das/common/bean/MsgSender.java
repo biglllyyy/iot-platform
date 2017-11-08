@@ -21,17 +21,17 @@ import org.springframework.stereotype.Component;
 
 
 /**
- * @FileName             :  MqttConst
- * @Author                :  sylar
- * @CreateDate           :  2017/11/08
- * @Description           :  消息发送器:  将消息发给 channel
- * @ReviewedBy           :
- * @ReviewedOn           :
- * @VersionHistory       :
- * @ModifiedBy           :
- * @ModifiedDate         :
- * @Comments              :
- * @CopyRight             : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * @FileName :  MsgSender
+ * @Author :  sylar
+ * @CreateDate :  2017/11/08
+ * @Description :  消息发送器:  将消息发给 channel
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
 @Component
