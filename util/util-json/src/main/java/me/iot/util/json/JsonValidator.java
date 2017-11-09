@@ -138,15 +138,17 @@ public class JsonValidator {
     }
 
     private boolean number() {
-        if (!Character.isDigit(c) && c != '-') {
+        char line = '-';
+        if (!Character.isDigit(c) && c != line) {
             return false;
         }
         int start = col;
-        if (c == '-') {
+        if (c == line) {
             nextCharacter();
         }
 
-        if (c == '0') {
+        char zero = '0';
+        if (c == zero) {
             nextCharacter();
         } else if (Character.isDigit(c)) {
             while (Character.isDigit(c)) {
@@ -155,7 +157,8 @@ public class JsonValidator {
         } else {
             return error("number", start);
         }
-        if (c == '.') {
+        char dot = '.';
+        if (c == dot) {
             nextCharacter();
             if (Character.isDigit(c)) {
                 while (Character.isDigit(c)) {
@@ -165,9 +168,13 @@ public class JsonValidator {
                 return error("number", start);
             }
         }
-        if (c == 'e' || c == 'E') {
+
+        char le = 'e';
+        char ge = 'E';
+        char plus = '+';
+        if (c == le || c == ge) {
             nextCharacter();
-            if (c == '+' || c == '-') {
+            if (c == plus || c == line) {
                 nextCharacter();
             }
             if (Character.isDigit(c)) {
@@ -182,7 +189,8 @@ public class JsonValidator {
     }
 
     private boolean string() {
-        if (c != '"') {
+        char s = '"';
+        if (c != s) {
             return false;
         }
 
@@ -206,10 +214,12 @@ public class JsonValidator {
 
     private boolean escape() {
         int start = col - 1;
-        if (" \\\"/bfnrtu".indexOf(c) < 0) {
+        String sstr = " \\\"/bfnrtu";
+        if (sstr.indexOf(c) < 0) {
             return error("escape sequence  \\\",\\\\,\\/,\\b,\\f,\\n,\\r,\\t  or  \\uxxxx ", start);
         }
-        if (c == 'u') {
+        char u = 'u';
+        if (c == u) {
             if (!ishex(nextCharacter()) || !ishex(nextCharacter()) || !ishex(nextCharacter())
                     || !ishex(nextCharacter())) {
                 return error("unicode escape sequence  \\uxxxx ", start);
@@ -238,10 +248,5 @@ public class JsonValidator {
         System.out.printf("type: %s, col: %s%s", type, col, System.getProperty("line.separator"));
         return false;
     }
-
-//    public static void main(String[] args) {
-//        String jsonStr = "{\"website\":\"oschina.net\"}";
-//        System.out.println(jsonStr + ":" + new JsonValidator().validate(jsonStr));
-//    }
 }
 

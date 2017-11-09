@@ -24,7 +24,7 @@ import java.util.List;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  DeviceInfoServiceImpl
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :
@@ -193,6 +193,4 @@ public class DeviceInfoServiceImpl implements IDmsMsgProcessor<DeviceInfoMsg>, I
 
         return new QueryResult<>(page.getContent(), page.getTotalElements());
     }
-
-
 }
