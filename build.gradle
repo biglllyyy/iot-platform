@@ -48,6 +48,7 @@ allprojects {
 
     repositories {
         //mavenCentral()
+        maven { url "http://10.7.13.128:8081/nexus/content/repositories/releases/"}
         maven { url "http://maven.aliyun.com/nexus/content/repositories/central/" }
     }
 }
