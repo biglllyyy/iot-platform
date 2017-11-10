@@ -37,7 +37,7 @@ public class CacheMsgHandler extends AbstractDeviceMessagePipe {
     @Override
     public void input(Callback<IMsg> callback) {
         try {
-            String topic = TopicConsts.getTopicFromDasToDms();
+            String topic = TopicConsts.DAS_TO_DMS;
             dmsConfig.getConsumer().subscribe(Lists.newArrayList(topic), new MessageListener() {
                 @Override
                 public void onSuccess(Message message) {
