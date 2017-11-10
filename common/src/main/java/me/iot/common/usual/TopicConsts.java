@@ -18,5 +18,4 @@ public interface TopicConsts {
     String DAS_TO_DMS = "IOT.DasToDms";
     String DMS_TO_DAS = "IOT.DmsToDas";
     String DMS_TO_APS = "IOT.DmsToAps";
-
 }
