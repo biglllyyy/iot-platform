@@ -17,7 +17,7 @@ import java.util.List;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  RocketmqConsumer
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :
@@ -73,7 +73,6 @@ public class RocketmqConsumer extends AbstractConsumer {
 
     @Override
     public void unsubscribe() {
-
         if (consumer != null) {
             Enumeration<String> topics = consumer.getDefaultMQPushConsumerImpl().getRebalanceImpl()
                     .getTopicSubscribeInfoTable().keys();
