@@ -15,7 +15,19 @@ package me.iot.common.usual;
  * *******************************************************************************************
  */
 public interface TopicConsts {
+
+    /**
+     * 上行设备消息主题，从DAS到DMS
+     */
     String DAS_TO_DMS = "IOT.DasToDms";
+
+    /**
+     * 下行设备消息主题，从DMS到DAS
+     */
     String DMS_TO_DAS = "IOT.DmsToDas";
+
+    /**
+     * 下行设备消息主题，从DMS到AP
+     */
     String DMS_TO_APS = "IOT.DmsToAps";
 }
