@@ -1,9 +1,9 @@
 ext {
-    rocketmqVersion = "3.6.2.Final"
+    rocketmqVersion = "3.2.6"
 }
 
 dependencies {
-//    compile("com.alibaba.rocketmq:rocketmq-client:${rocketmqVersion}")
+    compile("com.alibaba.rocketmq:rocketmq-client:${rocketmqVersion}")
     compile("com.alibaba:fastjson:${fastjsonVersion}")
     compile("com.google.guava:guava:${guavaVersion}")
 

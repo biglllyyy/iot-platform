@@ -3,9 +3,9 @@ dependencies {
     compile project(":util:util-jpa")
     compile project(":util:util-gps")
     compile project(":util:util-jetty")
-
+    compile project(":util:util-rocketmq")
+    
     compile project(":common")
     compile project(":dms:dms-api")
 
-    compile("com.alibaba.rocketmq:rocketmq-client:3.2.6")
 }

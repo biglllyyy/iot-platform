@@ -42,23 +42,9 @@ public class DmsConfig {
     @Autowired
     ISubscribePublishService sps;
 
-    Provider provider = Provider.Rocketmq;
-    String brokers = null;
-    String groupId = null;
-    String clientId = null;
-    IProducer producer;
-    IConsumer consumer;
-
 
     @PostConstruct
     public void init() {
-
-        producer = MqFactory.getInstance().createProducer(provider);
-        producer.setBasicParameter(brokers, groupId, clientId);
-
-        consumer = MqFactory.getInstance().createConsumer(provider);
-        consumer.setBasicParameter(brokers, groupId, clientId);
-        consumer.setBroadcasting(false);
     }
 
     public String getZkConnectString() {
@@ -77,12 +63,4 @@ public class DmsConfig {
         return sps;
     }
 
-
-    public IProducer getProducer() {
-        return producer;
-    }
-
-    public IConsumer getConsumer() {
-        return consumer;
-    }
 }

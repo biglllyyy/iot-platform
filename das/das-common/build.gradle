@@ -17,8 +17,7 @@ configurations {
 dependencies {
     compile project(":common")
     compile project(":util:util-redis")
-
-    compile("com.alibaba.rocketmq:rocketmq-client:3.2.6")
+    compile project(":util:util-rocketmq")
 
     compile("io.netty:netty-all:${nettyVersion}")
 }

@@ -55,7 +55,6 @@ public abstract class AbstractDeviceMessagePipe {
     }
 
     protected void onInit() {
-
         input(new Callback<IMsg>() {
             @Override
             public void onSuccess(IMsg msg) {
