@@ -9,13 +9,13 @@ logServer: 127.0.0.1
 spring.redis:
     host: 127.0.0.1
     port: 6379
-    password: vortex2016
+    password: tf56iot
 
 spring.datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/dms?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf8&useSSL=false&autoReconnect=true
-    username: vortex
-    password: vortex2016
+    username: tf56iot
+    password: 123456
 
 eureka:
   client:

@@ -14,7 +14,7 @@ import me.iot.das.common.NettyConst;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  AbstractUdpServer
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :

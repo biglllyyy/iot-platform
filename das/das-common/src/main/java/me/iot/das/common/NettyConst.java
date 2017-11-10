@@ -2,7 +2,7 @@ package me.iot.das.common;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  NettyConst
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  ChannelCache
  * @CreateDate :  2017/11/08
  * @Description :  key : clientId   clientId = deviceType + deviceId
  * @ReviewedBy :
