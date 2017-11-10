@@ -14,12 +14,11 @@ configurations {
 //    all*.exclude group: "me.iot", module: "util-dubbo"
 }
 
-
-
 dependencies {
     compile project(":common")
-    compile project(":util:util-mq")
     compile project(":util:util-redis")
+
+    compile("com.alibaba.rocketmq:rocketmq-client:3.2.6")
 
     compile("io.netty:netty-all:${nettyVersion}")
 }
