@@ -7,7 +7,7 @@ import me.iot.util.mq.rocketmq.RocketmqProcuder;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  MqFactory
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :

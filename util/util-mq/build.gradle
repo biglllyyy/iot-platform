@@ -16,9 +16,9 @@ dependencies {
     compile project(":util:util-misc")
 
     //log
-    compile("org.slf4j:jcl-over-slf4j:+")
-    compile("org.slf4j:slf4j-log4j12:+")
-    compile("log4j:log4j:+")
+//    compile("org.slf4j:jcl-over-slf4j:+")
+//    compile("org.slf4j:slf4j-log4j12:+")
+//    compile("log4j:log4j:+")
 
     //test
     testCompile("junit:junit:+")

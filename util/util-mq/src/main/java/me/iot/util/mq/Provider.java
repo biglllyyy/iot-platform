@@ -2,7 +2,7 @@ package me.iot.util.mq;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  Provider
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :
