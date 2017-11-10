@@ -68,7 +68,8 @@ configure(isDasServerProject()) {
     apply from: gradlesPath + "das.gradle"
 }
 configure(isSpringCloudServiceProject()) {
-    apply from: gradlesPath + "springcloud-service.gradle"
+//    apply from: gradlesPath + "springcloud-service.gradle"
+    apply from: gradlesPath + "springboot-web.gradle"
 
     dependencies {
         compile project(":util:util-dubbo")
