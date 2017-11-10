@@ -2,7 +2,7 @@ package me.iot.das.common.core;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  IServer
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :

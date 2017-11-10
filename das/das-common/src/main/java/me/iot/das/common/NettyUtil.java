@@ -13,7 +13,7 @@ import java.net.InetSocketAddress;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  NettyUtil
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :

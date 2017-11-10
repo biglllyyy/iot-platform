@@ -9,6 +9,7 @@ spring.cloud.config.discovery.enabled: true
 spring.application.name: dms
 dubbo.port: 28012
 custom.value: default
+
 server:
   port: 9012
   compression:
@@ -31,4 +32,3 @@ logging:
     file: '%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n'
     console: '%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n'
   file: logs/${spring.application.name:-.}.log
-

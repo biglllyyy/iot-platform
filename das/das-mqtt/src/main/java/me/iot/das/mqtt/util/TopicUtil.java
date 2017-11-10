@@ -7,7 +7,6 @@ import me.iot.common.pojo.DeviceGuid;
 
 import java.util.List;
 
-
 /**
  * @author :  sylar
  * @FileName :  TopicUtil
