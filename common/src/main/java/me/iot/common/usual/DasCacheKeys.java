@@ -16,6 +16,7 @@ import me.iot.common.msg.MsgType;
  * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
+@Deprecated
 public class DasCacheKeys extends CacheKeys {
     protected final static String NODE = "node";
     protected final static String CLIENT = "client";
