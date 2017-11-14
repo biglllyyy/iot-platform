@@ -43,13 +43,15 @@ public class CacheMsgHandler extends AbstractDeviceMessagePipe {
     private IConsumer consumer;
 
     @PostConstruct
-    public void init() {
+    public void initialize() {
         consumer = dmsConfig.getFactory().createConsumer(new IConsumerConfig() {
             @Override
             public String getConsumerId() {
                 return GroupConsts.IOT_DMS_GROUP;
             }
         });
+
+        init();
     }
 
     @Override

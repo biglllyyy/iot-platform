@@ -51,7 +51,7 @@ public class MsgSender {
         producer = dmsConfig.getFactory().createProducer(new IProducerConfig() {
             @Override
             public String getProducerId() {
-                return GroupConsts.IOT_DMS_GROUP;
+                return String.join("-", GroupConsts.IOT_DMS_TO_APS_GROUP, this.getClass().getSimpleName());
             }
         });
     }

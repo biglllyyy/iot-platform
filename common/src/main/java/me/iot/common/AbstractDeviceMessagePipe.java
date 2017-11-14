@@ -44,8 +44,7 @@ public abstract class AbstractDeviceMessagePipe {
 
     private final IMessaging messagingService = new LmaxDiscuptorMessaging(new EventProcessor());
 
-    @PostConstruct
-    private void init() {
+    protected void init() {
         onInit();
     }
 

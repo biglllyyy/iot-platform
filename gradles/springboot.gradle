@@ -10,7 +10,7 @@ dependencies {
     //boot
     compile("org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}")
     //logstash for logback
-    compile("net.logstash.logback:logstash-logback-encoder:+")
+    //compile("net.logstash.logback:logstash-logback-encoder:+")
 
     //test
     testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")

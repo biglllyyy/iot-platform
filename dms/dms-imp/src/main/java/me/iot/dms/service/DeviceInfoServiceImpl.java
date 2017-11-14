@@ -186,7 +186,8 @@ public class DeviceInfoServiceImpl implements IDmsMsgProcessor<DeviceInfoMsg>, I
                 predicateList.add(cb.equal(root.get("connected").as(Boolean.class), connected));
             }
             if (null != ownerIds && ownerIds.length > 0) {
-                predicateList.add(cb.and(root.get("ownerId").as(String.class).in(ownerIds)));
+
+                predicateList.add(cb.and(root.get("ownerId").as(String.class).in((Object[]) ownerIds)));
             }
             return cb.and(predicateList.toArray(new Predicate[predicateList.size()]));
         }, new PageRequest(pageIndex - 1, pageSize));

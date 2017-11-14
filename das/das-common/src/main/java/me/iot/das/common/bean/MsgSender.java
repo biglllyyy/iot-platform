@@ -21,6 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 
 
@@ -51,16 +52,23 @@ public class MsgSender extends AbstractDeviceMessagePipe {
     @Autowired
     private ChannelCache channelCache;
 
-    @Override
-    public void input(Callback<IMsg> callback) {
-        String topic = TopicConsts.DMS_TO_DAS;
+    private IConsumer consumer;
 
-        IConsumer consumer = dasConfig.getFactory().createConsumer(new IConsumerConfig() {
+    @PostConstruct
+    public void initialize() {
+        consumer = dasConfig.getFactory().createConsumer(new IConsumerConfig() {
             @Override
             public String getConsumerId() {
                 return GroupConsts.IOT_DMS_GROUP;
             }
         });
+
+        super.init();
+    }
+
+    @Override
+    public void input(Callback<IMsg> callback) {
+        String topic = TopicConsts.DMS_TO_DAS;
 
         //根据nodeid去订阅
         try {

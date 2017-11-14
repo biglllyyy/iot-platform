@@ -69,7 +69,7 @@ public abstract class AbsClient {
         eventBus.post(new DeliveryCompleteEvent(token));
     }
 
-    protected void onReceived(RocketMsg msg) {
+    protected void onReceived(RocketMsg msg) throws Exception {
         System.out.println(String.format("topic:  %s\ncontent:  %s", msg.getTopic(), msg.getContent()));
     }
 

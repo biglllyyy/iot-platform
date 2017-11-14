@@ -95,7 +95,7 @@ public class OnsMqttConsumer extends AbsClient implements IConsumer {
     }
 
     @Override
-    protected void onReceived(RocketMsg msg) {
+    protected void onReceived(RocketMsg msg) throws Exception {
         super.onReceived(msg);
         if (listener != null) {
             listener.onSuccess(Lists.newArrayList(msg));

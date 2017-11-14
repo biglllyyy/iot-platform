@@ -36,16 +36,20 @@ public class MsgThrower {
     @Autowired
     DasConfig dasConfig;
 
+    private IProducer producer;
+
+    public void init() {
+        producer = dasConfig.getFactory().createProducer(new IProducerConfig() {
+            @Override
+            public String getProducerId() {
+                return String.join("-", GroupConsts.IOT_DAS_TO_DMS_GROUP, this.getClass().getCanonicalName());
+            }
+        });
+    }
+
     public void sendToQueue(IMsg msg) {
         try {
             String topic = TopicConsts.DAS_TO_DMS;
-
-            IProducer producer = dasConfig.getFactory().createProducer(new IProducerConfig() {
-                @Override
-                public String getProducerId() {
-                    return GroupConsts.IOT_DMS_GROUP;
-                }
-            });
 
             RocketMsg rocketMsg = new RocketMsg(topic);
             rocketMsg.setContent(JSON.toJSONString(msg));
