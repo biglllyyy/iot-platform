@@ -67,6 +67,15 @@ public class MsgSender extends AbstractDeviceMessagePipe {
     }
 
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (consumer != null) {
+            consumer.unsubscribe();
+            consumer = null;
+        }
+    }
+
+    @Override
     public void input(Callback<IMsg> callback) {
         String topic = TopicConsts.DMS_TO_DAS;
 
