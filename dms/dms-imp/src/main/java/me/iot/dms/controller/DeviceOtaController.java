@@ -11,7 +11,7 @@ import java.util.Map;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  DeviceOtaController
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :

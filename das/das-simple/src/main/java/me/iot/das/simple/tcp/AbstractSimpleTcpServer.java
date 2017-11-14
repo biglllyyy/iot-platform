@@ -7,10 +7,9 @@ import me.iot.das.common.core.AbstractTcpServer;
 import me.iot.das.simple.SimpleDecoder;
 import me.iot.das.simple.SimpleEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
-
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  AbstractSimpleTcpServer
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :

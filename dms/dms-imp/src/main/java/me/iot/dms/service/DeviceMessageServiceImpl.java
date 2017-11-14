@@ -1,24 +1,30 @@
 package me.iot.dms.service;
 
+import com.alibaba.fastjson.JSON;
 import com.google.common.base.Strings;
+import com.google.common.collect.Lists;
 import me.iot.common.msg.DasConnectionMsg;
 import me.iot.common.msg.IMsg;
 import me.iot.common.pojo.CacheMsgWrap;
+import me.iot.common.usual.GroupConsts;
+import me.iot.common.usual.TopicConsts;
 import me.iot.dms.DmsConfig;
-import me.iot.dms.DmsTopics;
 import me.iot.dms.IDeviceMessageService;
 import me.iot.dms.bean.MsgSender;
-import me.iot.util.redis.ISubscribePublishService;
+import me.iot.util.rocketmq.IProducer;
+import me.iot.util.rocketmq.IProducerConfig;
+import me.iot.util.rocketmq.msg.RocketMsg;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.util.List;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  DeviceMessageServiceImpl
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :
@@ -36,20 +42,25 @@ public class DeviceMessageServiceImpl implements IDmsMsgProcessor<IMsg>, IDevice
     private static final Logger LOG = LoggerFactory.getLogger(DeviceMessageServiceImpl.class);
 
     @Autowired
-    DmsConfig dmsConfig;
+    private DmsConfig dmsConfig;
 
     @Autowired
-    MsgSender msgSender;
+    private MsgSender msgSender;
 
-    ISubscribePublishService sps;
+    private IProducer producer;
 
     @PostConstruct
     public void init() {
-        sps = dmsConfig.getSps();
+        producer = dmsConfig.getFactory().createProducer(new IProducerConfig() {
+            @Override
+            public String getProducerId() {
+                return GroupConsts.IOT_DMS_GROUP;
+            }
+        });
     }
 
     @Override
-    public void processMsg(IMsg msg) {
+    public void processMsg(IMsg msg) throws Exception {
         if (msg instanceof DasConnectionMsg) {
             //das node connection msg
             return;
@@ -61,22 +72,28 @@ public class DeviceMessageServiceImpl implements IDmsMsgProcessor<IMsg>, IDevice
         }
 
 
-        String topic = DmsTopics.getTopicWhenPublish(msg.getSourceDeviceType(), msg.getSourceDeviceId());
+        String topic = TopicConsts.DMS_TO_APS;
         CacheMsgWrap wrap = new CacheMsgWrap(msg);
         LOG.info("DMS publish DeviceMessage\n{}", msg);
-        sps.publishMessage(topic, wrap);
 
-        //only test
-//        DeviceMsg deviceMsg = DeviceMsg.newMsgToCloud("130","TRCAN","1234567890");
-//        topic = DmsTopics.getTopicWhenPublish(deviceMsg.getSourceDeviceType(), deviceMsg.getSourceDeviceId());
-//        wrap = new CacheMsgWrap(deviceMsg);
-//        LOG.info("DMS publish DeviceMessage\n{}", deviceMsg);
-//        sps.publishMessage(topic, wrap);
+        RocketMsg rocketMsg = new RocketMsg(topic);
+        rocketMsg.setContent(JSON.toJSONString(wrap));
 
+        //append tag
+        List<String> tagsList = Lists.newArrayList();
+        tagsList.add(msg.getMsgCode());
+        tagsList.add(msg.getSourceDeviceType());
+        tagsList.add(msg.getSourceDeviceId());
+        tagsList.add(String.valueOf(msg.getMsgType()));
+        tagsList.add(String.valueOf(msg.getOccurTime()));
+
+        rocketMsg.setTagList(tagsList);
+
+        producer.syncSend(rocketMsg);
     }
 
     @Override
-    public void sendMsg(IMsg msg) {
+    public void sendMsg(IMsg msg) throws Exception {
         msgSender.sendToQueue(msg);
     }
 }

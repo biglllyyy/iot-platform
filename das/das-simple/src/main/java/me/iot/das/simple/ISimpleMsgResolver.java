@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  ISimpleMsgResolver
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :

@@ -1,20 +1,28 @@
 package me.iot.dms.bean;
 
+import com.alibaba.fastjson.JSON;
+import com.google.common.collect.Lists;
 import me.iot.common.msg.IMsg;
 import me.iot.common.pojo.CacheMsgWrap;
-import me.iot.common.usual.DasCacheKeys;
+import me.iot.common.usual.GroupConsts;
+import me.iot.common.usual.TopicConsts;
 import me.iot.dms.DmsConfig;
 import me.iot.dms.entity.DeviceStatus;
 import me.iot.dms.service.DeviceStatusServiceImpl;
+import me.iot.util.rocketmq.IProducer;
+import me.iot.util.rocketmq.IProducerConfig;
+import me.iot.util.rocketmq.msg.RocketMsg;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
+import java.util.List;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  MsgSender
  * @CreateDate :  2017/11/08
  * @Description : 消息发送器:  将消息发给 DAS
  * @ReviewedBy :
@@ -31,15 +39,24 @@ public class MsgSender {
     private static final Logger LOG = LoggerFactory.getLogger(MsgSender.class);
 
     @Autowired
-    ApplicationContext ctx;
+    private DmsConfig dmsConfig;
 
     @Autowired
-    DmsConfig dmsConfig;
+    private DeviceStatusServiceImpl deviceStatusServiceImpl;
 
-    @Autowired
-    DeviceStatusServiceImpl deviceStatusServiceImpl;
+    private IProducer producer;
 
-    public void sendToQueue(IMsg msg) {
+    @PostConstruct
+    public void init() {
+        producer = dmsConfig.getFactory().createProducer(new IProducerConfig() {
+            @Override
+            public String getProducerId() {
+                return GroupConsts.IOT_DMS_GROUP;
+            }
+        });
+    }
+
+    public void sendToQueue(IMsg msg) throws Exception {
         if (msg == null) {
             return;
         }
@@ -56,9 +73,22 @@ public class MsgSender {
             return;
         }
 
+
         String nodeId = deviceStatus.getNodeId();
-        String mqsKey = DasCacheKeys.getMqsKeyFromDmsToDas(nodeId);
         CacheMsgWrap wrap = new CacheMsgWrap(msg);
-        dmsConfig.getMqs().sendMessage(mqsKey, wrap);
+
+        RocketMsg rocketMsg = new RocketMsg(TopicConsts.DAS_TO_DMS);
+
+        List<String> tagsList = Lists.newArrayList();
+        tagsList.add(nodeId);
+        tagsList.add(msg.getMsgCode());
+        tagsList.add(msg.getSourceDeviceType());
+        tagsList.add(msg.getSourceDeviceId());
+        tagsList.add(String.valueOf(msg.getMsgType()));
+        tagsList.add(String.valueOf(msg.getOccurTime()));
+
+        rocketMsg.setContent(JSON.toJSONString(wrap));
+
+        producer.syncSend(rocketMsg);
     }
 }

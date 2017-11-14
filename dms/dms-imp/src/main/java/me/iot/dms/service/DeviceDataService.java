@@ -13,7 +13,7 @@ import java.util.Map;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  DeviceDataService
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :

@@ -5,7 +5,7 @@ import org.springframework.context.annotation.ImportResource;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  DustbinDadaDubboServiceConfig
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :

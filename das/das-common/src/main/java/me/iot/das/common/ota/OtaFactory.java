@@ -10,7 +10,7 @@ import java.util.Map;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  OtaFactory
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :

@@ -1,21 +1,24 @@
 package me.cloud.iot.store.dustbin.data.service.impl;
 
 import com.alibaba.fastjson.JSON;
-import me.iot.common.constant.DeviceTypes;
+import me.cloud.iot.store.dustbin.common.DeviceTypes;
+import me.cloud.iot.store.dustbin.common.MsgCodes;
+import me.cloud.iot.store.dustbin.common.MsgParams;
+import me.cloud.iot.store.dustbin.data.config.DustbinConfig;
+import me.cloud.iot.store.dustbin.data.dao.IDustbinParamDao;
+import me.cloud.iot.store.dustbin.data.dto.DustbinParamDto;
+import me.cloud.iot.store.dustbin.data.entity.DustbinParam;
+import me.cloud.iot.store.dustbin.data.service.IDustbinParamService;
 import me.iot.common.msg.DeviceMsg;
 import me.iot.common.msg.IMsg;
 import me.iot.common.pojo.CacheMsgWrap;
-import me.iot.dms.DmsTopics;
+import me.iot.common.usual.TopicConsts;
 import me.iot.dms.IDeviceManageService;
-import me.iot.store.dustbin.common.MsgCodes;
-import me.iot.store.dustbin.common.MsgParams;
-import me.iot.store.dustbin.data.config.DustbinConfig;
-import me.iot.store.dustbin.data.dao.IDustbinParamDao;
-import me.iot.store.dustbin.data.dto.DustbinParamDto;
-import me.iot.store.dustbin.data.entity.DustbinParam;
-import me.iot.store.dustbin.data.service.IDustbinParamService;
-import me.iot.util.redis.AbstractMessageListener;
 import me.iot.util.redis.ISubscribePublishService;
+import me.iot.util.rocketmq.IConsumer;
+import me.iot.util.rocketmq.IConsumerConfig;
+import me.iot.util.rocketmq.msg.IRocketMsgListener;
+import me.iot.util.rocketmq.msg.RocketMsg;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
@@ -25,12 +28,11 @@ import org.springframework.util.StringUtils;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-import java.util.Collections;
 import java.util.List;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  DustbinParamServiceImpl
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :
@@ -43,7 +45,7 @@ import java.util.List;
  * *******************************************************************************************
  */
 @Service
-public class DustbinParamServiceImpl extends AbstractMessageListener implements IDustbinParamService {
+public class DustbinParamServiceImpl implements IDustbinParamService {
 
     private static final Logger LOG = LoggerFactory.getLogger(DustbinParamServiceImpl.class);
 
@@ -58,20 +60,41 @@ public class DustbinParamServiceImpl extends AbstractMessageListener implements 
 
     private IDeviceManageService dms;
 
+    private IConsumer consumer;
+
+    private static final String IOT_DUSTBIN_GROUP = "IOT-DUSTBIN-GROUP";
+
     @PostConstruct
     private void init() {
         dms = dustbinConfig.getDms();
 
-        List<String> topics = Collections.singletonList(DmsTopics.getTopicByDeviceType(DeviceTypes
-                .DEVICE_TYPE_DUSTBIN));
-        sps.subscribeMessage(this, topics);
-        LOG.info("subscribe DeviceMessage.  topics: {}", topics);
+        consumer = dustbinConfig.getFactory().createConsumer(new IConsumerConfig() {
+            @Override
+            public String getConsumerId() {
+                return IOT_DUSTBIN_GROUP;
+            }
+        });
+
+        consumer.subscribe(TopicConsts.DMS_TO_APS, new String[]{DeviceTypes
+                .DEVICE_TYPE_DUSTBIN}, new IRocketMsgListener() {
+            @Override
+            public void onSuccess(List<RocketMsg> messages) throws Exception {
+                for (RocketMsg rocketMsg : messages) {
+                    handleMessage(rocketMsg.getTopic(), rocketMsg.getContent());
+                }
+            }
+
+            @Override
+            public void onFaild(Throwable throwable) {
+                LOG.error("deal fail");
+            }
+        });
+
+        LOG.info("subscribe DeviceMessage.  topics: {}", TopicConsts.DMS_TO_APS);
     }
 
     @PreDestroy
     private void dispose() {
-        sps.unsubscribeMessage(this, null);
-        LOG.info("unsubscribe DeviceMessage");
     }
 
     @Override
@@ -167,8 +190,7 @@ public class DustbinParamServiceImpl extends AbstractMessageListener implements 
         }
     }
 
-    @Override
-    protected void handleMessage(String topic, String jsonMsg) {
+    private void handleMessage(String topic, String jsonMsg) throws Exception {
         LOG.info("received published msg.  topic:{}\n{}", topic, jsonMsg);
 
         CacheMsgWrap wrap = JSON.parseObject(jsonMsg, CacheMsgWrap.class);
@@ -200,7 +222,7 @@ public class DustbinParamServiceImpl extends AbstractMessageListener implements 
      *
      * @param msg
      */
-    void onReportParams(IMsg msg) {
+    void onReportParams(IMsg msg) throws Exception {
         DeviceMsg res = DeviceMsg.newMsgFromCloud(String.valueOf(MsgCodes.REPORT_PARAMS_RES),
                 msg.getSourceDeviceType(), msg.getSourceDeviceId());
 
@@ -227,10 +249,10 @@ public class DustbinParamServiceImpl extends AbstractMessageListener implements 
             LOG.error("onReportParams. exception:", e);
             rc = 1;
         } finally {
-            res.put(MsgParams.Limit1, fullThreshold);
-            res.put(MsgParams.Limit2, halfFullThreshold);
-            res.put(MsgParams.ReportInterval, reportInterval);
-            res.put(MsgParams.ConnectStringLen, connectStringLen);
+            res.put(MsgParams.LIMIT1, fullThreshold);
+            res.put(MsgParams.LIMIT2, halfFullThreshold);
+            res.put(MsgParams.REPORTINTERVAL, reportInterval);
+            res.put(MsgParams.CONNECTSTRINGLEN, connectStringLen);
             res.put(MsgParams.RC, rc);
 
             dms.sendMsg(res);

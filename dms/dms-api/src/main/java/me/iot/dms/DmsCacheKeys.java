@@ -4,7 +4,7 @@ import me.iot.common.usual.CacheKeys;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  DmsCacheKeys
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :

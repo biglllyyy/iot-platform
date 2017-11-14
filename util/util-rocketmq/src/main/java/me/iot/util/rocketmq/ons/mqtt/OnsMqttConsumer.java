@@ -37,16 +37,16 @@ public class OnsMqttConsumer extends AbsClient implements IConsumer {
 
 
     @Override
-    public void subscribe(String topic, String[] topicFilters, IRocketMsgListener listener) {
+    public void subscribe(String topic, String[] tags, IRocketMsgListener listener) {
         Preconditions.checkNotNull(topic, "topic is null");
         Preconditions.checkNotNull(listener, "listener is null");
 
         //合成 topicArray
         List<String> topics = Lists.newArrayList();
-        if (topicFilters == null || topicFilters.length == 0) {
+        if (tags == null || tags.length == 0) {
             topics.add(topic);
         } else {
-            for (String filter : topicFilters) {
+            for (String filter : tags) {
                 if (!filter.startsWith("/")) {
                     filter = "/" + filter;
                 }

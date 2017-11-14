@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  DustbinParam
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :

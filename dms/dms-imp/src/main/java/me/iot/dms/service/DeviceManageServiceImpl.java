@@ -16,7 +16,7 @@ import java.util.List;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  DeviceManageServiceImpl
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :
@@ -74,16 +74,16 @@ public class DeviceManageServiceImpl implements IDmsMsgProcessor<IMsg>, IDeviceM
     DeviceTokenServiceImpl deviceTokenServiceImpl;
 
     @Autowired
-    IDeviceOwnerService deviceOwnerService;
+    private IDeviceOwnerService deviceOwnerService;
 
     @Autowired
     IDeviceLocationService deviceLocationService;
 
 
     @Override
-    public void processMsg(IMsg msg) {
+    public void processMsg(IMsg msg) throws Exception {
         LOG.info("DMS process msg\n{}", msg);
-        msgLogServiceImpl.processMsg(msg);
+        //msgLogServiceImpl.processMsg(msg);
 
         switch (msg.getMsgType()) {
             case Undefine:
@@ -236,7 +236,7 @@ public class DeviceManageServiceImpl implements IDmsMsgProcessor<IMsg>, IDeviceM
     }
 
     @Override
-    public void sendMsg(IMsg msg) {
+    public void sendMsg(IMsg msg) throws Exception {
         deviceMessageServiceImpl.sendMsg(msg);
     }
 

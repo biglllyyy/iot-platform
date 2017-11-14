@@ -8,7 +8,7 @@ import java.util.Map;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  DasProperties
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :

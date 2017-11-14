@@ -18,7 +18,7 @@ import javax.persistence.criteria.Root;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  DeviceConnectionLogServiceImpl
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :

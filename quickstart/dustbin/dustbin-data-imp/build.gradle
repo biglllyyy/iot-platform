@@ -2,6 +2,8 @@ dependencies {
     compile project(":util:util-jpa")
     compile project(":util:util-redis")
 
+    compile project(":util:util-rocketmq")
+
     compile project(":common")
     compile project(":dms:dms-sdk")
 

@@ -6,7 +6,7 @@ import org.springframework.context.ApplicationEvent;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  ChannelMsgEvent
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :

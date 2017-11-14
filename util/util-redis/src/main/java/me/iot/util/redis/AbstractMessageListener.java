@@ -32,7 +32,7 @@ public abstract class AbstractMessageListener implements MessageListener {
      * @param topic
      * @param jsonMsg
      */
-    protected abstract void handleMessage(String topic, String jsonMsg);
+    protected abstract void handleMessage(String topic, String jsonMsg) throws Exception;
 
     @Override
     public void onMessage(Message message, byte[] pattern) {

@@ -20,6 +20,6 @@ public class Dms {
     final static String APPNAME = "dms-sdk";
 
     public static IDeviceManageService getService(String zkConnectString) {
-        return DubboUtils.getServcieReference(APPNAME, zkConnectString, IDeviceManageService.class);
+        return DubboUtils.getServiceReference(APPNAME, zkConnectString, IDeviceManageService.class);
     }
 }

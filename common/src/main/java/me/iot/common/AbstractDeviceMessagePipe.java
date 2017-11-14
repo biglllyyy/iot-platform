@@ -40,7 +40,7 @@ public abstract class AbstractDeviceMessagePipe {
      *
      * @param msg 设备消息
      */
-    public abstract void output(IMsg msg);
+    public abstract void output(IMsg msg) throws Exception;
 
     private final IMessaging messagingService = new LmaxDiscuptorMessaging(new EventProcessor());
 

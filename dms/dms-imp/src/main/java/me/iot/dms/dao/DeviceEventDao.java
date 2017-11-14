@@ -5,7 +5,7 @@ import me.iot.util.jpa.BaseRepository;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  DeviceEventDao
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :

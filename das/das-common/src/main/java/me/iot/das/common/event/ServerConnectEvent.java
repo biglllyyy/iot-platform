@@ -4,7 +4,7 @@ import org.springframework.context.ApplicationEvent;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  ServerConnectEvent
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :

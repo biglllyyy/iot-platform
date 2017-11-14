@@ -4,7 +4,7 @@ import me.iot.common.msg.DeviceOtaMsg;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  OtaNewTaskEvent
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :

@@ -6,7 +6,7 @@ import java.io.Serializable;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  BaseEntity
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :

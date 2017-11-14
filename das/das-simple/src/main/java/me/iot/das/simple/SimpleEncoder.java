@@ -13,7 +13,7 @@ import java.util.List;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  SimpleEncoder
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :
@@ -34,7 +34,6 @@ public class SimpleEncoder extends MessageToMessageEncoder<IMsg> {
 
     @Override
     protected void encode(ChannelHandlerContext ctx, IMsg msg, List<Object> out) throws Exception {
-
         if (msg == null || simpleMsgResolver == null) {
             return;
         }

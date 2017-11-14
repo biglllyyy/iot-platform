@@ -2,7 +2,7 @@ package me.iot.das.common.event;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  OtaCompletedEvent
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :

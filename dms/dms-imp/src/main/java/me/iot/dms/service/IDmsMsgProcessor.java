@@ -22,5 +22,5 @@ public interface IDmsMsgProcessor<T extends IMsg> {
      *
      * @param msg
      */
-    void processMsg(T msg);
+    void processMsg(T msg) throws Exception;
 }

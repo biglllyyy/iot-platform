@@ -1,12 +1,10 @@
 package me.iot.dms;
 
-import me.iot.util.mq.IConsumer;
-import me.iot.util.mq.IProducer;
-import me.iot.util.mq.MqFactory;
-import me.iot.util.mq.Provider;
 import me.iot.util.redis.ICentralCacheService;
 import me.iot.util.redis.IMessageQueueService;
 import me.iot.util.redis.ISubscribePublishService;
+import me.iot.util.rocketmq.IFactory;
+import me.iot.util.rocketmq.RocketMQUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
@@ -33,6 +31,9 @@ public class DmsConfig {
     @Value("${zookeeper.connectString}")
     String zkConnectString;
 
+    @Value("${iot.rocketmq.brokers}")
+    private String brokers;
+
     @Autowired
     ICentralCacheService ccs;
 
@@ -42,9 +43,11 @@ public class DmsConfig {
     @Autowired
     ISubscribePublishService sps;
 
+    private IFactory factory;
 
     @PostConstruct
     public void init() {
+        factory = RocketMQUtil.createOwnFactory(brokers);
     }
 
     public String getZkConnectString() {
@@ -63,4 +66,7 @@ public class DmsConfig {
         return sps;
     }
 
+    public IFactory getFactory() {
+        return factory;
+    }
 }

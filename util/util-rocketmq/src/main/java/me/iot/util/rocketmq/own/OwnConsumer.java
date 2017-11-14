@@ -29,6 +29,7 @@ public class OwnConsumer extends AbsConsumer implements IConsumer {
     protected OwnConsumer(OwnFactory factory, IConsumerConfig config) {
         super(config);
         this.factory = factory;
+        this.consumer = new DefaultMQPushConsumer();
         init();
     }
 

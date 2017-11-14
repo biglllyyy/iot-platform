@@ -3,9 +3,9 @@ package me.iot.dms.controller;
 import com.google.common.collect.Lists;
 import me.iot.common.dto.QueryResult;
 import me.iot.common.dto.Result;
-import me.iot.dms.IDeviceInfoService;
-import me.iot.dms.IDeviceOwnerService;
 import me.iot.dms.entity.DeviceInfo;
+import me.iot.dms.service.DeviceInfoServiceImpl;
+import me.iot.dms.service.DeviceOwnerServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,9 +34,10 @@ public class DeviceOwnerController {
     private Logger logger = LoggerFactory.getLogger(DeviceOwnerController.class);
 
     @Autowired
-    private IDeviceOwnerService deviceOwnerService;
+    private DeviceOwnerServiceImpl deviceOwnerService;
+
     @Autowired
-    private IDeviceInfoService deviceInfoService;
+    private DeviceInfoServiceImpl deviceInfoService;
 
     @RequestMapping(value = "/bindDevice", method = RequestMethod.POST)
     public Result<?> bindDevice(@RequestParam("ownerId") String ownerId, @RequestParam("deviceId") String deviceId) {

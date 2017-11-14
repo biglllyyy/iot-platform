@@ -20,7 +20,7 @@ import java.util.List;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  DeviceEventServiceImpl
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :

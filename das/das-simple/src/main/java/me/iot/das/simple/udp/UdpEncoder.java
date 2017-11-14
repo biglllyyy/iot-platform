@@ -16,7 +16,7 @@ import java.util.List;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  UdpEncoder
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :
@@ -36,8 +36,6 @@ public class UdpEncoder extends SimpleEncoder {
 
     @Override
     protected void encode(ChannelHandlerContext ctx, IMsg msg, List<Object> out) throws Exception {
-
-
         if (msg == null) {
             return;
         }

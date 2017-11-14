@@ -9,7 +9,7 @@ import me.iot.dms.dao.DeviceInfoDao;
 import me.iot.dms.entity.DeviceInfo;
 import me.iot.dms.entity.DeviceOwner;
 import me.iot.dms.entity.DeviceStatus;
-import org.apache.commons.lang3.StringUtils;
+import me.iot.util.misc.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

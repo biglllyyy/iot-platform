@@ -1,0 +1,17 @@
+###############################################################
+#                 自定义配置项
+###############################################################
+zookeeper.connectString: 192.168.1.186:2181
+
+spring.redis:
+    host: 192.168.1.178
+    port: 6379
+    password: tf56iot
+
+spring.datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.1.181/dms?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf8&useSSL=false&autoReconnect=true
+    username: vortex
+    password: tf56iot
+
+iot.rocketmq.brokers: localhost:10911

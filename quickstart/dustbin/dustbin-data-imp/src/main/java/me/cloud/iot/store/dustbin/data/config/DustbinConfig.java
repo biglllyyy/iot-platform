@@ -2,6 +2,8 @@ package me.cloud.iot.store.dustbin.data.config;
 
 import me.iot.dms.Dms;
 import me.iot.dms.IDeviceManageService;
+import me.iot.util.rocketmq.IFactory;
+import me.iot.util.rocketmq.RocketMQUtil;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
@@ -9,7 +11,7 @@ import javax.annotation.PostConstruct;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  DustbinConfig
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :
@@ -29,9 +31,15 @@ public class DustbinConfig {
 
     IDeviceManageService dms;
 
+    @Value("${iot.rocketmq.brokers}")
+    private String brokers;
+
+    private IFactory factory;
+
     @PostConstruct
     public void init() {
         dms = Dms.getService(zkConnectString);
+        factory = RocketMQUtil.createOwnFactory(brokers);
     }
 
     public String getZkConnectString() {
@@ -42,4 +50,7 @@ public class DustbinConfig {
         return dms;
     }
 
+    public IFactory getFactory() {
+        return factory;
+    }
 }

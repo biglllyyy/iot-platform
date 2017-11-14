@@ -2,7 +2,7 @@ package me.iot.das.common.ota;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  IOtaWorker
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :

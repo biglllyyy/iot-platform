@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  DeviceLogController
  * @CreateDate :  2017/11/08
  * @Description :  日志管理页面控制器
  * @ReviewedBy :

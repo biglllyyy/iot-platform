@@ -33,7 +33,7 @@ public class OnsHttpConsumer extends AbsConsumer implements IConsumer {
     }
 
     @Override
-    public void subscribe(String topic, String[] topicFilters, IRocketMsgListener listener) {
+    public void subscribe(String topic, String[] tags, IRocketMsgListener listener) {
         Preconditions.checkNotNull(listener, "callback is null");
         unsubscribe();
 

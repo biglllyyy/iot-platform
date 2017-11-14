@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  SimpleDecoder
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :

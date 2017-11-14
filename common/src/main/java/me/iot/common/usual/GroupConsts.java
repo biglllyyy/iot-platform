@@ -19,6 +19,6 @@ public interface GroupConsts {
     /**
      * dms的group名称；固定
      */
-    String IOT_DMS_GROUP = "iot.dms";
+    String IOT_DMS_GROUP = "iot-dms";
 
 }

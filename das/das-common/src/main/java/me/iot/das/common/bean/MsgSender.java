@@ -1,23 +1,27 @@
 package me.iot.das.common.bean;
 
 import com.google.common.base.Strings;
-import com.google.common.collect.Lists;
 import io.netty.channel.Channel;
 import me.iot.common.AbstractDeviceMessagePipe;
 import me.iot.common.Callback;
 import me.iot.common.msg.DeviceOtaMsg;
 import me.iot.common.msg.IMsg;
+import me.iot.common.usual.GroupConsts;
 import me.iot.common.usual.TopicConsts;
 import me.iot.das.common.DasConfig;
 import me.iot.das.common.NettyUtil;
 import me.iot.das.common.event.OtaNewTaskEvent;
-import me.iot.util.mq.Message;
-import me.iot.util.mq.MessageListener;
+import me.iot.util.rocketmq.IConsumer;
+import me.iot.util.rocketmq.IConsumerConfig;
+import me.iot.util.rocketmq.msg.IRocketMsgListener;
+import me.iot.util.rocketmq.msg.RocketMsg;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 
 /**
@@ -39,39 +43,47 @@ public class MsgSender extends AbstractDeviceMessagePipe {
     private static final Logger LOG = LoggerFactory.getLogger(MsgSender.class);
 
     @Autowired
-    ApplicationContext ctx;
+    private ApplicationContext ctx;
 
     @Autowired
-    DasConfig dasConfig;
+    private DasConfig dasConfig;
 
     @Autowired
-    ChannelCache channelCache;
+    private ChannelCache channelCache;
 
     @Override
     public void input(Callback<IMsg> callback) {
-        //"iot.DmsToDas.xxxxxxxxx"
-        String topic = TopicConsts.getTopicFromDmsToDas(dasConfig.getDasNodeId());
+        String topic = TopicConsts.DMS_TO_DAS;
 
+        IConsumer consumer = dasConfig.getFactory().createConsumer(new IConsumerConfig() {
+            @Override
+            public String getConsumerId() {
+                return GroupConsts.IOT_DMS_GROUP;
+            }
+        });
+
+        //根据nodeid去订阅
         try {
-            dasConfig.getConsumer().subscribe(Lists.newArrayList(topic), new MessageListener() {
+            consumer.subscribe(topic, new String[]{dasConfig.getDasNodeId()}, new IRocketMsgListener() {
                 @Override
-                public void onSuccess(Message message) {
-                    IMsg msg = convert(message.getContent());
+                public void onSuccess(List<RocketMsg> messages) {
+                    for (RocketMsg rocketMsg : messages) {
+                        IMsg msg = convert(rocketMsg.getContent());
+                        switch (msg.getMsgType()) {
+                            case DeviceOta:
+                                ctx.publishEvent(new OtaNewTaskEvent(this, (DeviceOtaMsg) msg));
+                                break;
+                            default:
+                                callback.onSuccess(msg);
+                                break;
+                        }
 
-                    switch (msg.getMsgType()) {
-                        case DeviceOta:
-                            ctx.publishEvent(new OtaNewTaskEvent(this, (DeviceOtaMsg) msg));
-                            break;
-                        default:
-                            callback.onSuccess(msg);
-                            break;
                     }
-
                 }
 
                 @Override
-                public void onFailure(Throwable t) {
-                    callback.onFailure(t);
+                public void onFaild(Throwable throwable) {
+                    callback.onFailure(throwable);
                 }
             });
 

@@ -13,7 +13,7 @@ import java.util.List;
 
 /**
  * @author :  luhao
- * @FileName :  DeviceOwnerService
+ * @FileName :  DeviceOwnerServiceImpl
  * @CreateDate :  2016/6/28
  * @Description :
  * @ReviewedBy :

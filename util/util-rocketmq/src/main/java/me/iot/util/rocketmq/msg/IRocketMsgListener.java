@@ -6,7 +6,7 @@ import java.util.List;
  * Created by sylar on 2017/1/5.
  */
 public interface IRocketMsgListener {
-    void onSuccess(List<RocketMsg> messages);
+    void onSuccess(List<RocketMsg> messages) throws Exception;
 
     void onFaild(Throwable throwable);
 }

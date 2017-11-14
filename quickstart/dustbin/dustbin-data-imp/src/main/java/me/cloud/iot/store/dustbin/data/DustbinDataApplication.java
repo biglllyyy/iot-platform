@@ -1,11 +1,12 @@
 package me.cloud.iot.store.dustbin.data;
 
-import me.iot.common.ZeroApplication;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  DustbinDataApplication
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :
@@ -17,7 +18,8 @@ import org.springframework.boot.SpringApplication;
  * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
-@ZeroApplication
+@SpringBootApplication
+@ComponentScan(basePackages = {"me.iot", "me.cloud.iot"})
 public class DustbinDataApplication {
     public static void main(String[] args) {
         SpringApplication.run(DustbinDataApplication.class, args);

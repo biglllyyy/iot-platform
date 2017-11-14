@@ -11,7 +11,7 @@ import java.util.Arrays;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  DeviceAlarmController
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :

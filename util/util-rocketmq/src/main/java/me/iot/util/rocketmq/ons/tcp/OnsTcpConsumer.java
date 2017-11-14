@@ -37,17 +37,16 @@ public class OnsTcpConsumer extends AbsConsumer implements IConsumer {
     }
 
     @Override
-    public void subscribe(String topic, String[] topicFilters, IRocketMsgListener listener) {
+    public void subscribe(String topic, String[] tags, IRocketMsgListener listener) {
         unsubscribe();
 
         String subExpression = "*";
-        if (topicFilters != null && topicFilters.length > 0) {
-            subExpression = Joiner.on("||").skipNulls().join(topicFilters);
+        if (tags != null && tags.length > 0) {
+            subExpression = Joiner.on("||").skipNulls().join(tags);
         }
 
-        final String tags = subExpression;
 
-        consumer.subscribe(topic, tags, new MessageListener() {
+        consumer.subscribe(topic, subExpression, new MessageListener() {
             public Action consume(Message message, ConsumeContext context) {
                 String content = new String(message.getBody(), Charsets.UTF_8);
                 System.out.println("Receive Msg: " + message);

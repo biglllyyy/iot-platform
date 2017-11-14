@@ -14,7 +14,7 @@ import java.util.Map;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  DubboUtils
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :
@@ -51,10 +51,10 @@ public class DubboUtils {
      * @param <T>
      * @return
      */
-    public static <T> T getServcieReference(String appName,
+    public static <T> T getServiceReference(String appName,
                                             String connectString,
                                             Class<T> clazz) {
-        return getServcieReference(appName, connectString, REGISTRY_ZOOKEEPER, PROROCOL_DUBBO, clazz, true);
+        return getServiceReference(appName, connectString, REGISTRY_ZOOKEEPER, PROROCOL_DUBBO, clazz, true);
     }
 
     /**
@@ -69,11 +69,11 @@ public class DubboUtils {
      * @param <T>
      * @return
      */
-    public static <T> T getServcieReference(String appName,
+    public static <T> T getServiceReference(String appName,
                                             String connectString,
                                             Class<T> clazz,
                                             boolean isLazy) {
-        return getServcieReference(appName, connectString, REGISTRY_ZOOKEEPER, PROROCOL_DUBBO, clazz, isLazy);
+        return getServiceReference(appName, connectString, REGISTRY_ZOOKEEPER, PROROCOL_DUBBO, clazz, isLazy);
     }
 
     /**
@@ -87,12 +87,12 @@ public class DubboUtils {
      * @param <T>
      * @return
      */
-    public static <T> T getServcieReference(String appName,
+    public static <T> T getServiceReference(String appName,
                                             String connectString,
                                             String referenceProrocol,
                                             Class<T> clazz,
                                             boolean isLazy) {
-        return getServcieReference(appName, connectString, REGISTRY_ZOOKEEPER, referenceProrocol, clazz, isLazy);
+        return getServiceReference(appName, connectString, REGISTRY_ZOOKEEPER, referenceProrocol, clazz, isLazy);
     }
 
     /**
@@ -106,7 +106,7 @@ public class DubboUtils {
      * @param <T>
      * @return
      */
-    public static <T> T getServcieReference(String appName,
+    public static <T> T getServiceReference(String appName,
                                             String connectString,
                                             String registryProrocol,
                                             String referenceProrocol,

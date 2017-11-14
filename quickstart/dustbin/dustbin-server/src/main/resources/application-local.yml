@@ -1,0 +1,11 @@
+zookeeper.connectString: 127.0.0.1:2181
+
+das:
+  port: 20001
+
+spring.redis:
+    host: localhost
+    port: 6379
+    password: tf56iot
+
+iot.rocketmq.brokers: 127.0.0.1:9876

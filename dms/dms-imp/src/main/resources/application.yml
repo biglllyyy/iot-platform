@@ -1,14 +1,11 @@
-spring.profiles.active: default
+spring.profiles.active: local
 
 ###############################################################
 #                    公共配置
 ###############################################################
-# 自动发现configServer, 该配置项须放在 application.yml
-spring.cloud.config.discovery.enabled: true
 # 服务名称与端口
 spring.application.name: dms
 dubbo.port: 28012
-custom.value: default
 
 server:
   port: 9012
@@ -31,4 +28,4 @@ logging:
   pattern:
     file: '%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n'
     console: '%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n'
-  file: logs/${spring.application.name:-.}.log
+  file: logs/out.log
