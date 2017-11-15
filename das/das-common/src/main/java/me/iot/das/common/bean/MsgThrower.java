@@ -13,6 +13,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+
 
 /**
  * @author :  sylar
@@ -38,6 +40,7 @@ public class MsgThrower {
 
     private IProducer producer;
 
+    @PostConstruct
     public void init() {
         producer = dasConfig.getFactory().createProducer(new IProducerConfig() {
             @Override
