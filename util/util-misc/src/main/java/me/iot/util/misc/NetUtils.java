@@ -8,7 +8,7 @@ import java.util.Enumeration;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  NetUtils
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :
@@ -22,7 +22,7 @@ import java.util.Enumeration;
  */
 public class NetUtils {
 
-    public static String getHostName() {
+    /*public static String getHostName() {
         try {
             return InetAddress.getLocalHost().getHostName();
         } catch (UnknownHostException e) {
@@ -53,7 +53,7 @@ public class NetUtils {
             e.printStackTrace();
         }
         return null;
-    }
+    }*/
 
     public static String getHostMac() {
         try {
