@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 
 /**
  * @author :  sylar
@@ -39,22 +40,28 @@ public class SensorConfig {
         if (!resource.exists()) {
             return;
         }
+
+        FileInputStream is = null;
         try {
             File file = resource.getFile();
             byte[] buffer = new byte[(int) file.length()];
-            FileInputStream is = new FileInputStream(file);
+            is = new FileInputStream(file);
             is.read(buffer, 0, buffer.length);
-            is.close();
             String json = new String(buffer, Charsets.UTF_8);
             SensorInfos sensorInfos = JSON.parseObject(json, SensorInfos.class);
             if (sensorInfos != null) {
                 SensorInfoManager.getInstance().loadSensonInfos(sensorInfos);
             }
-
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            if(is != null) {
+                try {
+                    is.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
-
-
 }

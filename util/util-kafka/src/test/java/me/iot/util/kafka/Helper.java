@@ -13,6 +13,7 @@ import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.producer.RecordMetadata;
 
+import java.security.SecureRandom;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.Future;
@@ -53,7 +54,7 @@ public class Helper {
             Future<RecordMetadata> future = producer.send(msg);
             RecordMetadata metadata = future.get();
             System.out.println(String.format("producer:%s\tindex:%s\toffset:%s ", clientId, i, metadata.offset()));
-            Thread.sleep(10 + new Random().nextInt(10));
+            Thread.sleep(10 + new SecureRandom().nextInt(10));
         }
 
         producer.stop();
@@ -66,7 +67,7 @@ public class Helper {
                 @Override
                 public void run() {
                     try {
-                        consumeByTopic(topic, "CID_" + new Random().nextInt(10), gid);
+                        consumeByTopic(topic, "CID_" + new SecureRandom().nextInt(10), gid);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

@@ -4,6 +4,7 @@ import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
 
 import java.io.Serializable;
+import java.security.SecureRandom;
 import java.util.Random;
 
 /**
@@ -94,8 +95,8 @@ public class DeviceGuid implements Serializable {
 
         StringBuilder sb = new StringBuilder();
         //随机用以下三个随机生成器
-        Random rand = new Random();
-        Random randdata = new Random();
+        SecureRandom rand = new SecureRandom();
+        SecureRandom randdata = new SecureRandom();
         int data = 0;
         for (int i = 0; i < DEVICE_NUMBER_LENGTH; i++) {
             int index = rand.nextInt(3);
