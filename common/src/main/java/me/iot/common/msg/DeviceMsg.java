@@ -8,7 +8,7 @@ import me.iot.common.pojo.DeviceGuid;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  DeviceMsg
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :

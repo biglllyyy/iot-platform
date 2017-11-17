@@ -6,7 +6,6 @@ import me.iot.util.rocketmq.Util;
 
 import java.util.List;
 
-
 /**
  * Created by sylar on 2017/1/6.
  */
@@ -17,6 +16,7 @@ public class RocketMsg {
     private String content;
     private String targetClientId;  //for mqtt only
     private Object ext;
+    private int msgTypeValue;
 
     public RocketMsg(String topic) {
         this.topic = topic;
@@ -120,5 +120,13 @@ public class RocketMsg {
 
     public void setExt(Object ext) {
         this.ext = ext;
+    }
+
+    public int getMsgTypeValue() {
+        return msgTypeValue;
+    }
+
+    public void setMsgTypeValue(int msgTypeValue) {
+        this.msgTypeValue = msgTypeValue;
     }
 }

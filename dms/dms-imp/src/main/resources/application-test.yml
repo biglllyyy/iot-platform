@@ -10,8 +10,8 @@ spring.redis:
 
 spring.datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.1.181/dms?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf8&useSSL=false&autoReconnect=true
-    username: vortex
-    password: tf56iot
+    url: jdbc:mysql://10.7.13.48:8066/iotdms?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf8&useSSL=false&autoReconnect=true
+    username: iotdms
+    password: MLklhjyHljlpplybktrfe
 
 iot.rocketmq.brokers: localhost:10911

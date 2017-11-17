@@ -14,7 +14,7 @@ import java.io.Serializable;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  CacheMsgWrap
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :

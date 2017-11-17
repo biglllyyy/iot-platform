@@ -129,7 +129,7 @@ public class MsgResolver extends AbstractFrameCodec implements ISimpleMsgResolve
                 dataMsg.put(MsgParams.REMAIN3, ByteUtils.toInt(buf.get()));
                 dataMsg.put(MsgParams.TILT, ByteUtils.toInt(buf.get()));
                 dataMsg.put(MsgParams.BATTERY, buf.getShort());
-                dataMsg.put(MsgParams.TEMPERATUE, buf.getShort() / 10F);
+                //dataMsg.put(MsgParams.TEMPERATUE, buf.getShort() / 10F);
 
                 msg = dataMsg;
                 break;

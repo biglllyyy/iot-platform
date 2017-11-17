@@ -2,6 +2,7 @@ package me.iot.das.common.bean;
 
 import com.alibaba.fastjson.JSON;
 import me.iot.common.msg.IMsg;
+import me.iot.common.msg.MsgType;
 import me.iot.common.usual.GroupConsts;
 import me.iot.common.usual.TopicConsts;
 import me.iot.das.common.DasConfig;
@@ -55,6 +56,7 @@ public class MsgThrower {
             String topic = TopicConsts.DAS_TO_DMS;
 
             RocketMsg rocketMsg = new RocketMsg(topic);
+            rocketMsg.setMsgTypeValue(msg.getMsgType().getValue());
             rocketMsg.setContent(JSON.toJSONString(msg));
             producer.syncSend(rocketMsg);
         } catch (Exception e) {
