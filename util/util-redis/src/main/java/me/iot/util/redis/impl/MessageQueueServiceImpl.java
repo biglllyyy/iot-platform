@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  MessageQueueServiceImpl
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :

@@ -24,7 +24,7 @@ import java.util.concurrent.*;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  SubscribePublishServiceImpl
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :

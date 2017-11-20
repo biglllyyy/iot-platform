@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  CentralCacheServiceImpl
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :
