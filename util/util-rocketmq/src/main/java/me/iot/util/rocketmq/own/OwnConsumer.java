@@ -41,12 +41,12 @@ public class OwnConsumer extends AbsConsumer implements IConsumer {
     }
 
     @Override
-    public void subscribe(String topic, String[] topicFilters, IRocketMsgListener listener) {
+    public void subscribe(String topic, String[] tags, IRocketMsgListener listener) {
         unsubscribe();
 
         String subExpression = "*";
-        if (topicFilters != null && topicFilters.length > 0) {
-            subExpression = Joiner.on("||").skipNulls().join(topicFilters);
+        if (tags != null && tags.length > 0) {
+            subExpression = Joiner.on("||").skipNulls().join(tags);
         }
 
         consumer.registerMessageListener(new MessageListenerConcurrently() {

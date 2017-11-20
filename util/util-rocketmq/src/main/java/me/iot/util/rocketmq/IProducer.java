@@ -17,4 +17,9 @@ public interface IProducer {
      * @throws Exception
      */
     Object syncSend(RocketMsg msg) throws Exception;
+
+    /**
+     * 关闭producer
+     */
+    void shutdown();
 }

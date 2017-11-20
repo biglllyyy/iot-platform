@@ -59,7 +59,7 @@ public class MsgSender extends AbstractDeviceMessagePipe {
         consumer = dasConfig.getFactory().createConsumer(new IConsumerConfig() {
             @Override
             public String getConsumerId() {
-                return GroupConsts.IOT_DMS_GROUP;
+                return GroupConsts.IOT_DMS_TO_DAS_GROUP;
             }
         });
 

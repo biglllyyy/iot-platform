@@ -27,7 +27,7 @@
     <!--声明服务============================================================================================-->
 
     <!--若已经在代码中定义bean ,可在此处声明要暴露的服务,并指向约定的bean名称-->
-    <!--<dubbo:service interface="IDustbinParamService" ref="dustbinData" protocol="dubbo"
+    <!--<dubbo:service interface="IDustbinService" ref="dustbinData" protocol="dubbo"
                    timeout="10000"/>
 
     <bean id="dustbinData" class="DustbinParamServiceImpl"/>-->

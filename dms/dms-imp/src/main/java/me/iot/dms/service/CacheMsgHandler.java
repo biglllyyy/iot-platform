@@ -62,10 +62,7 @@ public class CacheMsgHandler extends AbstractDeviceMessagePipe {
             @Override
             public void onSuccess(List<RocketMsg> messages) {
                 for (RocketMsg rocketMsg : messages) {
-                    CacheMsgWrap wrap = new CacheMsgWrap();
-                    wrap.setMsgTypeValue(rocketMsg.getMsgTypeValue());
-                    wrap.setMsgContent(rocketMsg.getContent());
-                    callback.onSuccess(wrap.getMsg());
+                    callback.onSuccess(convert(rocketMsg.getContent()));
                 }
             }
 
@@ -75,6 +72,16 @@ public class CacheMsgHandler extends AbstractDeviceMessagePipe {
             }
         });
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (consumer != null) {
+            consumer.unsubscribe();
+            consumer = null;
+        }
+    }
+
 
     @Override
     public void output(IMsg msg) throws Exception {

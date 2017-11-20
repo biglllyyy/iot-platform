@@ -20,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.List;
 
 /**
@@ -81,19 +82,27 @@ public class DeviceMessageServiceImpl implements IDmsMsgProcessor<IMsg>, IDevice
 
         //append tag
         List<String> tagsList = Lists.newArrayList();
-        tagsList.add(msg.getMsgCode());
+        //tagsList.add(msg.getMsgCode());
         tagsList.add(msg.getSourceDeviceType());
-        tagsList.add(msg.getSourceDeviceId());
-        tagsList.add(String.valueOf(msg.getMsgType()));
-        tagsList.add(String.valueOf(msg.getOccurTime()));
+        //tagsList.add(msg.getSourceDeviceId());
+        //tagsList.add(String.valueOf(msg.getMsgType()));
+        //tagsList.add(String.valueOf(msg.getOccurTime()));
 
         rocketMsg.setTagList(tagsList);
 
         producer.syncSend(rocketMsg);
     }
 
+    @PreDestroy
+    private void destroy() {
+        if (producer != null) {
+            producer.shutdown();
+        }
+    }
+
     @Override
     public void sendMsg(IMsg msg) throws Exception {
+        LOG.info("send msg to device {}", msg.getSourceDeviceId());
         msgSender.sendToQueue(msg);
     }
 }

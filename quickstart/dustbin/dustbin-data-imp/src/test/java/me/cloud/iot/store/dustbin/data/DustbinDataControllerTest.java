@@ -1,4 +1,4 @@
-package com.vortex.dustbin.data;
+package me.cloud.iot.store.dustbin.data;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -6,8 +6,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,11 +19,22 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
- * Created by LiShijun on 16/9/22.
+ * @author :  luhao
+ * @FileName :  DasConnectionLogController
+ * @CreateDate :  2017/11/19
+ * @Description :
+ * @ReviewedBy :
+ * @ReviewedOn :
+ * @VersionHistory :
+ * @ModifiedBy :
+ * @ModifiedDate :
+ * @Comments :
+ * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
+ * *******************************************************************************************
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@TransactionConfiguration(defaultRollback = false)
+@Rollback
 @Transactional
 public class DustbinDataControllerTest {
     @Autowired
@@ -31,7 +42,7 @@ public class DustbinDataControllerTest {
 
     private MockMvc mockMvc;
 
-    private final static String DEVICE_CODE = "TRCAN867587029314372";
+    private final static String DEVICE_CODE = "TRCANculvt856932";
 
     @Before
     public void setupMockMvc() {
@@ -43,7 +54,7 @@ public class DustbinDataControllerTest {
         String url = "/device/data/dustbin/saveParams";
         String json = "{\n" +
                 "    \"deviceType\": \"TRCAN\",\n" +
-                "    \"deviceId\": \"TRCAN867587029314372\",\n" +
+                "    \"deviceId\": \"TRCANculvt856932\",\n" +
                 "    \"height\": 100,\n" +
                 "    \"fullThreshold\": 20,\n" +
                 "    \"halfFullThreshold\": 50, \n" +
@@ -63,7 +74,7 @@ public class DustbinDataControllerTest {
         String url = "/device/data/dustbin/saveParams";
         String json = "{\n" +
                 "    \"deviceType\": \"TRCAN\",\n" +
-                "    \"deviceId\": \"TRCAN867587029314372\",\n" +
+                "    \"deviceId\": \"TRCANculvt856932\",\n" +
                 "    \"height\": 100,\n" +
                 "    \"fullThreshold\": 25,\n" +
                 "    \"halfFullThreshold\": 50, \n" +

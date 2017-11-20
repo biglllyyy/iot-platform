@@ -5,7 +5,7 @@ import com.google.common.base.Preconditions;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  Message
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :

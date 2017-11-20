@@ -38,4 +38,11 @@ public class OwnProducer extends AbsProcuder implements IProducer {
     public Object syncSend(RocketMsg msg) throws Exception {
         return this.producer.send(msg.getOwnMessage());
     }
+
+    @Override
+    public void shutdown() {
+        if (producer != null) {
+            producer.shutdown();
+        }
+    }
 }

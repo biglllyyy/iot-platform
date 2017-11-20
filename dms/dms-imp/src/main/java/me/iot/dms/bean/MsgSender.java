@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.List;
 
 /**
@@ -77,18 +78,25 @@ public class MsgSender {
         String nodeId = deviceStatus.getNodeId();
         CacheMsgWrap wrap = new CacheMsgWrap(msg);
 
-        RocketMsg rocketMsg = new RocketMsg(TopicConsts.DAS_TO_DMS);
-
+        RocketMsg rocketMsg = new RocketMsg(TopicConsts.DMS_TO_DAS);
+        rocketMsg.setContent(JSON.toJSONString(wrap));
         List<String> tagsList = Lists.newArrayList();
         tagsList.add(nodeId);
-        tagsList.add(msg.getMsgCode());
-        tagsList.add(msg.getSourceDeviceType());
-        tagsList.add(msg.getSourceDeviceId());
-        tagsList.add(String.valueOf(msg.getMsgType()));
-        tagsList.add(String.valueOf(msg.getOccurTime()));
+        //tagsList.add(msg.getMsgCode());
+        //tagsList.add(msg.getSourceDeviceType());
+        //tagsList.add(msg.getSourceDeviceId());
+        //tagsList.add(String.valueOf(msg.getMsgType()));
+        //tagsList.add(String.valueOf(msg.getOccurTime()));
 
-        rocketMsg.setContent(JSON.toJSONString(wrap));
-
+        rocketMsg.setTagList(tagsList);
+        LOG.info("send msg to device111 {}", msg.getSourceDeviceId());
         producer.syncSend(rocketMsg);
+    }
+
+    @PreDestroy
+    private void destroy() {
+        if (producer != null) {
+            producer.shutdown();
+        }
     }
 }

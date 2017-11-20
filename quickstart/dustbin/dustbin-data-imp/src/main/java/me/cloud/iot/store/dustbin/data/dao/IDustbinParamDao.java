@@ -14,7 +14,7 @@ import me.iot.util.jpa.BaseRepository;
  * @ModifiedBy :
  * @ModifiedDate :
  * @Comments :
- * @CopyRight : COPYRIGHT(c) www.XXXXX.com   All Rights Reserved
+ * @CopyRight : COPYRIGHT(c) me.iot.com   All Rights Reserved
  * *******************************************************************************************
  */
 public interface IDustbinParamDao extends BaseRepository<DustbinParam, Long> {

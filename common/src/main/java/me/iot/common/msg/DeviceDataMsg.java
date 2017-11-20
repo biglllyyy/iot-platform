@@ -6,7 +6,7 @@ package me.iot.common.msg;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  DeviceDataMsg
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :

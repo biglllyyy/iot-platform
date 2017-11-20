@@ -2,7 +2,7 @@ package me.cloud.iot.store.dustbin.common;
 
 /**
  * @author :  sylar
- * @FileName :  MqttConst
+ * @FileName :  DeviceTypes
  * @CreateDate :  2017/11/08
  * @Description :
  * @ReviewedBy :

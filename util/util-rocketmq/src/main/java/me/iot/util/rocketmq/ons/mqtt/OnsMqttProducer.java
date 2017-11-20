@@ -40,4 +40,9 @@ public class OnsMqttProducer extends AbsClient implements IProducer {
         send(msg.getMqttTopic(), message);
         return null;
     }
+
+    @Override
+    public void shutdown() {
+
+    }
 }

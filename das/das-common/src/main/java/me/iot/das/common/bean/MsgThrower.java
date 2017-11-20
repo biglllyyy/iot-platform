@@ -3,6 +3,7 @@ package me.iot.das.common.bean;
 import com.alibaba.fastjson.JSON;
 import me.iot.common.msg.IMsg;
 import me.iot.common.msg.MsgType;
+import me.iot.common.pojo.CacheMsgWrap;
 import me.iot.common.usual.GroupConsts;
 import me.iot.common.usual.TopicConsts;
 import me.iot.das.common.DasConfig;
@@ -15,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 
 /**
@@ -56,8 +58,10 @@ public class MsgThrower {
             String topic = TopicConsts.DAS_TO_DMS;
 
             RocketMsg rocketMsg = new RocketMsg(topic);
-            rocketMsg.setMsgTypeValue(msg.getMsgType().getValue());
-            rocketMsg.setContent(JSON.toJSONString(msg));
+
+            CacheMsgWrap wrap = new CacheMsgWrap(msg);
+            rocketMsg.setContent(JSON.toJSONString(wrap));
+            
             producer.syncSend(rocketMsg);
         } catch (Exception e) {
             LOG.error("sendToQueue error:{}", e.getMessage());
@@ -65,4 +69,12 @@ public class MsgThrower {
         }
 
     }
+
+    @PreDestroy
+    private void destroy() {
+        if (producer != null) {
+            producer.shutdown();
+        }
+    }
+
 }

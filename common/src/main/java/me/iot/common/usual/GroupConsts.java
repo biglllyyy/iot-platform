@@ -19,7 +19,7 @@ public interface GroupConsts {
     /**
      * dms的group名称；固定
      */
-    String IOT_DMS_GROUP = "iot-dms";
+    String IOT_DMS_TO_DAS_GROUP = "iot-dms-to-das-group";
 
     /**
      * 从dms扔到aps的group

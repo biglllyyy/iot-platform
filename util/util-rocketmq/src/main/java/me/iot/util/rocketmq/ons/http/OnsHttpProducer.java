@@ -40,4 +40,9 @@ public class OnsHttpProducer extends AbsProcuder implements IProducer {
             throw new Exception(result.toString());
         }
     }
+
+    @Override
+    public void shutdown() {
+
+    }
 }

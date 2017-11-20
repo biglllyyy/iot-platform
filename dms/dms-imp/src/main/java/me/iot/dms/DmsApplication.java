@@ -18,7 +18,6 @@ import org.springframework.context.annotation.ComponentScan;
  * @CopyRight : COPYRIGHT(c) me.iot.com All Rights Reserved
  * *******************************************************************************************
  */
-//@EnableEurekaClient
 @SpringBootApplication
 @ComponentScan("me.iot")
 public class DmsApplication {

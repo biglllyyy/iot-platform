@@ -2,7 +2,7 @@ package me.cloud.iot.store.dustbin.data.controller;
 
 import com.google.common.base.Strings;
 import me.cloud.iot.store.dustbin.data.dto.DustbinParamDto;
-import me.cloud.iot.store.dustbin.data.service.IDustbinParamService;
+import me.cloud.iot.store.dustbin.data.service.IDustbinService;
 import me.iot.common.dto.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,7 +33,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/device/data/dustbin")
 public class DustbinDataController {
     @Autowired
-    IDustbinParamService dustbinParamService;
+    IDustbinService dustbinParamService;
 
     /**
      * 保存（新增/更新） 垃圾桶的参数。

@@ -40,4 +40,8 @@ public class OnsTcpProducer extends AbsProcuder implements IProducer {
         return this.producer.send(msg.getOnsMessage());
     }
 
+    @Override
+    public void shutdown() {
+
+    }
 }
