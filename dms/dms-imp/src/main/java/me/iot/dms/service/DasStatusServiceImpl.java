@@ -1,13 +1,14 @@
 package me.iot.dms.service;
 
+import com.alibaba.fastjson.JSON;
 import me.iot.common.msg.DasConnectionMsg;
 import me.iot.dms.DmsCacheKeys;
 import me.iot.dms.DmsConfig;
 import me.iot.dms.IDasStatusService;
 import me.iot.dms.entity.DasStatus;
-import me.iot.util.redis.ICentralCacheService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tf56.common.redis.client.CommonRedisUtil;
 
 import javax.annotation.PostConstruct;
 
@@ -31,11 +32,10 @@ public class DasStatusServiceImpl implements IDmsMsgProcessor<DasConnectionMsg>,
     @Autowired
     DmsConfig dmsConfig;
 
-    ICentralCacheService ccs;
+    private CommonRedisUtil redisUtil = CommonRedisUtil.getInstance();
 
     @PostConstruct
     private void init() {
-        ccs = dmsConfig.getCcs();
     }
 
     @Override
@@ -46,20 +46,20 @@ public class DasStatusServiceImpl implements IDmsMsgProcessor<DasConnectionMsg>,
 
         if (msg.isConnected()) {
             DasStatus pojo = new DasStatus(nodeId);
-            ccs.putObject(ccsKey, pojo);
+            redisUtil.set(ccsKey, JSON.toJSONString(pojo));
         } else {
-            ccs.removeObject(ccsKey);
+            redisUtil.del(ccsKey);
         }
     }
 
     @Override
     public DasStatus getDasStatus(String nodeId) {
         String ccsKey = DmsCacheKeys.getCcsKeyForDasStatus(nodeId);
-        if (!ccs.containsKey(ccsKey)) {
+        if (!redisUtil.exists(ccsKey)) {
             return null;
         }
 
-        return ccs.getObject(ccsKey, DasStatus.class);
+        return JSON.parseObject(redisUtil.get(ccsKey), DasStatus.class);
     }
 
     public void updateDeviceConnection(String nodeId, String deviceId, boolean isConnected) {
@@ -76,6 +76,6 @@ public class DasStatusServiceImpl implements IDmsMsgProcessor<DasConnectionMsg>,
         }
 
         String ccsKey = DmsCacheKeys.getCcsKeyForDasStatus(nodeId);
-        ccs.putObject(ccsKey, pojo);
+        redisUtil.set(ccsKey, JSON.toJSONString(pojo));
     }
 }

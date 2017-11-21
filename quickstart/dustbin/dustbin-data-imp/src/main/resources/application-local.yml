@@ -1,4 +1,5 @@
-zookeeper.connectString: localhost:2181
+zookeeper.connectString: mt-zookeeper-vip:2181
+iot.rocketmq.brokers: mt-rocketMqDispatch-vip:9876
 
 server:
   port: 9023
@@ -13,14 +14,6 @@ spring.jpa:
 
 spring.datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/dustbin_data?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf8&useSSL=false&autoReconnect=true
-    username: dustbin
-    password: 123456
-
-
-spring.redis:
-    host: localhost
-    port: 6379
-    password: tf56iot
-
-iot.rocketmq.brokers: 127.0.0.1:9876
+    url: ${jdbc.url}
+    username: ${jdbc.username}
+    password: ${jdbc.password}

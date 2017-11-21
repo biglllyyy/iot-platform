@@ -9,7 +9,6 @@ configurations {
 
 dependencies {
     compile project(":common")
-    compile project(":util:util-redis")
     compile project(":util:util-rocketmq")
 
     compile("io.netty:netty-all:${nettyVersion}")

@@ -1,9 +1,5 @@
-zookeeper.connectString: 10.26.250.162:2181
+zookeeper.connectString: mt-zookeeper-vip:2181
+iot.rocketmq.brokers: mt-rocketMqDispatch-vip:9876
 
 das:
   port: 20001
-
-spring.redis:
-    host: 8a8b8cf47fdd4476.redis.rds.aliyuncs.com
-    port: 6379
-    password: vorTex2016

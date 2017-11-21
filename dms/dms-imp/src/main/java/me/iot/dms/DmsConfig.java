@@ -1,8 +1,5 @@
 package me.iot.dms;
 
-import me.iot.util.redis.ICentralCacheService;
-import me.iot.util.redis.IMessageQueueService;
-import me.iot.util.redis.ISubscribePublishService;
 import me.iot.util.rocketmq.IFactory;
 import me.iot.util.rocketmq.RocketMQUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,15 +31,6 @@ public class DmsConfig {
     @Value("${iot.rocketmq.brokers}")
     private String brokers;
 
-    @Autowired
-    ICentralCacheService ccs;
-
-    @Autowired
-    IMessageQueueService mqs;
-
-    @Autowired
-    ISubscribePublishService sps;
-
     private IFactory factory;
 
     @PostConstruct
@@ -52,18 +40,6 @@ public class DmsConfig {
 
     public String getZkConnectString() {
         return zkConnectString;
-    }
-
-    public ICentralCacheService getCcs() {
-        return ccs;
-    }
-
-    public IMessageQueueService getMqs() {
-        return mqs;
-    }
-
-    public ISubscribePublishService getSps() {
-        return sps;
     }
 
     public IFactory getFactory() {

@@ -18,7 +18,6 @@ import me.iot.common.msg.IMsg;
 import me.iot.common.pojo.CacheMsgWrap;
 import me.iot.common.usual.TopicConsts;
 import me.iot.dms.IDeviceManageService;
-import me.iot.util.redis.ISubscribePublishService;
 import me.iot.util.rocketmq.IConsumer;
 import me.iot.util.rocketmq.IConsumerConfig;
 import me.iot.util.rocketmq.msg.IRocketMsgListener;

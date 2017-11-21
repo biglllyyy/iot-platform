@@ -1,17 +1,11 @@
 ###############################################################
 #                 自定义配置项
 ###############################################################
-zookeeper.connectString: 10.26.250.162:2181
-
-spring.redis:
-    host: 8a8b8cf47fdd4476.redis.rds.aliyuncs.com
-    port: 6379
-    password: tf56iot
+zookeeper.connectString: mt-zookeeper-vip:2181
+iot.rocketmq.brokers: mt-rocketMqDispatch-vip:9876
 
 spring.datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://rm-bp1ho066nq2450pt5.mysql.rds.aliyuncs.com:3306/dms?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf8&useSSL=false&autoReconnect=true
-    username: vortex
-    password: vorTex2016
-
-iot.rocketmq.brokers: localhost:10911
+    url: ${jdbc.url}
+    username: ${jdbc.username}
+    password: ${jdbc.password}

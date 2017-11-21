@@ -1,5 +1,6 @@
 package me.iot.dms.service;
 
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import me.iot.common.dto.QueryResult;
 import me.iot.common.msg.*;
 import me.iot.dms.IDeviceLocationService;
@@ -13,6 +14,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.concurrent.Executor;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author :  sylar
@@ -35,55 +40,64 @@ public class DeviceManageServiceImpl implements IDmsMsgProcessor<IMsg>, IDeviceM
     private static final Logger LOG = LoggerFactory.getLogger(DeviceManageServiceImpl.class);
 
     @Autowired
-    MsgLogServiceImpl msgLogServiceImpl;
+    private MsgLogServiceImpl msgLogServiceImpl;
 
     @Autowired
-    DasConnectionLogServiceImpl dasConnectionLogServiceImpl;
+    private DasConnectionLogServiceImpl dasConnectionLogServiceImpl;
 
     @Autowired
-    DasStatusServiceImpl dasStatusServiceImpl;
+    private DasStatusServiceImpl dasStatusServiceImpl;
 
     @Autowired
-    DeviceAlarmServiceImpl deviceAlarmServiceImpl;
+    private DeviceAlarmServiceImpl deviceAlarmServiceImpl;
 
     @Autowired
-    DeviceConnectionLogServiceImpl deviceConnectionLogServiceImpl;
+    private DeviceConnectionLogServiceImpl deviceConnectionLogServiceImpl;
 
     @Autowired
-    DeviceDataService deviceDataService;
+    private DeviceDataService deviceDataService;
 
     @Autowired
-    DeviceEventServiceImpl deviceEventServiceImpl;
+    private DeviceEventServiceImpl deviceEventServiceImpl;
 
     @Autowired
-    DeviceInfoServiceImpl deviceInfoServiceImpl;
+    private DeviceInfoServiceImpl deviceInfoServiceImpl;
 
     @Autowired
-    DeviceLogServiceImpl deviceLogServiceImpl;
+    private DeviceLogServiceImpl deviceLogServiceImpl;
 
     @Autowired
-    DeviceMessageServiceImpl deviceMessageServiceImpl;
+    private DeviceMessageServiceImpl deviceMessageServiceImpl;
 
     @Autowired
-    DeviceOtaServiceImpl deviceOtaServiceImpl;
+    private DeviceOtaServiceImpl deviceOtaServiceImpl;
 
     @Autowired
-    DeviceStatusServiceImpl deviceStatusServiceImpl;
+    private DeviceStatusServiceImpl deviceStatusServiceImpl;
 
     @Autowired
-    DeviceTokenServiceImpl deviceTokenServiceImpl;
+    private DeviceTokenServiceImpl deviceTokenServiceImpl;
 
     @Autowired
     private IDeviceOwnerService deviceOwnerService;
 
     @Autowired
-    IDeviceLocationService deviceLocationService;
+    private IDeviceLocationService deviceLocationService;
 
+    private Executor executor = new ThreadPoolExecutor(1, Runtime.getRuntime().availableProcessors() * 2,
+            0L, TimeUnit.MILLISECONDS,
+            new LinkedBlockingQueue<>(), new ThreadFactoryBuilder()
+            .setNameFormat("dms-save-msg-log-%d").build());
 
     @Override
     public void processMsg(IMsg msg) throws Exception {
         LOG.info("DMS process msg\n{}", msg);
-        //msgLogServiceImpl.processMsg(msg);
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                msgLogServiceImpl.processMsg(msg);
+            }
+        });
 
         switch (msg.getMsgType()) {
             case Undefine:

@@ -1,14 +1,15 @@
 package me.iot.dms.service;
 
+import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Lists;
 import me.iot.common.msg.DeviceConnectionMsg;
 import me.iot.dms.DmsCacheKeys;
 import me.iot.dms.DmsConfig;
 import me.iot.dms.IDeviceStatusService;
 import me.iot.dms.entity.DeviceStatus;
-import me.iot.util.redis.ICentralCacheService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tf56.common.redis.client.CommonRedisUtil;
 
 import javax.annotation.PostConstruct;
 import java.util.Arrays;
@@ -37,11 +38,11 @@ public class DeviceStatusServiceImpl implements IDmsMsgProcessor<DeviceConnectio
     @Autowired
     DasStatusServiceImpl dasStatusServiceImpl;
 
-    ICentralCacheService ccs;
+    private CommonRedisUtil redisUtil = CommonRedisUtil.getInstance();
 
     @PostConstruct
     private void init() {
-        ccs = dmsConfig.getCcs();
+
     }
 
     @Override
@@ -50,7 +51,7 @@ public class DeviceStatusServiceImpl implements IDmsMsgProcessor<DeviceConnectio
         String ccsKey = DmsCacheKeys.getCcsKeyForDeviceStatus(deviceId);
 
         DeviceStatus pojo = new DeviceStatus(deviceId, msg.getDasNodeId(), msg.getTerminalIp(), msg.isConnected());
-        ccs.putObject(ccsKey, pojo);
+        redisUtil.set(ccsKey, JSON.toJSONString(pojo));
 
         dasStatusServiceImpl.updateDeviceConnection(msg.getDasNodeId(), deviceId, msg.isConnected());
     }
@@ -58,11 +59,11 @@ public class DeviceStatusServiceImpl implements IDmsMsgProcessor<DeviceConnectio
     @Override
     public DeviceStatus getDeviceStatus(String deviceId) {
         String ccsKey = DmsCacheKeys.getCcsKeyForDeviceStatus(deviceId);
-        if (!ccs.containsKey(ccsKey)) {
+        if (!redisUtil.exists(ccsKey)) {
             return null;
         }
 
-        return ccs.getObject(ccsKey, DeviceStatus.class);
+        return JSON.parseObject(redisUtil.get(ccsKey), DeviceStatus.class);
     }
 
     @Override

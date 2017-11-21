@@ -1,7 +1,6 @@
 package me.iot.das.common;
 
 import com.google.common.base.Preconditions;
-import me.iot.util.redis.ICentralCacheService;
 import me.iot.util.rocketmq.IFactory;
 import me.iot.util.rocketmq.RocketMQUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,8 +30,6 @@ import javax.annotation.PreDestroy;
 public class DasConfig {
     @Autowired
     private DasProperties dasProperties;
-    @Autowired
-    private ICentralCacheService ccs;
 
     private IFactory factory;
 
@@ -55,10 +52,6 @@ public class DasConfig {
 
     public DasProperties getDasProperties() {
         return dasProperties;
-    }
-
-    public ICentralCacheService getCcs() {
-        return ccs;
     }
 
     public IFactory getFactory() {
