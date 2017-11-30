@@ -3,7 +3,6 @@ package me.iot.dms.service;
 import me.iot.common.AbstractDeviceMessagePipe;
 import me.iot.common.Callback;
 import me.iot.common.msg.IMsg;
-import me.iot.common.pojo.CacheMsgWrap;
 import me.iot.common.usual.GroupConsts;
 import me.iot.common.usual.TopicConsts;
 import me.iot.dms.DmsConfig;
