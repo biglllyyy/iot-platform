@@ -1,0 +1,12 @@
+###############################################################
+## 自动发现configServer, 该配置项须放在 application-default.yml
+#spring.cloud.config.discovery.enabled: true
+#spring.cloud.config.discovery.service-id: ops-config
+## 服务名称与端口
+#spring.application.name: ops-discovery
+#server.port: 8761
+###############################################################
+#                 自定义配置项
+###############################################################
+spring.boot.admin.url: http://127.0.0.1:8989
+logServer: 127.0.0.1

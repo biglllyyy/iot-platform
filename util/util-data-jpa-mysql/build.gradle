@@ -1,0 +1,13 @@
+apply from: gradlesPath + "springboot.gradle"
+
+ext{
+    mysqlConnectorVersion = "8.0.11"
+}
+
+dependencies {
+
+    compile project(":util:util-data-jpa")
+
+    //mysql client
+    compile("mysql:mysql-connector-java:${mysqlConnectorVersion}")
+}

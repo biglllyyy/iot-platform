@@ -1,6 +1,6 @@
 spring:
   application:
-    name: dustbin-das
+    name: dustbin-dcp
 
 spring:
   output:

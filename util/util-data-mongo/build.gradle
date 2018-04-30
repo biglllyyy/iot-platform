@@ -1,0 +1,11 @@
+apply from: gradlesPath + "springboot.gradle"
+
+dependencies {
+    compile("org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.2.Final")
+    compile("com.alibaba:fastjson:${fastjsonVersion}")
+
+    //mongo
+    compile("org.springframework.boot:spring-boot-starter-data-mongodb:${springBootVersion}")
+}
+
+

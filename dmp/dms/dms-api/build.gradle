@@ -1,0 +1,4 @@
+dependencies {
+    compile project(":common")
+//    compile "org.hibernate.javax.persistence:hibernate-data-2.1-api:+"
+}

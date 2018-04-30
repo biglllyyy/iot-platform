@@ -1,0 +1,9 @@
+dependencies {
+    compile project(":util:util-redis")
+    compile project(":util:util-data-jpa-mysql")
+    compile project(":util:util-gps")
+    compile project(":util:util-jetty")
+
+    compile project(":common-mq")
+    compile project(":dmp:dms:dms-api")
+}

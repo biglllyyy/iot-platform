@@ -1,0 +1,32 @@
+apply from: gradlesPath + "springboot.gradle"
+
+ext {
+
+    hbaseClientVersion ='1.2.4'
+    hadoopVersion = '2.7.3'
+    springDataHadoopVersion='2.4.0.RELEASE' //2.1.2.RELEASE
+
+    hbaseVersion = '1.4.3'
+    slf4jVersion = '1.7.25'
+}
+
+configurations {
+//    all*.exclude module: 'spring-boot-starter-logging'
+    all*.exclude module: 'servlet-api'
+    all*.exclude group: 'com.google.guava', module: 'guava:18.0'
+    all*.exclude module: 'logback-classic'
+    all*.exclude module: 'log4j-over-slf4j'
+    all*.exclude module: 'slf4j-log4j12'
+    all*.exclude module: 'snappy-java'
+}
+
+
+dependencies {
+
+    //hbase-client
+    compile ("org.apache.hbase:hbase-client:$hbaseVersion") {
+        exclude group: 'javax.servlet', module: 'servlet-api'
+    }
+}
+
+

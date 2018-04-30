@@ -12,5 +12,5 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
 
     //spring-boot-admin-client
-    compile("de.codecentric:spring-boot-admin-starter-client:+")
+    compile("de.codecentric:spring-boot-admin-starter-client:${springBootAdminVersion}")
 }

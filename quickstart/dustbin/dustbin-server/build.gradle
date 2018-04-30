@@ -1,6 +1,6 @@
 dependencies {
-    compile project(":das:das-util")
-    compile project(":das:das-simple")
+    compile project(":dcp:dcp-util")
+    compile project(":dcp:dcp-simple")
     compile project(":quickstart:dustbin:dustbin-common")
 
 }

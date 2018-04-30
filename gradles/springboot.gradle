@@ -14,13 +14,7 @@ dependencies {
 
     //test
     testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
-    testCompile("io.netty:netty-all:4.1.6.Final")
 
-}
-
-ext {
-    templatePath = rootProject.rootDir.getAbsolutePath() + "/repo/template"
-    resourcesPath = "src/main/resources"
 }
 
 

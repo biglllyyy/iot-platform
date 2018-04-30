@@ -1,8 +1,0 @@
-dependencies {
-    compile("org.apache.kafka:kafka-clients:+")
-    compile("com.alibaba:fastjson:${fastjsonVersion}")
-    compile("com.google.guava:guava:${guavaVersion}")
-
-    //test
-    testCompile("junit:junit:+")
-}

@@ -1,5 +1,6 @@
 dependencies {
     compile("com.google.guava:guava:${guavaVersion}")
+    compile("com.alibaba:fastjson:${fastjsonVersion}")
 }
 
 

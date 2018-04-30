@@ -1,0 +1,15 @@
+apply from: gradlesPath + "springboot.gradle"
+
+ext {
+    nettyVersion = "4.1.6.Final"
+}
+
+configurations {
+}
+
+dependencies {
+    compile project(":common-mq")
+    compile project(":util:util-redis")
+
+    compile("io.netty:netty-all:${nettyVersion}")
+}

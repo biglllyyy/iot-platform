@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!--引入默认配置-->
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+    <!-- jmx支持 -->
+    <jmxConfigurator/>
+
+    <!--属性导入-->
+    <springProperty scope="context" name="ACTIVE_PROFILE" source="spring.profiles.active" defaultValue="default"/>
+    <springProperty scope="context" name="APP_NAME" source="spring.application.name" defaultValue="UNKNOWN_APP"/>
+    <property resource="application-${ACTIVE_PROFILE}.yml"/>
+    <property name="logServer" value="${logServer}"/>
+
+    <!--&lt;!&ndash;控制台 appender 定义&ndash;&gt;-->
+    <!--<appender name="console" class="ch.qos.logback.core.ConsoleAppender">-->
+        <!--<encoder>-->
+            <!--<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n</pattern>-->
+        <!--</encoder>-->
+    <!--</appender>-->
+
+    <!--&lt;!&ndash;文件 appender 定义&ndash;&gt;-->
+    <!--<appender name="logFile" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+        <!--<file>logs/${APP_NAME:-.}.log</file>-->
+        <!--&lt;!&ndash; 按每小时滚动文件，如果一个小时内达到10M也会滚动文件, 滚动文件将会压缩成zip格式 &ndash;&gt;-->
+        <!--<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+            <!--<fileNamePattern>logs/${APP_NAME:-.}-%d{yyyy-MM-dd_HH}.%i.zip</fileNamePattern>-->
+            <!--<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">-->
+                <!--<maxFileSize>10MB</maxFileSize>-->
+            <!--</timeBasedFileNamingAndTriggeringPolicy>-->
+        <!--</rollingPolicy>-->
+        <!--&lt;!&ndash; 独立的pattern &ndash;&gt;-->
+        <!--<encoder>-->
+            <!--<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n</pattern>-->
+        <!--</encoder>-->
+    <!--</appender>-->
+
+    <!--logstash appender 定义-->
+    <appender name="logStash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <destination>${logServer}:5000</destination>
+
+        <!-- encoder is required -->
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <customFields>{"app":"${APP_NAME}"}</customFields>
+        </encoder>
+
+    </appender>
+
+    <!--spring profile-->
+    <!-- level 级别：TRACE, DEBUG, INFO, WARN, ERROR, ALL, OFF-->
+    <!--本地开发环境-->
+    <springProfile name="default,local,dev,native">
+        <root level="INFO">
+            <appender-ref ref="logStash"/>
+        </root>
+    </springProfile>
+
+    <!-- 本地局域网联调-->
+    <springProfile name="lan,docker">
+        <root level="INFO">
+            <appender-ref ref="logStash"/>
+        </root>
+    </springProfile>
+
+    <!-- 生产环境、docker 环境 -->
+    <springProfile name="ali,bce">
+        <root level="WARN">
+            <appender-ref ref="logStash"/>
+        </root>
+        <logger name="me.cloud" level="INFO"/>
+    </springProfile>
+
+
+</configuration>

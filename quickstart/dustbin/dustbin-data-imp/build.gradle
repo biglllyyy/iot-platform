@@ -1,9 +1,10 @@
 dependencies {
-    compile project(":util:util-jpa")
-    compile project(":util:util-rocketmq")
+    compile project(":util:util-data-jpa")
+    compile project(":util:util-mq-rocketmq")
 
     compile project(":common")
-    compile project(":dms:dms-sdk")
+    compile project(":common-mq")
+    compile project(":dmp:dms:dms-sdk")
 
     compile project(":quickstart:dustbin:dustbin-common")
     compile project(":quickstart:dustbin:dustbin-data-api")

@@ -1,1 +1,0 @@
-package me.cloud.iot.store.toilet.common;

@@ -1,0 +1,24 @@
+###############################################################
+#                     相对固化的配置，基本不用修改
+###############################################################
+
+encrypt.failOnError: false
+spring.output.ansi.enabled: always
+
+# 健康监控
+management.security.enabled: false
+spring.jackson.serialization.indent_output: true
+endpoints.health.sensitive: false
+spring.boot.admin.client.prefer-ip: true
+
+# eureka 配置
+eureka:
+  instance:
+    non-secure-port: ${server.port}
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${server.port}
+    prefer-ip-address: true
+  client:
+    register-with-eureka: false #是否注册自身到eureka服务器
+    fetch-registry: false       #是否从eureka服务器获取注册信息
+#    service-url:                #独立模式：service-url 指向自己  集群模式： 指向其它EurekaServer
+#      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/

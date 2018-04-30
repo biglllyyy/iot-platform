@@ -1,0 +1,20 @@
+spring.profiles.active: default
+
+###############################################################
+#                    公共配置项
+###############################################################
+# 自动发现configServer, 该配置项须放在 application-default.yml
+spring.cloud.config.discovery.enabled: true
+spring.cloud.config.discovery.service-id: ops-config
+# 服务名称与端口
+spring.application.name: ops-discovery
+server.port: 8761
+
+###############################################################
+#                          LOGGING
+###############################################################
+logging:
+  pattern:
+    file: '%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n'
+    console: '%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n'
+  file: logs/${spring.application.name:-.}.log

@@ -1,5 +1,0 @@
-dependencies {
-    compile("com.alibaba:fastjson:${fastjsonVersion}")
-}
-
-

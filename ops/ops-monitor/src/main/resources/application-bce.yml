@@ -1,0 +1,42 @@
+###############################################################
+## 自动发现configServer, 该配置项须放在 application-default.yml
+#spring.cloud.config.discovery.enabled: true
+#spring.cloud.config.discovery.service-id: ops-config
+## 服务名称与端口
+#spring.application.name: ops-monitor
+#server.port: 8989
+###############################################################
+#                 自定义配置项
+###############################################################
+
+#集群聚合监控
+#turbine:
+#  appConfig: aps2,aps3
+#  clusterNameExpression: new String("default")
+spring.boot.admin.url: http://${${spring.profiles.active:default}-adminServer}:8989
+logServer: logstash
+
+
+# spring-boot-admin 配置
+spring.boot.admin.notify.mail.subject: "平台监控: #{application.name} (#{application.id}) is #{to.status}"
+spring.boot.admin.notify.mail.from: taoyufeng@vortexinfo.cn
+spring.boot.admin.notify.mail.to: taoyufeng@vortexinfo.cn
+#spring.boot.admin.notify.mail.cc:
+#spring.boot.admin.notify.mail.text:
+#spring.boot.admin.context-path:
+#spring.boot.admin.monitor.period:    #默认10000L ,即10秒
+#spring.boot.admin.monitor.status-lifetime:
+#spring.boot.admin.notify.mail.ignore-changes: "UNKNOWN:UP"
+
+eureka:
+    client:
+      service-url:
+        defaultZone: http://${${spring.profiles.active:default}-eurekaServer}:${eureka.port:8761}/eureka/
+
+spring:
+  mail:
+    host: smtp.qiye.163.com
+    username: taoyufeng@vortexinfo.cn
+    password: Mail@163.com
+
+

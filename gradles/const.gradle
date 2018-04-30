@@ -13,17 +13,19 @@ ext {
     //
     gradlesPath = rootProject.rootDir.getAbsolutePath() + "/gradles/"
     //
-    meGroup = "me.iot"
-    meVersion = "1.0.0-SNAPSHOT"
+    projectGroup = "iot"
+    projectVersion = "1.0.0-SNAPSHOT"
 }
 
 ext {
-    //db
-    mysqlConnectorVersion = "6.0.2"
+    templatePath = rootProject.rootDir.getAbsolutePath() + "/repo/template"
+    resourcesPath = "src/main/resources"
+}
 
+ext {
     //
     dubboVersion = "2.5.3"
-    fastjsonVersion = "+"
+    fastjsonVersion = "1.2.8"
     guavaVersion = "19.0"
     rxjavaVersion = "2.0.8"
     jodatimeVersion = "2.9.9"

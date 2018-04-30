@@ -1,4 +1,0 @@
-dependencies {
-    compile project(":common")
-    compile "org.hibernate.javax.persistence:hibernate-jpa-2.1-api:+"
-}

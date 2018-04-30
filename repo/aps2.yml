@@ -1,0 +1,18 @@
+###############################################################
+# 自动发现configServer, 该配置项须放在 application.yml
+spring.cloud.config.discovery.enabled: true
+# 服务名称与端口
+spring.application.name: aps2
+server.port: 55002
+###############################################################
+#                 自定义配置项
+###############################################################
+zookeeper.connectString: ${${spring.profiles.active:default}-zookeeperServer}:2181
+dubbo.port: 21812
+custom.value: default
+
+spring.redis:
+    host: ${${spring.profiles.active:default}-redisServer}
+    port: 6379
+    password: vortex2016
+

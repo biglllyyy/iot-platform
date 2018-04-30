@@ -13,6 +13,10 @@ task sourcesJar(type: Jar, dependsOn: classes) {
     from sourceSets.main.allSource
 }
 
+task deleteOut(type: Delete) {
+    delete 'out'
+}
+
 artifacts {
     archives sourcesJar
 }
@@ -25,22 +29,20 @@ dependencies {
     compile fileTree(dir: "libs", include: ["*.jar"])
 }
 
-//  V2.1.0 未正式发布前， 防止开发人员误操作， 执行发布。  by  sylar
 //上传到maven私服
-//uploadArchives {
-//    repositories {
-//        mavenDeployer {
-//            repository(url: "${repoReleases}") {
-//                authentication(userName: "${repoUser}", password: "${repoPwd}")
-//            }
-//            snapshotRepository(url: "${repoSnapshots}") {
-//                authentication(userName: "${repoUser}", password: "${repoPwd}")
-//            }
-//
-//            pom.groupId = "${project.group}"
-//            pom.version = "${project.version}"
-//            pom.packaging = "jar"
-//        }
-//    }
-//}
-//若不需要上传到maven私服, 以上这段可注释
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "${repoReleases}") {
+                authentication(userName: "${repoUser}", password: "${repoPwd}")
+            }
+            snapshotRepository(url: "${repoSnapshots}") {
+                authentication(userName: "${repoUser}", password: "${repoPwd}")
+            }
+
+            pom.groupId = "${project.group}"
+            pom.version = "${project.version}"
+            pom.packaging = "jar"
+        }
+    }
+}

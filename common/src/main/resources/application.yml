@@ -16,7 +16,7 @@
 #    port: 6379
 #    password: vortex2016
 #
-#spring.jpa:
+#spring.data:
 #    show-sql: true
 #    database: MYSQL
 #    properties.hibernate.dialect: org.hibernate.dialect.MySQL5Dialect

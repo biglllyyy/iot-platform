@@ -8,15 +8,27 @@ apply from: rootProject.rootDir.getAbsolutePath() + "/gradles/utils.gradle"
  */
 buildscript {
     repositories {
-        mavenCentral()
-        maven { url "http://10.7.13.128:8081/nexus/content/repositories/releases/" }
+        mavenLocal()
         maven { url "http://maven.aliyun.com/nexus/content/repositories/central/" }
+//        mavenCentral()
     }
 
+    /*
+    Spring Cloud与Spring Boot版本匹配关系
+    Spring Cloud	Spring Boot
+    Finchley	    兼容Spring Boot 2.0.x，不兼容Spring Boot 1.5.x
+    Dalston	        兼容Spring Boot 1.5.x，不兼容Spring Boot 2.0.x
+    Edgware	        兼容Spring Boot 1.5.x，不兼容Spring Boot 2.0.x
+    Camden	        兼容Spring Boot 1.4.x，也兼容Spring Boot 1.5.x
+    Brixton	        兼容Spring Boot 1.3.x，也兼容Spring Boot 1.4.x
+    Angel	        兼容Spring Boot 1.2.x
+    */
+
     ext {
-        springBootVersion = "1.5.8.RELEASE"
-        springCloudVersion = "Dalston.SR4"
-        dockerPluginVersion = "+"
+        springBootVersion = "1.5.10.RELEASE"
+        springBootAdminVersion = "1.5.7"
+        springCloudVersion = "Edgware.SR3"//"Dalston.SR4"
+        dockerPluginVersion = "3.2.4"
     }
 
     dependencies {
@@ -44,14 +56,13 @@ allprojects {
     apply plugin: "idea"
     apply plugin: "maven"
 
-    group "${meGroup}"
-    version "${meVersion}"
+    group "${projectGroup}"
+    version "${projectVersion}"
 
     repositories {
-        //mavenCentral()
-        maven { url "http://10.7.13.128:8081/nexus/content/repositories/snapshots/" }
-        maven { url "http://10.7.13.128:8081/nexus/content/repositories/releases/" }
+        mavenLocal()
         maven { url "http://maven.aliyun.com/nexus/content/repositories/central/" }
+//        mavenCentral()
     }
 }
 
@@ -70,11 +81,11 @@ configure(isSdkProject()) {
     apply from: gradlesPath + "sdk.gradle"
 }
 
-configure(isDasServerProject()) {
-    apply from: gradlesPath + "das.gradle"
+configure(isDcsServerProject()) {
+    apply from: gradlesPath + "dcs.gradle"
 }
 
-configure(isSpringCloudServiceProject()) {
+configure(isWebServiceProject()) {
 //    apply from: gradlesPath + "springcloud-service.gradle"
     apply from: gradlesPath + "springboot-web.gradle"
 
@@ -83,7 +94,7 @@ configure(isSpringCloudServiceProject()) {
     }
 }
 
-configure(isSpringCloudUIProject()) {
+configure(isGateProject()) {
     apply from: gradlesPath + "springcloud-ui.gradle"
 }
 

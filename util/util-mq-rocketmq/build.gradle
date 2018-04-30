@@ -1,0 +1,13 @@
+dependencies {
+    compile project(":util:util-mq")
+    compile("org.apache.rocketmq:rocketmq-client:4.2.0")
+//    compile("com.alibaba.rocketmq:rocketmq-client:3.5.9")
+
+    //log
+    compile("org.slf4j:jcl-over-slf4j:+")
+    compile("org.slf4j:slf4j-log4j12:+")
+    compile("log4j:log4j:+")
+
+    //test
+    testCompile("junit:junit:+")
+}

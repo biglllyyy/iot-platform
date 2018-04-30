@@ -1,36 +1,75 @@
-rootProject.name = "me.iot"
-
-include "util"
-include "util:util-misc"
-include "util:util-gps"
-include "util:util-dubbo"
-include "util:util-jpa"
-include "util:util-json"
-include "util:util-mongo"
-include "util:util-redis"
-include "util:util-mq"
-include "util:util-kafka"
-include "util:util-rocketmq"
-include "util:util-disruptor"
-include "util:util-feign"
-//include "util:util-tsdb"
-include "util:util-jetty"
+rootProject.name = "iot"
 
 include "common"
+include "common-mq"
 
-//
-include "das"
-include "das:das-util"
-include "das:das-common"
-include "das:das-mqtt"
-include "das:das-simple"
+include "util"
+include "util:util-data-hbase"
+include "util:util-data-mongo"
+include "util:util-data-jpa"
+include "util:util-data-jpa-mysql"
+include "util:util-data-jpa-oracle"
+include "util:util-disruptor"
+include "util:util-dubbo"
+include "util:util-fastdfs"
+include "util:util-feign"
+include "util:util-gps"
+include "util:util-jetty"
+include "util:util-misc"
+include "util:util-mq"
+include "util:util-mq-kafka"
+include "util:util-mq-rocketmq"
+include "util:util-mq-ons"
+include "util:util-mq-starter"
+include "util:util-redis"
+include "util:util-test"
 
-//
-include "dms"
-include "dms:dms-api"
-include "dms:dms-imp"
-include "dms:dms-sdk"
-include "dms:dms-ui"
+//ops
+include "ops"
+include "ops:ops-config"
+include "ops:ops-discovery"
+include "ops:ops-monitor"
+
+
+//dcp
+include "dcp"
+include "dcp:dcp-util"
+
+include "dcp:dcp-common"
+include "dcp:dcp-simple"
+include "dcp:dcp-mqtt"
+include "dcp:dcp-coap"
+include "dcp:dcp-modbus"
+
+include "dcp:dcp-dcs"
+
+//dmp
+include "dmp"
+include "dmp:dms"
+include "dmp:dms:dms-api"
+include "dmp:dms:dms-imp"
+include "dmp:dms:dms-sdk"
+include "dmp:dms:dms-gate"
+
+include "dmp:dos"
+include "dmp:dos:dos-api"
+include "dmp:dos:dos-imp"
+include "dmp:dos:dos-sdk"
+include "dmp:dos:dos-gate"
+
+//ddp
+include "ddp"
+include "ddp:kvs"
+include "ddp:kvs:kvs-api"
+include "ddp:kvs:kvs-imp"
+include "ddp:kvs:kvs-sdk"
+include "ddp:kvs:kvs-gate"
+
+include "ddp:lbs"
+include "ddp:lbs:lbs-api"
+include "ddp:lbs:lbs-imp"
+include "ddp:lbs:lbs-sdk"
+include "ddp:lbs:lbs-gate"
 
 //---------------------------------------------------------------------
 include "quickstart"

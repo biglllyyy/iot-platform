@@ -1,0 +1,3 @@
+spring.output.ansi.enabled: ALWAYS
+iot.mq.provider: rocketmq
+iot.mq.brokers: localhost:9876

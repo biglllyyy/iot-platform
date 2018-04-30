@@ -1,0 +1,7 @@
+apply from: gradlesPath + "springboot-web.gradle"
+
+dependencies {
+    compile project(":common")
+}
+
+

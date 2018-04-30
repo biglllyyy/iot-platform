@@ -1,0 +1,8 @@
+apply from: gradlesPath + "springboot.gradle"
+
+dependencies {
+    compile project(":util:util-disruptor")
+    compile project(":util:util-mq-rocketmq")
+
+    compile project(":common")
+}

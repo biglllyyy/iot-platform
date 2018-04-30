@@ -1,0 +1,5 @@
+spring.output.ansi.enabled: ALWAYS
+
+spring.data.hbase.quorum: localhost   #zookeeper servers
+spring.data.hbase.rootDir: hdfs://localhost:9000/hbase #rootDir
+spring.data.hbase.nodeParent: #nodeParent

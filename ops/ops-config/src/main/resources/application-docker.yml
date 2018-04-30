@@ -1,0 +1,30 @@
+###############################################################
+## 自动发现configServer, 该配置项须放在 application-default.yml
+#spring.cloud.config.discovery.enabled: true
+## 服务名称与端口
+#spring.application.name: ops-config
+#server.port: 8888
+###############################################################
+#                 自定义配置项
+###############################################################
+
+# native
+#spring.profiles.active: native
+#spring.cloud.config.server.native.search-locations: classpath:/repo
+spring.boot.admin.url: http://ops-monitor:8989
+logServer: logstash
+
+# config repo 路径
+spring:
+  cloud:
+    config:
+      server:
+        git: #从git加载配置
+          uri: https://github.com/envcloud2017/vortex-config-repo-test.git
+          username: hzcs@vortexinfo.cn
+          password: vortex2016
+
+eureka:
+    client:
+      service-url:
+        defaultZone: http://ops-discovery:${eureka.port:8761}/eureka/

@@ -1,0 +1,5 @@
+apply from: gradlesPath + "springcloud.gradle"
+
+dependencies {
+    compile("org.springframework.cloud:spring-cloud-starter-eureka-server")
+}

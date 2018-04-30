@@ -1,5 +1,5 @@
 dependencies {
-    compile project(":das:das-util")
-    compile project(":das:das-mqtt")
+    compile project(":dcp:dcp-util")
+    compile project(":dcp:dcp-mqtt")
     compile project(":quickstart:toilet:toilet-common")
 }
